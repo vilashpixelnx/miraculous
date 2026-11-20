@@ -26,7 +26,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -54,7 +54,14 @@ Purchase:
 			</ul>
 
 			<div class="ms-premium-card">
-				<i class="ri-vip-crown-2-fill" aria-hidden="true"></i>
+				<svg class="ms-premium-crown" viewBox="0 0 40 32" aria-hidden="true">
+					<defs>
+						<linearGradient id="msCrownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB13D"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient>
+					</defs>
+					<path d="M5 11.5 13 18.5 20 6.5l7 12 8-7-3 15.5H8Z" fill="url(#msCrownGrad)" stroke="url(#msCrownGrad)" stroke-width="2" stroke-linejoin="round"/>
+					<rect x="8" y="27.5" width="24" height="3.5" rx="1.75" fill="#FF6A2B"/>
+					<circle cx="20" cy="4" r="3" fill="#FFB13D"/><circle cx="4" cy="10" r="2.6" fill="#FFB13D"/><circle cx="36" cy="10" r="2.6" fill="#FFB13D"/>
+				</svg>
 				<h6>Go Premium</h6>
 				<p>Ad-free music, offline listening &amp; more.</p>
 				<a href="manage_acc.html" class="ms-btn ms-btn-sm">Upgrade Now <i class="ri-arrow-right-line"></i></a>
@@ -65,6 +72,7 @@ Purchase:
 				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
+				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
 
 			<!-- Decorative promo art: soft pink hills + headphones, sits at the bottom of the sidebar -->
@@ -148,7 +156,7 @@ Purchase:
 							<p>Dream your moments, Until I Met You, Gimme Some Courage, Dark Alley, One More Of A Stranger, Endless Things, The Heartbeat Steps and more...</p>
 						</div>
 						<div class="ms-hero-art">
-							<picture style="--cut-w:166.7%;--cut-l:-24.8%;--cut-t:-9.1%">
+							<picture style="--cut-w:166.7%;--cut-l:8.2%;--cut-t:-9.1%">
 								<source srcset="assets/images/hero/slide-2.webp" type="image/webp">
 								<img src="assets/images/hero/slide-2.png" alt="Woman listening to music with headphones" width="1024" height="1536">
 							</picture>
@@ -161,7 +169,7 @@ Purchase:
 							<p>Golden Hour, Cloud Nine, Heart Broken, Paper Hearts, Slow Mornings, Velvet Sky and a brand new collection of songs for every mood...</p>
 						</div>
 						<div class="ms-hero-art">
-							<picture style="--cut-w:165%;--cut-l:-22%;--cut-t:-4%">
+							<picture style="--cut-w:170%;--cut-l:2.3%;--cut-t:0.9%">
 								<source srcset="assets/images/hero/slide-1.webp" type="image/webp">
 								<img src="assets/images/hero/slide-1.png" alt="Woman listening to music with headphones" width="1024" height="1536">
 							</picture>
@@ -174,7 +182,7 @@ Purchase:
 							<p>Walking Promises, Gimme Some Courage, Dark Alley Acoustic, Quiet Rivers and handpicked tracks our editors are playing on repeat...</p>
 						</div>
 						<div class="ms-hero-art">
-							<picture style="--cut-w:150%;--cut-l:-34%;--cut-t:0%">
+							<picture style="--cut-w:150%;--cut-l:24.8%;--cut-t:0%">
 								<source srcset="assets/images/hero/slide-girl-1.webp" type="image/webp">
 								<img src="assets/images/hero/slide-girl-1.png" alt="Woman listening to music with red headphones" width="1536" height="1024">
 							</picture>
@@ -244,6 +252,20 @@ Purchase:
 				</div>
 			</section>
 
+			<!-- Just Dropped (compact list of new songs) -->
+			<section class="ms-section ms-reveal" aria-labelledby="hReleaseList">
+				<div class="ms-sec-head">
+					<h2 id="hReleaseList">Just Dropped</h2>
+					<a href="album.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a>
+				</div>
+				<div class="ms-release-grid">
+					<div class="ms-release" data-card="3"><img src="assets/images/recommend/01.jpg" alt=""><div class="ms-release-info"><h3><a href="album_single.html">Dark Alley Acoustic</a></h3><p>Ava Cornish</p></div><button class="ms-release-play" data-play="3" aria-label="Play Dark Alley Acoustic"><i class="ri-play-fill"></i></button></div>
+					<div class="ms-release" data-card="12"><img src="assets/images/recommend/03.jpg" alt=""><div class="ms-release-info"><h3><a href="album_single.html">The Heartbeat Steps</a></h3><p>Ava Cornish</p></div><button class="ms-release-play" data-play="12" aria-label="Play The Heartbeat Steps"><i class="ri-play-fill"></i></button></div>
+					<div class="ms-release" data-card="13"><img src="assets/images/trending/04.jpg" alt=""><div class="ms-release-info"><h3><a href="album_single.html">One More Stranger</a></h3><p>Ava Cornish</p></div><button class="ms-release-play" data-play="13" aria-label="Play One More Stranger"><i class="ri-play-fill"></i></button></div>
+					<div class="ms-release" data-card="14"><img src="assets/images/release/06.jpg" alt=""><div class="ms-release-info"><h3><a href="album_single.html">Endless Things</a></h3><p>Ava Cornish</p></div><button class="ms-release-play" data-play="14" aria-label="Play Endless Things"><i class="ri-play-fill"></i></button></div>
+				</div>
+			</section>
+
 			<!-- Top Charts + Popular Artists -->
 			<div class="ms-split ms-split-even">
 				<section class="ms-section ms-reveal" aria-labelledby="hCharts">
@@ -272,11 +294,26 @@ Purchase:
 						<a href="artist_single.html" class="ms-artist"><div class="ms-artist-img"><img src="assets/images/artist/04.jpg" alt=""></div><h3>Claire Hudson</h3><p>960K listeners</p></a>
 						<a href="artist_single.html" class="ms-artist"><div class="ms-artist-img"><img src="assets/images/artist/05.jpg" alt=""></div><h3>Kevin Buckland</h3><p>1.2M listeners</p></a>
 						<a href="artist_single.html" class="ms-artist"><div class="ms-artist-img"><img src="assets/images/artist/06.jpg" alt=""></div><h3>Anna Ellison</h3><p>720K listeners</p></a>
-						<a href="artist_single.html" class="ms-artist"><div class="ms-artist-img"><img src="assets/images/artist/01.jpg" alt=""></div><h3>Max Glover</h3><p>640K listeners</p></a>
-						<a href="artist_single.html" class="ms-artist"><div class="ms-artist-img"><img src="assets/images/artist/04.jpg" alt=""></div><h3>Sofia Reyes</h3><p>580K listeners</p></a>
+						<a href="artist_single.html" class="ms-artist"><div class="ms-artist-img"><img src="assets/images/artist/07.jpg" alt=""></div><h3>Max Glover</h3><p>640K listeners</p></a>
+						<a href="artist_single.html" class="ms-artist"><div class="ms-artist-img"><img src="assets/images/artist/08.jpg" alt=""></div><h3>Sofia Reyes</h3><p>580K listeners</p></a>
 					</div>
 				</section>
 			</div>
+
+			<!-- Music Discovery -->
+			<section class="ms-section ms-reveal" aria-labelledby="hDiscovery">
+				<div class="ms-sec-head">
+					<h2 id="hDiscovery">Music Discovery</h2>
+				</div>
+				<div class="ms-discover-grid">
+					<a href="genres_single.html" class="ms-discover is-romantic"><img src="assets/images/discover/romantic.jpg" alt=""><span class="ms-discover-label"><i class="ri-heart-3-fill" aria-hidden="true"></i>Romantic</span></a>
+					<a href="genres_single.html" class="ms-discover is-dancing"><img src="assets/images/discover/dancing.jpg" alt=""><span class="ms-discover-label"><i class="ri-bar-chart-fill" aria-hidden="true"></i>Dancing</span></a>
+					<a href="genres_single.html" class="ms-discover is-hiphop"><img src="assets/images/discover/hiphop.jpg" alt=""><span class="ms-discover-label"><i class="ri-bar-chart-box-line" aria-hidden="true"></i>Hip Hop</span></a>
+					<a href="genres_single.html" class="ms-discover is-edm"><img src="assets/images/discover/edm.jpg" alt=""><span class="ms-discover-label"><i class="ri-pulse-line" aria-hidden="true"></i>EDM</span></a>
+					<a href="genres_single.html" class="ms-discover is-classical"><img src="assets/images/discover/classical.jpg" alt=""><span class="ms-discover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 9.5 21 3M19 2l3 3"/><path d="M10.2 8.6c1.4-1.4 3.6-1.3 4.6.1 1 1-.1 2.3-.1 3.2 0 .8 1.2 1.2 1 2.4-.4 2.6-4.4 6.4-8.2 6.7-2.4.2-4.6-2-4.4-4.4.3-3.8 4.1-7.8 6.7-8.2 1.2-.2 1.6 1 2.4 1"/><path d="m8 13 3 3M9.5 18.5l-4-4"/></svg>Classical</span></a>
+					<a href="genres_single.html" class="ms-discover is-rock"><img src="assets/images/discover/rock.jpg" alt=""><span class="ms-discover-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 11 7-7M18 2l4 4"/><path d="M11.6 9.4c-1-1-3.1-.8-4.2.6-.6.8-.5 1.7-1.7 2-1.4.3-2.9.9-3.3 2.6-.6 2.6 2.4 5.6 5 5 1.7-.4 2.3-1.9 2.6-3.3.3-1.2 1.2-1.1 2-1.7 1.4-1.1 1.6-3.2.6-4.2z"/><circle cx="9" cy="15" r="1.3"/></svg>Rock</span></a>
+				</div>
+			</section>
 
 			<!-- Recommended For You -->
 			<section class="ms-section ms-reveal" aria-labelledby="hForYou">

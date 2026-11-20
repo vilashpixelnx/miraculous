@@ -26,7 +26,10 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		{ title: 'Paper Hearts', artist: 'David Parker', cover: 'assets/images/release/04.jpg', time: '03:52', src: 'https://www.jplayer.org/audio/mp3/Miaow-06-Beside-me.mp3' },
 		{ title: 'Slow Mornings', artist: 'Anna Ellison', cover: 'assets/images/release/05.jpg', time: '04:10', src: 'https://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3' },
 		{ title: 'Velvet Sky', artist: 'Max Glover', cover: 'assets/images/release/06.jpg', time: '03:44', src: 'https://www.jplayer.org/audio/mp3/Miaow-08-Stirring-of-a-fool.mp3' },
-		{ title: 'Quiet Rivers', artist: 'Anna Ellison', cover: 'assets/images/store/01.jpg', time: '04:02', src: 'https://www.jplayer.org/audio/mp3/Miaow-09-Partir.mp3' }
+		{ title: 'Quiet Rivers', artist: 'Anna Ellison', cover: 'assets/images/store/01.jpg', time: '04:02', src: 'https://www.jplayer.org/audio/mp3/Miaow-09-Partir.mp3' },
+		{ title: 'The Heartbeat Steps', artist: 'Ava Cornish', cover: 'assets/images/recommend/03.jpg', time: '03:49', src: 'https://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3' },
+		{ title: 'One More Stranger', artist: 'Ava Cornish', cover: 'assets/images/trending/04.jpg', time: '04:12', src: 'https://www.jplayer.org/audio/mp3/TSP-02-Pin.mp3' },
+		{ title: 'Endless Things', artist: 'Ava Cornish', cover: 'assets/images/release/06.jpg', time: '03:57', src: 'https://www.jplayer.org/audio/mp3/TSP-03-Daydream.mp3' }
 	];
 
 	/* Toast --------------------------------------------------------*/
@@ -92,7 +95,6 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 
 		const go = (i) => {
 			current = (i + slides.length) % slides.length;
-			hero.dataset.slide = current; // lets CSS move the circles per slide
 			slides.forEach((s, n) => {
 				s.classList.toggle('is-active', n === current);
 				s.setAttribute('aria-hidden', n === current ? 'false' : 'true');
@@ -183,6 +185,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 	const audio = new Audio();
 	audio.preload = 'none';
 	const state = { index: 1, shuffle: false, repeat: false };
+	let resumeAt = 0; // seconds to jump to when a saved track starts again
 
 	const fmt = (s) => {
 		if (!isFinite(s)) return '00:00';
@@ -213,12 +216,15 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 	const npBars = npWave ? $$('span', npWave) : [];
 	const npPanel = $('.ms-np');
 
+	// fill every element matching sel (pages without the right panel just skip it)
+	const setAll = (sel, prop, value) => $$(sel).forEach((el) => (el[prop] = value));
+
 	function renderTrack(animate) {
 		const t = TRACKS[state.index];
-		$('#msPlayerCover').src = $('#msNpCover').src = t.cover;
-		$('#msPlayerTitle').textContent = $('#msNpTitle').textContent = t.title;
-		$('#msPlayerArtist').textContent = $('#msNpArtist').textContent = t.artist;
-		$('#msNpDuration').textContent = audio.src && isFinite(audio.duration) ? fmt(audio.duration) : t.time;
+		setAll('#msPlayerCover, #msNpCover', 'src', t.cover);
+		setAll('#msPlayerTitle, #msNpTitle', 'textContent', t.title);
+		setAll('#msPlayerArtist, #msNpArtist', 'textContent', t.artist);
+		setAll('#msNpDuration', 'textContent', audio.src && isFinite(audio.duration) ? fmt(audio.duration) : t.time);
 		if (animate) {
 			[player, npPanel].forEach((el) => {
 				if (!el) return;
@@ -233,6 +239,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 	}
 
 	function load(index, autoplay = true) {
+		if (index !== state.index) resumeAt = 0;
 		state.index = (index + TRACKS.length) % TRACKS.length;
 		audio.src = TRACKS[state.index].src;
 		renderTrack(true);
@@ -279,7 +286,10 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		$$('[data-time-current]').forEach((el) => (el.textContent = fmt(audio.currentTime)));
 		setProgress(audio.duration ? audio.currentTime / audio.duration : 0);
 	});
-	audio.addEventListener('loadedmetadata', () => ($('#msNpDuration').textContent = fmt(audio.duration)));
+	audio.addEventListener('loadedmetadata', () => {
+		setAll('#msNpDuration', 'textContent', fmt(audio.duration));
+		if (resumeAt) { audio.currentTime = Math.min(resumeAt, audio.duration - 1); resumeAt = 0; }
+	});
 	audio.addEventListener('ended', () => (state.repeat ? (audio.currentTime = 0, audio.play()) : next()));
 
 	const seekTo = (pct) => { if (audio.duration) audio.currentTime = Math.min(Math.max(pct, 0), 1) * audio.duration; };
@@ -312,7 +322,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 	// Any element with data-play="index" plays that track
 	document.addEventListener('click', (e) => {
 		const el = e.target.closest('[data-play]');
-		if (!el) return;
+		if (!el || e.target.closest('[data-no-play]')) return;
 		e.preventDefault();
 		const index = +el.dataset.play;
 		index === state.index && audio.src ? toggle() : load(index);
@@ -377,7 +387,166 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 	}
 	$$('[data-queue-count]').forEach((el) => (el.textContent = TRACKS.length));
 
-	// Demo state: show the bar partly played until the first real playback
-	setProgress(0.7);
+	/* Keep the song going between pages ---------------------------
+	   Each page is a new document, so the current track and position
+	   are saved and shown again on the next page; play resumes there. */
+	const SAVE_KEY = 'ms-player';
+	const save = () => {
+		try {
+			localStorage.setItem(SAVE_KEY, JSON.stringify({
+				index: state.index,
+				time: audio.src ? audio.currentTime : resumeAt,
+				duration: audio.duration || 0
+			}));
+		} catch (e) {}
+	};
+	let lastSave = 0;
+	audio.addEventListener('timeupdate', () => { if (Date.now() - lastSave > 1000) { lastSave = Date.now(); save(); } });
+	audio.addEventListener('pause', save);
+	window.addEventListener('pagehide', save);
+
+	let saved = null;
+	try { saved = JSON.parse(localStorage.getItem(SAVE_KEY)); } catch (e) {}
+	if (saved && TRACKS[saved.index]) {
+		state.index = saved.index;
+		resumeAt = saved.time || 0;
+		setAll('[data-time-current]', 'textContent', fmt(resumeAt));
+		setProgress(saved.duration ? resumeAt / saved.duration : 0);
+	} else {
+		// demo state: show the bar partly played until the first real playback
+		setProgress(0.7);
+	}
 	renderTrack(false);
+
+	/* Small page interactions --------------------------------------*/
+	document.addEventListener('click', (e) => {
+		const follow = e.target.closest('[data-follow]');
+		if (follow) {
+			const on = follow.classList.toggle('is-active');
+			const icon = $('i', follow);
+			follow.lastChild.textContent = on ? ' Following' : ' Follow';
+			if (!icon) follow.textContent = on ? 'Following' : 'Follow';
+			else {
+				// data-follow-icons="on off" swaps in custom icons
+				const [iconOn, iconOff] = (follow.dataset.followIcons || 'ri-user-follow-line ri-user-add-line').split(' ');
+				icon.className = on ? iconOn : iconOff;
+			}
+			return;
+		}
+		const react = e.target.closest('[data-react]');
+		if (react) {
+			const on = react.classList.toggle('is-active');
+			$('i', react).className = on ? 'ri-heart-3-fill' : 'ri-heart-3-line';
+			return;
+		}
+		const add = e.target.closest('[data-add-song]');
+		if (add) {
+			const on = add.classList.toggle('is-active');
+			add.innerHTML = on ? '<i class="ri-check-line"></i> Added' : '<i class="ri-add-line"></i> Add';
+			return;
+		}
+		const dl = e.target.closest('[data-download]');
+		if (dl) {
+			e.stopPropagation();
+			dl.classList.add('is-done');
+			$('i', dl).className = 'ri-checkbox-circle-fill';
+			toast('Saved for offline listening');
+			return;
+		}
+		const tab = e.target.closest('[data-tabs] button');
+		if (tab) {
+			$$('button', tab.parentElement).forEach((b) => b.classList.toggle('is-active', b === tab));
+			return;
+		}
+		const msg = e.target.closest('[data-toast]');
+		if (msg) toast(msg.dataset.toast);
+		if (e.target.closest('[data-clear-history]')) toast('Listening history cleared');
+	}, true);
+
+	// upload areas: show the chosen file name, highlight on drag
+	$$('[data-dropzone]').forEach((zone) => {
+		const input = $('input[type="file"]', zone);
+		const title = $('h4', zone);
+		const show = (file) => { if (file && title) title.textContent = file.name; };
+		input?.addEventListener('change', () => show(input.files[0]));
+		['dragenter', 'dragover'].forEach((ev) => zone.addEventListener(ev, (e) => { e.preventDefault(); zone.classList.add('is-over'); }));
+		['dragleave', 'drop'].forEach((ev) => zone.addEventListener(ev, () => zone.classList.remove('is-over')));
+		zone.addEventListener('drop', (e) => { e.preventDefault(); show(e.dataTransfer.files[0]); });
+	});
+
+	/* Filter chips, sort menu and "load more" (listing pages) -------
+	   Chips: [data-filter="pop"] inside [data-filter-group="id"];
+	   items in #id carry data-genre / data-year / data-plays / data-title. */
+	$$('[data-filter-group]').forEach((group) => {
+		const grid = document.getElementById(group.dataset.filterGroup);
+		if (!grid) return;
+		const items = $$(':scope > *', grid);
+		let filter = 'all';
+		let showAll = false;
+		let query = '';
+		const more = $(`[data-load-more="${grid.id}"]`);
+		const empty = $(`[data-empty="${grid.id}"]`);
+		const apply = () => {
+			let shown = 0;
+			items.forEach((el) => {
+				const match = (filter === 'all' || (el.dataset.genre || '').split(' ').includes(filter))
+					&& (!query || (el.dataset.title || el.textContent).toLowerCase().includes(query));
+				const visible = match && (showAll || filter !== 'all' || shown < +(grid.dataset.limit || 1e9));
+				if (match) shown++;
+				el.hidden = !visible;
+			});
+			if (more) more.hidden = showAll || filter !== 'all' || items.length <= +(grid.dataset.limit || 1e9);
+			if (empty) empty.hidden = shown > 0;
+		};
+		$$('[data-filter]', group).forEach((chip) => chip.addEventListener('click', () => {
+			$$('[data-filter]', group).forEach((c) => c.classList.toggle('is-active', c === chip));
+			filter = chip.dataset.filter;
+			// a dropdown shows the picked option; other chips reset it
+			$$('[data-filter-label]', group).forEach((l) => (l.textContent = chip.closest('.dropdown') ? chip.textContent : l.dataset.filterLabel));
+			apply();
+		}));
+		$(`[data-search="${grid.id}"]`)?.addEventListener('input', (e) => { query = e.target.value.trim().toLowerCase(); apply(); });
+		$$(`[data-view="${grid.id}"] [data-view-mode]`).forEach((b) => b.addEventListener('click', () => {
+			$$(`[data-view="${grid.id}"] [data-view-mode]`).forEach((o) => o.classList.toggle('is-active', o === b));
+			grid.classList.toggle('is-list', b.dataset.viewMode === 'list');
+		}));
+		// a link elsewhere on the page can pick a chip, e.g. the hero "Following" button
+		$$('[data-filter-jump]').forEach((a) => a.addEventListener('click', () => $(`[data-filter="${a.dataset.filterJump}"]`, group)?.click()));
+		more?.addEventListener('click', () => { showAll = true; apply(); });
+		$$(`[data-sort="${grid.id}"] [data-sort-by]`).forEach((opt) => opt.addEventListener('click', (e) => {
+			e.preventDefault();
+			const by = opt.dataset.sortBy;
+			const key = (el) => (by === 'title' ? el.dataset.title : -(+el.dataset[by] || 0));
+			items.sort((a, b) => (key(a) > key(b) ? 1 : key(a) < key(b) ? -1 : 0)).forEach((el) => grid.appendChild(el));
+			const label = $(`[data-sort="${grid.id}"] [data-sort-label]`);
+			if (label) label.textContent = opt.textContent;
+			$$(`[data-sort="${grid.id}"] [data-sort-by]`).forEach((o) => o.classList.toggle('active', o === opt));
+			apply();
+		}));
+		apply();
+	});
+
+	/* Card carousel: [data-carousel] with a scrolling track, arrows and dots */
+	$$('[data-carousel]').forEach((car) => {
+		const track = $('.ms-carousel-track', car);
+		const dotsBox = $('.ms-carousel-dots', car);
+		const pages = () => Math.max(1, Math.round(track.scrollWidth / track.clientWidth));
+		const page = () => Math.round(track.scrollLeft / track.clientWidth);
+		const goTo = (n) => track.scrollTo({ left: n * track.clientWidth });
+		if (dotsBox) {
+			dotsBox.innerHTML = Array.from({ length: pages() }, (_, n) => `<button aria-label="Page ${n + 1}"></button>`).join('');
+			$$('button', dotsBox).forEach((d, n) => d.addEventListener('click', () => goTo(n)));
+		}
+		const update = () => {
+			const p = page();
+			$$('button', dotsBox || car).forEach((d, n) => dotsBox && d.classList.toggle('is-active', n === p));
+			const prev = $('[data-carousel-dir="-1"]', car);
+			const next = $('[data-carousel-dir="1"]', car);
+			if (prev) prev.disabled = track.scrollLeft <= 2;
+			if (next) next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+		};
+		$$('[data-carousel-dir]', car).forEach((b) => b.addEventListener('click', () => goTo(page() + +b.dataset.carouselDir)));
+		track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+		update();
+	});
 })();

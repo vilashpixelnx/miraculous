@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--
+Template Name: Miraculous - Online Music Store Html Template
+Version: 5.0.0 (Aurora Editorial)
+Author: Kamleshyadav
+Website:
+Purchase:
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
+	<meta name="theme-color" content="#FDF5F2">
+	<title>10 Questions with Ava Cornish - Miraculous Online Music Store</title>
+	<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Playfair+Display:wght@400..800&display=swap" rel="stylesheet">
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+	<!-- ================= Sidebar ================= -->
+	<aside class="ms-sidebar" id="msSidebar">
+		<a href="index.html" class="ms-logo" aria-label="Miraculous home">
+			<svg viewBox="0 0 44 34" aria-hidden="true">
+				<defs>
+					<linearGradient id="msLogoGrad" x1="0" y1="0" x2="44" y2="34" gradientUnits="userSpaceOnUse">
+						<stop offset="0" stop-color="#FF5964"/>
+						<stop offset="1" stop-color="#E92750"/>
+					</linearGradient>
+				</defs>
+				<path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			<span>Miraculous</span>
+		</a>
+
+		<nav class="ms-side-scroll" aria-label="Main">
+			<ul class="ms-nav">
+				<li><a href="index.html"><i class="ri-home-5-line"></i>Discover</a></li>
+				<li><a href="feed.html"><i class="ri-chat-smile-3-line"></i>Music Feed</a></li>
+				<li><a href="artist.html"><i class="ri-user-3-line"></i>Artists</a></li>
+				<li><a href="album.html"><i class="ri-album-line"></i>Albums</a></li>
+				<li><a href="stations.html"><i class="ri-broadcast-line"></i>Radio</a></li>
+				<li><a href="store.html"><i class="ri-shopping-cart-2-line"></i>Store</a></li>
+			</ul>
+
+			<div class="ms-premium-card">
+				<svg class="ms-premium-crown" viewBox="0 0 40 32" aria-hidden="true">
+					<defs>
+						<linearGradient id="msCrownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB13D"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient>
+					</defs>
+					<path d="M5 11.5 13 18.5 20 6.5l7 12 8-7-3 15.5H8Z" fill="url(#msCrownGrad)" stroke="url(#msCrownGrad)" stroke-width="2" stroke-linejoin="round"/>
+					<rect x="8" y="27.5" width="24" height="3.5" rx="1.75" fill="#FF6A2B"/>
+					<circle cx="20" cy="4" r="3" fill="#FFB13D"/><circle cx="4" cy="10" r="2.6" fill="#FFB13D"/><circle cx="36" cy="10" r="2.6" fill="#FFB13D"/>
+				</svg>
+				<h6>Go Premium</h6>
+				<p>Ad-free music, offline listening &amp; more.</p>
+				<a href="manage_acc.html" class="ms-btn ms-btn-sm">Upgrade Now <i class="ri-arrow-right-line"></i></a>
+			</div>
+
+			<div class="ms-nav-title">Your Library</div>
+			<ul class="ms-nav ms-nav-sm">
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
+				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
+				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
+			</ul>
+
+			<!-- Decorative promo art: soft pink hills + headphones, sits at the bottom of the sidebar -->
+			<a href="store.html" class="ms-side-art" aria-label="Shop headphones in the store">
+				<svg class="ms-side-hills" viewBox="0 0 228 230" preserveAspectRatio="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="msHillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".55"/><stop offset="1" stop-color="#FCE8E5" stop-opacity=".2"/></linearGradient>
+						<linearGradient id="msHillB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FD646D" stop-opacity=".22"/><stop offset="1" stop-color="#F8C8BC" stop-opacity=".45"/></linearGradient>
+						<linearGradient id="msHillC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".8"/><stop offset="1" stop-color="#FCE8E5"/></linearGradient>
+					</defs>
+					<path d="M0 62C40 30 92 28 138 50s70 26 90 14V230H0Z" fill="url(#msHillA)"/>
+					<path d="M0 118c36-30 86-34 128-14 38 18 70 14 100-6V230H0Z" fill="url(#msHillB)"/>
+					<path d="M0 182c44-22 102-24 150-10 30 9 56 8 78 0V230H0Z" fill="url(#msHillC)"/>
+				</svg>
+				<span class="ms-side-floor" aria-hidden="true"></span>
+				<picture>
+					<source srcset="assets/images/headphones.webp" type="image/webp">
+					<img src="assets/images/headphones.png" alt="" width="1262" height="1246">
+				</picture>
+			</a>
+		</nav>
+	</aside>
+	<div class="ms-backdrop" id="msBackdrop"></div>
+
+	<!-- ================= Main ================= -->
+	<div class="ms-main">
+
+		<!-- Top Navigation -->
+		<header class="ms-topbar">
+			<button class="ms-icon-btn ms-menu-toggle" id="msMenuToggle" aria-label="Open menu"><i class="ri-menu-2-line"></i></button>
+			<a href="index.html" class="ms-logo ms-logo-mobile" aria-label="Miraculous home">
+				<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				<span>Miraculous</span>
+			</a>
+			<nav class="ms-topnav" aria-label="Browse">
+				<a href="index.html">Discover</a>
+				<a href="top_track.html">Trending</a>
+				<a href="index.html#new-releases">New Releases</a>
+				<a href="artist.html">Artists</a>
+				<a href="album.html">Albums</a>
+				<a href="stations.html">Radio</a>
+				<a href="store.html">Store</a>
+				<span class="ms-topnav-ink" aria-hidden="true"></span>
+			</nav>
+			<div class="ms-top-actions">
+				<form class="ms-search" id="msSearchForm" role="search" onsubmit="return false">
+					<input type="search" id="msSearch" placeholder="Search songs, artists, albums..." aria-label="Search">
+					<button type="button" class="ms-icon-btn" id="msSearchToggle" aria-label="Search (Ctrl+K)"><i class="ri-search-line"></i></button>
+				</form>
+				<button class="ms-icon-btn ms-noti" aria-label="Notifications"><i class="ri-notification-3-line"></i></button>
+				<div class="dropdown">
+					<button class="ms-avatar" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+						<img src="assets/images/user.jpg" alt="">
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+						<li><a class="dropdown-item" href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+						<li><a class="dropdown-item" href="manage_acc.html"><i class="ri-settings-3-line"></i>Manage Account</a></li>
+						<li><a class="dropdown-item" href="purchase.html"><i class="ri-shopping-bag-3-line"></i>Purchases</a></li>
+						<li><a class="dropdown-item" href="history.html"><i class="ri-history-line"></i>History</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#"><i class="ri-logout-box-r-line"></i>Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="ms-content">
+
+			<div class="ms-section ms-two-col ms-reveal" style="margin-top:6px">
+				<div>
+				<article class="ms-article">
+					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><a href="blog.html">Blog</a><i class="ri-arrow-right-s-line"></i><span>Interviews</span></nav>
+					<h1>10 Questions with Ava Cornish</h1>
+					<div class="ms-post-meta" style="margin-top:14px"><span><i class="ri-user-3-line"></i>By Emma Clarke</span><span><i class="ri-calendar-line"></i>Mar 18, 2026</span><span><i class="ri-time-line"></i>6 min read</span><span><i class="ri-chat-3-line"></i>3 comments</span></div>
+					<div class="ms-article-cover"><img src="assets/images/trending/01.jpg" alt=""></div>
+					<div class="ms-article-body">
+						<p>Ava Cornish is having a big year. Her debut album <b>Walking Promises</b> topped the charts in March, and her new single is already one of the most played songs on Miraculous. We met her in a small cafe in Camden to talk about writing, touring and the song that almost did not happen.</p>
+						<h2>Where did the new single come from?</h2>
+						<p>"I wrote it on a rainy night in Lisbon. I was sitting by the window of a tiny apartment, listening to the rain, and the melody just arrived. I recorded it on my phone so I wouldn't forget it."</p>
+						<blockquote>"The best songs feel like they were already there. You just have to be quiet enough to hear them."</blockquote>
+						<p>She almost left it off the record. "It felt too simple. My producer, Brian, kept playing it in the car until I gave in. Now it's the one people sing back at shows."</p>
+						<h2>Three things on her tour rider</h2>
+						<ul><li>A kettle and a box of builder's tea</li><li>Her mother's old acoustic guitar</li><li>A notebook for new lyrics every night</li></ul>
+						<p>Ava heads out on her European tour next month, with dates in London, Paris and Berlin. Her new album is expected later this year.</p>
+					</div>
+					<div class="ms-post-track" style="margin-top:24px"><img src="assets/images/trending/01.jpg" alt=""><div><h5>Walking Promises</h5><p>Ava Cornish &middot; 04:16</p></div><button class="ms-play" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button></div>
+					<div class="ms-article-foot">
+						<div class="ms-tags"><a href="#">Interviews</a><a href="#">Pop</a><a href="#">Tour</a></div>
+						<div class="ms-share"><a href="#" aria-label="Share on Facebook"><i class="ri-facebook-line"></i></a><a href="#" aria-label="Share on X"><i class="ri-twitter-x-line"></i></a><a href="#" aria-label="Share on Instagram"><i class="ri-instagram-line"></i></a><a href="#" aria-label="Copy link"><i class="ri-link"></i></a></div>
+					</div>
+					<div class="ms-author"><img src="assets/images/artist/06.jpg" alt=""><div><span>Written by</span><h4>Emma Clarke</h4><p>Music editor at Miraculous. Writes about new artists, vinyl and the stories behind the songs.</p></div></div>
+				</article>
+				<div class="ms-form-card" style="margin-top:24px">
+					<h3>3 Comments</h3>
+					<div class="ms-comment"><img src="assets/images/artist/02.jpg" alt=""><div><h5>Daniel Ross<small>2 hours ago</small></h5><p>Saw her live in Manchester last year. That song gave the whole room goosebumps.</p><button>Reply</button></div></div>
+					<div class="ms-comment is-reply"><img src="assets/images/artist/04.jpg" alt=""><div><h5>Sophie Lane<small>1 hour ago</small></h5><p>Same! Can't wait for the Paris show.</p><button>Reply</button></div></div>
+					<div class="ms-comment"><img src="assets/images/artist/05.jpg" alt=""><div><h5>Marco Silva<small>Yesterday</small></h5><p>Great interview. The Lisbon story makes me love the song even more.</p><button>Reply</button></div></div>
+				</div>
+				<div class="ms-form-card">
+					<h3>Leave a Comment</h3>
+					<p>Your email address will not be published.</p>
+					<div class="ms-form-grid">
+						<div class="ms-field"><label for="cmName">Name</label><input class="ms-input" id="cmName" placeholder="Your name"></div>
+						<div class="ms-field"><label for="cmEmail">Email</label><input class="ms-input" id="cmEmail" type="email" placeholder="you@example.com"></div>
+						<div class="ms-field is-full"><label for="cmText">Comment</label><textarea class="ms-input" id="cmText" placeholder="Write your comment..."></textarea></div>
+					</div>
+					<div class="ms-form-actions"><button class="ms-btn" data-toast="Comment posted">Post Comment</button></div>
+				</div>
+				</div>
+				<aside class="ms-sticky">
+					<div class="ms-side-card">
+						<h3>Search</h3>
+						<div class="ms-composer" style="padding:0;border:0;box-shadow:none;margin-top:12px"><input type="search" placeholder="Search articles..." aria-label="Search articles"></div>
+					</div>
+					<div class="ms-side-card">
+						<h3>Categories</h3>
+						<ul class="ms-cat-list"><li><a href="#">Interviews<b>24</b></a></li><li><a href="#">News<b>38</b></a></li><li><a href="#">Playlists<b>19</b></a></li><li><a href="#">Gear<b>12</b></a></li><li><a href="#">Guides<b>16</b></a></li><li><a href="#">Vinyl<b>9</b></a></li></ul>
+					</div>
+					<div class="ms-side-card">
+						<h3>Recent Posts</h3>
+						<div class="ms-recent"><img src="assets/images/trending/02.jpg" alt=""><div><h4><a href="blog_single.html">The Best Headphones for HiFi Listening in 2026</a></h4><p>Mar 15, 2026</p></div></div>
+						<div class="ms-recent"><img src="assets/images/release/05.jpg" alt=""><div><h4><a href="blog_single.html">Songs for a Slow Sunday Morning</a></h4><p>Mar 12, 2026</p></div></div>
+						<div class="ms-recent"><img src="assets/images/trending/07.jpg" alt=""><div><h4><a href="blog_single.html">Miraculous Live: Summer Tour Dates Announced</a></h4><p>Mar 09, 2026</p></div></div>
+					</div>
+					<div class="ms-side-card">
+						<h3>Tags</h3>
+<div class="ms-tags"><a href="#">Pop</a><a href="#">Vinyl</a><a href="#">Interviews</a><a href="#">Tour</a><a href="#">HiFi</a><a href="#">Acoustic</a><a href="#">Studio</a></div>
+					</div>
+				</aside>
+			</div>
+
+			<!-- Footer -->
+			<footer class="ms-footer">
+				<div class="ms-footer-top">
+					<div class="ms-footer-brand">
+						<a href="index.html" class="ms-logo">
+							<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							<span>Miraculous</span>
+						</a>
+						<p>Stream, discover and buy music from the artists you love.</p>
+					</div>
+					<nav class="ms-footer-links" aria-label="Footer">
+						<a href="album.html">Albums</a>
+						<a href="artist.html">Artists</a>
+						<a href="genres.html">Genres</a>
+						<a href="store.html">Store</a>
+						<a href="blog.html">Blog</a>
+						<a href="#">Contact</a>
+					</nav>
+					<div class="ms-social">
+						<a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="#" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+						<a href="#" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+						<a href="#" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+					</div>
+				</div>
+				<div class="ms-copyright">
+					<span>&copy; 2026 Miraculous. All rights reserved.</span>
+					<span><a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Use</a></span>
+				</div>
+			</footer>
+		</main>
+	</div>
+
+	<!-- ================= Player ================= -->
+	<div class="ms-player" id="msPlayer">
+		<div class="ms-player-song">
+			<img src="assets/images/trending/02.jpg" alt="" id="msPlayerCover">
+			<div class="ms-player-meta">
+				<h4 id="msPlayerTitle">Until I Met You</h4>
+				<p id="msPlayerArtist">Brian Hill</p>
+			</div>
+		</div>
+		<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+		<div class="ms-seek" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
+		<div class="ms-player-controls">
+			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+			<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+			<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+			<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+		</div>
+		<div class="ms-wave" id="msWave" aria-hidden="true"></div>
+		<span class="ms-player-time" data-time-current>04:23</span>
+		<div class="ms-player-volume">
+			<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+			<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+		</div>
+		<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
+	</div>
+
+	<!-- Queue -->
+	<div class="offcanvas offcanvas-end ms-queue" tabindex="-1" id="msQueue" aria-labelledby="msQueueLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="msQueueLabel">Queue</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="ms-queue-label">Up next</div>
+			<div id="msQueueList"></div>
+		</div>
+	</div>
+
+	<!-- Toast -->
+	<div class="ms-toast" id="msToast" role="status" aria-live="polite"></div>
+
+	<!-- Vendor JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Theme JS -->
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
