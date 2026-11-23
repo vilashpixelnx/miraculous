@@ -611,6 +611,82 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		}));
 	}
 
+	/* Liked songs: view chips, search, unlike (with undo), sort by
+	   date liked and 12-per-page pagination. */
+	const liked = $('[data-liked]');
+	if (liked) {
+		const body = $('.ms-lk-body', liked);
+		const rows = $$('.ms-lk-row', liked);
+		const pagesBox = $('[data-lk-pages]', liked);
+		const info = $('[data-lk-info]', liked);
+		const empty = $('[data-lk-empty]', liked);
+		const undoBar = $('[data-lk-undo]');
+		const PER = 12;
+		let order = rows.slice();
+		let page = 0;
+		let query = '';
+		let newest = true;
+		let lastRemoved = null;
+		let undoTimer;
+
+		const render = () => {
+			const list = order.filter((r) => !r.dataset.removed && (!query || r.dataset.title.includes(query)));
+			const pages = Math.max(1, Math.ceil(list.length / PER));
+			page = Math.min(page, pages - 1);
+			rows.forEach((r) => (r.hidden = true));
+			list.forEach((r, i) => {
+				body.appendChild(r);
+				$('.ms-lk-num', r).textContent = i + 1;
+				r.hidden = i < page * PER || i >= (page + 1) * PER;
+			});
+			if (empty) empty.hidden = list.length > 0;
+			const from = list.length ? page * PER + 1 : 0;
+			info.textContent = `Showing ${from}–${Math.min((page + 1) * PER, list.length)} of ${list.length} songs`;
+			pagesBox.innerHTML = `<button data-page="prev" aria-label="Previous page"${page === 0 ? ' disabled' : ''}><i class="ri-arrow-left-s-line"></i></button>`
+				+ Array.from({ length: pages }, (_, i) => `<button data-page="${i}"${i === page ? ' class="is-active" aria-current="page"' : ''}>${i + 1}</button>`).join('')
+				+ `<button data-page="next" aria-label="Next page"${page >= pages - 1 ? ' disabled' : ''}><i class="ri-arrow-right-s-line"></i></button>`;
+		};
+		pagesBox.addEventListener('click', (e) => {
+			const b = e.target.closest('[data-page]');
+			if (!b || b.disabled) return;
+			page = b.dataset.page === 'prev' ? page - 1 : b.dataset.page === 'next' ? page + 1 : +b.dataset.page;
+			render();
+			liked.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
+		$('[data-lk-search]')?.addEventListener('input', (e) => { query = e.target.value.trim().toLowerCase(); page = 0; render(); });
+		$('[data-lk-sort]', liked)?.addEventListener('click', () => {
+			newest = !newest;
+			order.sort((a, b) => (newest ? b.dataset.date.localeCompare(a.dataset.date) : a.dataset.date.localeCompare(b.dataset.date)));
+			$('[data-lk-sort-icon]', liked).className = newest ? 'ri-arrow-down-line' : 'ri-arrow-up-line';
+			page = 0;
+			render();
+		});
+		liked.addEventListener('click', (e) => {
+			const heart = e.target.closest('[data-unlike]');
+			if (!heart) return;
+			e.stopPropagation();
+			lastRemoved = heart.closest('.ms-lk-row');
+			lastRemoved.dataset.removed = '1';
+			render();
+			undoBar.hidden = false;
+			clearTimeout(undoTimer);
+			undoTimer = setTimeout(() => (undoBar.hidden = true), 5000);
+		});
+		$('button', undoBar)?.addEventListener('click', () => {
+			if (lastRemoved) delete lastRemoved.dataset.removed;
+			lastRemoved = null;
+			undoBar.hidden = true;
+			render();
+		});
+		// chips switch between the songs table and the albums / artists / genres views
+		$$('[data-lk-view]').forEach((chip) => chip.addEventListener('click', () => {
+			$$('[data-lk-view]').forEach((c) => c.classList.toggle('is-active', c === chip));
+			const view = chip.dataset.lkView === 'all' ? 'songs' : chip.dataset.lkView;
+			$$('[data-lk-pane]', liked).forEach((p) => (p.hidden = p.dataset.lkPane !== view));
+		}));
+		render();
+	}
+
 	/* Create playlist form ------------------------------------------
 	   Character counters, cover preview, mood chips, picking songs
 	   (with a running count), song search and a friendly submit. */

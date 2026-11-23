@@ -2723,6 +2723,91 @@ select.ms-input { appearance: none; background: var(--ms-bg) url("data:image/svg
 	.ms-auth-switch { margin-top: 18px; }
 }
 
+/* Liked songs page: banner, view chips, songs table, pagination */
+.ms-lk-hero { position: relative; display: flex; align-items: center; gap: 28px; min-height: 230px; margin-top: 14px; padding: 22px 26px; border-radius: 22px; overflow: hidden; color: #fff; background: linear-gradient(115deg, #5A1442 0%, #8E1F5C 40%, #C2306E 75%, #E8558A 100%); isolation: isolate; }
+.ms-lk-hero::before { content: ''; position: absolute; right: -60px; top: -80px; z-index: -1; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 150, 190, .45), rgba(255, 150, 190, 0) 65%); }
+.ms-lk-cover-big { position: relative; flex-shrink: 0; display: grid; place-items: center; width: 186px; height: 186px; border-radius: 18px; overflow: hidden; background: radial-gradient(circle at 50% 45%, #FF6F9F 0%, #C42A6A 45%, #4A0F33 100%); border: 3px solid rgba(255, 255, 255, .35); box-shadow: 0 20px 40px rgba(40, 5, 30, .4); }
+.ms-lk-cover-big > i { font-size: 120px; line-height: 1; color: #FFE3EE; text-shadow: 0 0 10px #FF7AA8, 0 0 26px #FF4F8B, 0 0 50px #FF2E73; }
+.ms-lk-big-play { position: absolute; right: 14px; bottom: 14px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #fff; color: var(--ms-text); font-size: 24px; box-shadow: 0 8px 20px rgba(0, 0, 0, .25); transition: transform var(--ms-t); }
+.ms-lk-big-play i { margin-left: 2px; }
+.ms-lk-big-play:hover { transform: scale(1.08); }
+.ms-lk-cover-big.is-playing { border-color: #fff; }
+.ms-lk-info { position: relative; z-index: 2; min-width: 0; }
+.ms-lk-kind { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
+.ms-lk-info h1 { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-family: var(--ms-font-display); font-size: 44px; font-weight: 700; line-height: 1.05; color: #fff; }
+.ms-lk-info h1 i { font-size: 34px; color: #FF5C80; filter: drop-shadow(0 4px 10px rgba(255, 60, 110, .5)); }
+.ms-lk-info > p { margin-top: 6px; font-size: 14.5px; color: rgba(255, 255, 255, .88); }
+.ms-lk-meta { display: flex; gap: 10px; font-weight: 600; }
+.ms-lk-meta span + span::before { content: '\2022'; margin-right: 10px; }
+.ms-lk-actions { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.ms-lk-round { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, .92); color: var(--ms-text); font-size: 19px; transition: transform var(--ms-t), color var(--ms-t); }
+.ms-lk-round:hover { transform: translateY(-2px); color: var(--ms-coral); }
+.ms-lk-round.is-active { color: var(--ms-coral); }
+.ms-lk-phones { position: absolute; right: -10px; top: 50%; z-index: 1; width: 250px; transform: translateY(-50%) rotate(-8deg); filter: drop-shadow(0 18px 30px rgba(40, 5, 30, .35)); }
+.ms-lk-phones img { width: 100%; height: auto; }
+.ms-lk-wave { position: absolute; right: 225px; top: 50%; z-index: 1; display: flex; align-items: center; gap: 3px; height: 70px; transform: translateY(-50%); }
+.ms-lk-wave span { width: 3px; height: calc(var(--h) * 1%); border-radius: 3px; background: rgba(255, 255, 255, .8); animation: ms-wave 1.4s ease-in-out infinite; animation-delay: calc(var(--i) * -.1s); }
+
+/* chips + search */
+.ms-lk-bar { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+.ms-lk-chips { margin-top: 0; flex-wrap: nowrap; }
+.ms-lk-chips .ms-chip small { font-size: 12px; }
+.ms-lk-bar .ms-tool-search { max-width: 260px; margin-left: auto; }
+
+/* songs table */
+.ms-lk-table { padding: 4px 16px 8px; border-radius: var(--ms-radius-lg); background: var(--ms-surface); border: 1px solid var(--ms-line); box-shadow: var(--ms-shadow-sm); }
+.ms-lk-head, .ms-lk-row { display: grid; grid-template-columns: 26px 48px 20px minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1.15fr) 104px 42px 28px; align-items: center; gap: 10px; }
+.ms-lk-head { padding: 12px 0; border-bottom: 1px solid var(--ms-line); font-size: 13px; font-weight: 500; color: var(--ms-text-2); }
+.ms-lk-head > span:nth-child(2) { grid-column: 2 / 5; }
+.ms-lk-head > span:nth-child(3), .ms-lk-head > span:nth-child(4) { display: none; }
+.ms-lk-head button { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: var(--ms-text); white-space: nowrap; }
+.ms-lk-head button:hover { color: var(--ms-coral); }
+.ms-lk-head > span:nth-child(8) { font-size: 17px; text-align: center; }
+.ms-lk-row { padding: 7px 0; font-size: 13px; color: var(--ms-text-2); }
+.ms-lk-row + .ms-lk-row { border-top: 1px solid var(--ms-line); }
+.ms-lk-row[hidden] { display: none; }
+.ms-lk-row > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ms-lk-row h4 { font-size: 14px; font-weight: 600; color: var(--ms-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ms-lk-row.is-playing h4 { color: var(--ms-coral); }
+.ms-lk-num { text-align: center; font-variant-numeric: tabular-nums; }
+.ms-lk-cover { position: relative; width: 48px; height: 44px; border-radius: 8px; overflow: hidden; }
+.ms-lk-cover img { width: 100%; height: 100%; object-fit: cover; }
+.ms-lk-play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(33, 25, 35, .45); color: #fff; font-size: 20px; opacity: 0; transition: opacity var(--ms-t); }
+.ms-lk-row:hover .ms-lk-play, .ms-lk-row.is-playing .ms-lk-play { opacity: 1; }
+.ms-lk-heart { font-size: 17px; color: var(--ms-coral); transition: transform var(--ms-t); }
+.ms-lk-heart:hover { transform: scale(1.2); }
+.ms-lk-time { text-align: center; font-variant-numeric: tabular-nums; }
+.ms-lk-row .ms-tl-more { font-size: 18px; color: var(--ms-text); }
+.ms-lk-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding: 0 6px; font-size: 13.5px; color: var(--ms-text-2); }
+.ms-lk-pages { display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 50px; background: var(--ms-surface); border: 1px solid var(--ms-line); box-shadow: var(--ms-shadow-sm); }
+.ms-lk-pages button { min-width: 32px; height: 32px; padding: 0 6px; border-radius: 10px; font-size: 13.5px; font-weight: 600; color: var(--ms-text); transition: background var(--ms-t), color var(--ms-t); }
+.ms-lk-pages button:hover:not(:disabled) { color: var(--ms-coral); }
+.ms-lk-pages button.is-active { background: var(--ms-grad-cta); color: #fff; }
+.ms-lk-pages button:disabled { opacity: .35; cursor: default; }
+.ms-lk-undo { position: fixed; left: 50%; bottom: calc(var(--ms-player-space) + 18px); z-index: 1060; display: flex; align-items: center; gap: 16px; padding: 10px 12px 10px 18px; border-radius: 12px; background: #332834; color: #fff; font-size: 14px; box-shadow: var(--ms-shadow); transform: translateX(-50%); }
+.ms-lk-undo[hidden] { display: none; }
+.ms-lk-undo button { padding: 6px 12px; border-radius: 8px; background: rgba(255, 255, 255, .12); font-weight: 700; color: #FF8FA3; }
+.ms-lk-undo button:hover { background: rgba(255, 255, 255, .2); }
+[data-lk-pane] .ms-radio-genres { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ms-radio-genre small { font-size: 12px; font-weight: 500; opacity: .9; }
+
+/* right column */
+.ms-lk-stats { display: grid; grid-template-columns: 1fr 1fr; padding: 14px 10px; }
+.ms-lk-stats div { display: flex; align-items: center; gap: 8px; padding: 0 6px; white-space: nowrap; }
+.ms-lk-stats div + div { border-left: 1px solid var(--ms-line); }
+.ms-lk-stats span { display: grid; place-items: center; width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: var(--ms-blush); color: var(--ms-coral); font-size: 19px; }
+.ms-lk-stats p { font-size: 12px; color: var(--ms-text-2); }
+.ms-lk-stats b { display: block; font-size: 15px; font-weight: 700; color: var(--ms-text); }
+.ms-lk-side-heart { font-size: 20px; }
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+	.ms-lk-chips .ms-chip i { display: none; }
+	.ms-lk-chips .ms-chip { padding: 0 12px; }
+	.ms-lk-bar .ms-tool-search { max-width: 210px; }
+	.ms-lk-phones { width: 210px; right: -24px; }
+	.ms-lk-wave { display: none; }
+	.ms-lk-info h1 { font-size: 38px; }
+}
+
 /* 13. Responsive --------------------------------------------------*/
 @media (min-width: 1500px) {
 	.ms-seek { flex-basis: 260px; }
