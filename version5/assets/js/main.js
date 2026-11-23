@@ -77,6 +77,12 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		searchForm.classList.contains('is-open') && searchInput.value ? searchForm.requestSubmit() : openSearch();
 	});
 	searchInput?.addEventListener('blur', () => setTimeout(closeSearch, 150));
+	// Enter opens the results page with the typed words
+	searchForm?.addEventListener('submit', (e) => {
+		e.preventDefault();
+		const q = searchInput.value.trim();
+		if (q) location.href = `search.html?q=${encodeURIComponent(q)}`;
+	});
 	document.addEventListener('keydown', (e) => {
 		if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openSearch(); }
 		if (e.key === 'Escape') {
@@ -549,4 +555,43 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
 		update();
 	});
+
+	/* Search results page -------------------------------------------
+	   Shows ?q= in the heading; chips and the Content Type checkboxes
+	   pick which result sections ([data-result]) are shown. */
+	const srInput = $('[data-search-input]');
+	if (srInput) {
+		const q = new URLSearchParams(location.search).get('q');
+		if (q) {
+			srInput.value = q;
+			setAll('[data-search-query]', 'textContent', q);
+			document.title = `${q} - Search - Miraculous`;
+		}
+		$('[data-search-clear]')?.addEventListener('click', () => { srInput.value = ''; srInput.focus(); });
+
+		const sections = $$('[data-result]');
+		const chips = $$('[data-search-type]');
+		const checks = $$('[data-search-check]');
+		const empty = $('[data-sr-empty]');
+		let picked = new Set(['all']);
+		const show = () => {
+			const all = picked.has('all');
+			sections.forEach((s) => (s.hidden = !all && !s.dataset.result.split(' ').some((k) => picked.has(k))));
+			chips.forEach((c) => c.classList.toggle('is-active', picked.size === 1 && picked.has(c.dataset.searchType)));
+			checks.forEach((c) => (c.checked = picked.has(c.dataset.searchCheck)));
+			if (empty) empty.hidden = sections.some((s) => !s.hidden);
+		};
+		chips.forEach((c) => c.addEventListener('click', () => { picked = new Set([c.dataset.searchType]); show(); }));
+		checks.forEach((c) => c.addEventListener('change', () => {
+			const k = c.dataset.searchCheck;
+			if (k === 'all') picked = new Set(['all']);
+			else {
+				picked.delete('all');
+				c.checked ? picked.add(k) : picked.delete(k);
+				if (!picked.size) picked.add('all');
+			}
+			show();
+		}));
+		show();
+	}
 })();
