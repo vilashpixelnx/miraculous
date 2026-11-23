@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -139,54 +139,79 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Radio</span></nav>
-					<h1>Live Radio<em>Tune In, Anytime !</em></h1>
-					<p>Non-stop stations for every genre and mood, plus artist radios that keep the music going when your playlist ends.</p>
-					<div class="ms-page-stats"><div><b>48</b><span>Live Stations</span></div><div><b>96K</b><span>Listening Now</span></div><div><b>24/7</b><span>On Air</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-radio" id="msHero" aria-label="Radio">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
+					<span class="ms-radio-orb"><i class="ri-broadcast-line"></i></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/discover/edm.jpg" alt=""><img src="assets/images/discover/rock.jpg" alt=""><img src="assets/images/trending/05.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="1">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Radio</div>
+							<h1>Live Radio Stations<em>for Every Mood</em></h1>
+							<p>Stream curated radio stations, live shows, and non-stop music 24/7.</p>
+						</div>
+						<div class="ms-hero-art">
+							<picture style="--cut-w:116%;--cut-l:36%;--cut-t:3%">
+								<source srcset="assets/images/feed/feed-girl.webp" type="image/webp">
+								<img src="assets/images/feed/feed-girl.png" alt="Woman enjoying music with headphones" width="1218" height="1291">
+							</picture>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="#hFeatRadio" class="ms-btn"><i class="ri-play-fill"></i>Explore Radio</a>
+					<a href="favourite.html" class="ms-btn ms-btn-outline"><i class="ri-heart-3-line"></i>My Stations</a>
+				</div>
+
+				<div class="ms-hero-wave" id="msHeroWave" aria-hidden="true"></div>
 			</section>
 
-			<section class="ms-section ms-reveal" aria-labelledby="hOnAir">
-				<div class="ms-station-now">
-					<img src="assets/images/trending/05.jpg" alt="">
-					<div><span class="ms-live">LIVE</span><h3 id="hOnAir">Miraculous FM</h3><p>Now playing: Until I Met You &middot; Brian Hill &middot; 12.4K listening</p></div>
-					<div class="ms-hero-wave-static" aria-hidden="true"><span style="--h:40;--i:0"></span><span style="--h:70;--i:1"></span><span style="--h:55;--i:2"></span><span style="--h:90;--i:3"></span><span style="--h:65;--i:4"></span><span style="--h:100;--i:5"></span><span style="--h:75;--i:6"></span><span style="--h:50;--i:7"></span><span style="--h:85;--i:8"></span><span style="--h:60;--i:9"></span><span style="--h:95;--i:10"></span><span style="--h:45;--i:11"></span><span style="--h:70;--i:12"></span><span style="--h:55;--i:13"></span></div>
-					<button class="ms-play" data-play="1" aria-label="Play Miraculous FM"><i class="ri-play-fill"></i></button>
+			<!-- Station mood filter -->
+			<div class="ms-feed-tabs ms-radio-chips" data-filter-group="msRadioTrack" role="group" aria-label="Filter stations">
+				<button class="ms-chip is-active" data-filter="all"><i class="ri-broadcast-line"></i> All Stations</button><button class="ms-chip" data-filter="dance"><i class="ri-user-voice-line"></i> Dance</button><button class="ms-chip" data-filter="chill"><i class="ri-headphone-line"></i> Chill</button><button class="ms-chip" data-filter="workout"><i class="ri-run-line"></i> Workout</button><button class="ms-chip" data-filter="party"><i class="ri-goblet-line"></i> Party</button><button class="ms-chip" data-filter="romantic"><i class="ri-heart-3-line"></i> Romantic</button><button class="ms-chip" data-filter="focus"><i class="ri-focus-3-line"></i> Focus</button>
+				<div class="dropdown">
+					<button class="ms-chip ms-chip-round" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More moods"><i class="ri-more-fill"></i></button>
+					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+						<li><a class="dropdown-item" href="genres.html"><i class="ri-apps-2-line"></i>All Genres</a></li>
+						<li><a class="dropdown-item" href="top_track.html"><i class="ri-bar-chart-fill"></i>Top Charts</a></li>
+						<li><a class="dropdown-item" href="free_music.html"><i class="ri-gift-line"></i>Free Music</a></li>
+					</ul>
 				</div>
+			</div>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hFeatRadio">
+				<div class="ms-sec-head"><h2 id="hFeatRadio" class="ms-sec-icon"><i class="ri-broadcast-line"></i>Featured Radio Stations</h2><a href="#hLiveShows" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-carousel" data-carousel>
+					<button class="ms-carousel-arrow is-prev" data-carousel-dir="-1" aria-label="Previous stations"><i class="ri-arrow-left-s-line"></i></button>
+					<div class="ms-carousel-track" id="msRadioTrack">
+						<div class="ms-artist-tile ms-album-tile" data-card="2" data-genre="dance party"><img src="assets/images/trending/03.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Pop Hits Radio</a></h3><p>Non-stop Pop</p></div><button class="ms-play-sm" data-play="2" aria-label="Play Pop Hits Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="3" data-genre="chill focus"><img src="assets/images/trending/04.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Acoustic Radio</a></h3><p>Chill &amp; Unplugged</p></div><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="10" data-genre="dance party workout"><img src="assets/images/discover/edm.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">EDM Radio</a></h3><p>Electronic Dance</p></div><button class="ms-play-sm" data-play="10" aria-label="Play EDM Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="7" data-genre="romantic"><img src="assets/images/discover/romantic.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Romantic Radio</a></h3><p>Love Songs</p></div><button class="ms-play-sm" data-play="7" aria-label="Play Romantic Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="9" data-genre="chill focus"><img src="assets/images/recommend/04.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Lo-fi Radio</a></h3><p>Beats to Relax</p></div><button class="ms-play-sm" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="8" data-genre="workout"><img src="assets/images/discover/hiphop.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Fitness Radio</a></h3><p>High Energy Music</p></div><button class="ms-play-sm" data-play="8" aria-label="Play Fitness Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="10" data-genre="party dance"><img src="assets/images/discover/dancing.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Party Radio</a></h3><p>Weekend Anthems</p></div><button class="ms-play-sm" data-play="10" aria-label="Play Party Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="11" data-genre="focus chill"><img src="assets/images/discover/classical.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Classical Radio</a></h3><p>Timeless Classics</p></div><button class="ms-play-sm" data-play="11" aria-label="Play Classical Radio"><i class="ri-play-fill"></i></button></div>
+					</div>
+					<button class="ms-carousel-arrow is-next" data-carousel-dir="1" aria-label="Next stations"><i class="ri-arrow-right-s-line"></i></button>
+					<div class="ms-carousel-dots"></div>
+				</div>
+				<p class="ms-empty" data-empty="msRadioTrack" hidden>No stations for this mood yet.</p>
 			</section>
 
-			<section class="ms-section ms-reveal " aria-labelledby="hStations">
-				<div class="ms-sec-head"><h2 id="hStations">Popular Stations</h2></div>
-				<div class="ms-grid ms-grid-6">
-					<div class="ms-card is-square" data-card="0"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/trending/05.jpg" alt=""><button class="ms-play-sm" data-play="0" aria-label="Play Pop Hits Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Pop Hits Radio</a></h3><p>8.2K listening</p></div>
-					<div class="ms-card is-square" data-card="2"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/discover/rock.jpg" alt=""><button class="ms-play-sm" data-play="2" aria-label="Play Rock Classics"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Rock Classics</a></h3><p>5.6K listening</p></div>
-					<div class="ms-card is-square" data-card="12"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/recommend/03.jpg" alt=""><button class="ms-play-sm" data-play="12" aria-label="Play Chill Lounge"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Chill Lounge</a></h3><p>4.9K listening</p></div>
-					<div class="ms-card is-square" data-card="1"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/discover/hiphop.jpg" alt=""><button class="ms-play-sm" data-play="1" aria-label="Play Hip Hop Nation"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Hip Hop Nation</a></h3><p>7.1K listening</p></div>
-					<div class="ms-card is-square" data-card="6"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/discover/edm.jpg" alt=""><button class="ms-play-sm" data-play="6" aria-label="Play EDM Pulse"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">EDM Pulse</a></h3><p>6.3K listening</p></div>
-					<div class="ms-card is-square" data-card="3"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/trending/04.jpg" alt=""><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Cafe"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Acoustic Cafe</a></h3><p>3.8K listening</p></div>
-					<div class="ms-card is-square" data-card="4"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/discover/romantic.jpg" alt=""><button class="ms-play-sm" data-play="4" aria-label="Play Love FM"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Love FM</a></h3><p>4.2K listening</p></div>
-					<div class="ms-card is-square" data-card="9"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/discover/classical.jpg" alt=""><button class="ms-play-sm" data-play="9" aria-label="Play Classical Hour"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Classical Hour</a></h3><p>2.9K listening</p></div>
-					<div class="ms-card is-square" data-card="7"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/release/02.jpg" alt=""><button class="ms-play-sm" data-play="7" aria-label="Play Indie Radar"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Indie Radar</a></h3><p>3.4K listening</p></div>
-					<div class="ms-card is-square" data-card="8"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/discover/dancing.jpg" alt=""><button class="ms-play-sm" data-play="8" aria-label="Play Party Mix"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Party Mix</a></h3><p>5.1K listening</p></div>
-					<div class="ms-card is-square" data-card="11"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/store/01.jpg" alt=""><button class="ms-play-sm" data-play="11" aria-label="Play Late Night Jazz"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Late Night Jazz</a></h3><p>2.4K listening</p></div>
-					<div class="ms-card is-square" data-card="5"><div class="ms-card-media"><span class="ms-live">LIVE</span><img src="assets/images/trending/07.jpg" alt=""><button class="ms-play-sm" data-play="5" aria-label="Play Workout Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Workout Radio</a></h3><p>4.6K listening</p></div>
-				</div>
+			<section class="ms-section ms-reveal" aria-labelledby="hRadioGenre">
+				<div class="ms-sec-head"><h2 id="hRadioGenre" class="ms-sec-icon"><i class="ri-apps-2-line"></i>Browse by Genre</h2></div>
+				<div class="ms-radio-genres"><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-pop"><span>Pop<br>Radio</span><img src="assets/images/genre/mic.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-rock"><span>Rock<br>Radio</span><img src="assets/images/genre/rock.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-hiphop"><span>Hip Hop<br>Radio</span><img src="assets/images/genre/cap.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-edm"><span>EDM<br>Radio</span><img src="assets/images/genre/pop.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-chill"><span>Chill<br>Radio</span><img src="assets/images/genre/chill.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-romantic"><span>Romantic<br>Radio</span><img src="assets/images/genre/heart.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-workout"><span>Workout<br>Radio</span><img src="assets/images/category/activity.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-focus"><span>Focus<br>Radio</span><img src="assets/images/genre/stones.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-indie"><span>Indie<br>Radio</span><img src="assets/images/genre/plant.svg" alt=""></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-classical"><span>Classical<br>Radio</span><img src="assets/images/genre/acoustic.svg" alt=""></a></div>
 			</section>
 
-			<section class="ms-section ms-reveal " aria-labelledby="hArtistRadio">
-				<div class="ms-sec-head"><h2 id="hArtistRadio">Artist Radio</h2></div>
-				<div class="ms-grid ms-grid-6">
-					<div class="ms-card is-square" data-card="0"><div class="ms-card-media"><img src="assets/images/artist/01.jpg" alt=""><button class="ms-play-sm" data-play="0" aria-label="Play Ava Cornish Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Ava Cornish Radio</a></h3><p>Based on Ava Cornish</p></div>
-					<div class="ms-card is-square" data-card="1"><div class="ms-card-media"><img src="assets/images/artist/02.jpg" alt=""><button class="ms-play-sm" data-play="1" aria-label="Play Brian Hill Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Brian Hill Radio</a></h3><p>Based on Brian Hill</p></div>
-					<div class="ms-card is-square" data-card="8"><div class="ms-card-media"><img src="assets/images/artist/03.jpg" alt=""><button class="ms-play-sm" data-play="8" aria-label="Play David Parker Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">David Parker Radio</a></h3><p>Based on David Parker</p></div>
-					<div class="ms-card is-square" data-card="4"><div class="ms-card-media"><img src="assets/images/artist/04.jpg" alt=""><button class="ms-play-sm" data-play="4" aria-label="Play Claire Hudson Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Claire Hudson Radio</a></h3><p>Based on Claire Hudson</p></div>
-					<div class="ms-card is-square" data-card="3"><div class="ms-card-media"><img src="assets/images/artist/05.jpg" alt=""><button class="ms-play-sm" data-play="3" aria-label="Play Kevin Buckland Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Kevin Buckland Radio</a></h3><p>Based on Kevin Buckland</p></div>
-					<div class="ms-card is-square" data-card="9"><div class="ms-card-media"><img src="assets/images/artist/06.jpg" alt=""><button class="ms-play-sm" data-play="9" aria-label="Play Anna Ellison Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Anna Ellison Radio</a></h3><p>Based on Anna Ellison</p></div>
-				</div>
+			<section class="ms-section ms-reveal" aria-labelledby="hLiveShows">
+				<div class="ms-sec-head"><h2 id="hLiveShows" class="ms-sec-icon"><i class="ri-broadcast-line"></i>Live Radio Shows</h2><a href="station_single.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-shows"><div class="ms-show" data-card="1"><a href="station_single.html" class="ms-show-media"><img src="assets/images/trending/02.jpg" alt=""><b>Miraculous<br>Top 50</b><span class="ms-live">LIVE</span></a><p>Today&rsquo;s Biggest Hits</p></div><div class="ms-show" data-card="11"><a href="station_single.html" class="ms-show-media"><img src="assets/images/recommend/02.jpg" alt=""><b>Chill<br>Evening</b><span class="ms-live">LIVE</span></a><p>Relax &amp; Unwind</p></div><div class="ms-show" data-card="10"><a href="station_single.html" class="ms-show-media"><img src="assets/images/discover/dancing.jpg" alt=""><b>Party<br>Night</b><span class="ms-live">LIVE</span></a><p>Non-stop Party Mix</p></div><div class="ms-show" data-card="7"><a href="station_single.html" class="ms-show-media"><img src="assets/images/discover/romantic.jpg" alt=""><b>Love<br>Hour</b><span class="ms-live">LIVE</span></a><p>Romantic Vibes</p></div><div class="ms-show" data-card="7"><a href="station_single.html" class="ms-show-media"><img src="assets/images/release/03.jpg" alt=""><b>Indie<br>Discovery</b><span class="ms-live">LIVE</span></a><p>Fresh Indie Music</p></div></div>
 			</section>
 
 			<!-- Footer -->
@@ -221,6 +246,53 @@ Purchase:
 			</footer>
 		</main>
 	</div>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and radio stations">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>My Radio Stations</h2><a href="favourite.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<a href="favourite.html" class="ms-idea ms-my-station"><span class="ms-my-station-art is-fav"><i class="ri-heart-3-fill"></i></span><div><h4>My Favorites</h4><p>8 Stations</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="history.html" class="ms-idea ms-my-station"><span class="ms-my-station-art is-recent"><i class="ri-time-line"></i></span><div><h4>Recently Played</h4><p>12 Stations</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="station_single.html" class="ms-idea ms-my-station"><span class="ms-my-station-art is-mix"><i class="ri-disc-line"></i></span><div><h4>My Mix Radio</h4><p>Personalized</p></div><i class="ri-arrow-right-s-line"></i></a>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-fire-fill"></i>Trending Radio Stations</h2></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row" data-card="1"><img src="assets/images/trending/05.jpg" alt=""><div><h4><a href="station_single.html">Global Hits Radio</a></h4><p>Top Charts 24/7</p></div><button class="ms-mini-play" data-play="1" aria-label="Play Global Hits Radio"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="0"><img src="assets/images/trending/01.jpg" alt=""><div><h4><a href="station_single.html">Bollywood Radio</a></h4><p>Hindi Hits &amp; More</p></div><button class="ms-mini-play" data-play="0" aria-label="Play Bollywood Radio"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="9"><img src="assets/images/recommend/04.jpg" alt=""><div><h4><a href="station_single.html">Lo-fi Radio</a></h4><p>Beats to Relax</p></div><button class="ms-mini-play" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="10"><img src="assets/images/discover/edm.jpg" alt=""><div><h4><a href="station_single.html">Fitness Radio</a></h4><p>High Energy Music</p></div><button class="ms-mini-play" data-play="10" aria-label="Play Fitness Radio"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="5"><img src="assets/images/release/01.jpg" alt=""><div><h4><a href="station_single.html">Retro Radio</a></h4><p>70s, 80s &amp; 90s Hits</p></div><button class="ms-mini-play" data-play="5" aria-label="Play Retro Radio"><i class="ri-play-fill"></i></button></div>
+			</div>
+		</div>
+	</aside>
 
 	<!-- ================= Player ================= -->
 	<div class="ms-player" id="msPlayer">

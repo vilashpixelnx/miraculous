@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">
+	<defs>
+		<radialGradient id="s1" cx=".38" cy=".25" r=".9">
+			<stop offset="0" stop-color="#8E7A9C"/>
+			<stop offset=".5" stop-color="#4A3A58"/>
+			<stop offset="1" stop-color="#231A2C"/>
+		</radialGradient>
+		<radialGradient id="s2" cx=".38" cy=".25" r=".9">
+			<stop offset="0" stop-color="#A28FB0"/>
+			<stop offset=".5" stop-color="#594869"/>
+			<stop offset="1" stop-color="#2C2236"/>
+		</radialGradient>
+		<filter id="blur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="5"/></filter>
+	</defs>
+	<ellipse cx="100" cy="166" rx="70" ry="7" fill="#2A1240" opacity=".4" filter="url(#blur)"/>
+	<ellipse cx="100" cy="146" rx="66" ry="18" fill="url(#s1)"/>
+	<ellipse cx="100" cy="114" rx="52" ry="16" fill="url(#s2)"/>
+	<ellipse cx="100" cy="86" rx="40" ry="14" fill="url(#s1)"/>
+	<ellipse cx="100" cy="62" rx="28" ry="11" fill="url(#s2)"/>
+	<ellipse cx="100" cy="42" rx="17" ry="8" fill="url(#s1)"/>
+	<g fill="#fff" opacity=".28">
+		<ellipse cx="78" cy="139" rx="20" ry="4"/><ellipse cx="84" cy="108" rx="15" ry="3.5"/><ellipse cx="88" cy="81" rx="11" ry="3"/><ellipse cx="92" cy="58" rx="8" ry="2.5"/><ellipse cx="95" cy="39" rx="5" ry="2"/>
+	</g>
+</svg>

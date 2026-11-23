@@ -183,7 +183,8 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		if (cart) {
 			const added = cart.classList.toggle('is-added');
 			$('i', cart).className = added ? 'ri-check-line' : 'ri-shopping-cart-2-line';
-			toast(added ? 'Added to cart' : 'Removed from cart');
+			const inCart = $$('[data-cart].is-added').length;
+			toast(added ? `Added to cart · ${inCart} item${inCart === 1 ? '' : 's'}` : 'Removed from cart');
 		}
 	}, true);
 
@@ -593,6 +594,21 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 			show();
 		}));
 		show();
+	}
+
+	/* Store: product type tabs (top row + side tiles) filter every
+	   [data-store-item]; a section with nothing left is hidden. */
+	const storeTabs = $$('[data-store-tab]');
+	if (storeTabs.length) {
+		const storeEmpty = $('[data-store-empty]');
+		storeTabs.forEach((tab) => tab.addEventListener('click', () => {
+			const kind = tab.dataset.storeTab;
+			storeTabs.forEach((t) => t.classList.toggle('is-active', t.dataset.storeTab === kind && (kind !== 'all' || t.classList.contains('ms-store-tab'))));
+			$$('[data-store-item]').forEach((item) => (item.hidden = kind !== 'all' && !item.dataset.storeItem.split(' ').includes(kind)));
+			$$('.ms-store-sec, .ms-store-promos').forEach((sec) => (sec.hidden = !$$('[data-store-item]', sec).some((i) => !i.hidden)));
+			if (storeEmpty) storeEmpty.hidden = $$('[data-store-item]').some((i) => !i.hidden);
+			if (tab.closest('.ms-rightbar')) $('.ms-store-tabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}));
 	}
 
 	/* Create playlist form ------------------------------------------

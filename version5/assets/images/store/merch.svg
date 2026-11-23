@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200">
+	<defs>
+		<linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#3B3340"/>
+			<stop offset=".5" stop-color="#1E1922"/>
+			<stop offset="1" stop-color="#0E0B10"/>
+		</linearGradient>
+		<linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#FF5C8D"/>
+			<stop offset=".5" stop-color="#FFB3C6"/>
+			<stop offset="1" stop-color="#FD374B"/>
+		</linearGradient>
+		<radialGradient id="cap" cx=".38" cy=".3" r=".85">
+			<stop offset="0" stop-color="#5A5260"/>
+			<stop offset=".5" stop-color="#26202B"/>
+			<stop offset="1" stop-color="#0E0B10"/>
+		</radialGradient>
+		<linearGradient id="mug" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#D9CED6"/>
+			<stop offset=".35" stop-color="#FFFFFF"/>
+			<stop offset="1" stop-color="#C8BAC4"/>
+		</linearGradient>
+		<filter id="blur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="6"/></filter>
+		<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+	</defs>
+	<ellipse cx="170" cy="190" rx="140" ry="9" fill="#2A0820" opacity=".45" filter="url(#blur)"/>
+	<!-- t-shirt -->
+	<path d="M120 20l30-10c6 12 34 12 40 0l30 10 34 32-24 22-14-12v118H124V62l-14 12-24-22z" fill="url(#shirt)"/>
+	<path d="M150 10c6 14 34 14 40 0" fill="none" stroke="#4A4250" stroke-width="4"/>
+	<g fill="url(#wave)" filter="url(#glow)" opacity=".7">
+		<rect x="138" y="80" width="4" height="20" rx="2"/><rect x="146" y="72" width="4" height="36" rx="2"/><rect x="154" y="62" width="4" height="56" rx="2"/><rect x="162" y="70" width="4" height="40" rx="2"/><rect x="170" y="58" width="4" height="64" rx="2"/><rect x="178" y="68" width="4" height="44" rx="2"/><rect x="186" y="62" width="4" height="56" rx="2"/><rect x="194" y="74" width="4" height="32" rx="2"/><rect x="202" y="82" width="4" height="16" rx="2"/>
+	</g>
+	<g fill="url(#wave)">
+		<rect x="138" y="80" width="4" height="20" rx="2"/><rect x="146" y="72" width="4" height="36" rx="2"/><rect x="154" y="62" width="4" height="56" rx="2"/><rect x="162" y="70" width="4" height="40" rx="2"/><rect x="170" y="58" width="4" height="64" rx="2"/><rect x="178" y="68" width="4" height="44" rx="2"/><rect x="186" y="62" width="4" height="56" rx="2"/><rect x="194" y="74" width="4" height="32" rx="2"/><rect x="202" y="82" width="4" height="16" rx="2"/>
+	</g>
+	<!-- cap -->
+	<path d="M24 170c22-16 70-18 100-6 12 5 18 13 12 19-24 7-84 5-112-13z" fill="#0E0B10"/>
+	<path d="M50 168c-4-34 12-62 44-62s48 26 42 62c-26-9-60-10-86 0z" fill="url(#cap)"/>
+	<path d="M76 148l8-24 8 16 8-16 8 24" fill="none" stroke="#FD374B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="M66 124c8-10 20-14 30-12" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="5" stroke-linecap="round"/>
+	<!-- mug -->
+	<path d="M256 134c26-4 34 32 4 38" fill="none" stroke="#C8BAC4" stroke-width="9"/>
+	<rect x="214" y="122" width="48" height="62" rx="8" fill="url(#mug)"/>
+	<ellipse cx="238" cy="122" rx="24" ry="6" fill="#EDE5EA"/>
+	<ellipse cx="238" cy="123" rx="19" ry="4" fill="#7A3A1E"/>
+	<path d="M228 166l5-18 5 11 5-11 5 18" fill="none" stroke="#FD374B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

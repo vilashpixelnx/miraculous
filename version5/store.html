@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -139,50 +139,70 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Store</span></nav>
-					<h1>Music Store<em>Own The Music You Love !</em></h1>
-					<p>Vinyl, CDs, HiFi downloads and official merch. Every purchase supports the artist directly.</p>
-					<div class="ms-page-stats"><div><b>3,200+</b><span>Products</span></div><div><b>HiFi</b><span>Downloads</span></div><div><b>$50</b><span>Free Shipping</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-store" id="msHero" aria-label="Music Store">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
+					<span class="ms-store-vinyl"></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/store/02.jpg" alt=""><img src="assets/images/store/03.jpg" alt=""><img src="assets/images/store/01.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="12">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Music Store</div>
+							<h1>Buy, Collect &amp; Own<em>Your Music</em></h1>
+							<p>Purchase albums, singles, high-quality audio, merchandise and exclusive artist collections.</p>
+						</div>
+						<div class="ms-hero-art">
+							<picture style="--cut-w:116%;--cut-l:36%;--cut-t:3%">
+								<source srcset="assets/images/feed/feed-girl.webp" type="image/webp">
+								<img src="assets/images/feed/feed-girl.png" alt="Woman enjoying music with headphones" width="1218" height="1291">
+							</picture>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="#hStoreFeat" class="ms-btn"><i class="ri-shopping-cart-2-line"></i>Browse Store <i class="ri-arrow-right-line"></i></a>
+					<a href="purchase.html" class="ms-btn ms-btn-outline"><i class="ri-shopping-bag-3-line"></i>My Purchases</a>
+				</div>
+
 			</section>
 
-			<div class="ms-section ms-reveal">
-				<div class="ms-perks">
-					<div class="ms-perk"><i class="ri-hq-line"></i><div><h4>Lossless Audio</h4><p>24-bit FLAC downloads</p></div></div>
-					<div class="ms-perk"><i class="ri-truck-line"></i><div><h4>Free Shipping</h4><p>On orders over $50</p></div></div>
-					<div class="ms-perk"><i class="ri-shield-check-line"></i><div><h4>Secure Checkout</h4><p>Cards, PayPal &amp; Apple Pay</p></div></div>
-					<div class="ms-perk"><i class="ri-gift-line"></i><div><h4>Gift Cards</h4><p>From $10, delivered instantly</p></div></div>
+			<!-- Product type tabs -->
+			<div class="ms-store-tabs" role="group" aria-label="Product type"><button class="ms-store-tab is-active" data-store-tab="all"><i class="ri-music-2-line"></i><span>All products</span></button><button class="ms-store-tab" data-store-tab="albums"><i class="ri-stack-line"></i><span>Albums</span></button><button class="ms-store-tab" data-store-tab="singles"><i class="ri-music-line"></i><span>Singles</span></button><button class="ms-store-tab" data-store-tab="eps"><i class="ri-broadcast-line"></i><span>EPs</span></button><button class="ms-store-tab" data-store-tab="vinyl"><i class="ri-disc-line"></i><span>Vinyl</span></button><button class="ms-store-tab" data-store-tab="merch"><i class="ri-headphone-line"></i><span>Merchandise</span></button><button class="ms-store-tab" data-store-tab="bundles"><i class="ri-gift-line"></i><span>Bundles</span></button><button class="ms-store-tab" data-store-tab="premium"><i class="ri-vip-crown-2-line"></i><span>Premium</span></button></div>
+
+			<section class="ms-section ms-reveal ms-store-sec" aria-labelledby="hStoreFeat">
+				<div class="ms-sec-head"><h2 id="hStoreFeat" class="ms-sec-icon"><i class="ri-star-line"></i>Featured in Store</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-store-grid ms-store-grid-4"><div class="ms-store-card is-big" data-store-item="albums vinyl" data-card="12"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/recommend/03.jpg" alt=""></a></div><h3><a href="album_single.html">The Heartbeat Steps</a></h3><p>Ava Cornish</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add The Heartbeat Steps to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card is-big" data-store-item="albums" data-card="3"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/trending/06.jpg" alt=""></a></div><h3><a href="album_single.html">Open Roads</a></h3><p>Kevin Buckland</p><div class="ms-store-buy"><b>$8.99</b><button class="ms-cart-btn" data-cart aria-label="Add Open Roads to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card is-big" data-store-item="albums bundles" data-card="6"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/trending/05.jpg" alt=""></a></div><h3><a href="album_single.html">Midnight Vibes</a></h3><p>Brian Hill</p><div class="ms-store-buy"><b>$9.99</b><button class="ms-cart-btn" data-cart aria-label="Add Midnight Vibes to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card is-big" data-store-item="singles" data-card="7"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/discover/romantic.jpg" alt=""></a></div><h3><a href="album_single.html">Love Routes</a></h3><p>Claire Hudson</p><div class="ms-store-buy"><b>$7.49</b><button class="ms-cart-btn" data-cart aria-label="Add Love Routes to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div></div>
+			</section>
+
+			<!-- Promo banners -->
+			<div class="ms-store-promos ms-section ms-reveal">
+				<a href="#hStoreBest" class="ms-promo ms-promo-merch" data-store-item="merch">
+					<div><h3>Artist<br>Merchandise</h3><p>T-Shirts, Hoodies, Mugs<br>&amp; More</p><span class="ms-btn ms-btn-sm">Shop Merch <i class="ri-arrow-right-line"></i></span></div>
+					<img src="assets/images/store/merch.svg" alt="Black T-shirt, cap and mug with the Miraculous logo">
+				</a>
+				<div class="ms-promo ms-promo-premium" data-store-item="premium">
+					<div><h3><i class="ri-vip-crown-2-fill"></i> Premium Membership</h3>
+					<ul><li><i class="ri-checkbox-circle-fill"></i>Download &amp; own your music</li><li><i class="ri-checkbox-circle-fill"></i>Hi-Res audio (Lossless)</li><li><i class="ri-checkbox-circle-fill"></i>Exclusive store discounts</li></ul>
+					<a href="manage_acc.html" class="ms-btn ms-btn-sm">Get Premium <i class="ri-arrow-right-line"></i></a></div>
+					<img src="assets/images/category/crown.svg" alt="">
 				</div>
 			</div>
 
-			<section class="ms-section ms-reveal" aria-labelledby="hShop">
-				<div class="ms-sec-head"><h2 id="hShop">Shop All</h2></div>
-				<div class="ms-filter-bar"><div class="ms-chips" data-filter-group="msShopGrid" role="group" aria-label="Filter"><button class="ms-chip is-active" data-filter="all">All</button><button class="ms-chip" data-filter="vinyl">Vinyl</button><button class="ms-chip" data-filter="cd">CD</button><button class="ms-chip" data-filter="digital">Digital</button><button class="ms-chip" data-filter="merch">Merch</button></div>
-					<div class="dropdown" data-sort="msShopGrid"><button class="ms-sort-btn" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-sort-desc"></i><span data-sort-label>Sort By</span><i class="ri-arrow-down-s-line"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#" data-sort-by="title">A &ndash; Z</a></li></ul></div>
-				</div>
-				<div class="ms-product-grid" id="msShopGrid">
-					<div class="ms-product" data-genre="vinyl" data-title="quiet rivers"><div class="ms-product-img"><span class="ms-tag">Hot</span><img src="assets/images/store/01.jpg" alt=""></div><div class="ms-product-type">Vinyl</div><h3>Quiet Rivers</h3><p>Anna Ellison</p><div class="ms-product-foot"><b>$12.99</b><button class="ms-cart" data-cart aria-label="Add Quiet Rivers to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="digital" data-title="neon nights"><div class="ms-product-img"><img src="assets/images/store/02.jpg" alt=""></div><div class="ms-product-type">Album</div><h3>Neon Nights</h3><p>Max Glover</p><div class="ms-product-foot"><b>$9.99</b><button class="ms-cart" data-cart aria-label="Add Neon Nights to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="vinyl" data-title="wildflower"><div class="ms-product-img"><span class="ms-tag">New</span><img src="assets/images/store/03.jpg" alt=""></div><div class="ms-product-type">Vinyl</div><h3>Wildflower</h3><p>Claire Hudson</p><div class="ms-product-foot"><b>$11.49</b><button class="ms-cart" data-cart aria-label="Add Wildflower to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="digital" data-title="blue static"><div class="ms-product-img"><img src="assets/images/store/04.jpg" alt=""></div><div class="ms-product-type">Album</div><h3>Blue Static</h3><p>David Parker</p><div class="ms-product-foot"><b>$8.99</b><button class="ms-cart" data-cart aria-label="Add Blue Static to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="vinyl" data-title="midnight echoes"><div class="ms-product-img"><span class="ms-tag">New</span><img src="assets/images/hero/album-echoes.jpg" alt=""></div><div class="ms-product-type">Vinyl</div><h3>Midnight Echoes</h3><p>Claire Hudson</p><div class="ms-product-foot"><b>$14.99</b><button class="ms-cart" data-cart aria-label="Add Midnight Echoes to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="digital" data-title="walking promises"><div class="ms-product-img"><img src="assets/images/trending/01.jpg" alt=""></div><div class="ms-product-type">Album</div><h3>Walking Promises</h3><p>Ava Cornish</p><div class="ms-product-foot"><b>$9.99</b><button class="ms-cart" data-cart aria-label="Add Walking Promises to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="merch" data-title="velvet sky"><div class="ms-product-img"><img src="assets/images/release/06.jpg" alt=""></div><div class="ms-product-type">Merch</div><h3>Velvet Sky</h3><p>Max Glover</p><div class="ms-product-foot"><b>$24.00</b><button class="ms-cart" data-cart aria-label="Add Velvet Sky to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="cd" data-title="golden hour"><div class="ms-product-img"><img src="assets/images/release/03.jpg" alt=""></div><div class="ms-product-type">CD</div><h3>Golden Hour</h3><p>Claire Hudson</p><div class="ms-product-foot"><b>$10.99</b><button class="ms-cart" data-cart aria-label="Add Golden Hour to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="merch" data-title="tour hoodie"><div class="ms-product-img"><span class="ms-tag">Hot</span><img src="assets/images/trending/02.jpg" alt=""></div><div class="ms-product-type">Merch</div><h3>Tour Hoodie</h3><p>Brian Hill</p><div class="ms-product-foot"><b>$45.00</b><button class="ms-cart" data-cart aria-label="Add Tour Hoodie to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="digital" data-title="paper hearts"><div class="ms-product-img"><img src="assets/images/release/04.jpg" alt=""></div><div class="ms-product-type">EP</div><h3>Paper Hearts</h3><p>David Parker</p><div class="ms-product-foot"><b>$7.99</b><button class="ms-cart" data-cart aria-label="Add Paper Hearts to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="cd" data-title="slow mornings"><div class="ms-product-img"><img src="assets/images/release/05.jpg" alt=""></div><div class="ms-product-type">CD</div><h3>Slow Mornings</h3><p>Anna Ellison</p><div class="ms-product-foot"><b>$11.99</b><button class="ms-cart" data-cart aria-label="Add Slow Mornings to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-					<div class="ms-product" data-genre="vinyl" data-title="cloud nine"><div class="ms-product-img"><img src="assets/images/release/02.jpg" alt=""></div><div class="ms-product-type">Vinyl</div><h3>Cloud Nine</h3><p>Brian Hill</p><div class="ms-product-foot"><b>$12.49</b><button class="ms-cart" data-cart aria-label="Add Cloud Nine to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div>
-				</div>
+			<section class="ms-section ms-reveal ms-store-sec" aria-labelledby="hStoreBest">
+				<div class="ms-sec-head"><h2 id="hStoreBest" class="ms-sec-icon"><i class="ri-heart-pulse-line"></i>Best Selling</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-store-grid ms-store-grid-5"><div class="ms-store-card " data-store-item="singles" data-card="1"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/trending/02.jpg" alt=""></a><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Until I Met You</a></h3><p>Brian Hill</p><div class="ms-store-buy"><b>$8.99</b><button class="ms-cart-btn" data-cart aria-label="Add Until I Met You to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="albums" data-card="6"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/release/02.jpg" alt=""></a><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Cloud Nine</a></h3><p>Ava Cornish</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add Cloud Nine to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="eps" data-card="7"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/release/03.jpg" alt=""></a><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Golden Hour</a></h3><p>Claire Hudson</p><div class="ms-store-buy"><b>$8.49</b><button class="ms-cart-btn" data-cart aria-label="Add Golden Hour to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="vinyl" data-card="8"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/release/04.jpg" alt=""></a><button class="ms-play-sm" data-play="8" aria-label="Play Electric Dreams"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Electric Dreams</a></h3><p>David Parker</p><div class="ms-store-buy"><b>$9.99</b><button class="ms-cart-btn" data-cart aria-label="Add Electric Dreams to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="albums" data-card="10"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/release/06.jpg" alt=""></a><button class="ms-play-sm" data-play="10" aria-label="Play Velvet Sky"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Velvet Sky</a></h3><p>Max Glover</p><div class="ms-store-buy"><b>$8.49</b><button class="ms-cart-btn" data-cart aria-label="Add Velvet Sky to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div></div>
 			</section>
 
-			<div class="ms-section ms-reveal">
-				<div class="ms-cta-strip"><i class="ri-vip-crown-2-fill"></i><div><h3>Premium members save 15%</h3><p>Get a discount on every vinyl, CD and download, plus early access to limited editions.</p></div><a href="manage_acc.html" class="ms-btn">Go Premium <i class="ri-arrow-right-line"></i></a></div>
-			</div>
+			<section class="ms-section ms-reveal ms-store-sec" aria-labelledby="hStoreNew">
+				<div class="ms-sec-head"><h2 id="hStoreNew" class="ms-sec-icon"><span class="ms-new-badge">NEW</span>New in Store</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-store-grid ms-store-grid-5"><div class="ms-store-card " data-store-item="eps" data-card="9"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/release/05.jpg" alt=""></a><button class="ms-play-sm" data-play="9" aria-label="Play Silent Stories"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Silent Stories</a></h3><p>Anna Ellison</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add Silent Stories to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="albums" data-card="4"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/hero/album-echoes.jpg" alt=""></a><button class="ms-play-sm" data-play="4" aria-label="Play Echoes of You"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Echoes of You</a></h3><p>Max Glover</p><div class="ms-store-buy"><b>$8.49</b><button class="ms-cart-btn" data-cart aria-label="Add Echoes of You to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="singles" data-card="8"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/store/01.jpg" alt=""></a><button class="ms-play-sm" data-play="8" aria-label="Play Paper Hearts"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Paper Hearts</a></h3><p>David Parker</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add Paper Hearts to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="vinyl" data-card="3"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/trending/04.jpg" alt=""></a><button class="ms-play-sm" data-play="3" aria-label="Play Dark Alley Acoustic"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Dark Alley Acoustic</a></h3><p>Kevin Buckland</p><div class="ms-store-buy"><b>$9.49</b><button class="ms-cart-btn" data-cart aria-label="Add Dark Alley Acoustic to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="bundles" data-card="14"><div class="ms-store-media"><a href="album_single.html"><img src="assets/images/store/03.jpg" alt=""></a><button class="ms-play-sm" data-play="14" aria-label="Play Endless Things"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Endless Things</a></h3><p>Ava Cornish</p><div class="ms-store-buy"><b>$8.99</b><button class="ms-cart-btn" data-cart aria-label="Add Endless Things to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div></div>
+			</section>
+
+			<p class="ms-empty" data-store-empty hidden>No products in this category yet.</p>
 
 			<!-- Footer -->
 			<footer class="ms-footer">
@@ -216,6 +236,57 @@ Purchase:
 			</footer>
 		</main>
 	</div>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and store extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Top Store Picks</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row ms-pick"><img src="assets/images/recommend/03.jpg" alt=""><div><h4><a href="album_single.html">The Heartbeat Steps</a></h4><p>Album &middot; $7.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add The Heartbeat Steps to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="assets/images/trending/06.jpg" alt=""><div><h4><a href="album_single.html">Open Roads</a></h4><p>Album &middot; $8.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Open Roads to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="assets/images/trending/05.jpg" alt=""><div><h4><a href="album_single.html">Midnight Vibes</a></h4><p>Album &middot; $9.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Midnight Vibes to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="assets/images/discover/romantic.jpg" alt=""><div><h4><a href="album_single.html">Love Routes</a></h4><p>Album &middot; $7.49</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Love Routes to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="assets/images/release/04.jpg" alt=""><div><h4><a href="album_single.html">Electric Dreams</a></h4><p>Album &middot; $9.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Electric Dreams to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Store Categories</h2></div>
+			<div class="ms-genre-tiles ms-store-cats"><button class="ms-genre-tile is-cat is-albums" data-store-tab="albums"><span>Albums</span><img src="assets/images/category/album.svg" alt=""></button><button class="ms-genre-tile is-cat is-singles" data-store-tab="singles"><span>Singles</span><img src="assets/images/category/genre.svg" alt=""></button><button class="ms-genre-tile is-cat is-vinyl" data-store-tab="vinyl"><span>Vinyl</span><img src="assets/images/category/decade.svg" alt=""></button><button class="ms-genre-tile is-cat is-merch" data-store-tab="merch"><span>Merch</span><img src="assets/images/genre/cap.svg" alt=""></button><button class="ms-genre-tile is-cat is-bundles" data-store-tab="bundles"><span>Bundles</span><img src="assets/images/category/gift.svg" alt=""></button><button class="ms-genre-tile is-cat is-premium" data-store-tab="premium"><span>Premium</span><img src="assets/images/category/crown.svg" alt=""></button></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Recently Purchased</h2><a href="purchase.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row" data-card="7"><img src="assets/images/release/03.jpg" alt=""><div><h4>Golden Hour</h4><p>Claire Hudson</p></div><button class="ms-mini-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="6"><img src="assets/images/release/02.jpg" alt=""><div><h4>Cloud Nine</h4><p>Ava Cornish</p></div><button class="ms-mini-play" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="10"><img src="assets/images/discover/edm.jpg" alt=""><div><h4>Workout Mix (EP)</h4><p>Various Artists</p></div><button class="ms-mini-play" data-play="10" aria-label="Play Workout Mix (EP)"><i class="ri-play-fill"></i></button></div>
+			</div>
+		</div>
+	</aside>
 
 	<!-- ================= Player ================= -->
 	<div class="ms-player" id="msPlayer">
