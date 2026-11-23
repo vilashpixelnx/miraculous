@@ -2623,6 +2623,106 @@ select.ms-input { appearance: none; background: var(--ms-bg) url("data:image/svg
 .ms-genre-tile.is-premium { background: linear-gradient(135deg, #FFF6DC, #FCDFA0); }
 .ms-pick .ms-cart-btn { flex-shrink: 0; }
 
+/* Log in / Sign up page (login.html): full screen, no sidebar or player */
+.ms-auth { position: relative; display: flex; min-height: 100vh; overflow: hidden; background: linear-gradient(135deg, #FDF2F4 0%, #FCE6EA 100%); }
+.ms-auth::before { content: ''; position: absolute; top: -90px; right: -90px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #FF8FA3, #F05A86 70%); opacity: .55; }
+
+/* left: magenta panel with the cut-out photo */
+.ms-auth-art { position: relative; flex: 0 0 46%; display: flex; flex-direction: column; justify-content: flex-end; padding: 34px 54px 30px; color: #fff; background: linear-gradient(160deg, #7A1A55 0%, #B82A6A 45%, #F06B97 100%); border-top-right-radius: 46% 22%; border-bottom-right-radius: 34% 40%; isolation: isolate; overflow: hidden; }
+.ms-auth-logo { position: absolute; top: 28px; left: 54px; z-index: 3; display: inline-flex; align-items: center; gap: 9px; font-size: 22px; font-weight: 750; letter-spacing: -.02em; color: #fff; }
+.ms-auth-logo svg { width: 40px; height: 31px; }
+.ms-auth-ring { position: absolute; top: 9%; left: 8%; z-index: -1; width: 430px; height: 430px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .55); box-shadow: 0 0 40px rgba(255, 170, 200, .55), inset 0 0 40px rgba(255, 170, 200, .35); }
+.ms-auth-girl { position: absolute; top: 4%; right: -6%; z-index: -1; width: 82%; }
+.ms-auth-girl img { width: 100%; height: auto; -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 97%); mask-image: linear-gradient(180deg, #000 62%, transparent 97%); }
+.ms-auth-art::after { content: ''; position: absolute; inset: 45% 0 0; z-index: -1; background: linear-gradient(180deg, rgba(122, 26, 85, 0) 0%, rgba(122, 26, 85, .82) 55%, rgba(110, 20, 75, .95) 100%); }
+.ms-auth-wave { position: absolute; top: 31%; left: 4%; z-index: -1; display: flex; align-items: center; gap: 4px; height: 70px; }
+.ms-auth-wave span { width: 3px; height: calc(var(--h) * 1%); border-radius: 3px; background: rgba(255, 255, 255, .85); box-shadow: 0 0 8px rgba(255, 200, 220, .8); animation: ms-wave 1.4s ease-in-out infinite; animation-delay: calc(var(--i) * -.1s); }
+.ms-auth-now { display: flex; align-items: center; gap: 12px; width: 300px; margin-bottom: 26px; padding: 10px 12px; border-radius: 16px; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .28); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.ms-auth-now img { width: 72px; height: 64px; border-radius: 10px; object-fit: cover; }
+.ms-auth-now div { flex: 1; min-width: 0; }
+.ms-auth-now b { display: block; font-size: 15px; font-weight: 600; }
+.ms-auth-now span { font-size: 12.5px; white-space: nowrap; opacity: .85; }
+.ms-auth-terms { font-size: 14px; }
+.ms-auth-now button { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--ms-text); font-size: 20px; transition: transform var(--ms-t); }
+.ms-auth-now button i { margin-left: 2px; }
+.ms-auth-now button:hover { transform: scale(1.08); }
+.ms-auth-slides { position: relative; min-height: 150px; }
+.ms-auth-slide { position: absolute; inset: 0 0 auto; opacity: 0; transform: translateY(12px); transition: opacity .5s var(--ms-ease), transform .5s var(--ms-ease); pointer-events: none; }
+.ms-auth-slide.is-active { position: relative; opacity: 1; transform: none; pointer-events: auto; }
+.ms-auth-slide h2 { font-family: var(--ms-font-display); font-size: 50px; font-style: italic; font-weight: 700; line-height: 1.02; letter-spacing: -.01em; color: #fff; }
+.ms-auth-slide h2 em { display: block; color: #FF7E9C; }
+.ms-auth-slide p { margin-top: 12px; max-width: 400px; font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, .9); }
+.ms-auth-feats { display: flex; gap: 26px; margin-top: 20px; }
+.ms-auth-feats li { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 92px; text-align: center; font-size: 13px; font-weight: 500; line-height: 1.25; }
+.ms-auth-feats i { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 12px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .3); font-size: 22px; }
+.ms-auth-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+.ms-auth-dots button { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, .45); transition: width var(--ms-t), background var(--ms-t); }
+.ms-auth-dots button.is-active { width: 22px; border-radius: 9px; background: #FF5C80; }
+
+/* right: form card */
+.ms-auth-main { position: relative; z-index: 1; flex: 1; display: grid; place-items: center; padding: 40px 56px; }
+.ms-auth-card { width: 100%; max-width: 560px; padding: 40px 64px 36px; border-radius: 40px; background: rgba(255, 255, 255, .72); border: 1px solid rgba(255, 255, 255, .9); box-shadow: 0 30px 70px rgba(var(--ms-plum-rgb), .1); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.ms-auth-card .ms-logo { display: flex; justify-content: center; font-size: 28px; }
+.ms-auth-card .ms-logo svg { width: 52px; height: 40px; }
+.ms-auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 26px auto 0; padding: 4px; max-width: 380px; border-radius: 50px; background: rgba(255, 255, 255, .8); border: 1px solid var(--ms-line); }
+.ms-auth-tabs button { height: 44px; border-radius: 50px; font-size: 15px; font-weight: 600; color: var(--ms-text); transition: background var(--ms-t), color var(--ms-t); }
+.ms-auth-tabs button.is-active { background: var(--ms-grad-cta); color: #fff; box-shadow: var(--ms-shadow-coral); }
+.ms-auth-form[hidden] { display: none; }
+.ms-auth-form h1 { margin-top: 24px; text-align: center; font-size: 34px; font-weight: 800; letter-spacing: -.02em; }
+.ms-auth-form > p { margin-top: 4px; text-align: center; font-size: 15px; color: var(--ms-text-2); }
+.ms-auth-fields { display: flex; flex-direction: column; gap: 14px; margin-top: 26px; }
+.ms-auth-field { position: relative; display: flex; align-items: center; height: 54px; padding: 0 18px; border-radius: 14px; background: rgba(255, 255, 255, .9); border: 1.5px solid var(--ms-line); transition: border-color var(--ms-t), box-shadow var(--ms-t); }
+.ms-auth-field:focus-within { border-color: var(--ms-coral-2); box-shadow: 0 0 0 4px rgba(var(--ms-coral-rgb), .08); }
+.ms-auth-field.is-error { border-color: var(--ms-coral); }
+.ms-auth-field > i { font-size: 20px; color: var(--ms-text); }
+.ms-auth-field input { flex: 1; min-width: 0; height: 100%; padding: 0 12px; border: 0; outline: 0; background: none; font-size: 15px; color: var(--ms-text); }
+.ms-auth-field input::placeholder { color: #8E8285; }
+.ms-auth-eye { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; font-size: 19px; color: var(--ms-text); }
+.ms-auth-eye:hover { color: var(--ms-coral); }
+.ms-auth-row { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; font-size: 14px; }
+.ms-auth-row a { font-weight: 600; color: var(--ms-coral); }
+.ms-auth-row a:hover { text-decoration: underline; }
+.ms-auth-form .ms-check span { width: 22px; height: 22px; border-radius: 6px; }
+.ms-auth-form .ms-check input:checked + span::after { left: 7px; top: 2px; width: 6px; height: 11px; }
+.ms-auth-form .ms-check, .ms-auth-form .ms-check:has(input:checked) { color: var(--ms-text); font-weight: 400; }
+.ms-auth-form .ms-check a { color: var(--ms-coral); font-weight: 600; }
+.ms-auth-submit { width: 100%; height: 54px; margin-top: 22px; font-size: 16px; }
+.ms-auth-msg { margin-top: 12px; padding: 10px 14px; border-radius: 10px; font-size: 13.5px; text-align: center; }
+.ms-auth-msg.is-error { background: #FFE8EC; color: #C4183C; }
+.ms-auth-msg.is-ok { background: #E7F8EE; color: #17804A; }
+.ms-auth-or { display: flex; align-items: center; gap: 16px; margin-top: 24px; font-size: 14px; color: var(--ms-text-2); }
+.ms-auth-or::before, .ms-auth-or::after { content: ''; flex: 1; height: 1px; background: var(--ms-line); }
+.ms-auth-social { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.ms-auth-social button { display: flex; align-items: center; justify-content: center; gap: 10px; height: 50px; border-radius: 50px; background: #fff; border: 1.5px solid var(--ms-line); font-size: 15px; font-weight: 600; color: var(--ms-text); transition: border-color var(--ms-t), transform var(--ms-t); }
+.ms-auth-social button:hover { border-color: var(--ms-coral-2); transform: translateY(-2px); }
+.ms-auth-social svg { width: 22px; height: 22px; }
+.ms-auth-switch { margin-top: 24px; text-align: center; font-size: 15px; color: var(--ms-text); }
+.ms-auth-switch button { margin-left: 6px; font-size: 17px; font-weight: 700; color: var(--ms-coral); }
+.ms-auth-switch button:hover { text-decoration: underline; }
+.ms-auth-vinyl { position: absolute; right: -90px; bottom: -90px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, #FF8FB0 0 13%, #E4407A 14% 22%, #241A1E 23% 25%, #1A1215 26% 44%, #2C2026 45% 46%, #1A1215 47% 66%, #2C2026 67% 68%, #1A1215 69% 100%); box-shadow: 0 20px 50px rgba(0, 0, 0, .25); animation: ms-spin 12s linear infinite; }
+.ms-auth-vinyl::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(135deg, rgba(255, 255, 255, .22), rgba(255, 255, 255, 0) 45%); }
+.ms-auth-toast { position: fixed; left: 50%; bottom: 28px; z-index: 50; padding: 12px 20px; border-radius: 12px; background: #332834; color: #fff; font-size: 14px; box-shadow: var(--ms-shadow); opacity: 0; transform: translate(-50%, 10px); transition: opacity var(--ms-t), transform var(--ms-t); pointer-events: none; }
+.ms-auth-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 1399.98px) {
+	.ms-auth-art { padding: 30px 40px 26px; }
+	.ms-auth-logo { left: 40px; }
+	.ms-auth-ring { width: 340px; height: 340px; }
+	.ms-auth-slide h2 { font-size: 40px; }
+	.ms-auth-slide p { font-size: 14px; }
+	.ms-auth-feats { gap: 14px; }
+	.ms-auth-feats li { width: 80px; font-size: 12px; }
+	.ms-auth-now { width: 270px; margin-bottom: 18px; }
+	.ms-auth-main { padding: 28px 40px; }
+	.ms-auth-card { padding: 30px 44px 28px; }
+	.ms-auth-form h1 { margin-top: 18px; font-size: 30px; }
+	.ms-auth-fields { margin-top: 20px; gap: 12px; }
+	.ms-auth-field { height: 50px; }
+	.ms-auth-submit { height: 50px; margin-top: 18px; }
+	.ms-auth-or { margin-top: 18px; }
+	.ms-auth-social button { height: 46px; font-size: 14px; }
+	.ms-auth-switch { margin-top: 18px; }
+}
+
 /* 13. Responsive --------------------------------------------------*/
 @media (min-width: 1500px) {
 	.ms-seek { flex-basis: 260px; }
