@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">
+	<defs>
+		<radialGradient id="outer" cx=".5" cy=".75" r=".8">
+			<stop offset="0" stop-color="#FFB04A"/>
+			<stop offset=".55" stop-color="#FF5A2E"/>
+			<stop offset="1" stop-color="#C21E2E"/>
+		</radialGradient>
+		<radialGradient id="mid" cx=".5" cy=".75" r=".75">
+			<stop offset="0" stop-color="#FFE27A"/>
+			<stop offset=".6" stop-color="#FF9A2E"/>
+			<stop offset="1" stop-color="#F0602A"/>
+		</radialGradient>
+		<radialGradient id="core" cx=".5" cy=".7" r=".7">
+			<stop offset="0" stop-color="#FFFDF0"/>
+			<stop offset=".5" stop-color="#FFF0A0"/>
+			<stop offset="1" stop-color="#FFC94A"/>
+		</radialGradient>
+		<filter id="blur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="5"/></filter>
+	</defs>
+	<ellipse cx="100" cy="168" rx="52" ry="7" fill="#8E1426" opacity=".4" filter="url(#blur)"/>
+	<path d="M100 10c10 30 48 46 48 96 0 30-21 56-48 56s-48-26-48-56c0-26 14-38 22-56 4 14 10 20 16 22 0-26 2-44 10-62z" fill="url(#outer)"/>
+	<path d="M100 54c6 20 32 32 32 64 0 22-14 38-32 38s-32-16-32-38c0-16 8-26 14-36 2 10 6 14 10 15 0-16 2-30 8-43z" fill="url(#mid)"/>
+	<path d="M100 96c4 12 18 20 18 36 0 13-8 22-18 22s-18-9-18-22c0-12 6-18 10-24 1 5 3 7 5 7 0-8 1-13 3-19z" fill="url(#core)"/>
+	<path d="M68 96c-4 10-6 18-4 28" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+</svg>

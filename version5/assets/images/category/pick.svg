@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">
+	<defs>
+		<linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#C9851A"/>
+			<stop offset=".35" stop-color="#FFE48A"/>
+			<stop offset=".6" stop-color="#F7B733"/>
+			<stop offset="1" stop-color="#A9670E"/>
+		</linearGradient>
+		<linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#FFE9A0"/>
+			<stop offset="1" stop-color="#B8740F"/>
+		</linearGradient>
+		<linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#7B4FE0"/>
+			<stop offset="1" stop-color="#3B1C96"/>
+		</linearGradient>
+		<filter id="blur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="5"/></filter>
+	</defs>
+	<ellipse cx="100" cy="168" rx="56" ry="7" fill="#2A1270" opacity=".4" filter="url(#blur)"/>
+	<!-- handles -->
+	<path d="M56 36c-30 0-34 44 4 50" fill="none" stroke="#B8740F" stroke-width="10" stroke-linecap="round"/>
+	<path d="M144 36c30 0 34 44-4 50" fill="none" stroke="#B8740F" stroke-width="10" stroke-linecap="round"/>
+	<path d="M56 36c-30 0-34 44 4 50" fill="none" stroke="#FFD86A" stroke-width="5" stroke-linecap="round"/>
+	<path d="M144 36c30 0 34 44-4 50" fill="none" stroke="#FFD86A" stroke-width="5" stroke-linecap="round"/>
+	<!-- cup -->
+	<path d="M50 24h100c0 50-18 78-50 82-32-4-50-32-50-82z" fill="url(#gold)"/>
+	<ellipse cx="100" cy="24" rx="50" ry="8" fill="url(#goldV)"/>
+	<ellipse cx="100" cy="24" rx="42" ry="5" fill="#C9851A" opacity=".55"/>
+	<path d="M66 34c2 30 10 48 22 58" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+	<!-- star -->
+	<path d="M100 44l6.5 13.2 14.5 2.1-10.5 10.2 2.5 14.5-13-6.8-13 6.8 2.5-14.5-10.5-10.2 14.5-2.1z" fill="#FFF6D0" stroke="#C9851A" stroke-width="1.5"/>
+	<!-- stem + base -->
+	<rect x="90" y="104" width="20" height="22" fill="url(#gold)"/>
+	<path d="M76 126h48l6 14H70z" fill="url(#gold)"/>
+	<rect x="62" y="140" width="76" height="20" rx="4" fill="url(#base)"/>
+	<rect x="80" y="146" width="40" height="8" rx="2" fill="#FFD86A" opacity=".85"/>
+</svg>

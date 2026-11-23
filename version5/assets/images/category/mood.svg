@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180">
+	<defs>
+		<radialGradient id="face" cx=".36" cy=".3" r=".8">
+			<stop offset="0" stop-color="#FFF6B8"/>
+			<stop offset=".35" stop-color="#FFD84A"/>
+			<stop offset=".8" stop-color="#F7A21B"/>
+			<stop offset="1" stop-color="#D9780F"/>
+		</radialGradient>
+		<radialGradient id="cheek" cx=".5" cy=".5" r=".5">
+			<stop offset="0" stop-color="#FF6F91" stop-opacity=".75"/>
+			<stop offset="1" stop-color="#FF6F91" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="mouth" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#7A2A12"/>
+			<stop offset="1" stop-color="#4A1406"/>
+		</linearGradient>
+		<filter id="blur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="5"/></filter>
+	</defs>
+	<ellipse cx="100" cy="168" rx="58" ry="7" fill="#9B1F4A" opacity=".35" filter="url(#blur)"/>
+	<circle cx="100" cy="90" r="70" fill="url(#face)"/>
+	<circle cx="100" cy="90" r="70" fill="none" stroke="#C9670C" stroke-opacity=".35" stroke-width="2"/>
+	<!-- closed laughing eyes -->
+	<path d="M62 78q12-14 24 0" fill="none" stroke="#5A2208" stroke-width="7" stroke-linecap="round"/>
+	<path d="M114 78q12-14 24 0" fill="none" stroke="#5A2208" stroke-width="7" stroke-linecap="round"/>
+	<!-- mouth -->
+	<path d="M58 98h84q-4 42-42 42t-42-42z" fill="url(#mouth)"/>
+	<path d="M70 120q30 18 60 0q-10 20-30 20t-30-20z" fill="#FF6F86"/>
+	<path d="M62 98h76q-1 8-4 12H66q-3-4-4-12z" fill="#fff"/>
+	<!-- cheeks + shine -->
+	<ellipse cx="52" cy="104" rx="14" ry="9" fill="url(#cheek)"/>
+	<ellipse cx="148" cy="104" rx="14" ry="9" fill="url(#cheek)"/>
+	<ellipse cx="74" cy="44" rx="24" ry="12" fill="#fff" opacity=".55" transform="rotate(-24 74 44)"/>
+</svg>

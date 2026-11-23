@@ -594,4 +594,50 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		}));
 		show();
 	}
+
+	/* Create playlist form ------------------------------------------
+	   Character counters, cover preview, mood chips, picking songs
+	   (with a running count), song search and a friendly submit. */
+	const cpForm = $('[data-create-playlist]');
+	if (cpForm) {
+		$$('[data-count]', cpForm).forEach((field) => {
+			const out = document.getElementById(field.dataset.count);
+			const update = () => { if (out) out.textContent = field.value.length; };
+			field.addEventListener('input', update);
+			update();
+		});
+		const coverInput = $('[data-cover-input]', cpForm);
+		coverInput?.addEventListener('change', () => {
+			const file = coverInput.files[0];
+			if (file) $('[data-cover-preview]', cpForm).src = URL.createObjectURL(file);
+		});
+		$$('[data-chip-toggle]', cpForm).forEach((chip) => chip.addEventListener('click', () => chip.classList.toggle('is-active')));
+
+		const countOut = $('[data-pick-count]');
+		const picks = $$('[data-pick]', cpForm);
+		picks.forEach((btn) => btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const on = btn.classList.toggle('is-active');
+			$('i', btn).className = on ? 'ri-check-line' : 'ri-add-line';
+			if (countOut) countOut.textContent = picks.filter((b) => b.classList.contains('is-active')).length;
+		}));
+		const pickSearch = $('[data-pick-search]', cpForm);
+		const pickEmpty = $('[data-pick-empty]', cpForm);
+		pickSearch?.addEventListener('input', () => {
+			const q = pickSearch.value.trim().toLowerCase();
+			let shown = 0;
+			$$('.ms-pick-row', cpForm).forEach((row) => {
+				row.hidden = q && !row.dataset.title.toLowerCase().includes(q);
+				if (!row.hidden) shown++;
+			});
+			if (pickEmpty) pickEmpty.hidden = shown > 0;
+		});
+		cpForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const name = $('[data-cp-name]', cpForm);
+			if (!name.value.trim()) { toast('Please give your playlist a name'); name.focus(); return; }
+			const n = picks.filter((b) => b.classList.contains('is-active')).length;
+			toast(`Playlist “${name.value.trim()}” created with ${n} song${n === 1 ? '' : 's'}`);
+		});
+	}
 })();
