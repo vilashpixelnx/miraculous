@@ -110,8 +110,8 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 				d.setAttribute('aria-selected', n === current ? 'true' : 'false');
 			});
 		};
-		// TEMP: autoplay off while testing — set HERO_AUTOPLAY = true to turn it back on
-		const HERO_AUTOPLAY = false;
+		// hero slides change every 7s (paused for reduced-motion users)
+		const HERO_AUTOPLAY = true;
 		const start = () => { if (HERO_AUTOPLAY && !reduceMotion) { clearInterval(timer); timer = setInterval(() => go(current + 1), 7000); } };
 		const stop = () => clearInterval(timer);
 
@@ -420,8 +420,11 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		setAll('[data-time-current]', 'textContent', fmt(resumeAt));
 		setProgress(saved.duration ? resumeAt / saved.duration : 0);
 	} else {
-		// demo state: show the bar partly played until the first real playback
+		// demo state: show the bar partly played until the first real playback;
+		// the time shown must match the bar (70% of the current track)
 		setProgress(0.7);
+		const [m, sec] = (TRACKS[state.index].time || '0:00').split(':').map(Number);
+		setAll('[data-time-current]', 'textContent', fmt((m * 60 + sec) * 0.7));
 	}
 	renderTrack(false);
 
@@ -611,8 +614,10 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		}));
 	}
 
-	/* Liked songs: view chips, search, unlike (with undo), sort by
-	   date liked and 12-per-page pagination. */
+	/* Song tables (Liked Songs, History, Downloads): view chips,
+	   search, date range, remove / clear with undo, sort by date and
+	   pagination. Options on [data-liked]: data-per, data-noun,
+	   data-now (YYYY-MM-DD), data-undo-text, data-clear-text. */
 	const liked = $('[data-liked]');
 	if (liked) {
 		const body = $('.ms-lk-body', liked);
@@ -621,16 +626,24 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		const info = $('[data-lk-info]', liked);
 		const empty = $('[data-lk-empty]', liked);
 		const undoBar = $('[data-lk-undo]');
-		const PER = 12;
+		const PER = +(liked.dataset.per || 12);
+		const noun = liked.dataset.noun || 'songs';
 		let order = rows.slice();
 		let page = 0;
 		let query = '';
+		let minDate = '';
 		let newest = true;
-		let lastRemoved = null;
+		let lastRemoved = [];
 		let undoTimer;
+		const showUndo = (text) => {
+			$('span', undoBar).textContent = text;
+			undoBar.hidden = false;
+			clearTimeout(undoTimer);
+			undoTimer = setTimeout(() => (undoBar.hidden = true), 5000);
+		};
 
 		const render = () => {
-			const list = order.filter((r) => !r.dataset.removed && (!query || r.dataset.title.includes(query)));
+			const list = order.filter((r) => !r.dataset.removed && (!query || r.dataset.title.includes(query)) && (!minDate || r.dataset.date >= minDate));
 			const pages = Math.max(1, Math.ceil(list.length / PER));
 			page = Math.min(page, pages - 1);
 			rows.forEach((r) => (r.hidden = true));
@@ -641,7 +654,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 			});
 			if (empty) empty.hidden = list.length > 0;
 			const from = list.length ? page * PER + 1 : 0;
-			info.textContent = `Showing ${from}–${Math.min((page + 1) * PER, list.length)} of ${list.length} songs`;
+			info.textContent = `Showing ${from}–${Math.min((page + 1) * PER, list.length)} of ${list.length} ${noun}`;
 			pagesBox.innerHTML = `<button data-page="prev" aria-label="Previous page"${page === 0 ? ' disabled' : ''}><i class="ri-arrow-left-s-line"></i></button>`
 				+ Array.from({ length: pages }, (_, i) => `<button data-page="${i}"${i === page ? ' class="is-active" aria-current="page"' : ''}>${i + 1}</button>`).join('')
 				+ `<button data-page="next" aria-label="Next page"${page >= pages - 1 ? ' disabled' : ''}><i class="ri-arrow-right-s-line"></i></button>`;
@@ -665,19 +678,38 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 			const heart = e.target.closest('[data-unlike]');
 			if (!heart) return;
 			e.stopPropagation();
-			lastRemoved = heart.closest('.ms-lk-row');
-			lastRemoved.dataset.removed = '1';
+			const row = heart.closest('.ms-lk-row');
+			row.dataset.removed = '1';
+			lastRemoved = [row];
 			render();
-			undoBar.hidden = false;
-			clearTimeout(undoTimer);
-			undoTimer = setTimeout(() => (undoBar.hidden = true), 5000);
+			showUndo(liked.dataset.undoText || 'Removed from Liked Songs');
 		});
+		$$('[data-lk-clear]').forEach((btn) => btn.addEventListener('click', () => {
+			lastRemoved = rows.filter((r) => !r.dataset.removed);
+			lastRemoved.forEach((r) => (r.dataset.removed = '1'));
+			render();
+			showUndo(liked.dataset.clearText || 'List cleared');
+		}));
 		$('button', undoBar)?.addEventListener('click', () => {
-			if (lastRemoved) delete lastRemoved.dataset.removed;
-			lastRemoved = null;
+			lastRemoved.forEach((r) => delete r.dataset.removed);
+			lastRemoved = [];
 			undoBar.hidden = true;
 			render();
 		});
+		// date range menu (e.g. Last 7 / 30 days), counted back from data-now
+		$$('[data-lk-range]').forEach((opt) => opt.addEventListener('click', () => {
+			const days = +opt.dataset.lkRange;
+			if (days) {
+				const d = new Date(`${liked.dataset.now}T12:00:00`);
+				d.setDate(d.getDate() - days + 1);
+				minDate = d.toISOString().slice(0, 10);
+			} else minDate = '';
+			setAll('[data-lk-range-label]', 'textContent', opt.textContent);
+			$$('[data-lk-range]').forEach((o) => o.classList.toggle('active', o === opt));
+			page = 0;
+			render();
+		}));
+		$('[data-lk-range].active')?.click();
 		// chips switch between the songs table and the albums / artists / genres views
 		$$('[data-lk-view]').forEach((chip) => chip.addEventListener('click', () => {
 			$$('[data-lk-view]').forEach((c) => c.classList.toggle('is-active', c === chip));
@@ -686,6 +718,31 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		}));
 		render();
 	}
+
+	/* Listening activity card: tabs swap the bar heights and the stats
+	   (data-bars = 7 comma-separated values 0-100, data-stats = a|b|c). */
+	$$('[data-activity]').forEach((card) => {
+		const bars = $$('.ms-act-day', card);
+		const stats = $$('[data-act-stat]', card);
+		const tabs = $$('[data-act-tab]', card);
+		const apply = (tab) => {
+			tabs.forEach((t) => t.classList.toggle('is-active', t === tab));
+			tab.dataset.bars.split(',').forEach((v, i) => bars[i]?.style.setProperty('--v', v));
+			tab.dataset.stats.split('|').forEach((v, i) => { if (stats[i]) stats[i].textContent = v; });
+		};
+		tabs.forEach((t) => t.addEventListener('click', () => apply(t)));
+		apply(tabs.find((t) => t.classList.contains('is-active')) || tabs[0]);
+	});
+	// settings switches confirm the change
+	// a link outside the settings nav can open one of its tabs, e.g. "Manage Plan"
+	$$('[data-tab-jump]').forEach((a) => a.addEventListener('click', (e) => {
+		const btn = $(`[data-bs-target="${a.dataset.tabJump}"]`);
+		if (!btn) return;
+		e.preventDefault();
+		btn.click();
+		btn.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+	}));
+	$$('[data-switch-toast]').forEach((input) => input.addEventListener('change', () => toast(`${input.dataset.switchToast} ${input.checked ? 'on' : 'off'}`)));
 
 	/* Create playlist form ------------------------------------------
 	   Character counters, cover preview, mood chips, picking songs

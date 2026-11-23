@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,15 +139,33 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Manage Account</span></nav>
-					<h1>Account Settings<em>Make It Feel Like Home !</em></h1>
-					<p>Update your profile, choose a plan, and control notifications and privacy.</p>
-					<div class="ms-page-stats"><div><b>Premium</b><span>Current Plan</span></div><div><b>Apr 14</b><span>Next Billing</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-stack ms-hero-person" id="msHero" aria-label="Account settings">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/artist/04.jpg" alt=""><img src="assets/images/artist/01.jpg" alt=""><img src="assets/images/user.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="1">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Your Account</div>
+							<h1>Account<em>Settings</em></h1>
+							<p>Update your profile, choose a plan, and control notifications and privacy. Changes save to every device.</p>
+						</div>
+						<div class="ms-solo ms-solo-avatar">
+							<span class="ms-solo-ring" aria-hidden="true"></span>
+							<img src="assets/images/user.jpg" alt="Jessica Moore" width="300" height="300">
+							<span class="ms-solo-badge is-camera"><i class="ri-camera-line"></i></span>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<button class="ms-btn" data-toast="All changes saved"><i class="ri-save-3-line"></i>Save Changes</button>
+					<a href="profile.html" class="ms-btn ms-btn-outline"><i class="ri-user-3-line"></i>View Profile</a>
+				</div>
+
 			</section>
 
 			<div class="ms-section ms-settings ms-reveal">
@@ -205,6 +223,55 @@ Purchase:
 					</div>
 				</div>
 			</div>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and account extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-vip-crown-2-line"></i>Your Plan</h2></div>
+			<div class="ms-plan-card"><div class="ms-plan-card-top"><span><i class="ri-vip-crown-2-fill"></i></span><div><h3>Premium</h3><p>$9.99 / month</p></div></div><ul class="ms-info-list"><li>Next billing<b>Apr 14, 2026</b></li><li>Member since<b>Jan 2024</b></li></ul><a href="#tabPlan" class="ms-btn ms-btn-block" data-tab-jump="#tabPlan">Manage Plan</a></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-device-line"></i>Connected Devices</h2></div>
+			<div class="ms-mini-list">
+				<div class="ms-idea ms-device"><span class="ms-idea-ic"><i class="ri-macbook-line"></i></span><div><h4>MacBook Pro</h4><p>London &middot; This device</p></div><span class="ms-badge is-success">Active</span></div>
+				<div class="ms-idea ms-device"><span class="ms-idea-ic"><i class="ri-smartphone-line"></i></span><div><h4>iPhone 15</h4><p>2 hours ago</p></div><button class="ms-follow-pill" data-toast="Signed out of iPhone 15">Sign out</button></div>
+				<div class="ms-idea ms-device"><span class="ms-idea-ic"><i class="ri-tv-2-line"></i></span><div><h4>Smart TV</h4><p>Yesterday</p></div><button class="ms-follow-pill" data-toast="Signed out of Smart TV">Sign out</button></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-links-line"></i>Quick Links</h2></div>
+			<div class="ms-mini-list">
+				<a href="download.html" class="ms-idea"><span class="ms-idea-ic"><i class="ri-download-2-line"></i></span><div><h4>Downloads</h4><p>Manage offline music</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="purchase.html" class="ms-idea"><span class="ms-idea-ic"><i class="ri-shopping-bag-3-line"></i></span><div><h4>Purchases</h4><p>Orders &amp; invoices</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="login.html" class="ms-idea"><span class="ms-idea-ic"><i class="ri-logout-box-r-line"></i></span><div><h4>Log Out</h4><p>Sign out of Miraculous</p></div><i class="ri-arrow-right-s-line"></i></a>
+			</div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">

@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,23 +139,53 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Upload</span></nav>
-					<h1>Upload Music<em>Share Your Sound !</em></h1>
-					<p>Release your songs to millions of listeners. Upload a track, add the details and publish in minutes.</p>
-					<div class="ms-page-stats"><div><b>2M+</b><span>Listeners</span></div><div><b>100%</b><span>Your Rights</span></div><div><b>24h</b><span>Review</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-upload" id="msHero" aria-label="Upload music">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
+					<span class="ms-radio-orb ms-page-orb"><i class="ri-upload-cloud-2-line"></i></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/07.jpg" alt=""><img src="assets/images/trending/04.jpg" alt=""><img src="assets/images/trending/05.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="6">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">For Artists</div>
+							<h1>Upload Music<em>Share Your Sound</em></h1>
+							<p>Release your songs to millions of listeners. Upload a track, add the details and publish in minutes.</p>
+						</div>
+						<div class="ms-hero-art">
+							<picture style="--cut-w:150%;--cut-l:-2%;--cut-t:-6%">
+								<source srcset="assets/images/feed/03.webp" type="image/webp">
+								<img src="assets/images/feed/03.png" alt="Woman enjoying music with headphones" width="1024" height="1536">
+							</picture>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="#hUpload" class="ms-btn"><i class="ri-upload-cloud-2-line"></i>Start Upload</a>
+					<a href="blog.html" class="ms-btn ms-btn-outline"><i class="ri-book-open-line"></i>Upload Guide</a>
+				</div>
+
+				<div class="ms-hero-wave" id="msHeroWave" aria-hidden="true"></div>
 			</section>
 
-			<div class="ms-section ms-two-col ms-reveal ">
-				<div>
-				<div class="ms-form-card">
+			<ol class="ms-steps ms-section ms-reveal">
+				<li class="is-active"><span>1</span><div><b>Upload File</b><small>MP3, WAV or FLAC</small></div></li>
+				<li><span>2</span><div><b>Track Details</b><small>Title, genre, lyrics</small></div></li>
+				<li><span>3</span><div><b>Cover &amp; Publish</b><small>Review in under 24h</small></div></li>
+			</ol>
+
+			<div class="ms-section ms-upload-form ms-reveal">
+				<div class="ms-form-card" id="hUpload">
 					<h3>Audio File</h3>
 					<p>Upload MP3, WAV or FLAC up to 200 MB.</p>
 					<label class="ms-dropzone" style="margin-top:18px" data-dropzone><input type="file" accept="audio/*"><i class="ri-upload-cloud-2-line"></i><h4>Drag &amp; drop your track here</h4><p>or <b>browse files</b> from your computer</p></label>
+				</div>
+				<div class="ms-form-card ms-upload-cover">
+					<div><h3>Cover Art</h3><p>Square JPG or PNG, 3000 &times; 3000 recommended.</p></div>
+					<label class="ms-dropzone ms-cover-pick" data-dropzone><input type="file" accept="image/*"><i class="ri-image-add-line"></i><h4>Add Cover</h4><p>Drag an image or click to browse</p></label>
 				</div>
 				<div class="ms-form-card">
 					<h3>Track Details</h3>
@@ -172,19 +202,57 @@ Purchase:
 					<div class="ms-switch-row" style="margin-top:12px"><div><h4>Allow downloads</h4><p>Listeners can save this song offline</p></div><label class="ms-switch"><input type="checkbox" checked aria-label="Allow downloads"><span></span></label></div>
 					<div class="ms-form-actions"><button class="ms-btn ms-btn-outline">Save Draft</button><button class="ms-btn" data-toast="Track uploaded for review"><i class="ri-upload-2-line"></i> Publish Track</button></div>
 				</div>
-				</div>
-				<aside class="ms-sticky">
-					<div class="ms-side-card">
-						<h3>Cover Art</h3>
-						<label class="ms-dropzone ms-cover-pick" style="margin-top:14px" data-dropzone><input type="file" accept="image/*"><i class="ri-image-add-line"></i><h4>Add Cover</h4><p>3000 &times; 3000 recommended</p></label>
-					</div>
-					<div class="ms-side-card">
-						<h3>Upload Tips</h3>
-						<ul class="ms-info-list"><li>Audio quality<b>320 kbps+</b></li><li>Cover size<b>Square JPG</b></li><li>Review time<b>Under 24h</b></li></ul>
-						<p>You keep 100% of your rights. Earnings are paid monthly to your account.</p>
-					</div>
-				</aside>
 			</div>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and upload tips">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-lightbulb-flash-fill ms-ic-gold"></i>Upload Tips</h2></div>
+			<div class="ms-mini-list ms-tips">
+				<div class="ms-tip"><span><i class="ri-sound-module-line"></i></span><div><h4>Audio quality</h4><p>Upload 320 kbps MP3 or lossless WAV / FLAC.</p></div></div>
+				<div class="ms-tip"><span><i class="ri-image-line"></i></span><div><h4>Square cover</h4><p>At least 1400 px, no text near the edges.</p></div></div>
+				<div class="ms-tip"><span><i class="ri-time-line"></i></span><div><h4>Quick review</h4><p>Most tracks go live in under 24 hours.</p></div></div>
+				<div class="ms-tip"><span><i class="ri-copyright-line"></i></span><div><h4>Your rights</h4><p>You keep 100% of your rights and earnings.</p></div></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-folder-music-line"></i>Your Uploads</h2></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row"><img src="assets/images/release/03.jpg" alt=""><div><h4>Golden Hour (Demo)</h4><p>Uploaded Mar 20</p></div><span class="ms-badge ">In review</span></div>
+				<div class="ms-mini-row"><img src="assets/images/release/02.jpg" alt=""><div><h4>Cloud Nine</h4><p>Live &middot; 12.4K plays</p></div><span class="ms-badge is-success">Live</span></div>
+				<div class="ms-mini-row"><img src="assets/images/release/04.jpg" alt=""><div><h4>Paper Hearts</h4><p>Draft</p></div><span class="ms-badge is-muted">Draft</span></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-bar-chart-fill"></i>Artist Stats</h2></div>
+			<div class="ms-mini-list ms-lk-stats"><div><span><i class="ri-headphone-fill"></i></span><p><b>24.8K</b>Plays this month</p></div><div><span><i class="ri-user-heart-fill"></i></span><p><b>1.2K</b>New fans</p></div></div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">

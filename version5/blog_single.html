@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,13 +139,37 @@ Purchase:
 
 		<main class="ms-content">
 
-			<div class="ms-section ms-two-col ms-reveal" style="margin-top:6px">
-				<div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-stack ms-hero-article" id="msHero" aria-label="Blog article">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
+				</div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="0">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Interviews &middot; 6 min read</div>
+							<h1>10 Questions<em>with Ava Cornish</em></h1>
+							<p>The singer talks rainy Lisbon nights, writing alone and why her new single almost did not happen.</p>
+						</div>
+						<div class="ms-solo ms-solo-cover is-article">
+							<span class="ms-solo-ring" aria-hidden="true"></span>
+							<img src="assets/images/trending/01.jpg" alt="Ava Cornish playing guitar" width="300" height="300"><span class="ms-tag ms-solo-tag">Interviews</span>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="#article" class="ms-btn"><i class="ri-book-open-line"></i>Read Article</a>
+					<button class="ms-btn ms-btn-outline" data-toast="Link copied to clipboard"><i class="ri-share-forward-line"></i>Share</button>
+				</div>
+
+			</section>
+
+			<div class="ms-section ms-reveal" id="article">
 				<article class="ms-article">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><a href="blog.html">Blog</a><i class="ri-arrow-right-s-line"></i><span>Interviews</span></nav>
-					<h1>10 Questions with Ava Cornish</h1>
 					<div class="ms-post-meta" style="margin-top:14px"><span><i class="ri-user-3-line"></i>By Emma Clarke</span><span><i class="ri-calendar-line"></i>Mar 18, 2026</span><span><i class="ri-time-line"></i>6 min read</span><span><i class="ri-chat-3-line"></i>3 comments</span></div>
-					<div class="ms-article-cover"><img src="assets/images/trending/01.jpg" alt=""></div>
 					<div class="ms-article-body">
 						<p>Ava Cornish is having a big year. Her debut album <b>Walking Promises</b> topped the charts in March, and her new single is already one of the most played songs on Miraculous. We met her in a small cafe in Camden to talk about writing, touring and the song that almost did not happen.</p>
 						<h2>Where did the new single come from?</h2>
@@ -179,28 +203,89 @@ Purchase:
 					</div>
 					<div class="ms-form-actions"><button class="ms-btn" data-toast="Comment posted">Post Comment</button></div>
 				</div>
-				</div>
-				<aside class="ms-sticky">
-					<div class="ms-side-card">
-						<h3>Search</h3>
-						<div class="ms-composer" style="padding:0;border:0;box-shadow:none;margin-top:12px"><input type="search" placeholder="Search articles..." aria-label="Search articles"></div>
-					</div>
-					<div class="ms-side-card">
-						<h3>Categories</h3>
-						<ul class="ms-cat-list"><li><a href="#">Interviews<b>24</b></a></li><li><a href="#">News<b>38</b></a></li><li><a href="#">Playlists<b>19</b></a></li><li><a href="#">Gear<b>12</b></a></li><li><a href="#">Guides<b>16</b></a></li><li><a href="#">Vinyl<b>9</b></a></li></ul>
-					</div>
-					<div class="ms-side-card">
-						<h3>Recent Posts</h3>
-						<div class="ms-recent"><img src="assets/images/trending/02.jpg" alt=""><div><h4><a href="blog_single.html">The Best Headphones for HiFi Listening in 2026</a></h4><p>Mar 15, 2026</p></div></div>
-						<div class="ms-recent"><img src="assets/images/release/05.jpg" alt=""><div><h4><a href="blog_single.html">Songs for a Slow Sunday Morning</a></h4><p>Mar 12, 2026</p></div></div>
-						<div class="ms-recent"><img src="assets/images/trending/07.jpg" alt=""><div><h4><a href="blog_single.html">Miraculous Live: Summer Tour Dates Announced</a></h4><p>Mar 09, 2026</p></div></div>
-					</div>
-					<div class="ms-side-card">
-						<h3>Tags</h3>
-<div class="ms-tags"><a href="#">Pop</a><a href="#">Vinyl</a><a href="#">Interviews</a><a href="#">Tour</a><a href="#">HiFi</a><a href="#">Acoustic</a><a href="#">Studio</a></div>
-					</div>
-				</aside>
 			</div>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hRelated">
+				<div class="ms-sec-head"><h2 id="hRelated" class="ms-sec-icon"><i class="ri-article-line"></i>You Might Also Like</h2><a href="blog.html" class="ms-view-all">All Stories <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-post-grid is-related">
+					<article class="ms-post-card">
+						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Playlists</span><img src="assets/images/release/05.jpg" alt=""></a>
+						<div class="ms-post-card-body">
+							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Mar 12, 2026</span><span><i class="ri-time-line"></i>4 min read</span></div>
+							<h3><a href="blog_single.html">Songs for a Slow Sunday Morning</a></h3>
+							<p>Soft acoustic tracks and warm vocals to ease you into the day.</p>
+							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+						</div>
+					</article>
+					<article class="ms-post-card">
+						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Behind the Music</span><img src="assets/images/hero/album-echoes.jpg" alt=""></a>
+						<div class="ms-post-card-body">
+							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Mar 01, 2026</span><span><i class="ri-time-line"></i>7 min read</span></div>
+							<h3><a href="blog_single.html">Inside the Studio: Making Midnight Echoes</a></h3>
+							<p>Claire Hudson opens the doors to the cabin where her new album was recorded.</p>
+							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+						</div>
+					</article>
+					<article class="ms-post-card">
+						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Vinyl</span><img src="assets/images/store/01.jpg" alt=""></a>
+						<div class="ms-post-card-body">
+							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Feb 26, 2026</span><span><i class="ri-time-line"></i>5 min read</span></div>
+							<h3><a href="blog_single.html">Why Vinyl Sales Keep Growing</a></h3>
+							<p>Collectors, sound lovers and a new generation are spinning records again.</p>
+							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+						</div>
+					</article>
+				</div>
+			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and article extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-quill-pen-line"></i>About the Author</h2></div>
+			<div class="ms-mini-list ms-author-side"><img src="assets/images/artist/06.jpg" alt=""><h3>Emma Clarke</h3><p>Music editor at Miraculous. Writes about new artists, vinyl and the stories behind the songs.</p><button class="ms-follow-pill" data-follow><i class="ri-user-add-line"></i> Follow</button></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-time-line"></i>Recent Posts</h2><a href="blog.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-recent"><img src="assets/images/trending/02.jpg" alt=""><div><h4><a href="blog_single.html">The Best Headphones for HiFi Listening in 2026</a></h4><p>Mar 15, 2026</p></div></div>
+				<div class="ms-recent"><img src="assets/images/release/05.jpg" alt=""><div><h4><a href="blog_single.html">Songs for a Slow Sunday Morning</a></h4><p>Mar 12, 2026</p></div></div>
+				<div class="ms-recent"><img src="assets/images/trending/07.jpg" alt=""><div><h4><a href="blog_single.html">Miraculous Live: Summer Tour Dates Announced</a></h4><p>Mar 09, 2026</p></div></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-folder-3-line"></i>Categories</h2></div>
+			<div class="ms-mini-list"><ul class="ms-cat-list"><li><a href="blog.html">Interviews<b>24</b></a></li><li><a href="blog.html">News<b>38</b></a></li><li><a href="blog.html">Playlists<b>19</b></a></li><li><a href="blog.html">Gear<b>12</b></a></li><li><a href="blog.html">Guides<b>16</b></a></li><li><a href="blog.html">Vinyl<b>9</b></a></li></ul></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-price-tag-3-line"></i>Tags</h2></div>
+			<div class="ms-mini-list"><div class="ms-tags"><a href="blog.html">Pop</a><a href="blog.html">Vinyl</a><a href="blog.html">Interviews</a><a href="blog.html">Tour</a><a href="blog.html">HiFi</a><a href="blog.html">Acoustic</a><a href="blog.html">Studio</a></div></div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">

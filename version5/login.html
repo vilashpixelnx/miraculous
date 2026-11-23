@@ -27,126 +27,115 @@ Purchase:
 <body>
 
 	<div class="ms-auth">
-		<!-- ================= Left: photo panel ================= -->
-		<aside class="ms-auth-art" aria-label="Why Miraculous">
-			<span class="ms-auth-logo">
-				<svg viewBox="0 0 44 34" aria-hidden="true">
-					<defs>
-						<linearGradient id="msAuthLogoA" x1="0" y1="0" x2="44" y2="34" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF7A8A"/><stop offset="1" stop-color="#FD374B"/></linearGradient>
-					</defs>
-					<path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msAuthLogoA)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-				Miraculous
-			</span>
-			<span class="ms-auth-ring" aria-hidden="true"></span>
-			<div class="ms-auth-wave" id="msAuthWave" aria-hidden="true"></div>
+		<span class="ms-auth-glow" aria-hidden="true"></span>
+		<!-- one rounded frame: copy on the left, photo in the middle, form on the right -->
+		<div class="ms-auth-frame">
+			<span class="ms-auth-circle" aria-hidden="true"></span>
+			<div class="ms-auth-wave is-left" data-auth-wave aria-hidden="true"></div>
+			<div class="ms-auth-wave is-right" data-auth-wave aria-hidden="true"></div>
+			<img src="assets/images/category/note-single.svg" class="ms-auth-note is-n1" alt="" aria-hidden="true">
+			<img src="assets/images/category/note-double.svg" class="ms-auth-note is-n2" alt="" aria-hidden="true">
+			<img src="assets/images/category/note-single.svg" class="ms-auth-note is-n3" alt="" aria-hidden="true">
+			<img src="assets/images/category/note-double.svg" class="ms-auth-note is-n4" alt="" aria-hidden="true">
 			<picture class="ms-auth-girl">
-				<source srcset="assets/images/feed/feed-girl.webp" type="image/webp">
-				<img src="assets/images/feed/feed-girl.png" alt="Woman enjoying music with headphones" width="1218" height="1291">
+				<source srcset="assets/images/feed/03.webp" type="image/webp">
+				<img src="assets/images/feed/03.png" alt="Woman in a beige sweater listening to music" width="1024" height="1536">
 			</picture>
 
-			<div class="ms-auth-now">
-				<img src="assets/images/trending/06.jpg" alt="">
-				<div><b>Feel the Music</b><span>Anytime, Anywhere</span></div>
-				<button type="button" data-auth-toast="Log in to start listening" aria-label="Play"><i class="ri-play-fill"></i></button>
-			</div>
-
-			<div class="ms-auth-slides" aria-live="polite">
-				<div class="ms-auth-slide is-active">
+			<!-- ================= Left: copy ================= -->
+			<aside class="ms-auth-art" aria-label="Why Miraculous">
+				<div class="ms-auth-copy">
+					<span class="ms-auth-eyebrow">Music Streaming</span>
 					<h2>Your Music,<em>Your World.</em></h2>
 					<p>Stream, discover, buy and own music from your favorite artists &mdash; all in one place.</p>
 				</div>
-				<div class="ms-auth-slide">
-					<h2>Every Mood,<em>One Playlist.</em></h2>
-					<p>Curated mixes, live radio and fresh releases picked for the way you listen.</p>
+				<ul class="ms-auth-feats">
+					<li><i class="ri-disc-line"></i>Millions of Songs</li>
+					<li><i class="ri-download-cloud-2-line"></i>Offline Listening</li>
+					<li><i class="ri-headphone-line"></i>Premium Audio</li>
+					<li><i class="ri-store-2-line"></i>Music Store</li>
+				</ul>
+			</aside>
+
+			<!-- ================= Right: form card ================= -->
+			<main class="ms-auth-main">
+				<div class="ms-auth-card">
+					<span class="ms-logo">
+						<svg viewBox="0 0 44 34" aria-hidden="true">
+							<defs>
+								<linearGradient id="msAuthLogoB" x1="0" y1="0" x2="44" y2="34" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF5964"/><stop offset="1" stop-color="#E92750"/></linearGradient>
+							</defs>
+							<path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msAuthLogoB)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						<span>Miraculous</span>
+					</span>
+
+					<div class="ms-auth-tabs" role="tablist" aria-label="Account">
+						<button type="button" class="is-active" role="tab" aria-selected="true" data-auth-tab="login">Log In</button>
+						<button type="button" role="tab" aria-selected="false" data-auth-tab="signup">Sign Up</button>
+					</div>
+
+					<!-- Log in -->
+					<form class="ms-auth-form" data-auth-form="login" novalidate>
+						<h1>Welcome Back</h1>
+						<p>Log in to continue your musical journey.</p>
+						<div class="ms-auth-fields">
+							<label class="ms-auth-field"><i class="ri-mail-line"></i><input type="email" name="email" placeholder="Email address" autocomplete="email" aria-label="Email address" required></label>
+							<label class="ms-auth-field"><i class="ri-lock-line"></i><input type="password" name="password" placeholder="Password" autocomplete="current-password" aria-label="Password" required><button type="button" class="ms-auth-eye" data-auth-eye aria-label="Show password"><i class="ri-eye-off-line"></i></button></label>
+						</div>
+						<div class="ms-auth-row">
+							<label class="ms-check"><input type="checkbox" checked><span></span>Remember me</label>
+							<a href="#" data-auth-toast="We sent a reset link to your email">Forgot password?</a>
+						</div>
+						<button type="submit" class="ms-btn ms-auth-submit">Log In <i class="ri-arrow-right-line"></i></button>
+						<p class="ms-auth-msg" data-auth-msg hidden></p>
+					</form>
+
+					<!-- Sign up -->
+					<form class="ms-auth-form" data-auth-form="signup" novalidate hidden>
+						<h1>Create Account</h1>
+						<p>Join Miraculous and start your musical journey.</p>
+						<div class="ms-auth-fields">
+							<label class="ms-auth-field"><i class="ri-user-3-line"></i><input type="text" name="name" placeholder="Full name" autocomplete="name" aria-label="Full name" required></label>
+							<label class="ms-auth-field"><i class="ri-mail-line"></i><input type="email" name="email" placeholder="Email address" autocomplete="email" aria-label="Email address" required></label>
+							<label class="ms-auth-field"><i class="ri-lock-line"></i><input type="password" name="password" placeholder="Password (min. 8 characters)" autocomplete="new-password" aria-label="Password" minlength="8" required><button type="button" class="ms-auth-eye" data-auth-eye aria-label="Show password"><i class="ri-eye-off-line"></i></button></label>
+							<label class="ms-auth-field"><i class="ri-lock-password-line"></i><input type="password" name="confirm" placeholder="Confirm password" autocomplete="new-password" aria-label="Confirm password" required><button type="button" class="ms-auth-eye" data-auth-eye aria-label="Show password"><i class="ri-eye-off-line"></i></button></label>
+						</div>
+						<div class="ms-auth-row">
+							<label class="ms-check"><input type="checkbox" name="terms"><span></span><small class="ms-auth-terms">I agree to the <a href="#">Terms</a> &amp; <a href="#">Privacy</a></small></label>
+						</div>
+						<button type="submit" class="ms-btn ms-auth-submit">Create Account <i class="ri-arrow-right-line"></i></button>
+						<p class="ms-auth-msg" data-auth-msg hidden></p>
+					</form>
+
+					<div class="ms-auth-or">Or continue with</div>
+					<div class="ms-auth-social">
+						<button type="button" data-auth-toast="Google sign-in is a demo in this template">
+							<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.2-2.1 3.5-5.1 3.5-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.4 14.4a7.2 7.2 0 0 1 0-4.7V6.6h-4a12 12 0 0 0 0 10.9z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4A12 12 0 0 0 1.4 6.6l4 3.1C6.3 6.9 8.9 4.8 12 4.8z"/></svg>
+							Google
+						</button>
+						<button type="button" data-auth-toast="Apple sign-in is a demo in this template"><i class="ri-apple-fill" style="font-size:22px"></i>Apple</button>
+						<button type="button" data-auth-toast="Facebook sign-in is a demo in this template">
+							<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.4 19.5v-6.2h2.1l.3-2.4h-2.4V9.3c0-.7.2-1.2 1.2-1.2h1.3V6c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3v1.8H8.7v2.4h2.1v6.2z"/></svg>
+							Facebook
+						</button>
+					</div>
+					<p class="ms-auth-switch" data-auth-switch="login">Don&rsquo;t have an account?<button type="button" data-auth-tab="signup">Sign Up</button></p>
+					<p class="ms-auth-switch" data-auth-switch="signup" hidden>Already have an account?<button type="button" data-auth-tab="login">Log In</button></p>
 				</div>
-				<div class="ms-auth-slide">
-					<h2>Own It,<em>Keep It.</em></h2>
-					<p>Buy albums, singles and vinyl, download them in Hi-Res and support the artists you love.</p>
-				</div>
+			</main>
+
+			<!-- corner CD + notes: inside the frame so they sit below the left text -->
+			<span class="ms-auth-vinyl" aria-hidden="true"></span>
+			<div class="ms-auth-cd-notes" aria-hidden="true">
+				<img src="assets/images/category/note-single.svg" class="is-c1" alt="">
+				<img src="assets/images/category/note-double.svg" class="is-c2" alt="">
+				<img src="assets/images/category/note-single.svg" class="is-c3" alt="">
+				<img src="assets/images/category/note-double.svg" class="is-c4" alt="">
+				<img src="assets/images/category/note-single.svg" class="is-c5" alt="">
+				<img src="assets/images/category/note-double.svg" class="is-c6" alt="">
 			</div>
-			<ul class="ms-auth-feats">
-				<li><i class="ri-music-2-line"></i>Millions of Songs</li>
-				<li><i class="ri-download-2-line"></i>Offline Listening</li>
-				<li><i class="ri-award-line"></i>Premium Audio</li>
-				<li><i class="ri-shopping-bag-3-line"></i>Music Store</li>
-			</ul>
-			<div class="ms-auth-dots" role="tablist" aria-label="Choose message">
-				<button type="button" class="is-active" aria-label="Message 1"></button>
-				<button type="button" aria-label="Message 2"></button>
-				<button type="button" aria-label="Message 3"></button>
-			</div>
-		</aside>
-
-		<!-- ================= Right: form card ================= -->
-		<main class="ms-auth-main">
-			<div class="ms-auth-card">
-				<span class="ms-logo">
-					<svg viewBox="0 0 44 34" aria-hidden="true">
-						<defs>
-							<linearGradient id="msAuthLogoB" x1="0" y1="0" x2="44" y2="34" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF5964"/><stop offset="1" stop-color="#E92750"/></linearGradient>
-						</defs>
-						<path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msAuthLogoB)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-					<span>Miraculous</span>
-				</span>
-
-				<div class="ms-auth-tabs" role="tablist" aria-label="Account">
-					<button type="button" class="is-active" role="tab" aria-selected="true" data-auth-tab="login">Log In</button>
-					<button type="button" role="tab" aria-selected="false" data-auth-tab="signup">Sign Up</button>
-				</div>
-
-				<!-- Log in -->
-				<form class="ms-auth-form" data-auth-form="login" novalidate>
-					<h1>Welcome Back</h1>
-					<p>Log in to continue your musical journey.</p>
-					<div class="ms-auth-fields">
-						<label class="ms-auth-field"><i class="ri-mail-line"></i><input type="email" name="email" placeholder="Email address" autocomplete="email" aria-label="Email address" required></label>
-						<label class="ms-auth-field"><i class="ri-lock-line"></i><input type="password" name="password" placeholder="Password" autocomplete="current-password" aria-label="Password" required><button type="button" class="ms-auth-eye" data-auth-eye aria-label="Show password"><i class="ri-eye-off-line"></i></button></label>
-					</div>
-					<div class="ms-auth-row">
-						<label class="ms-check"><input type="checkbox" checked><span></span>Remember me</label>
-						<a href="#" data-auth-toast="We sent a reset link to your email">Forgot password?</a>
-					</div>
-					<button type="submit" class="ms-btn ms-auth-submit">Log In <i class="ri-arrow-right-line"></i></button>
-					<p class="ms-auth-msg" data-auth-msg hidden></p>
-				</form>
-
-				<!-- Sign up -->
-				<form class="ms-auth-form" data-auth-form="signup" novalidate hidden>
-					<h1>Create Account</h1>
-					<p>Join Miraculous and start your musical journey.</p>
-					<div class="ms-auth-fields">
-						<label class="ms-auth-field"><i class="ri-user-3-line"></i><input type="text" name="name" placeholder="Full name" autocomplete="name" aria-label="Full name" required></label>
-						<label class="ms-auth-field"><i class="ri-mail-line"></i><input type="email" name="email" placeholder="Email address" autocomplete="email" aria-label="Email address" required></label>
-						<label class="ms-auth-field"><i class="ri-lock-line"></i><input type="password" name="password" placeholder="Password (min. 8 characters)" autocomplete="new-password" aria-label="Password" minlength="8" required><button type="button" class="ms-auth-eye" data-auth-eye aria-label="Show password"><i class="ri-eye-off-line"></i></button></label>
-						<label class="ms-auth-field"><i class="ri-lock-password-line"></i><input type="password" name="confirm" placeholder="Confirm password" autocomplete="new-password" aria-label="Confirm password" required><button type="button" class="ms-auth-eye" data-auth-eye aria-label="Show password"><i class="ri-eye-off-line"></i></button></label>
-					</div>
-					<div class="ms-auth-row">
-						<label class="ms-check"><input type="checkbox" name="terms"><span></span><small class="ms-auth-terms">I agree to the <a href="#">Terms</a> &amp; <a href="#">Privacy</a></small></label>
-					</div>
-					<button type="submit" class="ms-btn ms-auth-submit">Create Account <i class="ri-arrow-right-line"></i></button>
-					<p class="ms-auth-msg" data-auth-msg hidden></p>
-				</form>
-
-				<div class="ms-auth-or">Or continue with</div>
-				<div class="ms-auth-social">
-					<button type="button" data-auth-toast="Google sign-in is a demo in this template">
-						<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.2-2.1 3.5-5.1 3.5-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.4 14.4a7.2 7.2 0 0 1 0-4.7V6.6h-4a12 12 0 0 0 0 10.9z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4A12 12 0 0 0 1.4 6.6l4 3.1C6.3 6.9 8.9 4.8 12 4.8z"/></svg>
-						Google
-					</button>
-					<button type="button" data-auth-toast="Apple sign-in is a demo in this template"><i class="ri-apple-fill" style="font-size:22px"></i>Apple</button>
-					<button type="button" data-auth-toast="Facebook sign-in is a demo in this template">
-						<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.4 19.5v-6.2h2.1l.3-2.4h-2.4V9.3c0-.7.2-1.2 1.2-1.2h1.3V6c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3v1.8H8.7v2.4h2.1v6.2z"/></svg>
-						Facebook
-					</button>
-				</div>
-				<p class="ms-auth-switch" data-auth-switch="login">Don&rsquo;t have an account?<button type="button" data-auth-tab="signup">Sign Up</button></p>
-				<p class="ms-auth-switch" data-auth-switch="signup" hidden>Already have an account?<button type="button" data-auth-tab="login">Log In</button></p>
-			</div>
-		</main>
-
-		<span class="ms-auth-vinyl" aria-hidden="true"></span>
+		</div>
 	</div>
 	<div class="ms-auth-toast" role="status" aria-live="polite"></div>
 
@@ -214,23 +203,45 @@ Purchase:
 				} else {
 					if (!emailOk(val('email'))) return fail('email', 'Please enter a valid email address.');
 					if (!val('password')) return fail('password', 'Please enter your password.');
-					say('Logged in successfully. Enjoy the music!', true);
+					say('Logged in successfully. Taking you to Discover…', true);
+					setTimeout(() => { location.href = 'index.html'; }, 900);
 				}
 			});
 		});
 
-		// left panel: waveform bars + rotating message
-		$('#msAuthWave').innerHTML = Array.from({ length: 16 }, (_, i) => `<span style="--h:${(30 + 70 * Math.abs(Math.sin((i + 1) * 1.3))).toFixed(0)};--i:${i}"></span>`).join('');
-		const slides = $$('.ms-auth-slide');
-		const dots = $$('.ms-auth-dots button');
-		let current = 0;
-		const go = (n) => {
-			current = (n + slides.length) % slides.length;
-			slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
-			dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
-		};
-		dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
-		if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => go(current + 1), 6000);
+		// waveform bars on both sides of the circle, tallest next to the photo
+		$$('[data-auth-wave]').forEach((wave) => {
+			const right = wave.classList.contains('is-right');
+			wave.innerHTML = Array.from({ length: 18 }, (_, i) => {
+				const t = right ? i / 17 : 1 - i / 17;
+				const h = 18 + 82 * (1 - t) * (0.55 + 0.45 * Math.abs(Math.sin((i + 1) * 1.7)));
+				return `<span style="--h:${h.toFixed(0)};--i:${i}"></span>`;
+			}).join('');
+		});
+		// music cursor (idea 4): normal cursor; each click sends out sound-wave
+		// rings and a small 3D note that floats up. Not inside text fields.
+		(() => {
+			if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+			let flip = false;
+			addEventListener('pointerdown', (e) => {
+				if (e.button !== 0 || e.target.closest('input:not([type=checkbox]), textarea')) return;
+				const x = e.clientX + 'px', y = e.clientY + 'px';
+				const w = document.createElement('span');
+				w.className = 'ms-cur-wave';
+				w.style.left = x; w.style.top = y;
+				const n = document.createElement('img');
+				flip = !flip;
+				n.src = 'assets/images/category/note-' + (flip ? 'single' : 'double') + '.svg';
+				n.alt = '';
+				n.className = 'ms-cur-note';
+				n.style.left = x; n.style.top = y;
+				n.style.setProperty('--dx', (Math.random() * 40 - 20).toFixed(0) + 'px');
+				n.style.setProperty('--r', (Math.random() * 50 - 25).toFixed(0) + 'deg');
+				document.body.append(w, n);
+				w.addEventListener('animationend', () => w.remove());
+				n.addEventListener('animationend', () => n.remove());
+			});
+		})();
 	})();
 	</script>
 </body>

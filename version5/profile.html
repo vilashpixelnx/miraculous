@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,35 +139,46 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Profile header -->
-			<section class="ms-profile-hero">
-				<div class="ms-profile-cover"></div>
-				<div class="ms-profile-body">
-					<img src="assets/images/user.jpg" alt="Jessica Moore">
-					<div>
-						<span class="ms-verified"><i class="ri-vip-crown-2-fill"></i> Premium Member</span>
-						<h1>Jessica Moore</h1>
-						<div class="ms-page-stats"><div><b>24</b><span>Playlists</span></div><div><b>312</b><span>Followers</span></div><div><b>38</b><span>Following</span></div></div>
-					</div>
-					<div class="ms-detail-actions"><a href="manage_acc.html" class="ms-btn ms-btn-outline"><i class="ri-edit-line"></i> Edit Profile</a><button class="ms-icon-round"  aria-label="Share"><i class="ri-share-forward-line"></i></button></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-stack ms-hero-person" id="msHero" aria-label="Your profile">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
 				</div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="1">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow"><i class="ri-vip-crown-2-fill ms-ic-gold"></i> Premium Member</div>
+							<h1>Jessica<em>Moore</em></h1>
+							<p>Acoustic lover, playlist maker and part-time vinyl collector. Listening from London since 2023.</p>
+						</div>
+						<div class="ms-solo ms-solo-avatar">
+							<span class="ms-solo-ring" aria-hidden="true"></span>
+							<img src="assets/images/user.jpg" alt="Jessica Moore" width="300" height="300">
+							<span class="ms-solo-badge is-crown"><i class="ri-vip-crown-2-fill"></i></span>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="manage_acc.html" class="ms-btn"><i class="ri-edit-line"></i>Edit Profile</a>
+					<button class="ms-btn ms-btn-outline" data-toast="Link copied to clipboard"><i class="ri-share-forward-line"></i>Share</button>
+				</div>
+
 			</section>
 
-			<section class="ms-section ms-reveal " aria-labelledby="hProfPl">
-				<div class="ms-sec-head"><h2 id="hProfPl">Your Playlists</h2><a href="feature_playlist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
-				<div class="ms-grid ms-grid-6">
-					<div class="ms-card is-square" data-card="1"><div class="ms-card-media"><img src="assets/images/trending/02.jpg" alt=""><button class="ms-play-sm" data-play="1" aria-label="Play My Favourites"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">My Favourites</a></h3><p>42 songs</p></div>
-					<div class="ms-card is-square" data-card="13"><div class="ms-card-media"><img src="assets/images/recommend/02.jpg" alt=""><button class="ms-play-sm" data-play="13" aria-label="Play Road Trip"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Road Trip</a></h3><p>28 songs</p></div>
-					<div class="ms-card is-square" data-card="5"><div class="ms-card-media"><img src="assets/images/trending/07.jpg" alt=""><button class="ms-play-sm" data-play="5" aria-label="Play Gym Mix"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Gym Mix</a></h3><p>35 songs</p></div>
-					<div class="ms-card is-square" data-card="7"><div class="ms-card-media"><img src="assets/images/release/03.jpg" alt=""><button class="ms-play-sm" data-play="7" aria-label="Play Chill Evenings"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Chill Evenings</a></h3><p>20 songs</p></div>
-					<div class="ms-card is-square" data-card="14"><div class="ms-card-media"><img src="assets/images/store/02.jpg" alt=""><button class="ms-play-sm" data-play="14" aria-label="Play Throwbacks"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Throwbacks</a></h3><p>31 songs</p></div>
-					<div class="ms-card is-square" data-card="8"><div class="ms-card-media"><img src="assets/images/release/04.jpg" alt=""><button class="ms-play-sm" data-play="8" aria-label="Play Study Beats"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Study Beats</a></h3><p>25 songs</p></div>
-				</div>
+			<div class="ms-section ms-stat-strip ms-reveal">
+				<div class="ms-stat-cards"><div class="ms-stat"><i class="ri-play-list-2-line"></i><b>24</b><span>Playlists</span></div><div class="ms-stat"><i class="ri-user-heart-line"></i><b>312</b><span>Followers</span></div><div class="ms-stat"><i class="ri-user-follow-line"></i><b>38</b><span>Following</span></div><div class="ms-stat"><i class="ri-headphone-line"></i><b>1,248</b><span>Songs played</span></div></div>
+			</div>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hProfPl">
+				<div class="ms-sec-head"><h2 id="hProfPl" class="ms-sec-icon"><i class="ri-play-list-2-line"></i>Your Playlists</h2><a href="feature_playlist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-grid"><div class="ms-sr-card" data-card="1"><div class="ms-sr-card-media"><img src="assets/images/trending/02.jpg" alt=""><button class="ms-play-sm" data-play="1" aria-label="Play My Favourites"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">My Favourites</a></h3><p>42 songs</p></div><div class="ms-sr-card" data-card="13"><div class="ms-sr-card-media"><img src="assets/images/recommend/02.jpg" alt=""><button class="ms-play-sm" data-play="13" aria-label="Play Road Trip"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Road Trip</a></h3><p>28 songs</p></div><div class="ms-sr-card" data-card="5"><div class="ms-sr-card-media"><img src="assets/images/trending/07.jpg" alt=""><button class="ms-play-sm" data-play="5" aria-label="Play Gym Mix"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Gym Mix</a></h3><p>35 songs</p></div><div class="ms-sr-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/release/03.jpg" alt=""><button class="ms-play-sm" data-play="7" aria-label="Play Chill Evenings"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Chill Evenings</a></h3><p>20 songs</p></div><div class="ms-sr-card" data-card="14"><div class="ms-sr-card-media"><img src="assets/images/store/02.jpg" alt=""><button class="ms-play-sm" data-play="14" aria-label="Play Throwbacks"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Throwbacks</a></h3><p>31 songs</p></div></div>
 			</section>
 
-			<div class="ms-section ms-two-col ms-reveal ">
-				<div>
-					<div class="ms-sec-head"><h2>Recently Played</h2><a href="history.html" class="ms-view-all">History <i class="ri-arrow-right-line"></i></a></div>
+			<section class="ms-section ms-reveal" aria-labelledby="hProfRecent">
+				<div class="ms-sec-head"><h2 id="hProfRecent" class="ms-sec-icon"><i class="ri-history-line"></i>Recently Played</h2><a href="history.html" class="ms-view-all">History <i class="ri-arrow-right-line"></i></a></div>
 				<div class="ms-tracklist is-compact">
 					<div class="ms-tl-head"><span>#</span><span>Title</span><span>Album</span><span></span><span>Time</span><span></span></div>
 					<div class="ms-tl-row" data-card="1" data-play="1">
@@ -211,18 +222,63 @@ Purchase:
 						<div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-2-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div>
 					</div>
 				</div>
+			</section>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hProfTop">
+				<div class="ms-sec-head"><h2 id="hProfTop" class="ms-sec-icon"><i class="ri-user-star-line"></i>Top Artists This Month</h2><a href="artist.html" class="ms-view-all">All Artists <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-artist-cards"><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="assets/images/artist/01.jpg" alt=""><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Ava Cornish</a></h3><p>40 hours</p></div><button class="ms-follow-pill is-active" data-follow><i class="ri-user-follow-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="assets/images/artist/02.jpg" alt=""><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Brian Hill</a></h3><p>34 hours</p></div><button class="ms-follow-pill is-active" data-follow><i class="ri-user-follow-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="assets/images/artist/03.jpg" alt=""><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">David Parker</a></h3><p>28 hours</p></div><button class="ms-follow-pill is-active" data-follow><i class="ri-user-follow-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="assets/images/artist/04.jpg" alt=""><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Claire Hudson</a></h3><p>22 hours</p></div><button class="ms-follow-pill is-active" data-follow><i class="ri-user-follow-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="assets/images/artist/05.jpg" alt=""><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Kevin Buckland</a></h3><p>16 hours</p></div><button class="ms-follow-pill is-active" data-follow><i class="ri-user-follow-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="assets/images/artist/06.jpg" alt=""><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Anna Ellison</a></h3><p>10 hours</p></div><button class="ms-follow-pill is-active" data-follow><i class="ri-user-follow-line"></i> Following</button></div></div>
+			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and profile extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
 				</div>
-				<aside class="ms-sticky">
-					<div class="ms-side-card">
-						<h3>Following</h3>
-						<div class="ms-follow-row"><img src="assets/images/artist/01.jpg" alt=""><div><h4>Ava Cornish</h4><p>2.4M listeners</p></div><button class="ms-follow-btn is-active" data-follow>Following</button></div>
-						<div class="ms-follow-row"><img src="assets/images/artist/02.jpg" alt=""><div><h4>Brian Hill</h4><p>1.8M listeners</p></div><button class="ms-follow-btn is-active" data-follow>Following</button></div>
-						<div class="ms-follow-row"><img src="assets/images/artist/03.jpg" alt=""><div><h4>David Parker</h4><p>3.1M listeners</p></div><button class="ms-follow-btn is-active" data-follow>Following</button></div>
-						<div class="ms-follow-row"><img src="assets/images/artist/04.jpg" alt=""><div><h4>Claire Hudson</h4><p>960K listeners</p></div><button class="ms-follow-btn is-active" data-follow>Following</button></div>
-						<div class="ms-follow-row"><img src="assets/images/artist/05.jpg" alt=""><div><h4>Kevin Buckland</h4><p>1.2M listeners</p></div><button class="ms-follow-btn is-active" data-follow>Following</button></div>
-					</div>
-				</aside>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
 			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-bar-chart-fill"></i>Listening Stats</h2></div>
+			<div class="ms-mini-list ms-lk-stats"><div><span><i class="ri-time-line"></i></span><p><b>98h</b>This month</p></div><div><span><i class="ri-fire-line"></i></span><p><b>42</b>Day streak</p></div></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-disc-line"></i>Your Top Genres</h2></div>
+			<div class="ms-mini-list">
+				<a href="genres_single.html" class="ms-idea"><img src="assets/images/trending/04.jpg" alt=""><div><h4>Acoustic</h4><p>34% of your listening</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="genres_single.html" class="ms-idea"><img src="assets/images/trending/03.jpg" alt=""><div><h4>Pop</h4><p>28% of your listening</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="genres_single.html" class="ms-idea"><img src="assets/images/release/03.jpg" alt=""><div><h4>Indie</h4><p>18% of your listening</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="genres_single.html" class="ms-idea"><img src="assets/images/recommend/04.jpg" alt=""><div><h4>Lo-fi</h4><p>12% of your listening</p></div><i class="ri-arrow-right-s-line"></i></a>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-user-follow-line"></i>Following</h2><a href="artist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-top-artist"><img src="assets/images/artist/01.jpg" alt=""><div><h4><a href="artist_single.html">Ava Cornish</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>2.4M listeners</p></div><button class="ms-follow-pill is-active" data-follow>Following</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/02.jpg" alt=""><div><h4><a href="artist_single.html">Brian Hill</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>1.8M listeners</p></div><button class="ms-follow-pill is-active" data-follow>Following</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/03.jpg" alt=""><div><h4><a href="artist_single.html">David Parker</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>3.1M listeners</p></div><button class="ms-follow-pill is-active" data-follow>Following</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/04.jpg" alt=""><div><h4><a href="artist_single.html">Claire Hudson</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>960K listeners</p></div><button class="ms-follow-pill is-active" data-follow>Following</button></div>
+			</div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">

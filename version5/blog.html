@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,19 +139,33 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Blog</span></nav>
-					<h1>Music Journal<em>Stories Worth Hearing !</em></h1>
-					<p>Interviews, gear guides, playlists and news from the world of music.</p>
-					<div class="ms-page-stats"><div><b>120+</b><span>Articles</span></div><div><b>24</b><span>Interviews</span></div><div><b>Weekly</b><span>New Posts</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-stack ms-hero-blog" id="msHero" aria-label="Blog">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/07.jpg" alt=""><img src="assets/images/store/01.jpg" alt=""><img src="assets/images/trending/01.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="0">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Music Journal</div>
+							<h1>Music Journal<em>Stories Worth Hearing</em></h1>
+							<p>Interviews, gear guides, playlists and news from the world of music. New stories every week.</p>
+						</div>
+						<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/07.jpg" alt=""><img src="assets/images/store/01.jpg" alt=""><img src="assets/images/trending/01.jpg" alt=""></div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="#hLatest" class="ms-btn"><i class="ri-article-line"></i>Latest Stories</a>
+					<button class="ms-btn ms-btn-outline" data-toast="Subscribed to the Music Journal"><i class="ri-mail-line"></i>Subscribe</button>
+				</div>
+
 			</section>
 
-			<div class="ms-section ms-two-col ms-reveal ">
-				<div>
+			<section class="ms-section ms-reveal" aria-labelledby="hFeatPost">
+				<div class="ms-sec-head"><h2 id="hFeatPost" class="ms-sec-icon"><i class="ri-sparkling-2-line"></i>Featured Story</h2></div>
 				<div class="ms-grid ms-grid-2">
 					<article class="ms-post-card is-featured">
 						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Interviews</span><img src="assets/images/trending/01.jpg" alt=""></a>
@@ -162,7 +176,15 @@ Purchase:
 							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
 						</div>
 					</article>
-					<article class="ms-post-card">
+				</div>
+			</section>
+
+			<div class="ms-feed-tabs" data-filter-group="msPostGrid" role="group" aria-label="Filter"><button class="ms-chip is-active" data-filter="all"><i class="ri-article-line"></i> All Stories</button><button class="ms-chip" data-filter="interviews"><i class="ri-mic-line"></i> Interviews</button><button class="ms-chip" data-filter="news"><i class="ri-newspaper-line"></i> News</button><button class="ms-chip" data-filter="guides"><i class="ri-compass-3-line"></i> Guides</button><button class="ms-chip" data-filter="gear"><i class="ri-headphone-line"></i> Gear</button><button class="ms-chip" data-filter="playlists"><i class="ri-play-list-2-line"></i> Playlists</button><button class="ms-chip" data-filter="vinyl"><i class="ri-disc-line"></i> Vinyl</button></div>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hLatest">
+				<div class="ms-sec-head"><h2 id="hLatest" class="ms-sec-icon"><i class="ri-quill-pen-line"></i>Latest Stories</h2></div>
+				<div class="ms-post-grid" id="msPostGrid" data-limit="6">
+					<article class="ms-post-card" data-genre="gear" data-title="The Best Headphones for HiFi Listening in 2026">
 						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Gear</span><img src="assets/images/trending/02.jpg" alt=""></a>
 						<div class="ms-post-card-body">
 							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Mar 15, 2026</span><span><i class="ri-time-line"></i>8 min read</span></div>
@@ -171,7 +193,7 @@ Purchase:
 							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
 						</div>
 					</article>
-					<article class="ms-post-card">
+					<article class="ms-post-card" data-genre="playlists" data-title="Songs for a Slow Sunday Morning">
 						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Playlists</span><img src="assets/images/release/05.jpg" alt=""></a>
 						<div class="ms-post-card-body">
 							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Mar 12, 2026</span><span><i class="ri-time-line"></i>4 min read</span></div>
@@ -180,7 +202,7 @@ Purchase:
 							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
 						</div>
 					</article>
-					<article class="ms-post-card">
+					<article class="ms-post-card" data-genre="news" data-title="Miraculous Live: Summer Tour Dates Announced">
 						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">News</span><img src="assets/images/trending/07.jpg" alt=""></a>
 						<div class="ms-post-card-body">
 							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Mar 09, 2026</span><span><i class="ri-time-line"></i>3 min read</span></div>
@@ -189,7 +211,7 @@ Purchase:
 							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
 						</div>
 					</article>
-					<article class="ms-post-card">
+					<article class="ms-post-card" data-genre="guides" data-title="How to Build the Perfect Workout Playlist">
 						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Guides</span><img src="assets/images/discover/dancing.jpg" alt=""></a>
 						<div class="ms-post-card-body">
 							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Mar 05, 2026</span><span><i class="ri-time-line"></i>5 min read</span></div>
@@ -198,7 +220,7 @@ Purchase:
 							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
 						</div>
 					</article>
-					<article class="ms-post-card">
+					<article class="ms-post-card" data-genre="studio" data-title="Inside the Studio: Making Midnight Echoes">
 						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Behind the Music</span><img src="assets/images/hero/album-echoes.jpg" alt=""></a>
 						<div class="ms-post-card-body">
 							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Mar 01, 2026</span><span><i class="ri-time-line"></i>7 min read</span></div>
@@ -207,7 +229,7 @@ Purchase:
 							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
 						</div>
 					</article>
-					<article class="ms-post-card">
+					<article class="ms-post-card" data-genre="vinyl" data-title="Why Vinyl Sales Keep Growing">
 						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Vinyl</span><img src="assets/images/store/01.jpg" alt=""></a>
 						<div class="ms-post-card-body">
 							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Feb 26, 2026</span><span><i class="ri-time-line"></i>5 min read</span></div>
@@ -216,30 +238,77 @@ Purchase:
 							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
 						</div>
 					</article>
+					<article class="ms-post-card" data-genre="news" data-title="Five Albums We Can&rsquo;t Stop Playing">
+						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">News</span><img src="assets/images/release/02.jpg" alt=""></a>
+						<div class="ms-post-card-body">
+							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Feb 22, 2026</span><span><i class="ri-time-line"></i>4 min read</span></div>
+							<h3><a href="blog_single.html">Five Albums We Can&rsquo;t Stop Playing</a></h3>
+							<p>From soft acoustic records to late-night electronic, the staff picks for this month.</p>
+							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+						</div>
+					</article>
+					<article class="ms-post-card" data-genre="guides" data-title="A Beginner&rsquo;s Guide to Lossless Audio">
+						<a href="blog_single.html" class="ms-post-card-img"><span class="ms-tag">Guides</span><img src="assets/images/trending/06.jpg" alt=""></a>
+						<div class="ms-post-card-body">
+							<div class="ms-post-meta"><span><i class="ri-calendar-line"></i>Feb 18, 2026</span><span><i class="ri-time-line"></i>6 min read</span></div>
+							<h3><a href="blog_single.html">A Beginner&rsquo;s Guide to Lossless Audio</a></h3>
+							<p>What FLAC, bit depth and sample rate really mean for your ears.</p>
+							<a href="blog_single.html" class="ms-read-more">Read More <i class="ri-arrow-right-line"></i></a>
+						</div>
+					</article>
 				</div>
-				<nav class="ms-pagination" aria-label="Pages"><a href="#" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></a><a href="#" class="is-active">1</a><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Next"><i class="ri-arrow-right-s-line"></i></a></nav>
+				<p class="ms-empty" data-empty="msPostGrid" hidden>No stories in this category yet.</p>
+				<div class="ms-load-more" data-load-more="msPostGrid"><button class="ms-btn ms-btn-outline">Load More Stories <i class="ri-arrow-down-line"></i></button></div>
+			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and blog extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
 				</div>
-				<aside class="ms-sticky">
-					<div class="ms-side-card">
-						<h3>Search</h3>
-						<div class="ms-composer" style="padding:0;border:0;box-shadow:none;margin-top:12px"><input type="search" placeholder="Search articles..." aria-label="Search articles"></div>
-					</div>
-					<div class="ms-side-card">
-						<h3>Categories</h3>
-						<ul class="ms-cat-list"><li><a href="#">Interviews<b>24</b></a></li><li><a href="#">News<b>38</b></a></li><li><a href="#">Playlists<b>19</b></a></li><li><a href="#">Gear<b>12</b></a></li><li><a href="#">Guides<b>16</b></a></li><li><a href="#">Vinyl<b>9</b></a></li></ul>
-					</div>
-					<div class="ms-side-card">
-						<h3>Recent Posts</h3>
-						<div class="ms-recent"><img src="assets/images/trending/02.jpg" alt=""><div><h4><a href="blog_single.html">The Best Headphones for HiFi Listening in 2026</a></h4><p>Mar 15, 2026</p></div></div>
-						<div class="ms-recent"><img src="assets/images/release/05.jpg" alt=""><div><h4><a href="blog_single.html">Songs for a Slow Sunday Morning</a></h4><p>Mar 12, 2026</p></div></div>
-						<div class="ms-recent"><img src="assets/images/trending/07.jpg" alt=""><div><h4><a href="blog_single.html">Miraculous Live: Summer Tour Dates Announced</a></h4><p>Mar 09, 2026</p></div></div>
-					</div>
-					<div class="ms-side-card">
-						<h3>Tags</h3>
-<div class="ms-tags"><a href="#">Pop</a><a href="#">Vinyl</a><a href="#">Interviews</a><a href="#">Tour</a><a href="#">HiFi</a><a href="#">Acoustic</a><a href="#">Studio</a></div>
-					</div>
-				</aside>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
 			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-search-line"></i>Search</h2></div>
+			<label class="ms-tool-search ms-side-search"><i class="ri-search-line"></i><input type="search" placeholder="Search articles..." data-search="msPostGrid" aria-label="Search articles"></label>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-folder-3-line"></i>Categories</h2></div>
+			<div class="ms-mini-list"><ul class="ms-cat-list"><li><a href="blog.html">Interviews<b>24</b></a></li><li><a href="blog.html">News<b>38</b></a></li><li><a href="blog.html">Playlists<b>19</b></a></li><li><a href="blog.html">Gear<b>12</b></a></li><li><a href="blog.html">Guides<b>16</b></a></li><li><a href="blog.html">Vinyl<b>9</b></a></li></ul></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-time-line"></i>Recent Posts</h2><a href="blog.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-recent"><img src="assets/images/trending/02.jpg" alt=""><div><h4><a href="blog_single.html">The Best Headphones for HiFi Listening in 2026</a></h4><p>Mar 15, 2026</p></div></div>
+				<div class="ms-recent"><img src="assets/images/release/05.jpg" alt=""><div><h4><a href="blog_single.html">Songs for a Slow Sunday Morning</a></h4><p>Mar 12, 2026</p></div></div>
+				<div class="ms-recent"><img src="assets/images/trending/07.jpg" alt=""><div><h4><a href="blog_single.html">Miraculous Live: Summer Tour Dates Announced</a></h4><p>Mar 09, 2026</p></div></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-price-tag-3-line"></i>Tags</h2></div>
+			<div class="ms-mini-list"><div class="ms-tags"><a href="blog.html">Pop</a><a href="blog.html">Vinyl</a><a href="blog.html">Interviews</a><a href="blog.html">Tour</a><a href="blog.html">HiFi</a><a href="blog.html">Acoustic</a><a href="blog.html">Studio</a></div></div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">

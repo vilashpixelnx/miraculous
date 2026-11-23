@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,59 +139,120 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><a href="feed.html">Music Feed</a><i class="ri-arrow-right-s-line"></i><span>Artist Posts</span></nav>
-					<h1>Artist Posts<em>Stories From The Studio !</em></h1>
-					<p>News, new releases and behind-the-scenes moments from the artists you follow.</p>
-					<div class="ms-page-stats"><div><b>120</b><span>New Posts</span></div><div><b>38</b><span>Artists You Follow</span></div><div><b>6</b><span>New Releases</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-stack ms-hero-posts" id="msHero" aria-label="Artist posts">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/07.jpg" alt=""><img src="assets/images/trending/08.jpg" alt=""><img src="assets/images/artist/01.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="12">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Music Feed</div>
+							<h1>Artist Posts<em>Stories From The Studio</em></h1>
+							<p>News, new releases and behind-the-scenes moments from the artists you follow.</p>
+						</div>
+						<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/07.jpg" alt=""><img src="assets/images/trending/08.jpg" alt=""><img src="assets/images/artist/01.jpg" alt=""></div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="#hPosts" class="ms-btn"><i class="ri-chat-heart-line"></i>Latest Posts</a>
+					<a href="feed.html" class="ms-btn ms-btn-outline"><i class="ri-arrow-left-line"></i>Back to Feed</a>
+				</div>
+
 			</section>
 
-			<div class="ms-section ms-two-col ms-reveal ">
-				<div>
-					<div class="ms-composer"><img src="assets/images/user.jpg" alt=""><input type="text" placeholder="Share what you're listening to..." aria-label="Write a post"><button class="ms-btn ms-btn-sm">Post</button></div>
-					<article class="ms-post">
+			<div class="ms-feed-tabs" data-filter-group="msPostList" role="group" aria-label="Filter"><button class="ms-chip is-active" data-filter="all"><i class="ri-chat-heart-line"></i> All Posts</button><button class="ms-chip" data-filter="releases"><i class="ri-music-2-line"></i> New Releases</button><button class="ms-chip" data-filter="studio"><i class="ri-mic-line"></i> In the Studio</button><button class="ms-chip" data-filter="tour"><i class="ri-map-pin-line"></i> On Tour</button></div>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hPosts">
+				<div class="ms-sec-head"><h2 id="hPosts" class="ms-sec-icon"><i class="ri-group-line"></i>Latest From Artists</h2></div>
+				<div class="ms-composer"><img src="assets/images/user.jpg" alt=""><input type="text" placeholder="Share what you're listening to..." aria-label="Write a post"><button class="ms-btn ms-btn-sm" data-toast="Your post is live">Post</button></div>
+				<div class="ms-post-list" id="msPostList">
+					<article class="ms-post" data-genre="releases">
 						<div class="ms-post-head"><img src="assets/images/artist/01.jpg" alt=""><div><h4>Ava Cornish <i class="ri-verified-badge-fill"></i></h4><p>2 hours ago</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-2-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Save Post</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Hide Post</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
 						<p class="ms-post-text">The new single is finally out! "The Heartbeat Steps" was written on a rainy night in Lisbon. I hope it finds you on a good day.</p>
 						<div class="ms-post-track"><img src="assets/images/recommend/03.jpg" alt=""><div><h5>The Heartbeat Steps</h5><p>Ava Cornish &middot; 03:49</p></div><button class="ms-play" data-play="12" aria-label="Play The Heartbeat Steps"><i class="ri-play-fill"></i></button></div>
 						<div class="ms-post-actions"><button data-react><i class="ri-heart-3-line"></i> 4.8K</button><button><i class="ri-chat-3-line"></i> 312</button><button><i class="ri-repeat-2-line"></i> Share</button></div>
 					</article>
-					<article class="ms-post">
+					<article class="ms-post" data-genre="tour">
 						<div class="ms-post-head"><img src="assets/images/artist/02.jpg" alt=""><div><h4>Brian Hill <i class="ri-verified-badge-fill"></i></h4><p>5 hours ago</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-2-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Save Post</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Hide Post</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
 						<p class="ms-post-text">Backstage before the last show of the tour. Thank you Berlin, you were unreal tonight.</p>
 						<div class="ms-post-media"><img src="assets/images/trending/07.jpg" alt=""></div>
 						<div class="ms-post-actions"><button data-react><i class="ri-heart-3-line"></i> 3.1K</button><button><i class="ri-chat-3-line"></i> 204</button><button><i class="ri-repeat-2-line"></i> Share</button></div>
 					</article>
-					<article class="ms-post">
+					<article class="ms-post" data-genre="releases">
 						<div class="ms-post-head"><img src="assets/images/artist/06.jpg" alt=""><div><h4>Miraculous Editors</h4><p>Yesterday</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-2-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Save Post</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Hide Post</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
 						<p class="ms-post-text">Our pick of the week: a soft, late-night album that sounds like city lights after rain. Press play and slow down.</p>
 						<div class="ms-post-track"><img src="assets/images/hero/album-echoes.jpg" alt=""><div><h5>Echoes of You</h5><p>Claire Hudson &middot; 04:28</p></div><button class="ms-play" data-play="4" aria-label="Play Echoes of You"><i class="ri-play-fill"></i></button></div>
 						<div class="ms-post-actions"><button data-react><i class="ri-heart-3-line"></i> 980</button><button><i class="ri-chat-3-line"></i> 41</button><button><i class="ri-repeat-2-line"></i> Share</button></div>
 					</article>
-					<article class="ms-post">
+					<article class="ms-post" data-genre="studio">
 						<div class="ms-post-head"><img src="assets/images/artist/04.jpg" alt=""><div><h4>Claire Hudson <i class="ri-verified-badge-fill"></i></h4><p>2 days ago</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-2-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Save Post</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Hide Post</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
 						<p class="ms-post-text">Studio day. Ten songs, one microphone and far too much coffee. Midnight Echoes is getting close.</p>
 						<div class="ms-post-media"><img src="assets/images/trending/08.jpg" alt=""></div>
 						<div class="ms-post-actions"><button data-react><i class="ri-heart-3-line"></i> 2.6K</button><button><i class="ri-chat-3-line"></i> 158</button><button><i class="ri-repeat-2-line"></i> Share</button></div>
 					</article>
+					<article class="ms-post" data-genre="tour">
+						<div class="ms-post-head"><img src="assets/images/artist/03.jpg" alt=""><div><h4>David Parker <i class="ri-verified-badge-fill"></i></h4><p>3 days ago</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-2-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Save Post</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Hide Post</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+						<p class="ms-post-text">Rehearsals for the summer tour start Monday. Which old song should come back to the set list?</p>
+						<div class="ms-post-track"><img src="assets/images/release/04.jpg" alt=""><div><h5>Paper Hearts</h5><p>David Parker &middot; 03:52</p></div><button class="ms-play" data-play="8" aria-label="Play Paper Hearts"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-post-actions"><button data-react><i class="ri-heart-3-line"></i> 1.9K</button><button><i class="ri-chat-3-line"></i> 276</button><button><i class="ri-repeat-2-line"></i> Share</button></div>
+					</article>
 				</div>
-				<aside class="ms-sticky">
-					<div class="ms-side-card">
-						<h3>Who to Follow</h3>
-						<div class="ms-follow-row"><img src="assets/images/artist/03.jpg" alt=""><div><h4>David Parker</h4><p>3.1M listeners</p></div><button class="ms-follow-btn" data-follow>Follow</button></div>
-						<div class="ms-follow-row"><img src="assets/images/artist/07.jpg" alt=""><div><h4>Max Glover</h4><p>640K listeners</p></div><button class="ms-follow-btn" data-follow>Follow</button></div>
-						<div class="ms-follow-row"><img src="assets/images/artist/08.jpg" alt=""><div><h4>Sofia Reyes</h4><p>580K listeners</p></div><button class="ms-follow-btn" data-follow>Follow</button></div>
-						<div class="ms-follow-row"><img src="assets/images/artist/09.jpg" alt=""><div><h4>Leo Martin</h4><p>510K listeners</p></div><button class="ms-follow-btn" data-follow>Follow</button></div>
-					</div>
-					<div class="ms-side-card">
-						<h3>Trending Tags</h3>
-<div class="ms-tags"><a href="#">#NewMusicFriday</a><a href="#">#AcousticSessions</a><a href="#">#LiveTour</a><a href="#">#Throwback</a><a href="#">#StudioLife</a><a href="#">#ChillVibes</a></div>
-					</div>
-				</aside>
+				<p class="ms-empty" data-empty="msPostList" hidden>No posts here yet.</p>
+			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and artist news">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
 			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-user-add-line"></i>Who to Follow</h2><a href="artist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-top-artist"><img src="assets/images/artist/03.jpg" alt=""><div><h4><a href="artist_single.html">David Parker</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>3.1M listeners</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/07.jpg" alt=""><div><h4><a href="artist_single.html">Max Glover</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>640K listeners</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/08.jpg" alt=""><div><h4><a href="artist_single.html">Sofia Reyes</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>580K listeners</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/09.jpg" alt=""><div><h4><a href="artist_single.html">Leo Martin</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>510K listeners</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-calendar-event-line"></i>Upcoming Shows</h2></div>
+			<div class="ms-mini-list">
+				<a href="artist_single.html" class="ms-idea ms-gig"><span class="ms-gig-date"><b>28</b>Mar</span><div><h4>Ava Cornish</h4><p>O2 Arena, London</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="artist_single.html" class="ms-idea ms-gig"><span class="ms-gig-date"><b>04</b>Apr</span><div><h4>Brian Hill</h4><p>Zenith, Paris</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="artist_single.html" class="ms-idea ms-gig"><span class="ms-gig-date"><b>11</b>Apr</span><div><h4>Claire Hudson</h4><p>Columbiahalle, Berlin</p></div><i class="ri-arrow-right-s-line"></i></a>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-hashtag"></i>Trending Tags</h2></div>
+			<div class="ms-mini-list"><div class="ms-tags"><a href="feed.html">#NewMusicFriday</a><a href="feed.html">#AcousticSessions</a><a href="feed.html">#LiveTour</a><a href="feed.html">#Throwback</a><a href="feed.html">#StudioLife</a><a href="feed.html">#ChillVibes</a><a href="feed.html">#OnRepeat</a></div></div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">

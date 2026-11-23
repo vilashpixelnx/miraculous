@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,42 +139,107 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Purchases</span></nav>
-					<h1>Purchases<em>Everything You Own !</em></h1>
-					<p>Your orders, downloads and invoices in one place. Re-download any HiFi purchase whenever you like.</p>
-					<div class="ms-page-stats"><div><b>24</b><span>Orders</span></div><div><b>$318</b><span>Spent</span></div><div><b>11</b><span>Records</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-stack ms-hero-purchase" id="msHero" aria-label="Purchases">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/store/03.jpg" alt=""><img src="assets/images/store/04.jpg" alt=""><img src="assets/images/store/01.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="4">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Your Library</div>
+							<h1>Purchases<em>Everything You Own</em></h1>
+							<p>Your orders, downloads and invoices in one place. Re-download any HiFi purchase whenever you like.</p>
+						</div>
+						<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/store/03.jpg" alt=""><img src="assets/images/store/04.jpg" alt=""><img src="assets/images/hero/album-echoes.jpg" alt=""></div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="store.html" class="ms-btn"><i class="ri-shopping-cart-2-line"></i>Visit Store</a>
+					<button class="ms-btn ms-btn-outline" data-toast="Your purchases are downloading"><i class="ri-download-2-line"></i>Download All</button>
+				</div>
+
 			</section>
 
-			<div class="ms-section ms-reveal">
-				<div class="ms-stat-cards">
-					<div class="ms-stat"><i class="ri-shopping-bag-3-line"></i><b>24</b><span>Total orders</span></div>
-					<div class="ms-stat"><i class="ri-money-dollar-circle-line"></i><b>$318.40</b><span>Total spent</span></div>
-					<div class="ms-stat"><i class="ri-album-line"></i><b>11</b><span>Records owned</span></div>
-					<div class="ms-stat"><i class="ri-coupon-3-line"></i><b>$12.50</b><span>Saved with Premium</span></div>
-				</div>
+			<div class="ms-section ms-stat-strip ms-reveal">
+				<div class="ms-stat-cards"><div class="ms-stat"><i class="ri-shopping-bag-3-line"></i><b>24</b><span>Total orders</span></div><div class="ms-stat"><i class="ri-money-dollar-circle-line"></i><b>$318.40</b><span>Total spent</span></div><div class="ms-stat"><i class="ri-album-line"></i><b>11</b><span>Records owned</span></div><div class="ms-stat"><i class="ri-coupon-3-line"></i><b>$12.50</b><span>Saved with Premium</span></div></div>
 			</div>
 
-			<section class="ms-section ms-reveal " aria-labelledby="hOrders">
-				<div class="ms-sec-head"><h2 id="hOrders">Order History</h2><div class="ms-tabs-pill" data-tabs><button class="is-active">All</button><button>Music</button><button>Merch</button></div></div>
+			<section class="ms-section ms-reveal" aria-labelledby="hOrders">
+				<div class="ms-sec-head"><h2 id="hOrders" class="ms-sec-icon"><i class="ri-file-list-3-line"></i>Order History</h2><div class="ms-seg ms-seg-sm" data-filter-group="msOrders" role="group" aria-label="Filter orders"><button class="is-active" data-filter="all">All</button><button data-filter="music">Music</button><button data-filter="merch">Merch</button><button data-filter="subscription">Plans</button></div></div>
 				<div class="ms-table-card">
 					<table class="ms-table">
 						<thead><tr><th>Order</th><th>Item</th><th>Date</th><th>Total</th><th>Status</th><th></th></tr></thead>
-						<tbody>
-							<tr><td><b>#MS-10482</b></td><td><div class="ms-tl-title"><img src="assets/images/hero/album-echoes.jpg" alt=""><div><h4>Midnight Echoes</h4><p>Claire Hudson &middot; Vinyl</p></div></div></td><td>Mar 18, 2026</td><td><b>$14.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr><td><b>#MS-10461</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/01.jpg" alt=""><div><h4>Walking Promises</h4><p>Ava Cornish &middot; HiFi Album</p></div></div></td><td>Mar 12, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr><td><b>#MS-10433</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/02.jpg" alt=""><div><h4>Tour Hoodie</h4><p>Brian Hill &middot; Merch</p></div></div></td><td>Mar 05, 2026</td><td><b>$45.00</b></td><td><span class="ms-badge ">Shipped</span></td><td><button class="ms-follow-btn"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr><td><b>#MS-10398</b></td><td><div class="ms-tl-title"><img src="assets/images/release/03.jpg" alt=""><div><h4>Golden Hour</h4><p>Claire Hudson &middot; CD</p></div></div></td><td>Feb 26, 2026</td><td><b>$10.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr><td><b>#MS-10354</b></td><td><div class="ms-tl-title"><img src="assets/images/store/02.jpg" alt=""><div><h4>Premium Monthly</h4><p>Subscription</p></div></div></td><td>Feb 14, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-muted">Paid</span></td><td><button class="ms-follow-btn"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr><td><b>#MS-10321</b></td><td><div class="ms-tl-title"><img src="assets/images/release/04.jpg" alt=""><div><h4>Paper Hearts</h4><p>David Parker &middot; EP</p></div></div></td><td>Feb 02, 2026</td><td><b>$7.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+						<tbody id="msOrders">
+							<tr data-genre="music"><td><b>#MS-10482</b></td><td><div class="ms-tl-title"><img src="assets/images/hero/album-echoes.jpg" alt=""><div><h4>Midnight Echoes</h4><p>Claire Hudson &middot; Vinyl</p></div></div></td><td>Mar 18, 2026</td><td><b>$14.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10482 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="music"><td><b>#MS-10461</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/01.jpg" alt=""><div><h4>Walking Promises</h4><p>Ava Cornish &middot; HiFi Album</p></div></div></td><td>Mar 12, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10461 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="merch"><td><b>#MS-10433</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/02.jpg" alt=""><div><h4>Tour Hoodie</h4><p>Brian Hill &middot; Merch</p></div></div></td><td>Mar 05, 2026</td><td><b>$45.00</b></td><td><span class="ms-badge ">Shipped</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10433 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="music"><td><b>#MS-10398</b></td><td><div class="ms-tl-title"><img src="assets/images/release/03.jpg" alt=""><div><h4>Golden Hour</h4><p>Claire Hudson &middot; CD</p></div></div></td><td>Feb 26, 2026</td><td><b>$10.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10398 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="subscription"><td><b>#MS-10354</b></td><td><div class="ms-tl-title"><img src="assets/images/store/02.jpg" alt=""><div><h4>Premium Monthly</h4><p>Subscription</p></div></div></td><td>Feb 14, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-muted">Paid</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10354 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="music"><td><b>#MS-10321</b></td><td><div class="ms-tl-title"><img src="assets/images/release/04.jpg" alt=""><div><h4>Paper Hearts</h4><p>David Parker &middot; EP</p></div></div></td><td>Feb 02, 2026</td><td><b>$7.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10321 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
 						</tbody>
 					</table>
 				</div>
+				<p class="ms-empty" data-empty="msOrders" hidden>No orders of this type.</p>
 			</section>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hCollection">
+				<div class="ms-sec-head"><h2 id="hCollection" class="ms-sec-icon"><i class="ri-album-line"></i>Your Collection</h2><a href="download.html" class="ms-view-all">Downloads <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-grid"><div class="ms-sr-card ms-dl-card" data-card="4"><div class="ms-sr-card-media"><img src="assets/images/hero/album-echoes.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Midnight Echoes</a></h3><p>Claire Hudson &middot; Vinyl</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="0"><div class="ms-sr-card-media"><img src="assets/images/trending/01.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Walking Promises</a></h3><p>Ava Cornish &middot; HiFi</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/release/03.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Golden Hour</a></h3><p>Claire Hudson &middot; CD</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="8"><div class="ms-sr-card-media"><img src="assets/images/release/04.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="8" aria-label="Play Paper Hearts"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Paper Hearts</a></h3><p>David Parker &middot; EP</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="6"><div class="ms-sr-card-media"><img src="assets/images/release/02.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Cloud Nine</a></h3><p>Brian Hill &middot; HiFi</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div></div>
+			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and purchase extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-bank-card-line"></i>Payment Method</h2></div>
+			<div class="ms-paycard"><div class="ms-paycard-top"><i class="ri-bank-card-2-fill"></i><span>VISA</span></div><b>&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4821</b><div class="ms-paycard-foot"><span>Jessica Moore</span><span>09 / 28</span></div></div>
+			<button class="ms-btn ms-btn-outline ms-btn-block" data-toast="Payment methods opened"><i class="ri-add-line"></i> Add Payment Method</button>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-shopping-bag-3-line"></i>Recently Bought</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row" data-card="4"><img src="assets/images/hero/album-echoes.jpg" alt=""><div><h4><a href="album_single.html">Midnight Echoes</a></h4><p>Vinyl &middot; Mar 18</p></div><button class="ms-mini-play" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="0"><img src="assets/images/trending/01.jpg" alt=""><div><h4><a href="album_single.html">Walking Promises</a></h4><p>HiFi Album &middot; Mar 12</p></div><button class="ms-mini-play" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="7"><img src="assets/images/release/03.jpg" alt=""><div><h4><a href="album_single.html">Golden Hour</a></h4><p>CD &middot; Feb 26</p></div><button class="ms-mini-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-question-line"></i>Need Help?</h2></div>
+			<div class="ms-mini-list">
+				<a href="purchase.html" class="ms-idea"><span class="ms-idea-ic"><i class="ri-truck-line"></i></span><div><h4>Track an order</h4><p>See where your parcel is</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="purchase.html" class="ms-idea"><span class="ms-idea-ic"><i class="ri-refund-2-line"></i></span><div><h4>Refunds &amp; returns</h4><p>Within 14 days of delivery</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="manage_acc.html" class="ms-idea"><span class="ms-idea-ic"><i class="ri-customer-service-2-line"></i></span><div><h4>Contact support</h4><p>We reply within a day</p></div><i class="ri-arrow-right-s-line"></i></a>
+			</div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">

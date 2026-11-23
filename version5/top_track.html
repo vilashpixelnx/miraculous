@@ -24,7 +24,7 @@ Purchase:
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="has-rightbar">
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -67,8 +67,8 @@ Purchase:
 
 			<div class="ms-nav-title">Your Library</div>
 			<ul class="ms-nav ms-nav-sm">
-				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
 				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
 				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
 			</ul>
@@ -139,19 +139,45 @@ Purchase:
 
 		<main class="ms-content">
 
-			<!-- Page banner -->
-			<section class="ms-page-hero">
-				<div class="ms-page-hero-text">
-					<nav class="ms-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><span>Trending</span></nav>
-					<h1>Top Charts<em>The Songs Everyone Plays !</em></h1>
-					<p>The 15 most played songs on Miraculous right now, updated every hour from millions of listeners.</p>
-					<div class="ms-page-stats"><div><b>15</b><span>Top Songs</span></div><div><b>48M</b><span>Plays Today</span></div><div><b>1h</b><span>Updated</span></div></div>
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-charts" id="msHero" aria-label="Top charts">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
+					<span class="ms-radio-orb ms-page-orb"><i class="ri-trophy-line"></i></span>
 				</div>
-				<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/02.jpg" alt=""><img src="assets/images/trending/03.jpg" alt=""><img src="assets/images/trending/01.jpg" alt=""></div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="1">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Top Charts</div>
+							<h1>Top Charts<em>The Songs Everyone Plays</em></h1>
+							<p>The 15 most played songs on Miraculous right now, updated every hour from millions of listeners.</p>
+						</div>
+						<div class="ms-hero-art">
+							<picture style="--cut-w:150%;--cut-l:-8%;--cut-t:-6%">
+								<source srcset="assets/images/feed/04.webp" type="image/webp">
+								<img src="assets/images/feed/04.png" alt="Woman enjoying music with headphones" width="1024" height="1536">
+							</picture>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<button class="ms-btn" data-hero-play><i class="ri-play-fill"></i>Play Top 15</button>
+					<button class="ms-btn ms-btn-outline" data-toast="Link copied to clipboard"><i class="ri-share-forward-line"></i>Share</button>
+				</div>
+
+				<div class="ms-hero-wave" id="msHeroWave" aria-hidden="true"></div>
 			</section>
 
-			<section class="ms-section ms-reveal " aria-labelledby="hTop15">
-				<div class="ms-sec-head"><h2 id="hTop15">Top 15 Songs</h2><div class="ms-tabs-pill" data-tabs role="tablist"><button class="is-active">Today</button><button>This Week</button><button>This Month</button></div></div>
+			<section class="ms-section ms-reveal" aria-labelledby="hTop3">
+				<div class="ms-sec-head"><h2 id="hTop3" class="ms-sec-icon"><i class="ri-trophy-line"></i>Top 3 Right Now</h2><div class="ms-tabs-pill" data-tabs role="tablist"><button class="is-active">Today</button><button>This Week</button><button>This Month</button></div></div>
+				<div class="ms-podiums"><div class="ms-podium is-r2" data-card="0"><div class="ms-podium-media"><img src="assets/images/trending/01.jpg" alt=""><span class="ms-podium-rank">#2</span><button class="ms-play-sm" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-podium-body"><h3><a href="music.html">Walking Promises</a></h3><p>Ava Cornish</p><span><i class="ri-headphone-line"></i>7.6M plays</span></div></div><div class="ms-podium is-r1" data-card="1"><div class="ms-podium-media"><img src="assets/images/trending/02.jpg" alt=""><span class="ms-podium-rank">#1</span><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-podium-body"><h3><a href="music.html">Until I Met You</a></h3><p>Brian Hill</p><span><i class="ri-headphone-line"></i>8.2M plays</span></div></div><div class="ms-podium is-r3" data-card="2"><div class="ms-podium-media"><img src="assets/images/trending/03.jpg" alt=""><span class="ms-podium-rank">#3</span><button class="ms-play-sm" data-play="2" aria-label="Play Gimme Some Courage"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-podium-body"><h3><a href="music.html">Gimme Some Courage</a></h3><p>Ava Cornish</p><span><i class="ri-headphone-line"></i>6.9M plays</span></div></div></div>
+			</section>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hTop15">
+				<div class="ms-sec-head"><h2 id="hTop15" class="ms-sec-icon"><i class="ri-bar-chart-fill"></i>Top 15 Songs</h2><span class="ms-view-all ms-updated"><i class="ri-refresh-line"></i> Updated 12 min ago</span></div>
 				<div class="ms-tracklist is-chart">
 					<div class="ms-tl-head"><span>#</span><span></span><span>Title</span><span>Album</span><span>Plays</span><span></span><span>Time</span><span></span></div>
 					<div class="ms-tl-row" data-card="1" data-play="1">
@@ -277,17 +303,69 @@ Purchase:
 				</div>
 			</section>
 
-			<section class="ms-section ms-reveal " aria-labelledby="hTopAlbums">
-				<div class="ms-sec-head"><h2 id="hTopAlbums">Top Albums</h2><a href="album.html" class="ms-view-all">All Albums <i class="ri-arrow-right-line"></i></a></div>
-				<div class="ms-grid ms-grid-6">
-					<div class="ms-card is-square" data-card="0"><div class="ms-card-media"><img src="assets/images/trending/01.jpg" alt=""><button class="ms-play-sm" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Walking Promises</a></h3><p>Ava Cornish &middot; 2026</p></div>
-					<div class="ms-card is-square" data-card="1"><div class="ms-card-media"><img src="assets/images/trending/02.jpg" alt=""><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Until I Met You</a></h3><p>Brian Hill &middot; 2025</p></div>
-					<div class="ms-card is-square" data-card="4"><div class="ms-card-media"><img src="assets/images/hero/album-echoes.jpg" alt=""><button class="ms-play-sm" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Midnight Echoes</a></h3><p>Claire Hudson &middot; 2024</p></div>
-					<div class="ms-card is-square" data-card="7"><div class="ms-card-media"><img src="assets/images/release/03.jpg" alt=""><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Golden Hour</a></h3><p>Claire Hudson &middot; 2026</p></div>
-					<div class="ms-card is-square" data-card="10"><div class="ms-card-media"><img src="assets/images/release/06.jpg" alt=""><button class="ms-play-sm" data-play="10" aria-label="Play Velvet Sky"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Velvet Sky</a></h3><p>Max Glover &middot; 2025</p></div>
-					<div class="ms-card is-square" data-card="6"><div class="ms-card-media"><img src="assets/images/release/02.jpg" alt=""><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Cloud Nine</a></h3><p>Brian Hill &middot; 2024</p></div>
+			<section class="ms-section ms-reveal" aria-labelledby="hTopAlbums">
+				<div class="ms-sec-head"><h2 id="hTopAlbums" class="ms-sec-icon"><i class="ri-album-line"></i>Top Albums</h2><a href="album.html" class="ms-view-all">All Albums <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-carousel" data-carousel>
+					<button class="ms-carousel-arrow is-prev" data-carousel-dir="-1" aria-label="Previous albums"><i class="ri-arrow-left-s-line"></i></button>
+					<div class="ms-carousel-track">
+						<div class="ms-artist-tile ms-album-tile" data-card="0"><img src="assets/images/trending/01.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="album_single.html">Walking Promises</a></h3><p>Ava Cornish</p><p>#1 &middot; 12 Songs</p></div><button class="ms-play-sm" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="1"><img src="assets/images/trending/02.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="album_single.html">Until I Met You</a></h3><p>Brian Hill</p><p>#2 &middot; 10 Songs</p></div><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="4"><img src="assets/images/hero/album-echoes.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="album_single.html">Midnight Echoes</a></h3><p>Claire Hudson</p><p>#3 &middot; 12 Songs</p></div><button class="ms-play-sm" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="7"><img src="assets/images/release/03.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="album_single.html">Golden Hour</a></h3><p>Claire Hudson</p><p>#4 &middot; 11 Songs</p></div><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="10"><img src="assets/images/release/06.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="album_single.html">Velvet Sky</a></h3><p>Max Glover</p><p>#5 &middot; 12 Songs</p></div><button class="ms-play-sm" data-play="10" aria-label="Play Velvet Sky"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="6"><img src="assets/images/release/02.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="album_single.html">Cloud Nine</a></h3><p>Brian Hill</p><p>#6 &middot; 12 Songs</p></div><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button></div>
+					</div>
+					<button class="ms-carousel-arrow is-next" data-carousel-dir="1" aria-label="Next albums"><i class="ri-arrow-right-s-line"></i></button>
+					<div class="ms-carousel-dots"></div>
 				</div>
 			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and chart extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-bar-chart-fill"></i>Chart Stats</h2></div>
+			<div class="ms-mini-list ms-lk-stats"><div><span><i class="ri-headphone-fill"></i></span><p><b>48M</b>Plays today</p></div><div><span><i class="ri-time-line"></i></span><p><b>1h</b>Refresh rate</p></div></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-user-star-fill"></i>Top Artists</h2><a href="artist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-top-artist"><img src="assets/images/artist/02.jpg" alt=""><div><h4><a href="artist_single.html">Brian Hill</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>8.2M plays</p></div><button class="ms-follow-pill is-active" data-follow>Following</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/01.jpg" alt=""><div><h4><a href="artist_single.html">Ava Cornish</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>7.9M plays</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/03.jpg" alt=""><div><h4><a href="artist_single.html">David Parker</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>6.4M plays</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/04.jpg" alt=""><div><h4><a href="artist_single.html">Claire Hudson</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>5.1M plays</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+				<div class="ms-top-artist"><img src="assets/images/artist/05.jpg" alt=""><div><h4><a href="artist_single.html">Kevin Buckland</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>4.6M plays</p></div><button class="ms-follow-pill" data-follow>Follow</button></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Charts by Genre</h2><a href="genres.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-genre-tiles"><a href="genres_single.html" class="ms-genre-tile is-pop"><span>Pop</span><img src="assets/images/genre/pop.svg" alt=""></a><a href="genres_single.html" class="ms-genre-tile is-rock"><span>Rock</span><img src="assets/images/genre/rock.svg" alt=""></a><a href="genres_single.html" class="ms-genre-tile is-hiphop"><span>Hip Hop</span><i class="ri-mic-2-fill"></i></a><a href="genres_single.html" class="ms-genre-tile is-edm"><span>EDM</span><i class="ri-headphone-fill"></i></a><a href="genres_single.html" class="ms-genre-tile is-classical"><span>Classical</span><img src="assets/images/genre/acoustic.svg" alt=""></a><a href="genres_single.html" class="ms-genre-tile is-indie"><span>Indie</span><img src="assets/images/genre/chill.svg" alt=""></a><a href="genres_single.html" class="ms-genre-tile is-jazz"><span>Jazz</span><i class="ri-music-2-fill"></i></a><a href="genres_single.html" class="ms-genre-tile is-rnb"><span>R&amp;B</span><i class="ri-disc-fill"></i></a></div>
+		</div>
+	</aside>
 
 			<!-- Footer -->
 			<footer class="ms-footer">
