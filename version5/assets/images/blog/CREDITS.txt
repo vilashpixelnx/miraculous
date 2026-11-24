@@ -1,0 +1,12 @@
+Blog photos - all from Unsplash (https://unsplash.com), free under the Unsplash License
+(https://unsplash.com/license). Cropped to 1200x800 for the template.
+
+feat-guitar.jpg          https://unsplash.com/photos/tp_aLk0ngME
+gear-headphones.jpg      https://unsplash.com/photos/3yQ3vLfOaoM   (Viktor Forgacs)
+sunday-vinyl.jpg         https://unsplash.com/photos/K_re5snQPU8   (Roman Kraft)
+tour-crowd.jpg           https://unsplash.com/photos/ubwn8GI9-2o   (Marcel Strauss)
+workout-run.jpg          https://unsplash.com/photos/iRt9yOWzfOk   (Quino Al)
+studio-mic.jpg           https://unsplash.com/photos/Jymh4EctxLs   (Jacob Hodgson)
+record-player.jpg        https://unsplash.com/photos/aa61_XwMbow   (Caleb Wright)
+vinyl-store.jpg          https://unsplash.com/photos/fEVaiLwWvlU   (Clay Banks)
+lossless-headphones.jpg  https://unsplash.com/photos/_e4J_AkRtas   (Blaz Erzetic)

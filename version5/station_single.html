@@ -6,13 +6,15 @@ Author: Kamleshyadav
 Website:
 Purchase:
 -->
-<html lang="en">
+<html lang="en" data-player-start="visible">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
 	<meta name="theme-color" content="#FDF5F2">
 	<title>Pop Hits Radio - Miraculous Online Music Store</title>
+	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
+	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
 	<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,7 +202,7 @@ Purchase:
 					</div>
 					<div class="ms-tl-row" data-card="8" data-play="8">
 						<div class="ms-tl-num"><b>02</b><i class="ri-play-fill"></i><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
-						<div class="ms-tl-title"><img src="assets/images/release/04.jpg" alt=""><div><h4>Paper Hearts</h4><p>David Parker</p></div></div>
+						<div class="ms-tl-title"><img src="assets/images/release/04.jpg" alt=""><div><h4>Paper Hearts</h4><p>Claire Hudson</p></div></div>
 						<span class="ms-tl-album">8:38 PM</span>
 						<button class="ms-like" data-like aria-label="Like Paper Hearts"><i class="ri-heart-3-line"></i></button>
 						<span class="ms-tl-time">03:52</span>
@@ -224,7 +226,7 @@ Purchase:
 					</div>
 					<div class="ms-tl-row" data-card="4" data-play="4">
 						<div class="ms-tl-num"><b>05</b><i class="ri-play-fill"></i><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
-						<div class="ms-tl-title"><img src="assets/images/hero/album-echoes.jpg" alt=""><div><h4>Echoes of You</h4><p>Claire Hudson</p></div></div>
+						<div class="ms-tl-title"><img src="assets/images/trending/05.jpg" alt=""><div><h4>Echoes of You</h4><p>David Parker</p></div></div>
 						<span class="ms-tl-album">8:25 PM</span>
 						<button class="ms-like" data-like aria-label="Like Echoes of You"><i class="ri-heart-3-line"></i></button>
 						<span class="ms-tl-time">04:28</span>
@@ -232,7 +234,7 @@ Purchase:
 					</div>
 					<div class="ms-tl-row" data-card="9" data-play="9">
 						<div class="ms-tl-num"><b>06</b><i class="ri-play-fill"></i><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
-						<div class="ms-tl-title"><img src="assets/images/release/05.jpg" alt=""><div><h4>Slow Mornings</h4><p>Anna Ellison</p></div></div>
+						<div class="ms-tl-title"><img src="assets/images/release/05.jpg" alt=""><div><h4>Slow Mornings</h4><p>Kevin Buckland</p></div></div>
 						<span class="ms-tl-album">8:21 PM</span>
 						<button class="ms-like" data-like aria-label="Like Slow Mornings"><i class="ri-heart-3-line"></i></button>
 						<span class="ms-tl-time">04:10</span>
@@ -240,7 +242,7 @@ Purchase:
 					</div>
 					<div class="ms-tl-row" data-card="12" data-play="12">
 						<div class="ms-tl-num"><b>07</b><i class="ri-play-fill"></i><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>
-						<div class="ms-tl-title"><img src="assets/images/recommend/03.jpg" alt=""><div><h4>The Heartbeat Steps</h4><p>Ava Cornish</p></div></div>
+						<div class="ms-tl-title"><img src="assets/images/trending/06.jpg" alt=""><div><h4>The Heartbeat Steps</h4><p>Ava Cornish</p></div></div>
 						<span class="ms-tl-album">8:17 PM</span>
 						<button class="ms-like" data-like aria-label="Like The Heartbeat Steps"><i class="ri-heart-3-line"></i></button>
 						<span class="ms-tl-time">03:49</span>
@@ -260,7 +262,7 @@ Purchase:
 			<div class="ms-section ms-station-grid ms-reveal">
 				<section aria-labelledby="hSchedule">
 					<div class="ms-sec-head"><h2 id="hSchedule" class="ms-sec-icon"><i class="ri-calendar-event-line"></i>Today&rsquo;s Schedule</h2></div>
-					<div class="ms-sched"><div class="ms-sched-row"><span class="ms-sched-time">06:00 &ndash; 10:00</span><img src="assets/images/artist/07.jpg" alt=""><div><h4>Morning Pop Wake-Up</h4><p>with Max Glover</p></div><span class="ms-badge is-muted">Played</span></div><div class="ms-sched-row"><span class="ms-sched-time">10:00 &ndash; 14:00</span><img src="assets/images/artist/06.jpg" alt=""><div><h4>Midday Hits</h4><p>with Anna Ellison</p></div><span class="ms-badge is-muted">Played</span></div><div class="ms-sched-row"><span class="ms-sched-time">14:00 &ndash; 18:00</span><img src="assets/images/artist/09.jpg" alt=""><div><h4>Afternoon Drive</h4><p>with Leo Martin</p></div><span class="ms-badge is-muted">Played</span></div><div class="ms-sched-row is-live"><span class="ms-sched-time">18:00 &ndash; 22:00</span><img src="assets/images/artist/01.jpg" alt=""><div><h4>Evening Pop Show</h4><p>with DJ Ava</p></div><span class="ms-live">ON AIR</span></div><div class="ms-sched-row"><span class="ms-sched-time">22:00 &ndash; 02:00</span><img src="assets/images/artist/08.jpg" alt=""><div><h4>Late Night Pop</h4><p>with Sofia Reyes</p></div><button class="ms-follow-pill" data-toast="We will remind you before Late Night Pop"><i class="ri-notification-3-line"></i> Remind Me</button></div></div>
+					<div class="ms-sched"><div class="ms-sched-row"><span class="ms-sched-time">06:00 &ndash; 10:00</span><img src="assets/images/artist/07.jpg" alt=""><div><h4>Morning Pop Wake-Up</h4><p>with Mia Glover</p></div><span class="ms-badge is-muted">Played</span></div><div class="ms-sched-row"><span class="ms-sched-time">10:00 &ndash; 14:00</span><img src="assets/images/artist/06.jpg" alt=""><div><h4>Midday Hits</h4><p>with Kevin Buckland</p></div><span class="ms-badge is-muted">Played</span></div><div class="ms-sched-row"><span class="ms-sched-time">14:00 &ndash; 18:00</span><img src="assets/images/artist/09.jpg" alt=""><div><h4>Afternoon Drive</h4><p>with Leo Martin</p></div><span class="ms-badge is-muted">Played</span></div><div class="ms-sched-row is-live"><span class="ms-sched-time">18:00 &ndash; 22:00</span><img src="assets/images/artist/01.jpg" alt=""><div><h4>Evening Pop Show</h4><p>with DJ Ava</p></div><span class="ms-live">ON AIR</span></div><div class="ms-sched-row"><span class="ms-sched-time">22:00 &ndash; 02:00</span><img src="assets/images/artist/08.jpg" alt=""><div><h4>Late Night Pop</h4><p>with Sofia Reyes</p></div><button class="ms-follow-pill" data-toast="We will remind you before Late Night Pop"><i class="ri-notification-3-line"></i> Remind Me</button></div></div>
 				</section>
 				<section aria-labelledby="hHost">
 					<div class="ms-sec-head"><h2 id="hHost" class="ms-sec-icon"><i class="ri-mic-line"></i>Your Host</h2></div>
@@ -281,7 +283,7 @@ Purchase:
 						<div class="ms-artist-tile ms-album-tile" data-card="3"><img src="assets/images/trending/04.jpg" alt=""><span class="ms-live ms-tile-live">LIVE</span><div class="ms-artist-tile-info"><h3><a href="station_single.html">Acoustic Radio</a></h3><p>Chill &amp; Unplugged</p></div><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Radio"><i class="ri-play-fill"></i></button></div>
 						<div class="ms-artist-tile ms-album-tile" data-card="10"><img src="assets/images/discover/edm.jpg" alt=""><span class="ms-live ms-tile-live">LIVE</span><div class="ms-artist-tile-info"><h3><a href="station_single.html">EDM Radio</a></h3><p>Electronic Dance</p></div><button class="ms-play-sm" data-play="10" aria-label="Play EDM Radio"><i class="ri-play-fill"></i></button></div>
 						<div class="ms-artist-tile ms-album-tile" data-card="7"><img src="assets/images/discover/romantic.jpg" alt=""><span class="ms-live ms-tile-live">LIVE</span><div class="ms-artist-tile-info"><h3><a href="station_single.html">Romantic Radio</a></h3><p>Love Songs</p></div><button class="ms-play-sm" data-play="7" aria-label="Play Romantic Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="9"><img src="assets/images/recommend/04.jpg" alt=""><span class="ms-live ms-tile-live">LIVE</span><div class="ms-artist-tile-info"><h3><a href="station_single.html">Lo-fi Radio</a></h3><p>Beats to Relax</p></div><button class="ms-play-sm" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="9"><img src="assets/images/trending/001.jpg" alt=""><span class="ms-live ms-tile-live">LIVE</span><div class="ms-artist-tile-info"><h3><a href="station_single.html">Lo-fi Radio</a></h3><p>Beats to Relax</p></div><button class="ms-play-sm" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
 						<div class="ms-artist-tile ms-album-tile" data-card="10"><img src="assets/images/discover/dancing.jpg" alt=""><span class="ms-live ms-tile-live">LIVE</span><div class="ms-artist-tile-info"><h3><a href="station_single.html">Party Radio</a></h3><p>Weekend Anthems</p></div><button class="ms-play-sm" data-play="10" aria-label="Play Party Radio"><i class="ri-play-fill"></i></button></div>
 						<div class="ms-artist-tile ms-album-tile" data-card="11"><img src="assets/images/discover/classical.jpg" alt=""><span class="ms-live ms-tile-live">LIVE</span><div class="ms-artist-tile-info"><h3><a href="station_single.html">Classical Radio</a></h3><p>Timeless Classics</p></div><button class="ms-play-sm" data-play="11" aria-label="Play Classical Radio"><i class="ri-play-fill"></i></button></div>
 					</div>
@@ -322,8 +324,8 @@ Purchase:
 			<div class="ms-mini-list">
 				<div class="ms-mini-row" data-card="2"><img src="assets/images/trending/03.jpg" alt=""><div><h4>Gimme Some Courage</h4><p>Ava Cornish &middot; in 2 min</p></div><button class="ms-mini-play" data-play="2" aria-label="Play Gimme Some Courage"><i class="ri-play-fill"></i></button></div>
 				<div class="ms-mini-row" data-card="6"><img src="assets/images/release/02.jpg" alt=""><div><h4>Cloud Nine</h4><p>Brian Hill &middot; in 6 min</p></div><button class="ms-mini-play" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button></div>
-				<div class="ms-mini-row" data-card="12"><img src="assets/images/recommend/03.jpg" alt=""><div><h4>The Heartbeat Steps</h4><p>Ava Cornish &middot; in 10 min</p></div><button class="ms-mini-play" data-play="12" aria-label="Play The Heartbeat Steps"><i class="ri-play-fill"></i></button></div>
-				<div class="ms-mini-row" data-card="7"><img src="assets/images/release/03.jpg" alt=""><div><h4>Golden Hour</h4><p>Claire Hudson &middot; in 14 min</p></div><button class="ms-mini-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="12"><img src="assets/images/trending/06.jpg" alt=""><div><h4>The Heartbeat Steps</h4><p>Ava Cornish &middot; in 10 min</p></div><button class="ms-mini-play" data-play="12" aria-label="Play The Heartbeat Steps"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="7"><img src="assets/images/release/03.jpg" alt=""><div><h4>Golden Hour</h4><p>David Parker &middot; in 14 min</p></div><button class="ms-mini-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
 				<div class="ms-mini-row" data-card="0"><img src="assets/images/trending/01.jpg" alt=""><div><h4>Walking Promises</h4><p>Ava Cornish &middot; in 18 min</p></div><button class="ms-mini-play" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button></div>
 			</div>
 		</div>
@@ -337,7 +339,7 @@ Purchase:
 			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-fire-fill"></i>Trending Stations</h2><a href="stations.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
 			<div class="ms-mini-list">
 				<div class="ms-mini-row" data-card="1"><img src="assets/images/trending/05.jpg" alt=""><div><h4><a href="station_single.html">Global Hits Radio</a></h4><p>Top Charts 24/7</p></div><button class="ms-mini-play" data-play="1" aria-label="Play Global Hits Radio"><i class="ri-play-fill"></i></button></div>
-				<div class="ms-mini-row" data-card="9"><img src="assets/images/recommend/04.jpg" alt=""><div><h4><a href="station_single.html">Lo-fi Radio</a></h4><p>Beats to Relax</p></div><button class="ms-mini-play" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="9"><img src="assets/images/trending/001.jpg" alt=""><div><h4><a href="station_single.html">Lo-fi Radio</a></h4><p>Beats to Relax</p></div><button class="ms-mini-play" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
 				<div class="ms-mini-row" data-card="5"><img src="assets/images/release/01.jpg" alt=""><div><h4><a href="station_single.html">Retro Radio</a></h4><p>70s, 80s &amp; 90s Hits</p></div><button class="ms-mini-play" data-play="5" aria-label="Play Retro Radio"><i class="ri-play-fill"></i></button></div>
 			</div>
 		</div>
@@ -377,30 +379,67 @@ Purchase:
 	</div>
 
 	<!-- ================= Player ================= -->
-	<div class="ms-player" id="msPlayer">
-		<div class="ms-player-song">
-			<img src="assets/images/trending/02.jpg" alt="" id="msPlayerCover">
-			<div class="ms-player-meta">
-				<h4 id="msPlayerTitle">Until I Met You</h4>
-				<p id="msPlayerArtist">Brian Hill</p>
+	<div class="ms-player is-light" id="msPlayer">
+		<div class="ms-player-left">
+			<div class="ms-player-song">
+				<img src="assets/images/trending/02.jpg" alt="" id="msPlayerCover">
+				<div class="ms-player-meta">
+					<h4 id="msPlayerTitle">Until I Met You</h4>
+					<p id="msPlayerArtist">Brian Hill</p>
+				</div>
 			</div>
 		</div>
-		<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
-		<div class="ms-seek" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
-		<div class="ms-player-controls">
+		<div class="ms-player-center">
+			<div class="ms-player-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-seek is-wave" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-bars" data-seek-bars aria-hidden="true"></span><span class="ms-seek-fill" data-seek-fill></span></div>
+			<span class="ms-player-time"><span data-time-current>04:23</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>03:58</span></span>
+		</div>
+		<div class="ms-player-right">
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			<div class="ms-player-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+			<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
+			<button class="ms-player-hide" id="msPlayerToggle" aria-label="Hide player" aria-expanded="true" title="Hide player"><i class="ri-arrow-down-s-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Mini player: shown while the bar is hidden, so playback never disappears -->
+	<div class="ms-pill" id="msPill" role="region" aria-label="Mini player">
+		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="assets/images/trending/02.jpg" alt="" id="msPillCover"></button>
+		<div class="ms-pill-meta"><h4 id="msPillTitle">Until I Met You</h4><p id="msPillArtist">Brian Hill</p></div>
+		<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+		<button class="ms-ctrl ms-pill-show" data-player-show aria-label="Show player" title="Show player"><i class="ri-arrow-up-s-line"></i></button>
+	</div>
+
+	<!-- Full-screen player for phones and tablets (tap the song in the bar) -->
+	<div class="ms-sheet" id="msSheet" role="dialog" aria-modal="true" aria-label="Now playing" aria-hidden="true">
+		<div class="ms-sheet-head">
+			<button class="ms-ctrl" data-sheet-close aria-label="Close player"><i class="ri-arrow-down-s-line"></i></button>
+			<span>Now Playing</span>
+			<button class="ms-ctrl" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i></button>
+		</div>
+		<img class="ms-sheet-cover" src="assets/images/trending/02.jpg" alt="" id="msSheetCover">
+		<div class="ms-sheet-info">
+			<div><h3 id="msSheetTitle">Until I Met You</h3><p id="msSheetArtist">Brian Hill</p></div>
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+		</div>
+		<div class="ms-sheet-seek ms-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
+		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>03:58</span></div>
+		<div class="ms-sheet-controls">
 			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
 			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
 			<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
 			<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
 			<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
 		</div>
-		<div class="ms-wave" id="msWave" aria-hidden="true"></div>
-		<span class="ms-player-time" data-time-current>04:23</span>
-		<div class="ms-player-volume">
-			<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
-			<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
-		</div>
-		<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
 	</div>
 
 	<!-- Queue -->

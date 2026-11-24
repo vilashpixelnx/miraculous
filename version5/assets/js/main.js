@@ -15,21 +15,21 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 	   Index = the data-play value used in the markup.
 	   Replace src with your own audio files. */
 	const TRACKS = [
-		{ title: 'Walking Promises', artist: 'Ava Cornish', cover: 'assets/images/trending/01.jpg', time: '04:16', src: 'https://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3' },
-		{ title: 'Until I Met You', artist: 'Brian Hill', cover: 'assets/images/trending/02.jpg', time: '03:58', src: 'https://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3' },
-		{ title: 'Gimme Some Courage', artist: 'Ava Cornish', cover: 'assets/images/trending/03.jpg', time: '04:21', src: 'https://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3' },
-		{ title: 'Dark Alley Acoustic', artist: 'Kevin Buckland', cover: 'assets/images/trending/04.jpg', time: '03:47', src: 'https://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3' },
-		{ title: 'Echoes of You', artist: 'Claire Hudson', cover: 'assets/images/hero/album-echoes.jpg', time: '04:28', src: 'https://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3' },
-		{ title: 'Heart Broken', artist: 'Kevin Buckland', cover: 'assets/images/release/01.jpg', time: '03:36', src: 'https://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3' },
-		{ title: 'Cloud Nine', artist: 'Brian Hill', cover: 'assets/images/release/02.jpg', time: '04:05', src: 'https://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3' },
-		{ title: 'Golden Hour', artist: 'Claire Hudson', cover: 'assets/images/release/03.jpg', time: '04:16', src: 'https://www.jplayer.org/audio/mp3/Miaow-05-The-separation.mp3' },
-		{ title: 'Paper Hearts', artist: 'David Parker', cover: 'assets/images/release/04.jpg', time: '03:52', src: 'https://www.jplayer.org/audio/mp3/Miaow-06-Beside-me.mp3' },
-		{ title: 'Slow Mornings', artist: 'Anna Ellison', cover: 'assets/images/release/05.jpg', time: '04:10', src: 'https://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3' },
-		{ title: 'Velvet Sky', artist: 'Max Glover', cover: 'assets/images/release/06.jpg', time: '03:44', src: 'https://www.jplayer.org/audio/mp3/Miaow-08-Stirring-of-a-fool.mp3' },
-		{ title: 'Quiet Rivers', artist: 'Anna Ellison', cover: 'assets/images/store/01.jpg', time: '04:02', src: 'https://www.jplayer.org/audio/mp3/Miaow-09-Partir.mp3' },
-		{ title: 'The Heartbeat Steps', artist: 'Ava Cornish', cover: 'assets/images/recommend/03.jpg', time: '03:49', src: 'https://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3' },
-		{ title: 'One More Stranger', artist: 'Ava Cornish', cover: 'assets/images/trending/04.jpg', time: '04:12', src: 'https://www.jplayer.org/audio/mp3/TSP-02-Pin.mp3' },
-		{ title: 'Endless Things', artist: 'Ava Cornish', cover: 'assets/images/release/06.jpg', time: '03:57', src: 'https://www.jplayer.org/audio/mp3/TSP-03-Daydream.mp3' }
+		{ title: 'Walking Promises', artist: 'Ava Cornish', cover: 'assets/images/trending/01.jpg', time: '04:16', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
+		{ title: 'Until I Met You', artist: 'Brian Hill', cover: 'assets/images/trending/02.jpg', time: '03:58', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
+		{ title: 'Gimme Some Courage', artist: 'Ava Cornish', cover: 'assets/images/trending/03.jpg', time: '04:21', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
+		{ title: 'Dark Alley Acoustic', artist: 'Anna Ellison', cover: 'assets/images/trending/04.jpg', time: '03:47', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+		{ title: 'Echoes of You', artist: 'David Parker', cover: 'assets/images/trending/05.jpg', time: '04:28', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
+		{ title: 'Heart Broken', artist: 'Anna Ellison', cover: 'assets/images/release/01.jpg', time: '03:36', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
+		{ title: 'Cloud Nine', artist: 'Brian Hill', cover: 'assets/images/release/02.jpg', time: '04:05', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
+		{ title: 'Golden Hour', artist: 'David Parker', cover: 'assets/images/release/03.jpg', time: '04:16', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' },
+		{ title: 'Paper Hearts', artist: 'Claire Hudson', cover: 'assets/images/release/04.jpg', time: '03:52', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3' },
+		{ title: 'Slow Mornings', artist: 'Kevin Buckland', cover: 'assets/images/release/05.jpg', time: '04:10', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3' },
+		{ title: 'Velvet Sky', artist: 'Mia Glover', cover: 'assets/images/release/06.jpg', time: '03:44', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3' },
+		{ title: 'Quiet Rivers', artist: 'Kevin Buckland', cover: 'assets/images/trending/03.jpg', time: '04:02', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3' },
+		{ title: 'The Heartbeat Steps', artist: 'Ava Cornish', cover: 'assets/images/trending/06.jpg', time: '03:49', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3' },
+		{ title: 'One More Stranger', artist: 'Ava Cornish', cover: 'assets/images/trending/04.jpg', time: '04:12', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3' },
+		{ title: 'Endless Things', artist: 'Ava Cornish', cover: 'assets/images/release/06.jpg', time: '03:57', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3' }
 	];
 
 	/* Toast --------------------------------------------------------*/
@@ -221,6 +221,26 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		}).join('');
 	}
 	const npBars = npWave ? $$('span', npWave) : [];
+
+	// bottom bar track drawn as a waveform (light player): bars light up as the song plays;
+	// one bar every ~5px, so a wide bar on big screens stays dense (rebuilt on resize)
+	const seekBars = [];
+	let lastPct = 0;
+	const buildSeekBars = () => {
+		seekBars.length = 0;
+		$$('[data-seek-bars]').forEach((box) => {
+			const n = Math.max(24, Math.floor(box.clientWidth / 5));
+			box.innerHTML = Array.from({ length: n }, (_, i) => {
+				const h = 24 + 76 * Math.abs(Math.sin((i + 1) * 0.9) * Math.cos(i * 0.37));
+				return `<span style="--h:${h.toFixed(0)};--i:${i}"></span>`;
+			}).join('');
+			seekBars.push(...$$('span', box));
+		});
+		seekBars.forEach((bar, i) => bar.classList.toggle('is-on', i / seekBars.length < lastPct));
+	};
+	buildSeekBars();
+	let seekResize;
+	window.addEventListener('resize', () => { clearTimeout(seekResize); seekResize = setTimeout(buildSeekBars, 150); });
 	const npPanel = $('.ms-np');
 
 	// fill every element matching sel (pages without the right panel just skip it)
@@ -228,12 +248,12 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 
 	function renderTrack(animate) {
 		const t = TRACKS[state.index];
-		setAll('#msPlayerCover, #msNpCover', 'src', t.cover);
-		setAll('#msPlayerTitle, #msNpTitle', 'textContent', t.title);
-		setAll('#msPlayerArtist, #msNpArtist', 'textContent', t.artist);
-		setAll('#msNpDuration', 'textContent', audio.src && isFinite(audio.duration) ? fmt(audio.duration) : t.time);
+		setAll('#msPlayerCover, #msNpCover, #msPillCover, #msSheetCover', 'src', t.cover);
+		setAll('#msPlayerTitle, #msNpTitle, #msPillTitle, #msSheetTitle', 'textContent', t.title);
+		setAll('#msPlayerArtist, #msNpArtist, #msPillArtist, #msSheetArtist', 'textContent', t.artist);
+		setAll('#msNpDuration, [data-time-total]', 'textContent', audio.src && isFinite(audio.duration) ? fmt(audio.duration) : t.time);
 		if (animate) {
-			[player, npPanel].forEach((el) => {
+			[player, npPanel, $('#msPill')].forEach((el) => {
 				if (!el) return;
 				el.classList.remove('is-changing');
 				void el.offsetWidth; // restart the animation
@@ -285,6 +305,9 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		$$('[data-seek-fill]').forEach((f) => (f.style.width = `${pct * 100}%`));
 		seeks.forEach((s) => s.setAttribute('aria-valuenow', Math.round(pct * 100)));
 		npBars.forEach((b, i) => b.classList.toggle('is-on', i / npBars.length < pct));
+		lastPct = pct;
+		seekBars.forEach((b, i) => b.classList.toggle('is-on', i / seekBars.length < pct));
+		$('#msPill')?.style.setProperty('--p', (pct * 100).toFixed(1)); // progress ring of the mini player
 	};
 
 	audio.addEventListener('play', syncPlayState);
@@ -294,7 +317,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		setProgress(audio.duration ? audio.currentTime / audio.duration : 0);
 	});
 	audio.addEventListener('loadedmetadata', () => {
-		setAll('#msNpDuration', 'textContent', fmt(audio.duration));
+		setAll('#msNpDuration, [data-time-total]', 'textContent', fmt(audio.duration));
 		if (resumeAt) { audio.currentTime = Math.min(resumeAt, audio.duration - 1); resumeAt = 0; }
 	});
 	audio.addEventListener('ended', () => (state.repeat ? (audio.currentTime = 0, audio.play()) : next()));
@@ -335,20 +358,67 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		index === state.index && audio.src ? toggle() : load(index);
 	});
 
-	// Hide / show the bottom bar (remembered across pages)
+	// Hide / show the bottom bar (remembered across pages). While it is hidden a mini
+	// player (#msPill) keeps playback in reach; [data-player-show] brings the bar back.
+	const root = document.documentElement;
 	const playerToggle = $('#msPlayerToggle');
 	const syncPlayerToggle = () => {
-		const hidden = document.documentElement.classList.contains('player-hidden');
+		const hidden = root.classList.contains('player-hidden');
+		if (!playerToggle) return;
 		playerToggle.setAttribute('aria-label', hidden ? 'Show player' : 'Hide player');
 		playerToggle.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+	};
+	const setPlayerHidden = (hidden) => {
+		root.classList.toggle('player-hidden', hidden);
+		try { localStorage.setItem('ms-player-hidden', hidden ? '1' : '0'); } catch (e) {}
+		syncPlayerToggle();
 	};
 	if (playerToggle) {
 		syncPlayerToggle();
 		playerToggle.addEventListener('click', () => {
-			const hidden = document.documentElement.classList.toggle('player-hidden');
-			try { localStorage.setItem('ms-player-hidden', hidden ? '1' : '0'); } catch (e) {}
-			syncPlayerToggle();
+			setPlayerHidden(!root.classList.contains('player-hidden'));
+			if (root.classList.contains('player-hidden')) $('#msPill .ms-pill-open')?.focus();
 		});
+	}
+	$$('[data-player-show]').forEach((b) => b.addEventListener('click', () => {
+		setPlayerHidden(false);
+		playerToggle?.focus();
+	}));
+	// "on-play" start: the bar waits off screen and slides up on the first play
+	audio.addEventListener('play', () => {
+		root.classList.remove('player-dormant');
+		player?.classList.remove('is-ready');
+	});
+
+	// Phones/tablets: tapping the song in the bar opens a full-screen player
+	const sheet = $('#msSheet');
+	if (sheet) {
+		const smallScreen = window.matchMedia('(max-width: 991.98px)');
+		let opener = null;
+		const openSheet = () => {
+			opener = document.activeElement;
+			root.classList.add('sheet-open');
+			sheet.setAttribute('aria-hidden', 'false');
+			$('[data-sheet-close]', sheet)?.focus();
+		};
+		const closeSheet = () => {
+			root.classList.remove('sheet-open');
+			sheet.setAttribute('aria-hidden', 'true');
+			opener?.focus?.();
+		};
+		const song = $('.ms-player-song', player);
+		// on small screens the song acts as a button that opens the sheet
+		const syncSongButton = () => {
+			if (!song) return;
+			if (smallScreen.matches) { song.setAttribute('role', 'button'); song.setAttribute('tabindex', '0'); song.setAttribute('aria-label', 'Open player'); }
+			else { song.removeAttribute('role'); song.removeAttribute('tabindex'); song.removeAttribute('aria-label'); }
+		};
+		syncSongButton();
+		song?.addEventListener('click', () => { if (smallScreen.matches) openSheet(); });
+		song?.addEventListener('keydown', (e) => { if (smallScreen.matches && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openSheet(); } });
+		$$('[data-sheet-close]', sheet).forEach((b) => b.addEventListener('click', closeSheet));
+		document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && root.classList.contains('sheet-open')) closeSheet(); });
+		smallScreen.addEventListener('change', (e) => { syncSongButton(); if (!e.matches && root.classList.contains('sheet-open')) closeSheet(); });
 	}
 
 	// Volume (bottom bar + right panel stay in sync)
@@ -419,6 +489,11 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		resumeAt = saved.time || 0;
 		setAll('[data-time-current]', 'textContent', fmt(resumeAt));
 		setProgress(saved.duration ? resumeAt / saved.duration : 0);
+	} else if (document.documentElement.dataset.playerStart) {
+		// first visit: the bar waits at 00:00 and the play button gently pulses
+		setProgress(0);
+		setAll('[data-time-current]', 'textContent', fmt(0));
+		player?.classList.add('is-ready');
 	} else {
 		// demo state: show the bar partly played until the first real playback;
 		// the time shown must match the bar (70% of the current track)
@@ -788,5 +863,76 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 			const n = picks.filter((b) => b.classList.contains('is-active')).length;
 			toast(`Playlist “${name.value.trim()}” created with ${n} song${n === 1 ? '' : 's'}`);
 		});
+	}
+
+	/* Blog article: comment likes, reply, post comment, newsletter, contents highlight */
+	document.addEventListener('click', (e) => {
+		const like = e.target.closest('[data-like-count]');
+		if (like) {
+			const on = like.classList.toggle('is-active');
+			const n = $('span', like);
+			$('i', like).className = on ? 'ri-heart-3-fill' : 'ri-heart-3-line';
+			n.textContent = String(Number(n.textContent) + (on ? 1 : -1));
+			return;
+		}
+		const reply = e.target.closest('[data-reply]');
+		if (reply) {
+			const box = $('[data-comment-form] textarea');
+			if (!box) return;
+			box.value = `@${reply.dataset.reply} `;
+			box.closest('form').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+			box.focus({ preventScroll: true });
+		}
+	});
+
+	const commentForm = $('[data-comment-form]');
+	if (commentForm) {
+		const list = $('[data-comment-list]');
+		const count = $$('[data-comment-count]');
+		const msg = $('[data-comment-msg]', commentForm);
+		const say = (text, ok) => { msg.textContent = text; msg.className = `ms-bs-form-msg ${ok ? 'is-ok' : 'is-error'}`; };
+		const esc = (v) => v.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+		commentForm.addEventListener('input', (e) => e.target.closest('.ms-bs-input')?.classList.remove('is-error'));
+		commentForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const f = commentForm.elements;
+			const bad = (el, text) => { el.closest('.ms-bs-input').classList.add('is-error'); el.focus(); say(text, false); };
+			if (!f.name.value.trim()) return bad(f.name, 'Please enter your name.');
+			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) return bad(f.email, 'Please enter a valid email.');
+			if (f.comment.value.trim().length < 3) return bad(f.comment, 'Please write a comment.');
+			const li = document.createElement('li');
+			li.className = 'ms-bs-comment is-new';
+			li.innerHTML = `<img src="assets/images/user.jpg" alt="" width="40" height="40"><div><h4>${esc(f.name.value.trim())} <small>Just now</small></h4><p>${esc(f.comment.value.trim())}</p><button type="button" data-reply="${esc(f.name.value.trim())}">Reply</button></div><button type="button" class="ms-bs-clike" data-like-count aria-label="Like comment"><i class="ri-heart-3-line"></i><span>0</span></button>`;
+			list.append(li);
+			count.forEach((c) => (c.textContent = String(list.children.length)));
+			f.comment.value = '';
+			say('Thanks! Your comment is posted.', true);
+			toast('Comment posted');
+		});
+	}
+
+	const news = $('[data-newsletter]');
+	if (news) {
+		news.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const email = news.elements.email;
+			const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+			news.classList.toggle('is-error', !ok);
+			if (!ok) { email.focus(); toast('Please enter a valid email address'); return; }
+			email.value = '';
+			toast('You are subscribed. Welcome aboard!');
+		});
+	}
+
+	const toc = $('[data-toc]');
+	if (toc && 'IntersectionObserver' in window) {
+		const links = $$('a', toc);
+		const heads = links.map((a) => $(a.getAttribute('href'))).filter(Boolean);
+		const mark = (id) => links.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
+		const spy = new IntersectionObserver((entries) => {
+			entries.forEach((en) => { if (en.isIntersecting) mark(en.target.id); });
+		}, { rootMargin: '-15% 0px -70% 0px' });
+		heads.forEach((h) => spy.observe(h));
+		toc.addEventListener('click', (e) => { const a = e.target.closest('a'); if (a) mark(a.getAttribute('href').slice(1)); });
 	}
 })();
