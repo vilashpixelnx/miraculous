@@ -6,16 +6,19 @@ Author: Kamleshyadav
 Website:
 Purchase:
 -->
-<html lang="en" data-player-start="visible">
+<html lang="en" data-player-start="visible" data-preloader="once">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
 	<meta name="theme-color" content="#FDF5F2">
 	<title>Radio - Miraculous Online Music Store</title>
+	<!-- preloader: <html data-preloader="once"> (first visit per tab) | "always" | "off" -->
+	<script>try { var d = document.documentElement; var pm = d.dataset.preloader || 'once'; if (pm !== 'off' && !(pm === 'once' && sessionStorage.getItem('ms-pre-seen'))) d.classList.add('is-loading'); } catch (e) {}</script>
+	<style>html.is-loading{overflow:hidden}.ms-preloader{display:none}html.is-loading .ms-preloader{display:block;position:fixed;inset:0;z-index:10000}.ms-pre-curtain{position:absolute;inset:0;background:#2A1E2B}</style>
 	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
 	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
-	<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,43 @@ Purchase:
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="has-rightbar">
+
+	<!-- ================= Preloader (Vinyl Drop) ================= -->
+	<div class="ms-preloader ms-pre-vinyl" id="msPreloader" role="status" aria-live="polite" aria-busy="true">
+		<div class="ms-pre-curtain" aria-hidden="true">
+			<span class="ms-pre-orb ms-pre-orb-1"></span>
+			<span class="ms-pre-orb ms-pre-orb-2"></span>
+		</div>
+		<div class="ms-pre-inner">
+			<div class="ms-pv-stage" aria-hidden="true">
+				<span class="ms-pv-prog"></span>
+				<span class="ms-pv-wave"></span>
+				<span class="ms-pv-wave ms-pv-wave-2"></span>
+				<div class="ms-pv-disc">
+					<span class="ms-pv-label">
+						<svg viewBox="0 0 44 34"><path d="M5 30 13.5 5l8 17 8.5-17L36 30"/></svg>
+					</span>
+				</div>
+				<svg class="ms-pv-arm" viewBox="0 0 110 250">
+					<defs>
+						<linearGradient id="msPvArm" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF5964"/>
+							<stop offset="1" stop-color="#E92750"/>
+						</linearGradient>
+					</defs>
+					<path class="ms-pv-bar" d="M84 30 V150 L40 208"/>
+					<rect class="ms-pv-head" x="20" y="198" width="34" height="15" rx="5" transform="rotate(-38 37 205)" fill="url(#msPvArm)"/>
+					<circle class="ms-pv-base" cx="84" cy="30" r="18"/>
+					<circle cx="84" cy="30" r="6" fill="url(#msPvArm)"/>
+				</svg>
+			</div>
+			<div class="ms-pv-meta" aria-hidden="true">
+				<span class="ms-pv-num"><b id="msPreNum">0</b><i>%</i></span>
+				<span class="ms-pv-word">Spinning up your sound</span>
+			</div>
+			<span class="visually-hidden">Loading Miraculous</span>
+		</div>
+	</div>
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -89,8 +129,7 @@ Purchase:
 				</svg>
 				<span class="ms-side-floor" aria-hidden="true"></span>
 				<picture>
-					<source srcset="assets/images/headphones.webp" type="image/webp">
-					<img src="assets/images/headphones.png" alt="" width="1262" height="1246">
+					<img src="assets/images/headphones.png" alt="" width="300" height="380">
 				</picture>
 			</a>
 		</nav>
@@ -158,8 +197,7 @@ Purchase:
 						</div>
 						<div class="ms-hero-art">
 							<picture style="--cut-w:203%;--cut-l:-12%;--cut-t:2.8%">
-								<source srcset="assets/images/feed/feed-2.webp" type="image/webp">
-								<img src="assets/images/feed/feed-2.png" alt="Woman enjoying music with headphones" width="1536" height="1024">
+								<img src="assets/images/feed/feed-2.webp" alt="Woman enjoying music with headphones" width="1536" height="778">
 							</picture>
 						</div>
 					</article>
@@ -191,14 +229,14 @@ Purchase:
 				<div class="ms-carousel" data-carousel>
 					<button class="ms-carousel-arrow is-prev" data-carousel-dir="-1" aria-label="Previous stations"><i class="ri-arrow-left-s-line"></i></button>
 					<div class="ms-carousel-track" id="msRadioTrack">
-						<div class="ms-artist-tile ms-album-tile" data-card="2" data-genre="dance party"><img src="assets/images/trending/03.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Pop Hits Radio</a></h3><p>Non-stop Pop</p></div><button class="ms-play-sm" data-play="2" aria-label="Play Pop Hits Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="3" data-genre="chill focus"><img src="assets/images/trending/04.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Acoustic Radio</a></h3><p>Chill &amp; Unplugged</p></div><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="10" data-genre="dance party workout"><img src="assets/images/discover/edm.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">EDM Radio</a></h3><p>Electronic Dance</p></div><button class="ms-play-sm" data-play="10" aria-label="Play EDM Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="7" data-genre="romantic"><img src="assets/images/discover/romantic.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Romantic Radio</a></h3><p>Love Songs</p></div><button class="ms-play-sm" data-play="7" aria-label="Play Romantic Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="9" data-genre="chill focus"><img src="assets/images/trending/001.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Lo-fi Radio</a></h3><p>Beats to Relax</p></div><button class="ms-play-sm" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="8" data-genre="workout"><img src="assets/images/discover/hiphop.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Fitness Radio</a></h3><p>High Energy Music</p></div><button class="ms-play-sm" data-play="8" aria-label="Play Fitness Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="10" data-genre="party dance"><img src="assets/images/discover/dancing.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Party Radio</a></h3><p>Weekend Anthems</p></div><button class="ms-play-sm" data-play="10" aria-label="Play Party Radio"><i class="ri-play-fill"></i></button></div>
-						<div class="ms-artist-tile ms-album-tile" data-card="11" data-genre="focus chill"><img src="assets/images/discover/classical.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Classical Radio</a></h3><p>Timeless Classics</p></div><button class="ms-play-sm" data-play="11" aria-label="Play Classical Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="2" data-genre="dance party"><img src="assets/images/artist/04.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Pop Hits Radio</a></h3><p>Non-stop Pop</p></div><button class="ms-play-sm" data-play="2" aria-label="Play Pop Hits Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="3" data-genre="chill focus"><img src="assets/images/playlists/04.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Acoustic Radio</a></h3><p>Chill &amp; Unplugged</p></div><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="10" data-genre="dance party workout"><img src="assets/images/artist/03.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">EDM Radio</a></h3><p>Electronic Dance</p></div><button class="ms-play-sm" data-play="10" aria-label="Play EDM Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="7" data-genre="romantic"><img src="assets/images/playlists/01.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Romantic Radio</a></h3><p>Love Songs</p></div><button class="ms-play-sm" data-play="7" aria-label="Play Romantic Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="9" data-genre="chill focus"><img src="assets/images/playlists/03.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Lo-fi Radio</a></h3><p>Beats to Relax</p></div><button class="ms-play-sm" data-play="9" aria-label="Play Lo-fi Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="8" data-genre="workout"><img src="assets/images/playlists/05.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Fitness Radio</a></h3><p>High Energy Music</p></div><button class="ms-play-sm" data-play="8" aria-label="Play Fitness Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="10" data-genre="party dance"><img src="assets/images/playlists/02.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Party Radio</a></h3><p>Weekend Anthems</p></div><button class="ms-play-sm" data-play="10" aria-label="Play Party Radio"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="11" data-genre="focus chill"><img src="assets/images/playlists/07.jpg" alt=""><div class="ms-artist-tile-info"><h3><a href="station_single.html">Classical Radio</a></h3><p>Timeless Classics</p></div><button class="ms-play-sm" data-play="11" aria-label="Play Classical Radio"><i class="ri-play-fill"></i></button></div>
 					</div>
 					<button class="ms-carousel-arrow is-next" data-carousel-dir="1" aria-label="Next stations"><i class="ri-arrow-right-s-line"></i></button>
 					<div class="ms-carousel-dots"></div>
@@ -208,7 +246,7 @@ Purchase:
 
 			<section class="ms-section ms-reveal" aria-labelledby="hRadioGenre">
 				<div class="ms-sec-head"><h2 id="hRadioGenre" class="ms-sec-icon"><i class="ri-apps-2-line"></i>Browse by Genre</h2></div>
-				<div class="ms-radio-genres"><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-pop"><span>Pop<br>Radio</span><picture><source srcset="assets/images/genre/pop.webp" type="image/webp"><img src="assets/images/genre/pop.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-rock"><span>Rock<br>Radio</span><picture><source srcset="assets/images/genre/rock.webp" type="image/webp"><img src="assets/images/genre/rock.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-hiphop"><span>Hip Hop<br>Radio</span><picture><source srcset="assets/images/genre/hiphop.webp" type="image/webp"><img src="assets/images/genre/hiphop.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-edm"><span>EDM<br>Radio</span><picture><source srcset="assets/images/genre/edm.webp" type="image/webp"><img src="assets/images/genre/edm.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-chill"><span>Chill<br>Radio</span><picture><source srcset="assets/images/genre/chill.webp" type="image/webp"><img src="assets/images/genre/chill.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-romantic"><span>Romantic<br>Radio</span><picture><source srcset="assets/images/genre/romantic.webp" type="image/webp"><img src="assets/images/genre/romantic.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-workout"><span>Workout<br>Radio</span><picture><source srcset="assets/images/genre/workout.webp" type="image/webp"><img src="assets/images/genre/workout.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-focus"><span>Focus<br>Radio</span><picture><source srcset="assets/images/genre/focus.webp" type="image/webp"><img src="assets/images/genre/focus.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-indie"><span>Indie<br>Radio</span><picture><source srcset="assets/images/genre/endie.webp" type="image/webp"><img src="assets/images/genre/endie.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-classical"><span>Classical<br>Radio</span><picture><source srcset="assets/images/genre/classical.webp" type="image/webp"><img src="assets/images/genre/classical.png" alt="" width="400" height="400" loading="lazy"></picture></a></div>
+				<div class="ms-radio-genres"><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-pop"><span>Pop<br>Radio</span><picture><img src="assets/images/genre/pop.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-rock"><span>Rock<br>Radio</span><picture><img src="assets/images/genre/rock.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-hiphop"><span>Hip Hop<br>Radio</span><picture><img src="assets/images/genre/hiphop.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-edm"><span>EDM<br>Radio</span><picture><img src="assets/images/genre/edm.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-chill"><span>Chill<br>Radio</span><picture><img src="assets/images/genre/chill.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-romantic"><span>Romantic<br>Radio</span><picture><img src="assets/images/genre/romantic.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-workout"><span>Workout<br>Radio</span><picture><img src="assets/images/genre/workout.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-focus"><span>Focus<br>Radio</span><picture><img src="assets/images/genre/focus.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-indie"><span>Indie<br>Radio</span><picture><img src="assets/images/genre/endie.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="station_single.html" class="ms-genre-tile is-cat ms-radio-genre is-classical"><span>Classical<br>Radio</span><picture><img src="assets/images/genre/classical.webp" alt="" width="400" height="400" loading="lazy"></picture></a></div>
 			</section>
 
 			<section class="ms-section ms-reveal" aria-labelledby="hLiveShows">
@@ -378,6 +416,7 @@ Purchase:
 	<!-- Vendor JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Theme JS -->
+	<script src="assets/js/preloader.js"></script>
 	<script src="assets/js/main.js"></script>
 </body>
 </html>

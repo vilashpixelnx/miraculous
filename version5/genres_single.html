@@ -6,16 +6,19 @@ Author: Kamleshyadav
 Website:
 Purchase:
 -->
-<html lang="en" data-player-start="visible">
+<html lang="en" data-player-start="visible" data-preloader="once">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
 	<meta name="theme-color" content="#FDF5F2">
 	<title>Pop - Miraculous Online Music Store</title>
+	<!-- preloader: <html data-preloader="once"> (first visit per tab) | "always" | "off" -->
+	<script>try { var d = document.documentElement; var pm = d.dataset.preloader || 'once'; if (pm !== 'off' && !(pm === 'once' && sessionStorage.getItem('ms-pre-seen'))) d.classList.add('is-loading'); } catch (e) {}</script>
+	<style>html.is-loading{overflow:hidden}.ms-preloader{display:none}html.is-loading .ms-preloader{display:block;position:fixed;inset:0;z-index:10000}.ms-pre-curtain{position:absolute;inset:0;background:#2A1E2B}</style>
 	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
 	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
-	<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,43 @@ Purchase:
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="has-rightbar">
+
+	<!-- ================= Preloader (Vinyl Drop) ================= -->
+	<div class="ms-preloader ms-pre-vinyl" id="msPreloader" role="status" aria-live="polite" aria-busy="true">
+		<div class="ms-pre-curtain" aria-hidden="true">
+			<span class="ms-pre-orb ms-pre-orb-1"></span>
+			<span class="ms-pre-orb ms-pre-orb-2"></span>
+		</div>
+		<div class="ms-pre-inner">
+			<div class="ms-pv-stage" aria-hidden="true">
+				<span class="ms-pv-prog"></span>
+				<span class="ms-pv-wave"></span>
+				<span class="ms-pv-wave ms-pv-wave-2"></span>
+				<div class="ms-pv-disc">
+					<span class="ms-pv-label">
+						<svg viewBox="0 0 44 34"><path d="M5 30 13.5 5l8 17 8.5-17L36 30"/></svg>
+					</span>
+				</div>
+				<svg class="ms-pv-arm" viewBox="0 0 110 250">
+					<defs>
+						<linearGradient id="msPvArm" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF5964"/>
+							<stop offset="1" stop-color="#E92750"/>
+						</linearGradient>
+					</defs>
+					<path class="ms-pv-bar" d="M84 30 V150 L40 208"/>
+					<rect class="ms-pv-head" x="20" y="198" width="34" height="15" rx="5" transform="rotate(-38 37 205)" fill="url(#msPvArm)"/>
+					<circle class="ms-pv-base" cx="84" cy="30" r="18"/>
+					<circle cx="84" cy="30" r="6" fill="url(#msPvArm)"/>
+				</svg>
+			</div>
+			<div class="ms-pv-meta" aria-hidden="true">
+				<span class="ms-pv-num"><b id="msPreNum">0</b><i>%</i></span>
+				<span class="ms-pv-word">Spinning up your sound</span>
+			</div>
+			<span class="visually-hidden">Loading Miraculous</span>
+		</div>
+	</div>
 
 	<!-- ================= Sidebar ================= -->
 	<aside class="ms-sidebar" id="msSidebar">
@@ -89,8 +129,7 @@ Purchase:
 				</svg>
 				<span class="ms-side-floor" aria-hidden="true"></span>
 				<picture>
-					<source srcset="assets/images/headphones.webp" type="image/webp">
-					<img src="assets/images/headphones.png" alt="" width="1262" height="1246">
+					<img src="assets/images/headphones.png" alt="" width="300" height="380">
 				</picture>
 			</a>
 		</nav>
@@ -157,7 +196,7 @@ Purchase:
 						</div>
 						<div class="ms-solo ms-solo-cover is-genre">
 							<span class="ms-solo-ring" aria-hidden="true"></span>
-							<span class="ms-solo-grad is-pop"><b>POP</b><picture><source srcset="assets/images/genre/pop.webp" type="image/webp"><img src="assets/images/genre/pop.png" alt="" width="400" height="400"></picture></span>
+							<span class="ms-solo-grad is-pop"><b>POP</b><picture><img src="assets/images/genre/pop.webp" alt="" width="400" height="400"></picture></span>
 						</div>
 					</article>
 				</div>
@@ -297,7 +336,7 @@ Purchase:
 		</div>
 		<div class="ms-side-block">
 			<div class="ms-side-head"><h2>Related Genres</h2><a href="genres.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
-			<div class="ms-genre-tiles"><a href="genres_single.html" class="ms-genre-tile is-pop has-png"><span>Pop</span><picture><source srcset="assets/images/genre/pop.webp" type="image/webp"><img src="assets/images/genre/pop.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-rock has-png"><span>Rock</span><picture><source srcset="assets/images/genre/rock.webp" type="image/webp"><img src="assets/images/genre/rock.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-hiphop has-png"><span>Hip Hop</span><picture><source srcset="assets/images/genre/hiphop.webp" type="image/webp"><img src="assets/images/genre/hiphop.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-edm has-png"><span>EDM</span><picture><source srcset="assets/images/genre/edm.webp" type="image/webp"><img src="assets/images/genre/edm.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-classical has-png"><span>Classical</span><picture><source srcset="assets/images/genre/classical.webp" type="image/webp"><img src="assets/images/genre/classical.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-indie has-png"><span>Indie</span><picture><source srcset="assets/images/genre/endie.webp" type="image/webp"><img src="assets/images/genre/endie.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-jazz has-png"><span>Jazz</span><picture><source srcset="assets/images/genre/jaaz.webp" type="image/webp"><img src="assets/images/genre/jaaz.png" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-rnb has-png"><span>R&amp;B</span><picture><source srcset="assets/images/genre/r_b.webp" type="image/webp"><img src="assets/images/genre/r_b.png" alt="" width="400" height="400" loading="lazy"></picture></a></div>
+			<div class="ms-genre-tiles"><a href="genres_single.html" class="ms-genre-tile is-pop has-png"><span>Pop</span><picture><img src="assets/images/genre/pop.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-rock has-png"><span>Rock</span><picture><img src="assets/images/genre/rock.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-hiphop has-png"><span>Hip Hop</span><picture><img src="assets/images/genre/hiphop.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-edm has-png"><span>EDM</span><picture><img src="assets/images/genre/edm.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-classical has-png"><span>Classical</span><picture><img src="assets/images/genre/classical.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-indie has-png"><span>Indie</span><picture><img src="assets/images/genre/endie.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-jazz has-png"><span>Jazz</span><picture><img src="assets/images/genre/jaaz.webp" alt="" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-rnb has-png"><span>R&amp;B</span><picture><img src="assets/images/genre/r_b.webp" alt="" width="400" height="400" loading="lazy"></picture></a></div>
 		</div>
 	</aside>
 
@@ -416,6 +455,7 @@ Purchase:
 	<!-- Vendor JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Theme JS -->
+	<script src="assets/js/preloader.js"></script>
 	<script src="assets/js/main.js"></script>
 </body>
 </html>
