@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!--
+Template Name: Miraculous - Online Music Store Html Template
+Version: 4.0.0 (Aurora Editorial)
+Author: Kamleshyadav
+Website:
+Purchase:
+-->
+<html lang="en" data-player-start="visible" data-preloader="once" data-click-fx>
+<!-- Begin Head -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
+	<meta name="keywords" content="music, music store, music streaming, online music, albums, artists, playlists, radio, html template, bootstrap 5">
+	<meta name="author" content="kamleshyadav">
+	<meta name="MobileOptimized" content="320">
+	<meta name="theme-color" content="#FDF5F2">
+	<title>Playlists - Miraculous Online Music Store</title>
+	<!-- preloader: <html data-preloader="once"> (first visit per tab) | "always" | "off" -->
+	<script>try { var d = document.documentElement; var pm = d.dataset.preloader || 'once'; if (pm !== 'off' && !(pm === 'once' && sessionStorage.getItem('ms-pre-seen'))) d.classList.add('is-loading'); } catch (e) {}</script>
+	<style>html.is-loading{overflow:hidden}.ms-preloader{display:none}html.is-loading .ms-preloader{display:block;position:fixed;inset:0;z-index:10000}.ms-pre-curtain{position:absolute;inset:0;background:#2A1E2B}</style>
+	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
+	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
+	<!-- Favicon Link -->
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+	<!-- Start Style -->
+	<!-- Fonts -->
+	<link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/vendor/remixicon/remixicon.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- End Head -->
+<body class="has-rightbar">
+
+	<!-- ================= Preloader (Vinyl Drop) ================= -->
+	<div class="ms-preloader ms-pre-vinyl" id="msPreloader" role="status" aria-live="polite" aria-busy="true">
+		<div class="ms-pre-curtain" aria-hidden="true">
+			<span class="ms-pre-orb ms-pre-orb-1"></span>
+			<span class="ms-pre-orb ms-pre-orb-2"></span>
+		</div>
+		<div class="ms-pre-inner">
+			<div class="ms-pv-stage" aria-hidden="true">
+				<span class="ms-pv-prog"></span>
+				<span class="ms-pv-wave"></span>
+				<span class="ms-pv-wave ms-pv-wave-2"></span>
+				<div class="ms-pv-disc">
+					<span class="ms-pv-label">
+						<svg viewBox="0 0 44 34"><path d="M5 30 13.5 5l8 17 8.5-17L36 30"/></svg>
+					</span>
+				</div>
+				<svg class="ms-pv-arm" viewBox="0 0 110 250">
+					<defs>
+						<linearGradient id="msPvArm" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF5964"/>
+							<stop offset="1" stop-color="#E92750"/>
+						</linearGradient>
+					</defs>
+					<path class="ms-pv-bar" d="M84 30 V150 L40 208"/>
+					<rect class="ms-pv-head" x="20" y="198" width="34" height="15" rx="5" transform="rotate(-38 37 205)" fill="url(#msPvArm)"/>
+					<circle class="ms-pv-base" cx="84" cy="30" r="18"/>
+					<circle cx="84" cy="30" r="6" fill="url(#msPvArm)"/>
+				</svg>
+			</div>
+			<div class="ms-pv-meta" aria-hidden="true">
+				<span class="ms-pv-num"><b id="msPreNum">0</b><i>%</i></span>
+				<span class="ms-pv-word">Spinning up your sound</span>
+			</div>
+			<span class="visually-hidden">Loading Miraculous</span>
+		</div>
+	</div>
+
+	<!-- ================= Sidebar ================= -->
+	<aside class="ms-sidebar" id="msSidebar">
+		<a href="index.html" class="ms-logo" aria-label="Miraculous home">
+			<svg viewBox="0 0 44 34" aria-hidden="true">
+				<defs>
+					<linearGradient id="msLogoGrad" x1="0" y1="0" x2="44" y2="34" gradientUnits="userSpaceOnUse">
+						<stop offset="0" stop-color="#FF5964"/>
+						<stop offset="1" stop-color="#E92750"/>
+					</linearGradient>
+				</defs>
+				<path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			<span>Miraculous</span>
+		</a>
+
+		<nav class="ms-side-scroll" aria-label="Main">
+			<ul class="ms-nav">
+				<li><a href="index.html"><i class="ri-home-5-line"></i>Discover</a></li>
+				<li><a href="feed.html"><i class="ri-chat-smile-3-line"></i>Music Feed</a></li>
+				<li><a href="artist.html"><i class="ri-user-3-line"></i>Artists</a></li>
+				<li><a href="album.html"><i class="ri-album-line"></i>Albums</a></li>
+				<li><a href="stations.html"><i class="ri-broadcast-line"></i>Radio</a></li>
+				<li><a href="store.html"><i class="ri-shopping-cart-2-line"></i>Store</a></li>
+			</ul>
+
+			<div class="ms-premium-card">
+				<svg class="ms-premium-crown" viewBox="0 0 40 32" aria-hidden="true">
+					<defs>
+						<linearGradient id="msCrownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB13D"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient>
+					</defs>
+					<path d="M5 11.5 13 18.5 20 6.5l7 12 8-7-3 15.5H8Z" fill="url(#msCrownGrad)" stroke="url(#msCrownGrad)" stroke-width="2" stroke-linejoin="round"/>
+					<rect x="8" y="27.5" width="24" height="3.5" rx="1.75" fill="#FF6A2B"/>
+					<circle cx="20" cy="4" r="3" fill="#FFB13D"/><circle cx="4" cy="10" r="2.6" fill="#FFB13D"/><circle cx="36" cy="10" r="2.6" fill="#FFB13D"/>
+				</svg>
+				<h6>Go Premium</h6>
+				<p>Ad-free music, offline listening &amp; more.</p>
+				<a href="manage_acc.html" class="ms-btn ms-btn-sm">Upgrade Now <i class="ri-arrow-right-line"></i></a>
+			</div>
+
+			<div class="ms-nav-title">Your Library</div>
+			<ul class="ms-nav ms-nav-sm">
+				<li><a href="feature_playlist.html" class="active"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
+				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
+				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
+			</ul>
+
+			<!-- Decorative promo art: soft pink hills + headphones, sits at the bottom of the sidebar -->
+			<a href="store.html" class="ms-side-art" aria-label="Shop headphones in the store">
+				<svg class="ms-side-hills" viewBox="0 0 228 230" preserveAspectRatio="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="msHillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".55"/><stop offset="1" stop-color="#FCE8E5" stop-opacity=".2"/></linearGradient>
+						<linearGradient id="msHillB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FD646D" stop-opacity=".22"/><stop offset="1" stop-color="#F8C8BC" stop-opacity=".45"/></linearGradient>
+						<linearGradient id="msHillC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".8"/><stop offset="1" stop-color="#FCE8E5"/></linearGradient>
+					</defs>
+					<path d="M0 62C40 30 92 28 138 50s70 26 90 14V230H0Z" fill="url(#msHillA)"/>
+					<path d="M0 118c36-30 86-34 128-14 38 18 70 14 100-6V230H0Z" fill="url(#msHillB)"/>
+					<path d="M0 182c44-22 102-24 150-10 30 9 56 8 78 0V230H0Z" fill="url(#msHillC)"/>
+				</svg>
+				<span class="ms-side-floor" aria-hidden="true"></span>
+				<picture>
+					<img src="assets/images/headphones.png" alt="Pink over-ear headphones" width="300" height="380">
+				</picture>
+			</a>
+		</nav>
+	</aside>
+	<div class="ms-backdrop" id="msBackdrop"></div>
+
+	<!-- ================= Main ================= -->
+	<div class="ms-main">
+
+		<!-- Top Navigation -->
+		<header class="ms-topbar">
+			<button class="ms-icon-btn ms-menu-toggle" id="msMenuToggle" aria-label="Open menu"><i class="ri-menu-2-line"></i></button>
+			<a href="index.html" class="ms-logo ms-logo-mobile" aria-label="Miraculous home">
+				<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				<span>Miraculous</span>
+			</a>
+			<nav class="ms-topnav" aria-label="Browse">
+				<a href="index.html">Discover</a>
+				<a href="top_track.html">Trending</a>
+				<a href="index.html#new-releases">New Releases</a>
+				<a href="artist.html">Artists</a>
+				<a href="album.html">Albums</a>
+				<a href="stations.html">Radio</a>
+				<a href="store.html">Store</a>
+				<span class="ms-topnav-ink" aria-hidden="true"></span>
+			</nav>
+			<div class="ms-top-actions">
+				<form class="ms-search" id="msSearchForm" role="search" onsubmit="return false">
+					<input type="search" id="msSearch" placeholder="Search songs, artists, albums..." aria-label="Search">
+					<button type="button" class="ms-icon-btn" id="msSearchToggle" aria-label="Search (Ctrl+K)"><i class="ri-search-line"></i></button>
+				</form>
+				<button class="ms-icon-btn ms-noti" aria-label="Notifications"><i class="ri-notification-3-line"></i></button>
+				<div class="dropdown">
+					<button class="ms-avatar" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+						<img src="assets/images/user.jpg" alt="Your profile photo">
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+						<li><a class="dropdown-item" href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+						<li><a class="dropdown-item" href="manage_acc.html"><i class="ri-settings-3-line"></i>Manage Account</a></li>
+						<li><a class="dropdown-item" href="purchase.html"><i class="ri-shopping-bag-3-line"></i>Purchases</a></li>
+						<li><a class="dropdown-item" href="history.html"><i class="ri-history-line"></i>History</a></li>
+						<li><a class="dropdown-item" href="upload.html"><i class="ri-upload-2-line"></i>Upload Music</a></li>
+						<li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>New Playlist</a></li>
+						<li><a class="dropdown-item" href="free_music.html"><i class="ri-gift-line"></i>Free Music</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="login.html"><i class="ri-logout-box-r-line"></i>Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="ms-content">
+
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-playlist" id="msHero" aria-label="Playlists">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
+				</div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="7">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Playlists</div>
+							<h1>Curated Playlists for<em>Every Mood</em></h1>
+							<p>Create, discover and follow playlists for every moment of your life.</p>
+						</div>
+						<div class="ms-hero-art">
+							<picture style="--cut-w:141%;--cut-l:37.5%;--cut-t:0%">
+								<img src="assets/images/feed/feed-4.webp" alt="Woman enjoying music with headphones" width="1020" height="762">
+							</picture>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="add_playlist.html" class="ms-btn"><i class="ri-add-line"></i>Create Playlist</a>
+					<a href="#hFeatPl" class="ms-btn ms-btn-outline"><i class="ri-sparkling-2-line"></i>Explore Playlists</a>
+				</div>
+
+				<div class="ms-hero-wave" id="msHeroWave" aria-hidden="true"></div>
+			</section>
+
+			<!-- Playlist filter -->
+			<div class="ms-feed-tabs" data-filter-group="msPlList" role="group" aria-label="Filter playlists">
+				<button class="ms-chip is-active" data-filter="all"><i class="ri-stack-line"></i> All Playlists</button>
+				<button class="ms-chip" data-filter="own"><i class="ri-user-3-line"></i> Your Playlists</button>
+				<button class="ms-chip" data-filter="liked"><i class="ri-heart-3-line"></i> Liked Playlists</button>
+				<button class="ms-chip" data-filter="following"><i class="ri-user-follow-line"></i> Following</button>
+				<button class="ms-chip" data-filter="collab"><i class="ri-team-line"></i> Collaborative</button>
+			</div>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hFeatPl">
+				<div class="ms-sec-head"><h2 id="hFeatPl" class="ms-sec-icon"><i class="ri-fire-fill"></i>Featured Playlists</h2><a href="#hYourPl" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-carousel" data-carousel>
+					<button class="ms-carousel-arrow is-prev" data-carousel-dir="-1" aria-label="Previous playlists"><i class="ri-arrow-left-s-line"></i></button>
+					<div class="ms-carousel-track">
+						<div class="ms-artist-tile ms-album-tile" data-card="7"><img src="assets/images/playlists/01.jpg" alt="Romantic Hits playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Romantic Hits</a> <span class="ms-emoji" aria-hidden="true">&#128150;</span></h3><p>150 Songs</p><p>2.4M Plays</p></div><button class="ms-play-sm" data-play="7" aria-label="Play Romantic Hits"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="10"><img src="assets/images/playlists/02.jpg" alt="Party Vibes playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Party Vibes</a> <span class="ms-emoji" aria-hidden="true">&#127881;</span></h3><p>98 Songs</p><p>1.8M Plays</p></div><button class="ms-play-sm" data-play="10" aria-label="Play Party Vibes"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="9"><img src="assets/images/playlists/03.jpg" alt="Chill Beats playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Chill Beats</a> <span class="ms-emoji" aria-hidden="true">&#127769;</span></h3><p>120 Songs</p><p>3.1M Plays</p></div><button class="ms-play-sm" data-play="9" aria-label="Play Chill Beats"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="3"><img src="assets/images/playlists/04.jpg" alt="Acoustic Mood playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Acoustic Mood</a> <span class="ms-emoji" aria-hidden="true">&#127928;</span></h3><p>85 Songs</p><p>900K Plays</p></div><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Mood"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="10"><img src="assets/images/playlists/05.jpg" alt="Workout Energy playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Workout Energy</a> <span class="ms-emoji" aria-hidden="true">&#128170;</span></h3><p>72 Songs</p><p>1.2M Plays</p></div><button class="ms-play-sm" data-play="10" aria-label="Play Workout Energy"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="8"><img src="assets/images/playlists/06.jpg" alt="Hip Hop Heat playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Hip Hop Heat</a> <span class="ms-emoji" aria-hidden="true">&#128293;</span></h3><p>64 Songs</p><p>760K Plays</p></div><button class="ms-play-sm" data-play="8" aria-label="Play Hip Hop Heat"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="11"><img src="assets/images/playlists/07.jpg" alt="Classical Calm playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Classical Calm</a> <span class="ms-emoji" aria-hidden="true">&#127931;</span></h3><p>58 Songs</p><p>540K Plays</p></div><button class="ms-play-sm" data-play="11" aria-label="Play Classical Calm"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-artist-tile ms-album-tile" data-card="5"><img src="assets/images/playlists/08.jpg" alt="Rock Anthems playlist cover" width="640" height="840"><div class="ms-artist-tile-info"><h3><a href="feature_playlist.html">Rock Anthems</a> <span class="ms-emoji" aria-hidden="true">&#129304;</span></h3><p>90 Songs</p><p>1.1M Plays</p></div><button class="ms-play-sm" data-play="5" aria-label="Play Rock Anthems"><i class="ri-play-fill"></i></button></div>
+					</div>
+					<button class="ms-carousel-arrow is-next" data-carousel-dir="1" aria-label="Next playlists"><i class="ri-arrow-right-s-line"></i></button>
+					<div class="ms-carousel-dots"></div>
+				</div>
+			</section>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hYourPl">
+				<div class="ms-sec-head">
+					<h2 id="hYourPl">Your Playlists <small>(12)</small></h2>
+					<div class="ms-sec-tools">
+						<div class="dropdown" data-sort="msPlList">
+							<button class="ms-tool-btn ms-tool-plain" data-bs-toggle="dropdown" aria-expanded="false"><span class="ms-tool-muted">Sort:</span><span data-sort-label>Recently Updated</span><i class="ri-arrow-down-s-line"></i></button>
+							<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+								<li><a class="dropdown-item active" href="javascript:void(0)" data-sort-by="year">Recently Updated</a></li>
+								<li><a class="dropdown-item" href="javascript:void(0)" data-sort-by="plays">Most Songs</a></li>
+								<li><a class="dropdown-item" href="javascript:void(0)" data-sort-by="title">A &ndash; Z</a></li>
+							</ul>
+						</div>
+						<div class="ms-view-toggle" data-view="msPlList" role="group" aria-label="Layout">
+							<button data-view-mode="grid" aria-label="Grid view"><i class="ri-layout-grid-fill"></i></button>
+							<button class="is-active" data-view-mode="list" aria-label="List view"><i class="ri-list-check"></i></button>
+						</div>
+					</div>
+				</div>
+				<div class="ms-pl-list is-list" id="msPlList" data-limit="5">
+					<div class="ms-pl-row" data-card="1" data-genre="own liked" data-title="My Favorites" data-year="120" data-plays="320"><img src="assets/images/release/04.jpg" alt="My Favorites ️ cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">My Favorites</a> <span class="ms-emoji" aria-hidden="true">&#10084;&#65039;</span></h4><p><i class="ri-lock-line"></i> Private &middot; Updated 2 days ago</p></div><span class="ms-pl-count">320 Songs</span><span class="ms-pl-len">21h 36m</span><button class="ms-mini-play" data-play="1" aria-label="Play My Favorites"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit My Favorites"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="10" data-genre="own collab" data-title="Workout Mix" data-year="115" data-plays="62"><img src="assets/images/discover/edm.jpg" alt="Workout Mix cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Workout Mix</a> <span class="ms-emoji" aria-hidden="true">&#128170;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 5 days ago</p></div><span class="ms-pl-count">62 Songs</span><span class="ms-pl-len">3h 47m</span><button class="ms-mini-play" data-play="10" aria-label="Play Workout Mix"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Workout Mix"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="3" data-genre="own" data-title="Road Trip" data-year="110" data-plays="96"><img src="assets/images/trending/06.jpg" alt="Road Trip cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Road Trip</a> <span class="ms-emoji" aria-hidden="true">&#127911;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 1 week ago</p></div><span class="ms-pl-count">96 Songs</span><span class="ms-pl-len">5h 28m</span><button class="ms-mini-play" data-play="3" aria-label="Play Road Trip"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Road Trip"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="9" data-genre="own" data-title="Focus &amp; Study" data-year="108" data-plays="48"><img src="assets/images/trending/001.jpg" alt="Focus &amp; Study cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Focus &amp; Study</a> <span class="ms-emoji" aria-hidden="true">&#128218;</span></h4><p><i class="ri-lock-line"></i> Private &middot; Updated 1 week ago</p></div><span class="ms-pl-count">48 Songs</span><span class="ms-pl-len">2h 56m</span><button class="ms-mini-play" data-play="9" aria-label="Play Focus &amp; Study"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Focus &amp; Study"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="7" data-genre="own following" data-title="Late Night" data-year="100" data-plays="74"><img src="assets/images/trending/08.jpg" alt="Late Night cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Late Night</a> <span class="ms-emoji" aria-hidden="true">&#127769;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 2 weeks ago</p></div><span class="ms-pl-count">74 Songs</span><span class="ms-pl-len">4h 37m</span><button class="ms-mini-play" data-play="7" aria-label="Play Late Night"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Late Night"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="9" data-genre="liked" data-title="Sunday Brunch" data-year="95" data-plays="41"><img src="assets/images/release/05.jpg" alt="Sunday Brunch cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Sunday Brunch</a> <span class="ms-emoji" aria-hidden="true">&#9749;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 3 weeks ago</p></div><span class="ms-pl-count">41 Songs</span><span class="ms-pl-len">2h 18m</span><button class="ms-mini-play" data-play="9" aria-label="Play Sunday Brunch"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Sunday Brunch"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="8" data-genre="following" data-title="Gym Bangers" data-year="90" data-plays="55"><img src="assets/images/discover/hiphop.jpg" alt="Gym Bangers cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Gym Bangers</a> <span class="ms-emoji" aria-hidden="true">&#127947;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 1 month ago</p></div><span class="ms-pl-count">55 Songs</span><span class="ms-pl-len">3h 05m</span><button class="ms-mini-play" data-play="8" aria-label="Play Gym Bangers"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Gym Bangers"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="5" data-genre="own" data-title="Rainy Days" data-year="88" data-plays="37"><img src="assets/images/release/01.jpg" alt="Rainy Days cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Rainy Days</a> <span class="ms-emoji" aria-hidden="true">&#127783;</span></h4><p><i class="ri-lock-line"></i> Private &middot; Updated 1 month ago</p></div><span class="ms-pl-count">37 Songs</span><span class="ms-pl-len">2h 11m</span><button class="ms-mini-play" data-play="5" aria-label="Play Rainy Days"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Rainy Days"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="2" data-genre="liked following" data-title="Throwback Hits" data-year="80" data-plays="110"><img src="assets/images/trending/03.jpg" alt="Throwback Hits cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Throwback Hits</a> <span class="ms-emoji" aria-hidden="true">&#128252;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 2 months ago</p></div><span class="ms-pl-count">110 Songs</span><span class="ms-pl-len">6h 40m</span><button class="ms-mini-play" data-play="2" aria-label="Play Throwback Hits"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Throwback Hits"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="7" data-genre="collab" data-title="Indie Gems" data-year="78" data-plays="66"><img src="assets/images/release/03.jpg" alt="Indie Gems cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Indie Gems</a> <span class="ms-emoji" aria-hidden="true">&#128142;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 2 months ago</p></div><span class="ms-pl-count">66 Songs</span><span class="ms-pl-len">4h 02m</span><button class="ms-mini-play" data-play="7" aria-label="Play Indie Gems"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Indie Gems"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="10" data-genre="liked collab" data-title="Party Starters" data-year="70" data-plays="84"><img src="assets/images/discover/dancing.jpg" alt="Party Starters cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Party Starters</a> <span class="ms-emoji" aria-hidden="true">&#127881;</span></h4><p><i class="ri-global-line"></i> Public &middot; Updated 3 months ago</p></div><span class="ms-pl-count">84 Songs</span><span class="ms-pl-len">4h 51m</span><button class="ms-mini-play" data-play="10" aria-label="Play Party Starters"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Party Starters"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-pl-row" data-card="11" data-genre="own" data-title="Sleep Sounds" data-year="60" data-plays="30"><img src="assets/images/trending/07.jpg" alt="Sleep Sounds cover"><div class="ms-pl-name"><h4><a href="add_playlist.html">Sleep Sounds</a> <span class="ms-emoji" aria-hidden="true">&#128564;</span></h4><p><i class="ri-lock-line"></i> Private &middot; Updated 4 months ago</p></div><span class="ms-pl-count">30 Songs</span><span class="ms-pl-len">2h 30m</span><button class="ms-mini-play" data-play="11" aria-label="Play Sleep Sounds"><i class="ri-play-fill"></i></button><a href="add_playlist.html" class="ms-pl-edit" aria-label="Edit Sleep Sounds"><i class="ri-pencil-line"></i></a><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+				</div>
+				<p class="ms-empty" data-empty="msPlList" hidden>No playlists here yet.</p>
+				<div class="ms-load-more" data-load-more="msPlList">
+					<button class="ms-btn ms-btn-outline">Show All Playlists <i class="ri-arrow-down-line"></i></button>
+				</div>
+			</section>
+
+			<section class="ms-section ms-reveal" aria-labelledby="hRecentPl">
+				<div class="ms-sec-head"><h2 id="hRecentPl" class="ms-sec-icon"><i class="ri-time-line"></i>Recently Played Playlists</h2><a href="history.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-grid ms-sg-likes"><div class="ms-sr-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/release/03.jpg" alt="Indie Discovery cover"><button class="ms-play-sm" data-play="7" aria-label="Play Indie Discovery"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Indie Discovery</a></h3><p>42 Songs</p></div><div class="ms-sr-card" data-card="6"><div class="ms-sr-card-media"><img src="assets/images/trending/05.jpg" alt="Bollywood Hits cover"><button class="ms-play-sm" data-play="6" aria-label="Play Bollywood Hits"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Bollywood Hits</a></h3><p>100 Songs</p></div><div class="ms-sr-card" data-card="10"><div class="ms-sr-card-media"><img src="assets/images/release/06.jpg" alt="Happy Vibes cover"><button class="ms-play-sm" data-play="10" aria-label="Play Happy Vibes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Happy Vibes</a></h3><p>58 Songs</p></div><div class="ms-sr-card" data-card="11"><div class="ms-sr-card-media"><img src="assets/images/trending/07.jpg" alt="Relax &amp; Unwind cover"><button class="ms-play-sm" data-play="11" aria-label="Play Relax &amp; Unwind"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Relax &amp; Unwind</a></h3><p>76 Songs</p></div><div class="ms-sr-card" data-card="3"><div class="ms-sr-card-media"><img src="assets/images/trending/06.jpg" alt="Travel Songs cover"><button class="ms-play-sm" data-play="3" aria-label="Play Travel Songs"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Travel Songs</a></h3><p>64 Songs</p></div><div class="ms-sr-card" data-card="5"><div class="ms-sr-card-media"><img src="assets/images/release/01.jpg" alt="Sad Songs cover"><button class="ms-play-sm" data-play="5" aria-label="Play Sad Songs"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Sad Songs</a></h3><p>49 Songs</p></div></div>
+			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and playlist ideas">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="Until I Met You cover" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>00:00</span><span id="msNpDuration">00:10</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block ms-create-card">
+			<div class="ms-create-card-top"><span><i class="ri-music-2-fill"></i></span><div><h2>Create New Playlist</h2><p>Create a playlist for your mood, genre or any occasion.</p></div></div>
+			<a href="add_playlist.html" class="ms-btn"><i class="ri-add-line"></i>Create Playlist</a>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Playlist Categories</h2></div>
+			<div class="ms-genre-tiles"><a href="genres.html" class="ms-genre-tile is-cat is-mood has-png"><span>Mood</span><picture><img src="assets/images/genre/romantic.webp" alt="Romantic genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres.html" class="ms-genre-tile is-cat is-genre has-png"><span>Genre</span><picture><img src="assets/images/genre/rock.webp" alt="Rock genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres.html" class="ms-genre-tile is-cat is-activity has-png"><span>Activity</span><picture><img src="assets/images/genre/workout.webp" alt="Workout genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres.html" class="ms-genre-tile is-cat is-decade has-png"><span>Decade</span><picture><img src="assets/images/genre/jaaz.webp" alt="Jazz genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres.html" class="ms-genre-tile is-cat is-trending has-png"><span>Trending</span><picture><img src="assets/images/genre/edm.webp" alt="EDM genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres.html" class="ms-genre-tile is-cat is-pick has-png"><span>Editor&rsquo;s Pick</span><picture><img src="assets/images/genre/r_b.webp" alt="R&amp;B genre icon" width="400" height="400" loading="lazy"></picture></a></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Suggested Playlists</h2><a href="feature_playlist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row" data-card="6"><img src="assets/images/trending/06.jpg" alt="Morning Motivation cover"><div><h4>Morning Motivation</h4><p>60 Songs</p></div><button class="ms-mini-play" data-play="6" aria-label="Play Morning Motivation"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="10"><img src="assets/images/discover/edm.jpg" alt="Gym &amp; Workout cover"><div><h4>Gym &amp; Workout</h4><p>72 Songs</p></div><button class="ms-mini-play" data-play="10" aria-label="Play Gym &amp; Workout"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="9"><img src="assets/images/trending/001.jpg" alt="Study Focus cover"><div><h4>Study Focus</h4><p>50 Songs</p></div><button class="ms-mini-play" data-play="9" aria-label="Play Study Focus"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="11"><img src="assets/images/trending/07.jpg" alt="Relaxing Instrumental cover"><div><h4>Relaxing Instrumental</h4><p>68 Songs</p></div><button class="ms-mini-play" data-play="11" aria-label="Play Relaxing Instrumental"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="1"><img src="assets/images/discover/dancing.jpg" alt="Top Chart Hits cover"><div><h4>Top Chart Hits</h4><p>100 Songs</p></div><button class="ms-mini-play" data-play="1" aria-label="Play Top Chart Hits"><i class="ri-play-fill"></i></button></div>
+			</div>
+		</div>
+	</aside>
+
+			<!-- Footer -->
+			<footer class="ms-footer">
+				<div class="ms-footer-top">
+					<div class="ms-footer-brand">
+						<a href="index.html" class="ms-logo">
+							<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							<span>Miraculous</span>
+						</a>
+						<p>Stream, discover and buy music from the artists you love.</p>
+					</div>
+					<nav class="ms-footer-links" aria-label="Footer">
+						<a href="album.html">Albums</a>
+						<a href="artist.html">Artists</a>
+						<a href="genres.html">Genres</a>
+						<a href="store.html">Store</a>
+						<a href="blog.html">Blog</a>
+						<a href="javascript:void(0)">Contact</a>
+					</nav>
+					<div class="ms-social">
+						<a href="javascript:void(0)" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="javascript:void(0)" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+						<a href="javascript:void(0)" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+					</div>
+				</div>
+				<div class="ms-copyright">
+					<span>&copy; 2026 Miraculous. All rights reserved.</span>
+					<span><a href="javascript:void(0)">Privacy Policy</a> &middot; <a href="javascript:void(0)">Terms of Use</a></span>
+				</div>
+			</footer>
+			<!-- Footer End -->
+		</main>
+		<!-- Main Content End -->
+	</div>
+
+	<!-- ================= Player ================= -->
+	<div class="ms-player is-light" id="msPlayer">
+		<div class="ms-player-left">
+			<div class="ms-player-song">
+				<img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPlayerCover">
+				<div class="ms-player-meta">
+					<h4 id="msPlayerTitle">Until I Met You</h4>
+					<p id="msPlayerArtist">Brian Hill</p>
+				</div>
+				<span class="ms-player-expand" aria-hidden="true"><i class="ri-arrow-up-s-line"></i></span>
+			</div>
+		</div>
+		<div class="ms-player-center">
+			<div class="ms-player-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-seek is-wave" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-bars" data-seek-bars aria-hidden="true"></span><span class="ms-seek-fill" data-seek-fill></span></div>
+			<span class="ms-player-time"><span data-time-current>00:00</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>00:10</span></span>
+		</div>
+		<div class="ms-player-right">
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			<div class="ms-player-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+			<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
+			<button class="ms-player-hide" id="msPlayerToggle" aria-label="Hide player" aria-expanded="true" title="Hide player"><i class="ri-arrow-down-s-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Mini player: shown while the bar is hidden, so playback never disappears -->
+	<div class="ms-pill" id="msPill" role="region" aria-label="Mini player">
+		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPillCover"></button>
+		<div class="ms-pill-meta"><h4 id="msPillTitle">Until I Met You</h4><p id="msPillArtist">Brian Hill</p></div>
+		<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+		<button class="ms-ctrl ms-pill-show" data-player-show aria-label="Show player" title="Show player"><i class="ri-arrow-up-s-line"></i></button>
+	</div>
+
+	<!-- Full-screen player for phones and tablets (tap the song in the bar) -->
+	<div class="ms-sheet" id="msSheet" role="dialog" aria-modal="true" aria-label="Now playing" aria-hidden="true">
+		<div class="ms-sheet-head">
+			<button class="ms-ctrl" data-sheet-close aria-label="Close player"><i class="ri-arrow-down-s-line"></i></button>
+			<span>Now Playing</span>
+			<span class="ms-sheet-spacer" aria-hidden="true"></span>
+		</div>
+		<img class="ms-sheet-cover" src="assets/images/trending/02.jpg" alt="Now playing cover" id="msSheetCover">
+		<div class="ms-sheet-info">
+			<div><h3 id="msSheetTitle">Until I Met You</h3><p id="msSheetArtist">Brian Hill</p></div>
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+		</div>
+		<div class="ms-sheet-seek ms-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
+		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>00:10</span></div>
+		<div class="ms-sheet-controls">
+			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+			<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+			<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+			<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Queue popup (offcanvas panel, opened from the player bar) -->
+	<div class="offcanvas offcanvas-end ms-queue" tabindex="-1" id="msQueue" aria-labelledby="msQueueLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="msQueueLabel">Queue</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="ms-queue-label">Up next</div>
+			<div id="msQueueList"></div>
+		</div>
+	</div>
+
+	<!-- Toast message popup -->
+	<div class="ms-toast" id="msToast" role="status" aria-live="polite"></div>
+
+	<!-- Vendor JS -->
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Theme JS -->
+	<script src="assets/js/preloader.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
