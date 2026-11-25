@@ -15,21 +15,21 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 	   Index = the data-play value used in the markup.
 	   Replace src with your own audio files. */
 	const TRACKS = [
-		{ title: 'Walking Promises', artist: 'Ava Cornish', cover: 'assets/images/trending/01.jpg', time: '04:16', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
-		{ title: 'Until I Met You', artist: 'Brian Hill', cover: 'assets/images/trending/02.jpg', time: '03:58', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
-		{ title: 'Gimme Some Courage', artist: 'Ava Cornish', cover: 'assets/images/trending/03.jpg', time: '04:21', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
-		{ title: 'Dark Alley Acoustic', artist: 'Anna Ellison', cover: 'assets/images/trending/04.jpg', time: '03:47', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
-		{ title: 'Echoes of You', artist: 'David Parker', cover: 'assets/images/trending/05.jpg', time: '04:28', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
-		{ title: 'Heart Broken', artist: 'Anna Ellison', cover: 'assets/images/release/01.jpg', time: '03:36', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
-		{ title: 'Cloud Nine', artist: 'Brian Hill', cover: 'assets/images/release/02.jpg', time: '04:05', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
-		{ title: 'Golden Hour', artist: 'David Parker', cover: 'assets/images/release/03.jpg', time: '04:16', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' },
-		{ title: 'Paper Hearts', artist: 'Claire Hudson', cover: 'assets/images/release/04.jpg', time: '03:52', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3' },
-		{ title: 'Slow Mornings', artist: 'Kevin Buckland', cover: 'assets/images/release/05.jpg', time: '04:10', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3' },
-		{ title: 'Velvet Sky', artist: 'Mia Glover', cover: 'assets/images/release/06.jpg', time: '03:44', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3' },
-		{ title: 'Quiet Rivers', artist: 'Kevin Buckland', cover: 'assets/images/trending/03.jpg', time: '04:02', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3' },
-		{ title: 'The Heartbeat Steps', artist: 'Ava Cornish', cover: 'assets/images/trending/06.jpg', time: '03:49', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3' },
-		{ title: 'One More Stranger', artist: 'Ava Cornish', cover: 'assets/images/trending/04.jpg', time: '04:12', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3' },
-		{ title: 'Endless Things', artist: 'Ava Cornish', cover: 'assets/images/release/06.jpg', time: '03:57', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3' }
+		{ title: 'Walking Promises', artist: 'Ava Cornish', cover: 'assets/images/trending/01.jpg', time: '00:10', src: 'assets/audio/song-01.mp3' },
+		{ title: 'Until I Met You', artist: 'Brian Hill', cover: 'assets/images/trending/02.jpg', time: '00:10', src: 'assets/audio/song-02.mp3' },
+		{ title: 'Gimme Some Courage', artist: 'Ava Cornish', cover: 'assets/images/trending/03.jpg', time: '00:10', src: 'assets/audio/song-03.mp3' },
+		{ title: 'Dark Alley Acoustic', artist: 'Anna Ellison', cover: 'assets/images/trending/04.jpg', time: '00:10', src: 'assets/audio/song-04.mp3' },
+		{ title: 'Echoes of You', artist: 'David Parker', cover: 'assets/images/trending/05.jpg', time: '00:10', src: 'assets/audio/song-05.mp3' },
+		{ title: 'Heart Broken', artist: 'Anna Ellison', cover: 'assets/images/release/01.jpg', time: '00:10', src: 'assets/audio/song-01.mp3' },
+		{ title: 'Cloud Nine', artist: 'Brian Hill', cover: 'assets/images/release/02.jpg', time: '00:10', src: 'assets/audio/song-02.mp3' },
+		{ title: 'Golden Hour', artist: 'David Parker', cover: 'assets/images/release/03.jpg', time: '00:10', src: 'assets/audio/song-03.mp3' },
+		{ title: 'Paper Hearts', artist: 'Claire Hudson', cover: 'assets/images/release/04.jpg', time: '00:10', src: 'assets/audio/song-04.mp3' },
+		{ title: 'Slow Mornings', artist: 'Kevin Buckland', cover: 'assets/images/release/05.jpg', time: '00:10', src: 'assets/audio/song-05.mp3' },
+		{ title: 'Velvet Sky', artist: 'Mia Glover', cover: 'assets/images/release/06.jpg', time: '00:10', src: 'assets/audio/song-01.mp3' },
+		{ title: 'Quiet Rivers', artist: 'Kevin Buckland', cover: 'assets/images/trending/03.jpg', time: '00:10', src: 'assets/audio/song-02.mp3' },
+		{ title: 'The Heartbeat Steps', artist: 'Ava Cornish', cover: 'assets/images/trending/06.jpg', time: '00:10', src: 'assets/audio/song-03.mp3' },
+		{ title: 'One More Stranger', artist: 'Ava Cornish', cover: 'assets/images/trending/04.jpg', time: '00:10', src: 'assets/audio/song-04.mp3' },
+		{ title: 'Endless Things', artist: 'Ava Cornish', cover: 'assets/images/release/06.jpg', time: '00:10', src: 'assets/audio/song-05.mp3' }
 	];
 
 	/* Toast --------------------------------------------------------*/
@@ -447,7 +447,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		if (list) {
 			list.innerHTML = TRACKS.map((t, i) => `
 				<div class="ms-track${i === state.index ? ' is-playing' : ''}" data-play="${i}">
-					<div class="ms-track-cover"><img src="${t.cover}" alt=""><i class="ri-play-fill"></i></div>
+					<div class="ms-track-cover"><img src="${t.cover}" alt="${t.title} cover"><i class="ri-play-fill"></i></div>
 					<div class="ms-track-info"><h4>${t.title}</h4><p>${t.artist}</p></div>
 					${i === state.index && !audio.paused ? eq : ''}
 				</div>`).join('');
@@ -456,7 +456,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		if (side) {
 			side.innerHTML = TRACKS.map((t, i) => `
 				<div class="ms-qrow${i === state.index ? ' is-playing' : ''}" data-play="${i}">
-					<div class="ms-track-cover"><img src="${t.cover}" alt=""><i class="ri-play-fill"></i></div>
+					<div class="ms-track-cover"><img src="${t.cover}" alt="${t.title} cover"><i class="ri-play-fill"></i></div>
 					<h4>${t.title}</h4>
 					${i === state.index && !audio.paused ? eq : `<span>${t.time}</span>`}
 				</div>`).join('');
@@ -495,11 +495,9 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		setAll('[data-time-current]', 'textContent', fmt(0));
 		player?.classList.add('is-ready');
 	} else {
-		// demo state: show the bar partly played until the first real playback;
-		// the time shown must match the bar (70% of the current track)
-		setProgress(0.7);
-		const [m, sec] = (TRACKS[state.index].time || '0:00').split(':').map(Number);
-		setAll('[data-time-current]', 'textContent', fmt((m * 60 + sec) * 0.7));
+		// nothing has played yet: the bar waits at 00:00
+		setProgress(0);
+		setAll('[data-time-current]', 'textContent', fmt(0));
 	}
 	renderTrack(false);
 
@@ -902,7 +900,7 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 			if (f.comment.value.trim().length < 3) return bad(f.comment, 'Please write a comment.');
 			const li = document.createElement('li');
 			li.className = 'ms-bs-comment is-new';
-			li.innerHTML = `<img src="assets/images/user.jpg" alt="" width="40" height="40"><div><h4>${esc(f.name.value.trim())} <small>Just now</small></h4><p>${esc(f.comment.value.trim())}</p><button type="button" data-reply="${esc(f.name.value.trim())}">Reply</button></div><button type="button" class="ms-bs-clike" data-like-count aria-label="Like comment"><i class="ri-heart-3-line"></i><span>0</span></button>`;
+			li.innerHTML = `<img src="${avatarSrc()}" data-avatar="1" alt="Your profile photo" width="40" height="40"><div><h4>${esc(f.name.value.trim())} <small>Just now</small></h4><p>${esc(f.comment.value.trim())}</p><button type="button" data-reply="${esc(f.name.value.trim())}">Reply</button></div><button type="button" class="ms-bs-clike" data-like-count aria-label="Like comment"><i class="ri-heart-3-line"></i><span>0</span></button>`;
 			list.append(li);
 			count.forEach((c) => (c.textContent = String(list.children.length)));
 			f.comment.value = '';
@@ -935,4 +933,102 @@ Main JS: sidebar, top nav, search, hero carousel, reveal,
 		heads.forEach((h) => spy.observe(h));
 		toc.addEventListener('click', (e) => { const a = e.target.closest('a'); if (a) mark(a.getAttribute('href').slice(1)); });
 	}
+	/* Profile photo (demo) ------------------------------------------
+	   Change Photo: pick an image, it shows everywhere the avatar is used and is
+	   remembered in this browser only (localStorage). Remove goes back to the default. */
+	const AVATAR_KEY = 'ms-avatar';
+	const AVATAR_DEFAULT = 'assets/images/user.jpg';
+	function avatarSrc() {
+		try { return localStorage.getItem(AVATAR_KEY) || AVATAR_DEFAULT; } catch (e) { return AVATAR_DEFAULT; }
+	}
+	function applyAvatar(src = avatarSrc()) {
+		$$('img[src$="assets/images/user.jpg"], img[data-avatar]').forEach((img) => { img.dataset.avatar = '1'; img.src = src; });
+	}
+	applyAvatar();
+	if ($('[data-avatar-change]')) {
+		const picker = document.createElement('input');
+		picker.type = 'file';
+		picker.accept = 'image/*';
+		picker.hidden = true;
+		document.body.append(picker);
+		// centre-crop to a 300px square so the saved photo stays small
+		const squareAvatar = (file) => new Promise((resolve, reject) => {
+			const url = URL.createObjectURL(file);
+			const img = new Image();
+			img.onload = () => {
+				const side = Math.min(img.width, img.height);
+				const canvas = document.createElement('canvas');
+				canvas.width = canvas.height = 300;
+				canvas.getContext('2d').drawImage(img, (img.width - side) / 2, (img.height - side) / 2, side, side, 0, 0, 300, 300);
+				URL.revokeObjectURL(url);
+				resolve(canvas.toDataURL('image/jpeg', 0.85));
+			};
+			img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('unreadable')); };
+			img.src = url;
+		});
+		picker.addEventListener('change', () => {
+			const file = picker.files[0];
+			picker.value = '';
+			if (!file) return;
+			if (!file.type.startsWith('image/') || file.size > 8 * 1024 * 1024) { toast('Please choose an image under 8 MB'); return; }
+			squareAvatar(file).then((data) => {
+				let saved = true;
+				try { localStorage.setItem(AVATAR_KEY, data); } catch (e) { saved = false; }
+				applyAvatar(data);
+				toast(saved ? 'Profile photo updated' : 'Photo shown for this visit only');
+			}).catch(() => toast('That image could not be read'));
+		});
+		document.addEventListener('click', (e) => {
+			if (e.target.closest('[data-avatar-change]')) picker.click();
+			if (e.target.closest('[data-avatar-remove]')) {
+				try { localStorage.removeItem(AVATAR_KEY); } catch (err) {}
+				applyAvatar(AVATAR_DEFAULT);
+				toast('Profile photo removed');
+			}
+		});
+		document.addEventListener('keydown', (e) => {
+			const el = e.target.closest?.('[data-avatar-change][role="button"]');
+			if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); picker.click(); }
+		});
+	}
+})();
+
+/* Click effect (opt-in per page): sound-wave rings + a floating note where you click.
+   Switch it on with <html data-click-fx> (empty areas only, buttons/links/fields stay calm)
+   or <html data-click-fx="all"> (every click). Skipped for reduced-motion. Styles: .ms-cur-* in style.css */
+(function () {
+	'use strict';
+	const root = document.documentElement;
+	if (!root.hasAttribute('data-click-fx')) return;
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	const everything = root.dataset.clickFx === 'all';
+	const SKIP = 'input, textarea, select, label, [contenteditable]';
+	const CONTROLS = 'a, button, [role="button"], [data-play], [data-card], .ms-player, .dropdown-menu, .offcanvas, .modal, .ms-sheet';
+	let flip = false;
+	let lastType = 'mouse';
+	const burst = (e) => {
+		const t = e.target;
+		if (!(t instanceof Element) || t.closest(SKIP) || (!everything && t.closest(CONTROLS))) return;
+		const x = e.clientX + 'px', y = e.clientY + 'px';
+		const wave = document.createElement('span');
+		wave.className = 'ms-cur-wave';
+		wave.style.left = x; wave.style.top = y;
+		const note = document.createElement('img');
+		flip = !flip;
+		note.src = 'assets/images/category/note-' + (flip ? 'single' : 'double') + '.svg';
+		note.alt = '';
+		note.className = 'ms-cur-note';
+		note.style.left = x; note.style.top = y;
+		note.style.setProperty('--dx', (Math.random() * 40 - 20).toFixed(0) + 'px');
+		note.style.setProperty('--r', (Math.random() * 50 - 25).toFixed(0) + 'deg');
+		document.body.append(wave, note);
+		wave.addEventListener('animationend', () => wave.remove());
+		note.addEventListener('animationend', () => note.remove());
+	};
+	/* mouse / pen: on press. touch: only on a real tap (a click), so starting a scroll with a finger does not fire it */
+	document.addEventListener('pointerdown', (e) => {
+		lastType = e.pointerType || 'mouse';
+		if (lastType !== 'touch' && e.button === 0) burst(e);
+	});
+	document.addEventListener('click', (e) => { if (lastType === 'touch') burst(e); });
 })();

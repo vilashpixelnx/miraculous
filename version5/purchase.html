@@ -6,7 +6,7 @@ Author: Kamleshyadav
 Website:
 Purchase:
 -->
-<html lang="en" data-player-start="visible" data-preloader="once">
+<html lang="en" data-player-start="visible" data-preloader="once" data-click-fx>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,7 +129,7 @@ Purchase:
 				</svg>
 				<span class="ms-side-floor" aria-hidden="true"></span>
 				<picture>
-					<img src="assets/images/headphones.png" alt="" width="300" height="380">
+					<img src="assets/images/headphones.png" alt="Pink over-ear headphones" width="300" height="380">
 				</picture>
 			</a>
 		</nav>
@@ -164,13 +164,16 @@ Purchase:
 				<button class="ms-icon-btn ms-noti" aria-label="Notifications"><i class="ri-notification-3-line"></i></button>
 				<div class="dropdown">
 					<button class="ms-avatar" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
-						<img src="assets/images/user.jpg" alt="">
+						<img src="assets/images/user.jpg" alt="Your profile photo">
 					</button>
 					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
 						<li><a class="dropdown-item" href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
 						<li><a class="dropdown-item" href="manage_acc.html"><i class="ri-settings-3-line"></i>Manage Account</a></li>
 						<li><a class="dropdown-item" href="purchase.html"><i class="ri-shopping-bag-3-line"></i>Purchases</a></li>
 						<li><a class="dropdown-item" href="history.html"><i class="ri-history-line"></i>History</a></li>
+						<li><a class="dropdown-item" href="upload.html"><i class="ri-upload-2-line"></i>Upload Music</a></li>
+						<li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>New Playlist</a></li>
+						<li><a class="dropdown-item" href="free_music.html"><i class="ri-gift-line"></i>Free Music</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="login.html"><i class="ri-logout-box-r-line"></i>Log Out</a></li>
 					</ul>
@@ -194,7 +197,7 @@ Purchase:
 							<h1>Purchases<em>Everything You Own</em></h1>
 							<p>Your orders, downloads and invoices in one place. Re-download any HiFi purchase whenever you like.</p>
 						</div>
-						<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/08.jpg" alt=""><img src="assets/images/trending/01.jpg" alt=""><img src="assets/images/trending/05.jpg" alt=""></div>
+						<div class="ms-cover-stack" aria-hidden="true"><img src="assets/images/trending/08.jpg" alt="Song cover"><img src="assets/images/trending/01.jpg" alt="Song cover"><img src="assets/images/trending/05.jpg" alt="Song cover"></div>
 					</article>
 				</div>
 
@@ -215,12 +218,12 @@ Purchase:
 					<table class="ms-table">
 						<thead><tr><th>Order</th><th>Item</th><th>Date</th><th>Total</th><th>Status</th><th></th></tr></thead>
 						<tbody id="msOrders">
-							<tr data-genre="music"><td><b>#MS-10482</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/05.jpg" alt=""><div><h4>Midnight Echoes</h4><p>David Parker &middot; Vinyl</p></div></div></td><td>Mar 18, 2026</td><td><b>$14.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10482 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr data-genre="music"><td><b>#MS-10461</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/01.jpg" alt=""><div><h4>Walking Promises</h4><p>Ava Cornish &middot; HiFi Album</p></div></div></td><td>Mar 12, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10461 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr data-genre="merch"><td><b>#MS-10433</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/02.jpg" alt=""><div><h4>Tour Hoodie</h4><p>Brian Hill &middot; Merch</p></div></div></td><td>Mar 05, 2026</td><td><b>$45.00</b></td><td><span class="ms-badge ">Shipped</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10433 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr data-genre="music"><td><b>#MS-10398</b></td><td><div class="ms-tl-title"><img src="assets/images/release/03.jpg" alt=""><div><h4>Golden Hour</h4><p>David Parker &middot; CD</p></div></div></td><td>Feb 26, 2026</td><td><b>$10.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10398 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr data-genre="subscription"><td><b>#MS-10354</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/02.jpg" alt=""><div><h4>Premium Monthly</h4><p>Subscription</p></div></div></td><td>Feb 14, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-muted">Paid</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10354 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
-							<tr data-genre="music"><td><b>#MS-10321</b></td><td><div class="ms-tl-title"><img src="assets/images/release/04.jpg" alt=""><div><h4>Paper Hearts</h4><p>Claire Hudson &middot; EP</p></div></div></td><td>Feb 02, 2026</td><td><b>$7.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10321 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="music"><td><b>#MS-10482</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/05.jpg" alt="Midnight Echoes cover"><div><h4>Midnight Echoes</h4><p>David Parker &middot; Vinyl</p></div></div></td><td>Mar 18, 2026</td><td><b>$14.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10482 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="music"><td><b>#MS-10461</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/01.jpg" alt="Walking Promises cover"><div><h4>Walking Promises</h4><p>Ava Cornish &middot; HiFi Album</p></div></div></td><td>Mar 12, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10461 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="merch"><td><b>#MS-10433</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/02.jpg" alt="Tour Hoodie cover"><div><h4>Tour Hoodie</h4><p>Brian Hill &middot; Merch</p></div></div></td><td>Mar 05, 2026</td><td><b>$45.00</b></td><td><span class="ms-badge ">Shipped</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10433 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="music"><td><b>#MS-10398</b></td><td><div class="ms-tl-title"><img src="assets/images/release/03.jpg" alt="Golden Hour cover"><div><h4>Golden Hour</h4><p>David Parker &middot; CD</p></div></div></td><td>Feb 26, 2026</td><td><b>$10.99</b></td><td><span class="ms-badge is-success">Delivered</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10398 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="subscription"><td><b>#MS-10354</b></td><td><div class="ms-tl-title"><img src="assets/images/trending/02.jpg" alt="Premium Monthly cover"><div><h4>Premium Monthly</h4><p>Subscription</p></div></div></td><td>Feb 14, 2026</td><td><b>$9.99</b></td><td><span class="ms-badge is-muted">Paid</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10354 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
+							<tr data-genre="music"><td><b>#MS-10321</b></td><td><div class="ms-tl-title"><img src="assets/images/release/04.jpg" alt="Paper Hearts cover"><div><h4>Paper Hearts</h4><p>Claire Hudson &middot; EP</p></div></div></td><td>Feb 02, 2026</td><td><b>$7.99</b></td><td><span class="ms-badge is-success">Downloaded</span></td><td><button class="ms-follow-btn" data-toast="Invoice #MS-10321 downloaded"><i class="ri-download-2-line"></i> Invoice</button></td></tr>
 						</tbody>
 					</table>
 				</div>
@@ -229,7 +232,7 @@ Purchase:
 
 			<section class="ms-section ms-reveal" aria-labelledby="hCollection">
 				<div class="ms-sec-head"><h2 id="hCollection" class="ms-sec-icon"><i class="ri-album-line"></i>Your Collection</h2><a href="download.html" class="ms-view-all">Downloads <i class="ri-arrow-right-line"></i></a></div>
-				<div class="ms-sr-grid"><div class="ms-sr-card ms-dl-card" data-card="4"><div class="ms-sr-card-media"><img src="assets/images/trending/05.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Midnight Echoes</a></h3><p>David Parker &middot; Vinyl</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="0"><div class="ms-sr-card-media"><img src="assets/images/trending/01.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Walking Promises</a></h3><p>Ava Cornish &middot; HiFi</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/release/03.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Golden Hour</a></h3><p>David Parker &middot; CD</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="8"><div class="ms-sr-card-media"><img src="assets/images/release/04.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="8" aria-label="Play Paper Hearts"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Paper Hearts</a></h3><p>Claire Hudson &middot; EP</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="6"><div class="ms-sr-card-media"><img src="assets/images/release/02.jpg" alt=""><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Cloud Nine</a></h3><p>Brian Hill &middot; HiFi</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="#"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="#"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="#"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div></div>
+				<div class="ms-sr-grid"><div class="ms-sr-card ms-dl-card" data-card="4"><div class="ms-sr-card-media"><img src="assets/images/trending/05.jpg" alt="Midnight Echoes cover"><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Midnight Echoes</a></h3><p>David Parker &middot; Vinyl</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="0"><div class="ms-sr-card-media"><img src="assets/images/trending/01.jpg" alt="Walking Promises cover"><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Walking Promises</a></h3><p>Ava Cornish &middot; HiFi</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/release/03.jpg" alt="Golden Hour cover"><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Golden Hour</a></h3><p>David Parker &middot; CD</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="8"><div class="ms-sr-card-media"><img src="assets/images/release/04.jpg" alt="Paper Hearts cover"><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="8" aria-label="Play Paper Hearts"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Paper Hearts</a></h3><p>Claire Hudson &middot; EP</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div><div class="ms-sr-card ms-dl-card" data-card="6"><div class="ms-sr-card-media"><img src="assets/images/release/02.jpg" alt="Cloud Nine cover"><span class="ms-dl-check"><i class="ri-checkbox-circle-fill"></i></span><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><div class="ms-dl-card-body"><div><h3><a href="album_single.html">Cloud Nine</a></h3><p>Brian Hill &middot; HiFi</p></div><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div></div></div>
 			</section>
 
 	<!-- ================= Right panel: now playing + page extras ================= -->
@@ -237,7 +240,7 @@ Purchase:
 		<div class="ms-np">
 			<h2 class="ms-np-title">Now Playing</h2>
 			<div class="ms-np-song">
-				<img src="assets/images/trending/02.jpg" alt="" id="msNpCover">
+				<img src="assets/images/trending/02.jpg" alt="Until I Met You cover" id="msNpCover">
 				<div class="ms-np-meta">
 					<h3 id="msNpTitle">Until I Met You</h3>
 					<p id="msNpArtist">Brian Hill</p>
@@ -246,7 +249,7 @@ Purchase:
 			</div>
 			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
 			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
-			<div class="ms-np-time"><span data-time-current>03:04</span><span id="msNpDuration">04:23</span></div>
+			<div class="ms-np-time"><span data-time-current>00:00</span><span id="msNpDuration">00:10</span></div>
 			<div class="ms-np-controls">
 				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
 				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
@@ -267,9 +270,9 @@ Purchase:
 		<div class="ms-side-block">
 			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-shopping-bag-3-line"></i>Recently Bought</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
 			<div class="ms-mini-list">
-				<div class="ms-mini-row" data-card="4"><img src="assets/images/trending/05.jpg" alt=""><div><h4><a href="album_single.html">Midnight Echoes</a></h4><p>Vinyl &middot; Mar 18</p></div><button class="ms-mini-play" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button></div>
-				<div class="ms-mini-row" data-card="0"><img src="assets/images/trending/01.jpg" alt=""><div><h4><a href="album_single.html">Walking Promises</a></h4><p>HiFi Album &middot; Mar 12</p></div><button class="ms-mini-play" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button></div>
-				<div class="ms-mini-row" data-card="7"><img src="assets/images/release/03.jpg" alt=""><div><h4><a href="album_single.html">Golden Hour</a></h4><p>CD &middot; Feb 26</p></div><button class="ms-mini-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="4"><img src="assets/images/trending/05.jpg" alt="Midnight Echoes cover"><div><h4><a href="album_single.html">Midnight Echoes</a></h4><p>Vinyl &middot; Mar 18</p></div><button class="ms-mini-play" data-play="4" aria-label="Play Midnight Echoes"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="0"><img src="assets/images/trending/01.jpg" alt="Walking Promises cover"><div><h4><a href="album_single.html">Walking Promises</a></h4><p>HiFi Album &middot; Mar 12</p></div><button class="ms-mini-play" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="7"><img src="assets/images/release/03.jpg" alt="Golden Hour cover"><div><h4><a href="album_single.html">Golden Hour</a></h4><p>CD &middot; Feb 26</p></div><button class="ms-mini-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
 			</div>
 		</div>
 		<div class="ms-side-block">
@@ -298,18 +301,18 @@ Purchase:
 						<a href="genres.html">Genres</a>
 						<a href="store.html">Store</a>
 						<a href="blog.html">Blog</a>
-						<a href="#">Contact</a>
+						<a href="javascript:void(0)">Contact</a>
 					</nav>
 					<div class="ms-social">
-						<a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-						<a href="#" aria-label="X"><i class="ri-twitter-x-line"></i></a>
-						<a href="#" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
-						<a href="#" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="javascript:void(0)" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+						<a href="javascript:void(0)" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
 					</div>
 				</div>
 				<div class="ms-copyright">
 					<span>&copy; 2026 Miraculous. All rights reserved.</span>
-					<span><a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Use</a></span>
+					<span><a href="javascript:void(0)">Privacy Policy</a> &middot; <a href="javascript:void(0)">Terms of Use</a></span>
 				</div>
 			</footer>
 		</main>
@@ -319,11 +322,12 @@ Purchase:
 	<div class="ms-player is-light" id="msPlayer">
 		<div class="ms-player-left">
 			<div class="ms-player-song">
-				<img src="assets/images/trending/02.jpg" alt="" id="msPlayerCover">
+				<img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPlayerCover">
 				<div class="ms-player-meta">
 					<h4 id="msPlayerTitle">Until I Met You</h4>
 					<p id="msPlayerArtist">Brian Hill</p>
 				</div>
+				<span class="ms-player-expand" aria-hidden="true"><i class="ri-arrow-up-s-line"></i></span>
 			</div>
 		</div>
 		<div class="ms-player-center">
@@ -335,7 +339,7 @@ Purchase:
 				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
 			</div>
 			<div class="ms-seek is-wave" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-bars" data-seek-bars aria-hidden="true"></span><span class="ms-seek-fill" data-seek-fill></span></div>
-			<span class="ms-player-time"><span data-time-current>04:23</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>03:58</span></span>
+			<span class="ms-player-time"><span data-time-current>00:00</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>00:10</span></span>
 		</div>
 		<div class="ms-player-right">
 			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
@@ -350,7 +354,7 @@ Purchase:
 
 	<!-- Mini player: shown while the bar is hidden, so playback never disappears -->
 	<div class="ms-pill" id="msPill" role="region" aria-label="Mini player">
-		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="assets/images/trending/02.jpg" alt="" id="msPillCover"></button>
+		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPillCover"></button>
 		<div class="ms-pill-meta"><h4 id="msPillTitle">Until I Met You</h4><p id="msPillArtist">Brian Hill</p></div>
 		<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
 		<button class="ms-ctrl ms-pill-show" data-player-show aria-label="Show player" title="Show player"><i class="ri-arrow-up-s-line"></i></button>
@@ -361,15 +365,15 @@ Purchase:
 		<div class="ms-sheet-head">
 			<button class="ms-ctrl" data-sheet-close aria-label="Close player"><i class="ri-arrow-down-s-line"></i></button>
 			<span>Now Playing</span>
-			<button class="ms-ctrl" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i></button>
+			<span class="ms-sheet-spacer" aria-hidden="true"></span>
 		</div>
-		<img class="ms-sheet-cover" src="assets/images/trending/02.jpg" alt="" id="msSheetCover">
+		<img class="ms-sheet-cover" src="assets/images/trending/02.jpg" alt="Now playing cover" id="msSheetCover">
 		<div class="ms-sheet-info">
 			<div><h3 id="msSheetTitle">Until I Met You</h3><p id="msSheetArtist">Brian Hill</p></div>
 			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
 		</div>
 		<div class="ms-sheet-seek ms-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
-		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>03:58</span></div>
+		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>00:10</span></div>
 		<div class="ms-sheet-controls">
 			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
 			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>

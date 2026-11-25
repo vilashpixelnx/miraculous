@@ -815,7 +815,7 @@ body.is-playing .ms-hero-wave span { animation-duration: .8s; }
 .ms-discover:hover img { transform: scale(1.06); }
 
 /* 8. Genres, charts, artists, mixes --------------------------------*/
-.ms-genre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ms-genre-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
 .ms-genre {
 	position: relative;
 	display: flex;
@@ -962,7 +962,7 @@ body.is-playing .ms-hero-wave span { animation-duration: .8s; }
 .ms-premium h2 { margin-top: 12px; font-family: var(--ms-font-display); font-size: 40px; font-weight: 400; line-height: 1.08; }
 .ms-premium h2 em { font-style: normal; font-weight: 600; color: var(--ms-coral); }
 .ms-premium > p { margin-top: 12px; max-width: 360px; font-size: 14.5px; color: var(--ms-text-2); }
-.ms-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-top: 20px; max-width: 380px; }
+.ms-checks { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 16px; margin-top: 20px; max-width: 380px; }
 .ms-checks li { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; }
 .ms-checks i { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--ms-coral); color: #fff; font-size: 13px; }
 .ms-premium-foot { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 26px; }
@@ -1259,6 +1259,15 @@ html.sheet-open { overflow: hidden; }
 .ms-sheet-controls .ms-play { width: 68px; height: 68px; font-size: 34px; }
 @media (min-width: 992px) { .ms-sheet { display: none; } }
 @media (max-width: 991.98px) { .ms-player.is-light .ms-player-song { cursor: pointer; } }
+/* keeps "Now Playing" centred now that the sheet has no queue button (the queue panel cannot open over the sheet) */
+.ms-sheet-spacer { width: 44px; height: 44px; }
+/* small arrow on the bar: tells phone/tablet users that tapping the song opens the full-screen player */
+.ms-player-expand { display: none; }
+@media (max-width: 991.98px) {
+	.ms-player.is-light .ms-player-expand { display: grid; place-items: center; width: 28px; height: 28px; margin-left: auto; flex-shrink: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .92); font-size: 20px; animation: ms-expand-hint 2.4s ease-in-out infinite; }
+}
+@keyframes ms-expand-hint { 0%, 100% { transform: translateY(1px); } 50% { transform: translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) { .ms-player-expand { animation: none !important; } }
 
 /* tablet + phone: compact bar, the track becomes a thin line along the top edge */
 @media (max-width: 991.98px) {
@@ -1398,7 +1407,7 @@ body.is-playing .ms-np-wave span { animation: ms-wave 1.2s ease-in-out infinite;
 }
 @media (min-width: 1200px) and (max-width: 1599.98px) {
 	.ms-hero h1 { font-size: 36px; }
-	.ms-hero h1 em { font-size: 30px; }
+	.ms-hero h1 em { font-size: 28px; }
 	.ms-hero-text { max-width: 340px; }
 	.ms-hero-text p { max-width: 300px; font-size: 12px; }
 	.ms-hero-art { left: calc(55.5% - var(--hero-h) / 2 - 40px); clip-path: none; }
@@ -1408,6 +1417,27 @@ body.is-playing .ms-np-wave span { animation: ms-wave 1.2s ease-in-out infinite;
 	.ms-artist-grid { column-gap: 4px; }
 	.ms-artist h3 { font-size: 12.5px; white-space: normal; line-height: 1.3; }
 	.ms-artist p { font-size: 11px; text-overflow: clip; }
+}
+/* Home: from 1200 to 1499px the content column is only ~610-910px wide (sidebar + right panel),
+   so the paired blocks stack and the grids use fewer, bigger tiles instead of squeezing */
+@media (min-width: 1200px) and (max-width: 1499.98px) {
+	.ms-split-even { grid-template-columns: minmax(0, 1fr); gap: 0; }
+	.ms-split-even > * + *, .ms-split-even > .ms-section + .ms-section { margin-top: 40px; }
+	.ms-artist-grid { gap: 24px 16px; }
+	.ms-artist-img { max-width: 110px; }
+	.ms-artist h3 { font-size: 14px; white-space: nowrap; }
+	.ms-artist p { font-size: 12.5px; text-overflow: ellipsis; }
+	.ms-discover-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+}
+/* Made For You cards need ~220px for the title, so 2 per row until the column is wide enough for 4 */
+@media (min-width: 1200px) and (max-width: 1649.98px) {
+	.ms-grid-mix { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Premium + Music Store: side by side the store names wrap and prices collide with the cart buttons
+   until the column is ~1200px wide, so they stack */
+@media (min-width: 1200px) and (max-width: 1799.98px) {
+	.ms-split-promo { grid-template-columns: minmax(0, 1fr); gap: 0; }
+	.ms-split-promo > * + * { margin-top: 40px; }
 }
 /* bottom bar can be hidden on screens that show the right panel;
    the choice is saved, see main.js */
@@ -1767,6 +1797,10 @@ body.is-playing .ms-np-wave span { animation: ms-wave 1.2s ease-in-out infinite;
 .ms-tracklist.is-chart .ms-tl-head, .ms-tracklist.is-chart .ms-tl-row { grid-template-columns: 40px 28px minmax(0, 1fr) minmax(0, 200px) 110px 36px 56px 36px; }
 .ms-tracklist.is-compact .ms-tl-head, .ms-tracklist.is-compact .ms-tl-row { grid-template-columns: 40px minmax(0, 1fr) minmax(0, 200px) 36px 56px 36px; }
 .ms-tl-album { font-size: 13px; color: var(--ms-text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* chart table on narrower columns: slimmer album/plays columns so the song title keeps its room */
+@media (min-width: 768px) and (max-width: 1599.98px) {
+	.ms-tracklist.is-chart .ms-tl-head, .ms-tracklist.is-chart .ms-tl-row { grid-template-columns: 36px 24px minmax(0, 1fr) minmax(0, 130px) 64px 32px 52px 32px; gap: 10px; }
+}
 .ms-tl-row .ms-trend { font-size: 20px; }
 .ms-tl-row:nth-child(-n+4) .ms-tl-num b { color: var(--ms-coral); }
 .ms-tl-group { padding: 16px 12px 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ms-muted); }
@@ -1886,7 +1920,7 @@ body.is-playing .ms-np-wave span { animation: ms-wave 1.2s ease-in-out infinite;
 .ms-form-card + .ms-form-card { margin-top: 20px; }
 .ms-form-card > h3 { font-size: 17px; font-weight: 600; }
 .ms-form-card > p { margin-top: 4px; font-size: 13px; color: var(--ms-text-2); }
-.ms-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; margin-top: 20px; }
+.ms-form-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 20px; margin-top: 20px; }
 .ms-form-grid .is-full { grid-column: 1 / -1; }
 .ms-field label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 600; color: var(--ms-text); }
 .ms-input {
@@ -1992,7 +2026,7 @@ select.ms-input { appearance: none; background: var(--ms-bg) url("data:image/svg
 .ms-post-card h3 a:hover { color: var(--ms-coral); }
 .ms-post-card p { margin-top: 8px; font-size: 13.5px; line-height: 1.65; color: var(--ms-text-2); }
 .ms-read-more { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 14px; font-size: 13px; font-weight: 600; color: var(--ms-coral); }
-.ms-post-card.is-featured { display: grid; grid-template-columns: 1.2fr 1fr; grid-column: 1 / -1; }
+.ms-post-card.is-featured { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); grid-column: 1 / -1; }
 .ms-post-card.is-featured .ms-post-card-img { aspect-ratio: auto; min-height: 320px; }
 .ms-post-card.is-featured .ms-post-card-body { justify-content: center; padding: 32px 36px; }
 .ms-post-card.is-featured h3 { font-size: 30px; }
@@ -2784,7 +2818,7 @@ body:has(> .ms-auth) { padding-bottom: 0; }
 .ms-auth-card { width: 100%; max-width: 600px; padding: 30px 54px 28px; border-radius: 32px; background: rgba(255, 246, 249, .9); border: 1px solid rgba(255, 255, 255, .95); box-shadow: 0 30px 70px rgba(90, 15, 60, .25); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
 .ms-auth-card .ms-logo { display: flex; justify-content: center; gap: 12px; font-size: 30px; }
 .ms-auth-card .ms-logo svg { width: 50px; height: 40px; }
-.ms-auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 20px auto 0; padding: 5px; max-width: 410px; border-radius: 50px; background: #fff; border: 1px solid rgba(241, 218, 214, .9); }
+.ms-auth-tabs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px; margin: 20px auto 0; padding: 5px; max-width: 410px; border-radius: 50px; background: #fff; border: 1px solid rgba(241, 218, 214, .9); }
 .ms-auth-tabs button { height: 46px; border-radius: 50px; font-size: 17px; font-weight: 600; color: var(--ms-text); transition: background var(--ms-t), color var(--ms-t); }
 .ms-auth-tabs button.is-active { background: var(--ms-grad-cta); color: #fff; box-shadow: var(--ms-shadow-coral); }
 .ms-auth-form[hidden] { display: none; }
@@ -3089,7 +3123,7 @@ body:has(> .ms-auth) { padding-bottom: 0; }
 .ms-radio-genre small { font-size: 12px; font-weight: 500; opacity: .9; }
 
 /* right column */
-.ms-lk-stats { display: grid; grid-template-columns: 1fr 1fr; padding: 14px 10px; }
+.ms-lk-stats { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 14px 10px; }
 .ms-lk-stats div { display: flex; align-items: center; gap: 8px; padding: 0 6px; white-space: nowrap; }
 .ms-lk-stats div + div { border-left: 1px solid var(--ms-line); }
 .ms-lk-stats span { display: grid; place-items: center; width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: var(--ms-blush); color: var(--ms-coral); font-size: 19px; }
@@ -3242,6 +3276,7 @@ body:has(> .ms-auth) { padding-bottom: 0; }
 .ms-solo-badge { position: absolute; right: 6%; bottom: 6%; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 4px solid #fff; background: var(--ms-grad-cta); color: #fff; font-size: 22px; box-shadow: var(--ms-shadow-coral); }
 .ms-solo-badge.is-verified { background: #fff; color: #1D9BF0; font-size: 34px; }
 .ms-solo-badge.is-crown { background: linear-gradient(180deg, #FFB13D, #FF6A2B); box-shadow: 0 6px 16px rgba(255, 106, 43, .4); }
+.ms-solo-badge.is-camera { cursor: pointer; }
 .ms-solo-cover { width: var(--stack-c); aspect-ratio: 1; }
 .ms-solo-cover .ms-solo-ring { inset: -26px; }
 .ms-solo-cover > img, .ms-solo-grad { position: relative; display: block; width: 100%; height: 100%; border-radius: 22px; object-fit: cover; border: 5px solid #fff; box-shadow: 0 24px 48px rgba(var(--ms-plum-rgb), .25); transform: rotate(-5deg); transition: transform .45s var(--ms-ease); }
@@ -3585,7 +3620,7 @@ body:has(> .ms-auth) { padding-bottom: 0; }
 
 .ms-bs-form { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--ms-line); }
 .ms-bs-form > p { margin-top: 4px; font-size: 13px; color: var(--ms-text-2); }
-.ms-bs-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.ms-bs-form-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin-top: 14px; }
 .ms-bs-input { display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 16px; border-radius: 14px; background: #fff; border: 1.5px solid var(--ms-line); transition: border-color var(--ms-t), box-shadow var(--ms-t); }
 .ms-bs-input:focus-within { border-color: var(--ms-coral-2); box-shadow: 0 0 0 4px rgba(var(--ms-coral-rgb), .08); }
 .ms-bs-input.is-error { border-color: var(--ms-coral); }
@@ -3740,16 +3775,16 @@ body:has(> .ms-auth) { padding-bottom: 0; }
 	.ms-section, .ms-split + .ms-section, .ms-section + .ms-split, .ms-split + .ms-split { margin-top: 32px; }
 	.ms-hero + .ms-split { margin-top: 20px; }
 	.ms-sec-head h2 { font-size: 18px; }
-	.ms-genre-grid { grid-template-columns: 1fr 1fr; }
+	.ms-genre-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 	.ms-grid-4, .ms-grid-mix { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	.ms-grid-mix { grid-template-columns: 1fr; }
+	.ms-grid-mix { grid-template-columns: minmax(0, 1fr); }
 	.ms-grid-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 	.ms-artist-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; }
 	.ms-track { gap: 10px; padding: 8px 6px; }
 	.ms-track .ms-trend { display: none; }
 	.ms-premium { padding: 28px 22px; }
 	.ms-premium h2 { font-size: 32px; }
-	.ms-checks { grid-template-columns: 1fr; }
+	.ms-checks { grid-template-columns: minmax(0, 1fr); }
 	.ms-store { padding: 22px 16px; }
 	.ms-footer-links { margin-left: 0; }
 
@@ -3875,7 +3910,7 @@ body:has(> .ms-auth) { padding-bottom: 0; }
 	/* every one-slide hero: art on top, text centred below (same as Home) */
 	.ms-hero-single { height: auto; }
 	.ms-hero-single .ms-hero-slides { position: relative; height: auto; }
-	.ms-hero-single .ms-hero-slide { position: relative; display: flex; flex-direction: column; padding-top: 292px; }
+	.ms-hero-single .ms-hero-slide { position: relative; display: flex; flex-direction: column; padding-top: 316px; }
 	.ms-hero-single .ms-hero-text { position: relative; top: auto; left: auto; right: auto; padding: 0 18px; }
 	.ms-hero-single .ms-hero-actions { margin-top: 18px; flex-wrap: wrap; padding: 0 16px; }
 	.ms-hero-stack { --stack-x: 50%; --stack-s: 128px; --stack-c: 156px; --orb: 300px; --orb2: 170px; }
@@ -4224,6 +4259,13 @@ html.ms-loaded .ms-hero { opacity: 1; transform: none; transition: opacity .7s v
 	.ms-pre-vinyl .ms-pre-orb-1 { width: 300px; height: 300px; left: -80px; top: 6%; }
 	.ms-pre-vinyl .ms-pre-orb-2 { width: 240px; height: 240px; left: auto; right: -60px; top: 58%; }
 }
+/* short screens (phones in landscape): scale the whole loader down so the disc + counter stay inside the viewport */
+@media (max-height: 560px) {
+	.ms-pre-vinyl { --u: .66px; }
+}
+@media (max-height: 420px) {
+	.ms-pre-vinyl { --u: .46px; }
+}
 @media (prefers-reduced-motion: reduce) {
 	.ms-pv-disc, .ms-pv-label { opacity: 1; transform: none; animation: none; }
 	.ms-pv-arm { opacity: 1; transform: none; animation: none; }
@@ -4231,3 +4273,132 @@ html.ms-loaded .ms-hero { opacity: 1; transform: none; transition: opacity .7s v
 	.ms-pv-wave { display: none; }
 }
 /* end preloader (Vinyl Drop) */
+
+/* Discover hero in normal flow (.ms-hero-flow) ---------------------
+   Text, buttons and dots stack in the document flow, so the banner grows with the copy
+   (the slides share one grid cell, so it follows the longest slide). Only decorative layers
+   stay anchored: background orbs, the cut-out photo and the slide arrows. */
+.ms-hero.ms-hero-flow {
+	--hero-pad-t: 31px; --hero-pad-l: 40px; --hero-pad-b: 40px; --hero-text-w: 480px; --hero-gap: 26px;
+	height: auto;
+	min-height: var(--hero-h);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: var(--hero-pad-t) var(--hero-pad-l) var(--hero-pad-b);
+}
+.ms-hero-flow .ms-hero-slides { position: static; display: grid; width: 100%; height: auto; min-width: 0; overflow: visible; border-radius: 0; clip-path: none; }
+.ms-hero-flow .ms-hero-slide { position: static; grid-area: 1 / 1; display: flex; flex-direction: column; min-width: 0; }
+.ms-hero-flow .ms-hero-text { position: static; max-width: var(--hero-text-w); }
+.ms-hero-flow .ms-hero-text h1 em { white-space: normal; }
+.ms-hero-flow .ms-hero-actions { position: static; margin-top: var(--hero-gap); flex-wrap: wrap; }
+.ms-hero-flow .ms-hero-dots { position: static; margin: 16px 0 0 -4px; }
+.ms-hero-flow .ms-hero-art { top: auto; bottom: 0; height: var(--hero-h); }
+@media (min-width: 1500px) {
+	.ms-hero.ms-hero-flow { --hero-pad-t: 44px; --hero-pad-l: 48px; --hero-pad-b: 34px; --hero-text-w: 540px; --hero-gap: 24px; }
+}
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+	.ms-hero.ms-hero-flow { --hero-text-w: 340px; clip-path: inset(-60px 0 0 0 round 0 22px 22px 22px); }
+}
+@media (max-width: 991.98px) {
+	.ms-hero.ms-hero-flow { --hero-pad-t: 40px; --hero-pad-l: 28px; --hero-text-w: 420px; --hero-gap: 32px; overflow: hidden; border-radius: 22px; }
+}
+@media (max-width: 767.98px) {
+	.ms-hero.ms-hero-flow { --hero-pad-t: 312px; --hero-pad-l: 18px; --hero-pad-b: 22px; align-items: center; border-radius: 18px; }
+	.ms-hero-flow .ms-hero-slide { align-items: center; }
+	.ms-hero-flow .ms-hero-text { max-width: none; width: 100%; text-align: center; }
+	.ms-hero-flow .ms-hero-actions { justify-content: center; margin-top: 30px; }
+	.ms-hero-flow .ms-hero-dots { justify-content: center; margin: 14px 0 0; }
+	.ms-hero-flow .ms-hero-art { top: 0; bottom: auto; height: 300px; }
+}
+/* end discover hero (flow) */
+
+/* Inner-page heroes in normal flow (.ms-hero-single, 768px and up) ----
+   text -> buttons stack in the flow, hero grows with the copy; artwork
+   stays anchored to the hero box so nothing overlaps when text changes */
+@media (min-width: 768px) {
+	.ms-hero.ms-hero-single {
+		--hero-pad-t: 31px; --hero-pad-l: 40px; --hero-pad-b: 24px; --hero-text-w: 480px; --hero-gap: 18px;
+		height: auto; min-height: var(--hero-h);
+		display: flex; flex-direction: column; align-items: flex-start;
+		padding: var(--hero-pad-t) var(--hero-pad-l) var(--hero-pad-b);
+	}
+	.ms-hero-single .ms-hero-slides { position: static; display: grid; width: 100%; height: auto; min-width: 0; overflow: visible; border-radius: 0; clip-path: none; }
+	.ms-hero-single .ms-hero-slide { position: static; grid-area: 1 / 1; display: flex; flex-direction: column; min-width: 0; }
+	.ms-hero-single .ms-hero-text { position: static; max-width: var(--hero-text-w); }
+	.ms-hero-single .ms-hero-text h1 em { white-space: normal; }
+	.ms-hero-single .ms-hero-actions { position: static; margin-top: var(--hero-gap); flex-wrap: wrap; }
+}
+@media (min-width: 1500px) {
+	.ms-hero.ms-hero-single { --hero-pad-t: 44px; --hero-pad-l: 48px; --hero-pad-b: 24px; --hero-text-w: 540px; --hero-gap: 18px; }
+}
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+	.ms-hero.ms-hero-single { --hero-text-w: 340px; clip-path: inset(-60px 0 0 0 round 0 22px 22px 22px); }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.ms-hero.ms-hero-single { --hero-pad-t: 40px; --hero-pad-l: 28px; --hero-text-w: 420px; --hero-gap: 22px; overflow: hidden; border-radius: 22px; }
+}
+/* tablet: the artwork box starts at (viewport - 362px), so the copy column shrinks with the screen */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.ms-hero.ms-hero-single { --hero-text-w: min(420px, calc(100vw - 402px)); }
+}
+/* photo heroes, 1200-1599: the photo starts further left, keep copy and buttons in a narrower column */
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+	.ms-hero.ms-hero-single:is(.ms-hero-feed, .ms-hero-playlist, .ms-hero-free, .ms-hero-radio, .ms-hero-store, .ms-hero-charts, .ms-hero-upload, .ms-hero-genres) { --hero-text-w: 300px; }
+	.ms-hero-single:is(.ms-hero-feed, .ms-hero-playlist, .ms-hero-free, .ms-hero-radio, .ms-hero-store, .ms-hero-charts, .ms-hero-upload, .ms-hero-genres) .ms-hero-text p { max-width: 270px; }
+	.ms-hero-single:is(.ms-hero-feed, .ms-hero-playlist, .ms-hero-free, .ms-hero-radio, .ms-hero-store, .ms-hero-charts, .ms-hero-upload, .ms-hero-genres) .ms-hero-actions { max-width: 310px; }
+	.ms-hero-single:is(.ms-hero-feed, .ms-hero-playlist, .ms-hero-free, .ms-hero-radio, .ms-hero-store, .ms-hero-charts, .ms-hero-upload, .ms-hero-genres) .ms-hero-actions .ms-btn { min-width: 0; padding: 0 16px; }
+}
+/* 1600+: the photo box starts at ~ (50vw - 465px) from the copy, so the copy column grows with the screen */
+@media (min-width: 1600px) {
+	.ms-hero.ms-hero-single:is(.ms-hero-free, .ms-hero-charts, .ms-hero-upload) { --hero-text-w: min(540px, calc(50vw - 480px)); }
+	.ms-hero-single:is(.ms-hero-free, .ms-hero-charts, .ms-hero-upload) .ms-hero-text p { max-width: 100%; }
+}
+@media (min-width: 1600px) and (max-width: 1849.98px) {
+	.ms-hero-single:is(.ms-hero-blog, .ms-hero-purchase) .ms-hero-text p { max-width: 420px; }
+}
+/* tablet: the 3-card stack / avatar sits at 74% of the hero, so the copy column follows it */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.ms-hero.ms-hero-single.ms-hero-stack { --hero-text-w: min(420px, calc(75vw - 252px)); }
+	.ms-hero-single.ms-hero-stack .ms-hero-text p { max-width: 100%; }
+}
+/* 1200-1349: the photo comes in closer to the copy */
+@media (min-width: 1200px) and (max-width: 1349.98px) {
+	.ms-hero.ms-hero-single:is(.ms-hero-feed, .ms-hero-playlist, .ms-hero-free, .ms-hero-radio, .ms-hero-store, .ms-hero-charts, .ms-hero-upload, .ms-hero-genres) { --hero-text-w: 240px; }
+	.ms-hero-single:is(.ms-hero-feed, .ms-hero-playlist, .ms-hero-free, .ms-hero-radio, .ms-hero-store, .ms-hero-charts, .ms-hero-upload, .ms-hero-genres) .ms-hero-text p { max-width: 220px; }
+	.ms-hero-single:is(.ms-hero-feed, .ms-hero-playlist, .ms-hero-free, .ms-hero-radio, .ms-hero-store, .ms-hero-charts, .ms-hero-upload, .ms-hero-genres) .ms-hero-actions { max-width: 250px; }
+	.ms-hero.ms-hero-single.ms-hero-free { --hero-text-w: min(240px, calc(55vw - 470px)); }
+	.ms-hero-single.ms-hero-free .ms-hero-text p { max-width: 100%; }
+}
+/* blog: card stack starts at ~ (77.5vw - 351px) */
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+	.ms-hero.ms-hero-single.ms-hero-blog { --hero-text-w: min(340px, calc(77.5vw - 700px)); }
+	.ms-hero-single.ms-hero-blog .ms-hero-text p { max-width: 100%; }
+}
+/* end inner-page heroes (flow) */
+
+/* 1200-1319: the main column is only ~600px (right rail is open), so the tables drop their Album column instead of squeezing the titles */
+@media (min-width: 1200px) and (max-width: 1319.98px) {
+	.ms-tracklist.is-chart .ms-tl-head, .ms-tracklist.is-chart .ms-tl-row { grid-template-columns: 36px 24px minmax(0, 1fr) 64px 32px 52px 32px; }
+	.ms-tracklist.is-chart .ms-tl-head > :nth-child(4), .ms-tracklist.is-chart .ms-tl-album { display: none; }
+	.ms-lk-head, .ms-lk-row { grid-template-columns: 26px 48px 20px minmax(0, 1.5fr) minmax(0, 1fr) 104px 42px 28px; }
+	.ms-lk-head > :nth-child(6), .ms-lk-row > span:nth-of-type(3) { display: none; }
+	.ms-lk-table.is-downloads .ms-lk-head, .ms-lk-table.is-downloads .ms-lk-row { grid-template-columns: 26px 48px minmax(0, 2fr) 22px minmax(0, 1fr) 104px 48px 24px; gap: 8px; }
+}
+
+/* very small phones: the song page volume slider shrinks instead of pushing the tools off screen */
+@media (max-width: 400px) {
+	.ms-sg-extras { gap: 12px; }
+	.ms-sg-volume { flex: 1 1 auto; min-width: 0; }
+	.ms-sg-volume .ms-range { flex: 1 1 auto; width: auto; min-width: 48px; }
+	.ms-sg-tools { gap: 12px; flex-shrink: 0; }
+}
+
+/* 320-359px phones: header logo and avatar shrink so "Miraculous" does not run into the search icon */
+@media (max-width: 359.98px) {
+	.ms-topbar { padding: 0 8px 0 4px; gap: 4px; }
+	.ms-logo-mobile { font-size: 16px; }
+	.ms-logo-mobile svg { width: 28px; height: 22px; }
+	.ms-top-actions { gap: 0; }
+	.ms-avatar { width: 34px; height: 34px; margin-left: 4px; }
+}
