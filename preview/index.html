@@ -136,42 +136,32 @@ Project: Miraculous Landing Page
 				<div class="mq_heading">
 					<h1>Demos</h1>
 					<img src="assets/images/line.png" alt="" title=""/>
-					<p>Unique Html Template With 3 Different Demos</p>
+					<p>Unique Html Template With 4 Different Demos</p>
 				</div>
 				<div class="row" id="go_to_demo">
 					<div class="col-lg-6 col-md-6 mq_after_effect1">
-						
-							<div class="ms_demo_img">
-								<img src="assets/images/demo-screen1.png" alt="" title=""/>
-								
-								<div class="bt_full_overlay">
-									<a href="./html/Bootstrap4/version1/index.html" target="_blank">Bootstrap4</a>
-									<a href="./html/Bootstrap5/version1/index.html" target="_blank">Bootstrap5</a>
-								</div>
-							
+						<div class="ms_demo_img">
+							<img src="assets/images/demo-screen4.jpg" alt="" title=""/>
+							<div class="bt_full_overlay">
+								<a href="./html/Bootstrap5/version4/index.html" target="_blank">Bootstrap5</a>
 							</div>
-				
-						<a href="./html/Bootstrap5/version1/index.html" target="_blank" class="mq_btn">demo 01</a>
-					</div>
-					<div class="col-lg-6 col-md-6 mq_after_effect2">
-						
-							<div class="ms_demo_img">
-								<img src="assets/images/demo-screen2.png" alt="" title=""/>
-								
-								<!-- <div class="ms_box_overlay"></div> -->
-								<!-- <div class="demo_btn">
-									<span><img src="assets/images/previewicon.svg" alt=""/></span>
-								</div> -->
-								<div class="bt_full_overlay">
-									<a href="./html/Bootstrap5/version3/index.html" target="_blank">Bootstrap5</a>
-								</div>
 								<div class="new_btn">
 									<h1>NEW</h1>
 								</div>
-								
+						</div>
+						<a href="./html/Bootstrap5/version4/index.html" target="_blank" class="mq_btn">demo 01</a>
+					</div>
+					<div class="col-lg-6 col-md-6 mq_after_effect2">
+						<div class="ms_demo_img">
+							<img src="assets/images/demo-screen2.png" alt="" title=""/>
+							<div class="bt_full_overlay">
+								<a href="./html/Bootstrap5/version3/index.html" target="_blank">Bootstrap5</a>
 							</div>
-					
-							<a href="./html/Bootstrap5/version3/index.html" target="_blank" class="mq_btn">demo 02</a>
+							<div class="new_btn">
+								<h1>NEW</h1>
+							</div>
+						</div>
+						<a href="./html/Bootstrap5/version3/index.html" target="_blank" class="mq_btn">demo 02</a>
 					</div>
 					<div class="col-lg-12">
 						<div class="ti_down_arrow">
@@ -179,17 +169,24 @@ Project: Miraculous Landing Page
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 mq_after_effect3">
-						
-							<div class="ms_demo_img">
-								<img src="assets/images/demo-screen3.png" alt="" title=""/>
-								<!-- <div class="ms_box_overlay"></div> -->
-								<div class="bt_full_overlay">
-									<a href="./html/Bootstrap4/version2/index.html" target="_blank">Bootstrap4</a>
-									<a href="./html/Bootstrap5/version2/index.html" target="_blank">Bootstrap5</a>
-								</div>
+						<div class="ms_demo_img">
+							<img src="assets/images/demo-screen1.png" alt="" title=""/>
+							<div class="bt_full_overlay">
+								<a href="./html/Bootstrap4/version1/index.html" target="_blank">Bootstrap4</a>
+								<a href="./html/Bootstrap5/version1/index.html" target="_blank">Bootstrap5</a>
 							</div>
-					
-						<a href="./html/Bootstrap5/version2/index.html" target="_blank" class="mq_btn">demo 03</a>
+						</div>
+						<a href="./html/Bootstrap5/version1/index.html" target="_blank" class="mq_btn">demo 03</a>
+					</div>
+					<div class="col-lg-6 col-md-6 mq_after_effect3">
+						<div class="ms_demo_img">
+							<img src="assets/images/demo-screen3.png" alt="" title=""/>
+							<div class="bt_full_overlay">
+								<a href="./html/Bootstrap4/version2/index.html" target="_blank">Bootstrap4</a>
+								<a href="./html/Bootstrap5/version2/index.html" target="_blank">Bootstrap5</a>
+							</div>
+						</div>
+						<a href="./html/Bootstrap5/version2/index.html" target="_blank" class="mq_btn">demo 04</a>
 					</div>
 				</div>
 			</div>
@@ -599,7 +596,7 @@ Project: Miraculous Landing Page
 		<!--===footer End===-->
 		<!--===copyright start===-->
 		<div class="copyright_wrapper">
-			<p>Copyright © 2018-2022 <a href="index.html">The Miraculous.</a> All Rights Reserved.</p>
+			<p>Copyright © 2018-<span id="copyright_year">2026</span> <a href="index.html">The Miraculous.</a> All Rights Reserved.</p>
 		</div>
 		<!--===copyright End===-->
 		<!--===Bottom To Top===-->
@@ -616,6 +613,7 @@ Project: Miraculous Landing Page
     <script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/wow.min.js"></script>
     <script src="assets/js/custom.js"></script>
+	<script>document.getElementById("copyright_year").textContent = new Date().getFullYear();</script>
 	<script>
 		new WOW().init();
 	</script>
