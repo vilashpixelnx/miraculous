@@ -107,6 +107,15 @@ $(function() {
             $btn.addClass('is_playing');
             myPlaylist.play(idx);
         });
+        // volume knob: volume comes straight from the knob value (bound once)
+        $('.widget').on('knobvalue', function(e, v) {
+            if (v <= 0) {
+                $("#jquery_jplayer_1").jPlayer("mute");
+            } else {
+                $("#jquery_jplayer_1").jPlayer("volume", v);
+                $("#jquery_jplayer_1").jPlayer("unmute");
+            }
+        });
         $("#jquery_jplayer_1").on($.jPlayer.event.ready + ' ' + $.jPlayer.event.play, function(event) {
             var current = myPlaylist.current;
             var playlist = myPlaylist.playlist;
@@ -115,41 +124,7 @@ $(function() {
                     $(".jp-now-playing").html("<div class='jp-track-name'><span class='que_img'><img src='"+obj.image+"'></span><div class='que_data'>" + obj.title + " <div class='jp-artist-name'>" + obj.artist + "</div></div></div>");
                 }
             });
-			$('.knob-wrapper').mousedown(function() {
-                $(window).mousemove(function(e) {
-                    var angle1 = getRotationDegrees($('.knob')),
-					volume = angle1 / 270 					
-					
-                    if (volume > 1) {
-                        $("#jquery_jplayer_1").jPlayer("volume", 1);
-                    } else if (volume <= 0) {
-                        $("#jquery_jplayer_1").jPlayer("mute");
-                    } else {
-                        $("#jquery_jplayer_1").jPlayer("volume", volume);
-                        $("#jquery_jplayer_1").jPlayer("unmute");
-                    }
-                });
-				
-                return false;
-            }).mouseup(function() {
-                $(window).unbind("mousemove");
-            });
-			
-			
-			function getRotationDegrees(obj) {
-				var matrix = obj.css("-webkit-transform") ||
-				obj.css("-moz-transform")    ||
-				obj.css("-ms-transform")     ||
-				obj.css("-o-transform")      ||
-				obj.css("transform");
-				if(matrix !== 'none') {
-					var values = matrix.split('(')[1].split(')')[0].split(',');
-					var a = values[0];
-					var b = values[1];
-					var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
-				} else { var angle = 0; }
-				return (angle < 0) ? angle + 360 : angle;
-			}
+
 
 			
 			
