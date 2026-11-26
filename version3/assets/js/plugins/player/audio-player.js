@@ -10,40 +10,34 @@ $(function() {
 			image : 'assets/images/weekly/song1.jpg',	
             title: "Don’t Let me",
             artist: "Mushroom Records",
-            mp3: "http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg",
+            mp3: "assets/audio/song-01.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song2.jpg',	
             title: "Your Face",
             artist: "Ministry",
-            mp3: "http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg",
+            mp3: "assets/audio/song-02.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song3.jpg',	
             title: "Cyber Sonnet",
             artist: "You Am I",
-            mp3: "http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg",
+            mp3: "assets/audio/song-03.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song4.jpg',	
             title: "Tempered Song",
             artist: "Shelter",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg",
+            mp3: "assets/audio/song-04.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song5.jpg',	
             title: "Hidden",
             artist: "Bad Religion",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg",
+            mp3: "assets/audio/song-05.mp3",
 			option : myPlayListOtion
         }], {
-            swfPath: "js/plugins",
-            supplied: "oga, mp3",
+            supplied: "mp3",
             wmode: "window",
             useStateClassSkin: true,
             autoBlur: false,
@@ -52,6 +46,13 @@ $(function() {
             playlistOptions: {
                 autoPlay: false
             }
+        });
+
+        // song rows: clicking the play icon plays the matching track
+        $(document).on('click', '.songslist_play, .ms_play_icon', function(e) {
+            e.preventDefault();
+            var all = $('.songslist_play, .ms_play_icon');
+            myPlaylist.play(all.index(this) % myPlaylist.playlist.length);
         });
         $("#jquery_jplayer_1").on($.jPlayer.event.ready + ' ' + $.jPlayer.event.play, function(event) {
             var current = myPlaylist.current;
@@ -139,7 +140,7 @@ $(function() {
                 $('.audio-player').toggleClass('is_hidden');
                 $(this).html($(this).html() == '<i class="fa fa-angle-down"></i> HIDE' ? '<i class="fa fa-angle-up"></i> SHOW PLAYER' : '<i class="fa fa-angle-down"></i> HIDE');
             });
-            $('body').unbind().on('click', '.audio-play-btn', function() {
+            $('body').off('click', '.audio-play-btn').on('click', '.audio-play-btn', function() {
                 $('.audio-play-btn').removeClass('is_playing');
                 $(this).addClass('is_playing');
                 var playlistId = $(this).data('playlist-id');
