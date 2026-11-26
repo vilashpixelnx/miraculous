@@ -10,97 +10,83 @@ $(function() {
 			image : 'assets/images/weekly/song1.jpg',	
             title: "Cro Magnon Man",
             artist: "Mushroom Records",
-            mp3: "http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg",
+            mp3: "assets/audio/song-01.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song2.jpg',	
             title: "Your Face",
             artist: "Ministry",
-            mp3: "http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg",
+            mp3: "assets/audio/song-02.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song3.jpg',	
             title: "Cyber Sonnet",
             artist: "You Am I",
-            mp3: "http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg",
+            mp3: "assets/audio/song-03.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song4.jpg',	
             title: "Tempered Song",
             artist: "Shelter",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg",
+            mp3: "assets/audio/song-04.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song5.jpg',	
             title: "Hidden",
             artist: "Bad Religion",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg",
+            mp3: "assets/audio/song-05.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song6.jpg',	
             title: "Lentement",
             artist: "Apollo 440",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-03-Lentement.ogg",
+            mp3: "assets/audio/song-01.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song7.jpg',	
             title: "Lismore",
             artist: "Bloodhound Gang",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg",
+            mp3: "assets/audio/song-02.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song8.jpg',	
             title: "The Separation",
             artist: "Friendly Fires ",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-05-The-separation.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-05-The-separation.ogg",
+            mp3: "assets/audio/song-03.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song9.jpg',	
             title: "Beside Me",
             artist: "Friendly Fires ",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-06-Beside-me.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-06-Beside-me.ogg",
+            mp3: "assets/audio/song-04.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song2.jpg',	
             title: "Bubble",
             artist: "Skunkhour",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg",
+            mp3: "assets/audio/song-05.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song2.jpg',	
             title: "Stirring of a fool",
             artist: "The Meanies",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-08-Stirring-of-a-fool.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-08-Stirring-of-a-fool.ogg",
+            mp3: "assets/audio/song-01.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song2.jpg',	
             title: "Partir",
             artist: "The Living End",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-09-Partir.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-09-Partir.ogg",
+            mp3: "assets/audio/song-02.mp3",
 			option : myPlayListOtion
         }, {
 			image : 'assets/images/weekly/song2.jpg',	
             title: "Thin Ice",
             artist: "Screaming Trees",
-            mp3: "http://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-10-Thin-ice.ogg",
+            mp3: "assets/audio/song-03.mp3",
 			option : myPlayListOtion
 			
         }], {
-            swfPath: "js/plugins",
-            supplied: "oga, mp3",
+            supplied: "mp3",
             wmode: "window",
             useStateClassSkin: true,
             autoBlur: false,
@@ -109,6 +95,17 @@ $(function() {
             playlistOptions: {
                 autoPlay: false
             }
+        });
+
+        // song rows / cards: clicking the play icon plays the matching track
+        $(document).on('click', '.ms_play_icon', function(e) {
+            e.preventDefault();
+            var all = $('.ms_play_icon');
+            var idx = all.index(this) % myPlaylist.playlist.length;
+            var $btn = $(this);
+            $('.ms_play_icon').removeClass('is_playing');
+            $btn.addClass('is_playing');
+            myPlaylist.play(idx);
         });
         $("#jquery_jplayer_1").on($.jPlayer.event.ready + ' ' + $.jPlayer.event.play, function(event) {
             var current = myPlaylist.current;
@@ -196,7 +193,7 @@ $(function() {
                 $('.audio-player').toggleClass('is_hidden');
                 $(this).html($(this).html() == '<i class="fa fa-angle-down"></i> HIDE' ? '<i class="fa fa-angle-up"></i> SHOW PLAYER' : '<i class="fa fa-angle-down"></i> HIDE');
             });
-            $('body').unbind().on('click', '.audio-play-btn', function() {
+            $('body').off('click', '.audio-play-btn').on('click', '.audio-play-btn', function() {
                 $('.audio-play-btn').removeClass('is_playing');
                 $(this).addClass('is_playing');
                 var playlistId = $(this).data('playlist-id');
