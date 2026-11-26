@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--
+Template Name: Miraculous - Online Music Store Html Template
+Version: 4.0.0 (Aurora Editorial)
+Author: Kamleshyadav
+Website:
+Purchase:
+-->
+<html lang="en" data-player-start="visible" data-preloader="once" data-click-fx>
+<!-- Begin Head -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
+	<meta name="keywords" content="music, music store, music streaming, online music, albums, artists, playlists, radio, html template, bootstrap 5">
+	<meta name="author" content="kamleshyadav">
+	<meta name="MobileOptimized" content="320">
+	<meta name="theme-color" content="#FDF5F2">
+	<title>Store - Miraculous Online Music Store</title>
+	<!-- preloader: <html data-preloader="once"> (first visit per tab) | "always" | "off" -->
+	<script>try { var d = document.documentElement; var pm = d.dataset.preloader || 'once'; if (pm !== 'off' && !(pm === 'once' && sessionStorage.getItem('ms-pre-seen'))) d.classList.add('is-loading'); } catch (e) {}</script>
+	<style>html.is-loading{overflow:hidden}.ms-preloader{display:none}html.is-loading .ms-preloader{display:block;position:fixed;inset:0;z-index:10000}.ms-pre-curtain{position:absolute;inset:0;background:#2A1E2B}</style>
+	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
+	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
+	<!-- Favicon Link -->
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+	<!-- Start Style -->
+	<!-- Fonts -->
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/remixicon.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- End Head -->
+<body class="has-rightbar">
+
+	<!-- ================= Preloader (Vinyl Drop) ================= -->
+	<div class="ms-preloader ms-pre-vinyl" id="msPreloader" role="status" aria-live="polite" aria-busy="true">
+		<div class="ms-pre-curtain" aria-hidden="true">
+			<span class="ms-pre-orb ms-pre-orb-1"></span>
+			<span class="ms-pre-orb ms-pre-orb-2"></span>
+		</div>
+		<div class="ms-pre-inner">
+			<div class="ms-pv-stage" aria-hidden="true">
+				<span class="ms-pv-prog"></span>
+				<span class="ms-pv-wave"></span>
+				<span class="ms-pv-wave ms-pv-wave-2"></span>
+				<div class="ms-pv-disc">
+					<span class="ms-pv-label">
+						<svg viewBox="0 0 44 34"><path d="M5 30 13.5 5l8 17 8.5-17L36 30"/></svg>
+					</span>
+				</div>
+				<svg class="ms-pv-arm" viewBox="0 0 110 250">
+					<defs>
+						<linearGradient id="msPvArm" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF5964"/>
+							<stop offset="1" stop-color="#E92750"/>
+						</linearGradient>
+					</defs>
+					<path class="ms-pv-bar" d="M84 30 V150 L40 208"/>
+					<rect class="ms-pv-head" x="20" y="198" width="34" height="15" rx="5" transform="rotate(-38 37 205)" fill="url(#msPvArm)"/>
+					<circle class="ms-pv-base" cx="84" cy="30" r="18"/>
+					<circle cx="84" cy="30" r="6" fill="url(#msPvArm)"/>
+				</svg>
+			</div>
+			<div class="ms-pv-meta" aria-hidden="true">
+				<span class="ms-pv-num"><b id="msPreNum">0</b><i>%</i></span>
+				<span class="ms-pv-word">Spinning up your sound</span>
+			</div>
+			<span class="visually-hidden">Loading Miraculous</span>
+		</div>
+	</div>
+
+	<!-- ================= Sidebar ================= -->
+	<aside class="ms-sidebar" id="msSidebar">
+		<a href="index.html" class="ms-logo" aria-label="Miraculous home">
+			<img src="https://dummyimage.com/150x72" alt="logo" class="img-fluid">
+		</a>
+
+		<nav class="ms-side-scroll" aria-label="Main">
+			<ul class="ms-nav">
+				<li><a href="index.html"><i class="ri-home-5-line"></i>Discover</a></li>
+				<li><a href="feed.html"><i class="ri-chat-smile-3-line"></i>Music Feed</a></li>
+				<li><a href="artist.html"><i class="ri-user-3-line"></i>Artists</a></li>
+				<li><a href="album.html"><i class="ri-album-line"></i>Albums</a></li>
+				<li><a href="stations.html"><i class="ri-broadcast-line"></i>Radio</a></li>
+				<li><a href="store.html" class="active"><i class="ri-shopping-cart-2-line"></i>Store</a></li>
+			</ul>
+
+			<div class="ms-premium-card">
+				<svg class="ms-premium-crown" viewBox="0 0 40 32" aria-hidden="true">
+					<defs>
+						<linearGradient id="msCrownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB13D"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient>
+					</defs>
+					<path d="M5 11.5 13 18.5 20 6.5l7 12 8-7-3 15.5H8Z" fill="url(#msCrownGrad)" stroke="url(#msCrownGrad)" stroke-width="2" stroke-linejoin="round"/>
+					<rect x="8" y="27.5" width="24" height="3.5" rx="1.75" fill="#FF6A2B"/>
+					<circle cx="20" cy="4" r="3" fill="#FFB13D"/><circle cx="4" cy="10" r="2.6" fill="#FFB13D"/><circle cx="36" cy="10" r="2.6" fill="#FFB13D"/>
+				</svg>
+				<h6>Go Premium</h6>
+				<p>Ad-free music, offline listening &amp; more.</p>
+				<a href="manage_acc.html" class="ms-btn ms-btn-sm">Upgrade Now <i class="ri-arrow-right-line"></i></a>
+			</div>
+
+			<div class="ms-nav-title">Your Library</div>
+			<ul class="ms-nav ms-nav-sm">
+				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
+				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
+				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
+			</ul>
+
+			<!-- Decorative promo art: soft pink hills + headphones, sits at the bottom of the sidebar -->
+			<a href="store.html" class="ms-side-art" aria-label="Shop headphones in the store">
+				<svg class="ms-side-hills" viewBox="0 0 228 230" preserveAspectRatio="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="msHillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".55"/><stop offset="1" stop-color="#FCE8E5" stop-opacity=".2"/></linearGradient>
+						<linearGradient id="msHillB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FD646D" stop-opacity=".22"/><stop offset="1" stop-color="#F8C8BC" stop-opacity=".45"/></linearGradient>
+						<linearGradient id="msHillC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".8"/><stop offset="1" stop-color="#FCE8E5"/></linearGradient>
+					</defs>
+					<path d="M0 62C40 30 92 28 138 50s70 26 90 14V230H0Z" fill="url(#msHillA)"/>
+					<path d="M0 118c36-30 86-34 128-14 38 18 70 14 100-6V230H0Z" fill="url(#msHillB)"/>
+					<path d="M0 182c44-22 102-24 150-10 30 9 56 8 78 0V230H0Z" fill="url(#msHillC)"/>
+				</svg>
+				<span class="ms-side-floor" aria-hidden="true"></span>
+				<picture>
+					<img src="https://dummyimage.com/300x380" alt="Pink over-ear headphones" width="300" height="380">
+				</picture>
+			</a>
+		</nav>
+	</aside>
+	<div class="ms-backdrop" id="msBackdrop"></div>
+
+	<!-- ================= Main ================= -->
+	<div class="ms-main">
+
+		<!-- Top Navigation -->
+		<header class="ms-topbar">
+			<button class="ms-icon-btn ms-menu-toggle" id="msMenuToggle" aria-label="Open menu"><i class="ri-menu-2-line"></i></button>
+			<a href="index.html" class="ms-logo ms-logo-mobile" aria-label="Miraculous home">
+			<img src="https://dummyimage.com/42x43" alt="logo" class="img-fluid">
+		</a>
+			<nav class="ms-topnav" aria-label="Browse">
+				<a href="index.html">Discover</a>
+				<a href="top_track.html">Trending</a>
+				<a href="index.html#new-releases">New Releases</a>
+				<a href="artist.html">Artists</a>
+				<a href="album.html">Albums</a>
+				<a href="stations.html">Radio</a>
+				<a href="store.html" class="active">Store</a>
+				<span class="ms-topnav-ink" aria-hidden="true"></span>
+			</nav>
+			<div class="ms-top-actions">
+				<form class="ms-search" id="msSearchForm" role="search" onsubmit="return false">
+					<input type="search" id="msSearch" placeholder="Search songs, artists, albums..." aria-label="Search">
+					<button type="button" class="ms-icon-btn" id="msSearchToggle" aria-label="Search (Ctrl+K)"><i class="ri-search-line"></i></button>
+				</form>
+				<button class="ms-icon-btn ms-noti" aria-label="Notifications"><i class="ri-notification-3-line"></i></button>
+				<div class="dropdown">
+					<button class="ms-avatar" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+						<img data-avatar="1" src="https://dummyimage.com/300x300" alt="Your profile photo">
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+						<li><a class="dropdown-item" href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+						<li><a class="dropdown-item" href="manage_acc.html"><i class="ri-settings-3-line"></i>Manage Account</a></li>
+						<li><a class="dropdown-item" href="purchase.html"><i class="ri-shopping-bag-3-line"></i>Purchases</a></li>
+						<li><a class="dropdown-item" href="history.html"><i class="ri-history-line"></i>History</a></li>
+						<li><a class="dropdown-item" href="upload.html"><i class="ri-upload-2-line"></i>Upload Music</a></li>
+						<li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>New Playlist</a></li>
+						<li><a class="dropdown-item" href="free_music.html"><i class="ri-gift-line"></i>Free Music</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="login.html"><i class="ri-logout-box-r-line"></i>Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="ms-content">
+
+			<!-- Banner: same hero as Home, one slide -->
+			<section class="ms-hero ms-hero-single ms-hero-store" id="msHero" aria-label="Music Store">
+				<div class="ms-hero-bg" aria-hidden="true">
+					<span class="ms-hero-orb"></span>
+					<span class="ms-hero-orb-2"></span>
+					<span class="ms-store-vinyl"></span>
+				</div>
+
+				<div class="ms-hero-slides">
+					<article class="ms-hero-slide is-active" data-track="12">
+						<div class="ms-hero-text">
+							<div class="ms-hero-eyebrow">Music Store</div>
+							<h1>Buy, Collect &amp; Own<em>Your Music</em></h1>
+							<p>Purchase albums, singles, high-quality audio, merchandise and exclusive artist collections.</p>
+						</div>
+						<div class="ms-hero-art">
+							<picture style="--cut-w:141%;--cut-l:37.5%;--cut-t:0%">
+								<img src="https://dummyimage.com/600x448" alt="Woman enjoying music with headphones" width="1020" height="762">
+							</picture>
+						</div>
+					</article>
+				</div>
+
+				<div class="ms-hero-actions">
+					<a href="#hStoreFeat" class="ms-btn"><i class="ri-shopping-cart-2-line"></i>Browse Store <i class="ri-arrow-right-line"></i></a>
+					<a href="purchase.html" class="ms-btn ms-btn-outline"><i class="ri-shopping-bag-3-line"></i>My Purchases</a>
+				</div>
+
+			</section>
+
+			<!-- Product type tabs -->
+			<div class="ms-store-tabs" role="group" aria-label="Product type"><button class="ms-store-tab is-active" data-store-tab="all"><i class="ri-music-2-line"></i><span>All products</span></button><button class="ms-store-tab" data-store-tab="albums"><i class="ri-stack-line"></i><span>Albums</span></button><button class="ms-store-tab" data-store-tab="singles"><i class="ri-music-line"></i><span>Singles</span></button><button class="ms-store-tab" data-store-tab="eps"><i class="ri-broadcast-line"></i><span>EPs</span></button><button class="ms-store-tab" data-store-tab="vinyl"><i class="ri-disc-line"></i><span>Vinyl</span></button><button class="ms-store-tab" data-store-tab="merch"><i class="ri-headphone-line"></i><span>Merchandise</span></button><button class="ms-store-tab" data-store-tab="bundles"><i class="ri-gift-line"></i><span>Bundles</span></button><button class="ms-store-tab" data-store-tab="premium"><i class="ri-vip-crown-2-line"></i><span>Premium</span></button></div>
+
+			<section class="ms-section ms-reveal ms-store-sec" aria-labelledby="hStoreFeat">
+				<div class="ms-sec-head"><h2 id="hStoreFeat" class="ms-sec-icon"><i class="ri-star-line"></i>Featured in Store</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-store-grid ms-store-grid-4"><div class="ms-store-card is-big" data-store-item="albums vinyl" data-card="12"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="The Heartbeat Steps album cover"></a></div><h3><a href="album_single.html">The Heartbeat Steps</a></h3><p>Ava Cornish</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add The Heartbeat Steps to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card is-big" data-store-item="albums" data-card="3"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Open Roads album cover"></a></div><h3><a href="album_single.html">Open Roads</a></h3><p>Anna Ellison</p><div class="ms-store-buy"><b>$8.99</b><button class="ms-cart-btn" data-cart aria-label="Add Open Roads to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card is-big" data-store-item="albums bundles" data-card="6"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Midnight Vibes album cover"></a></div><h3><a href="album_single.html">Midnight Vibes</a></h3><p>Brian Hill</p><div class="ms-store-buy"><b>$9.99</b><button class="ms-cart-btn" data-cart aria-label="Add Midnight Vibes to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card is-big" data-store-item="singles" data-card="7"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x375" alt="Love Routes album cover"></a></div><h3><a href="album_single.html">Love Routes</a></h3><p>David Parker</p><div class="ms-store-buy"><b>$7.49</b><button class="ms-cart-btn" data-cart aria-label="Add Love Routes to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div></div>
+			</section>
+
+			<!-- Promo banners -->
+			<div class="ms-store-promos ms-section ms-reveal">
+				<a href="#hStoreBest" class="ms-promo ms-promo-merch" data-store-item="merch">
+					<div><h3>Artist<br>Merchandise</h3><p>T-Shirts, Hoodies, Mugs<br>&amp; More</p><span class="ms-btn ms-btn-sm">Shop Merch <i class="ri-arrow-right-line"></i></span></div>
+					<img src="assets/images/store/merch.svg" alt="Black T-shirt, cap and mug with the Miraculous logo">
+				</a>
+				<div class="ms-promo ms-promo-premium" data-store-item="premium">
+					<div><h3><i class="ri-vip-crown-2-fill"></i> Premium Membership</h3>
+					<ul><li><i class="ri-checkbox-circle-fill"></i>Download &amp; own your music</li><li><i class="ri-checkbox-circle-fill"></i>Hi-Res audio (Lossless)</li><li><i class="ri-checkbox-circle-fill"></i>Exclusive store discounts</li></ul>
+					<a href="manage_acc.html" class="ms-btn ms-btn-sm">Get Premium <i class="ri-arrow-right-line"></i></a></div>
+					<img src="assets/images/category/crown.svg" alt="Crown icon">
+				</div>
+			</div>
+
+			<section class="ms-section ms-reveal ms-store-sec" aria-labelledby="hStoreBest">
+				<div class="ms-sec-head"><h2 id="hStoreBest" class="ms-sec-icon"><i class="ri-heart-pulse-line"></i>Best Selling</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-store-grid ms-store-grid-5"><div class="ms-store-card " data-store-item="singles" data-card="1"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Until I Met You album cover"></a><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Until I Met You</a></h3><p>Brian Hill</p><div class="ms-store-buy"><b>$8.99</b><button class="ms-cart-btn" data-cart aria-label="Add Until I Met You to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="albums" data-card="6"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Cloud Nine album cover"></a><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Cloud Nine</a></h3><p>Ava Cornish</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add Cloud Nine to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="eps" data-card="7"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Golden Hour album cover"></a><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Golden Hour</a></h3><p>David Parker</p><div class="ms-store-buy"><b>$8.49</b><button class="ms-cart-btn" data-cart aria-label="Add Golden Hour to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="vinyl" data-card="8"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Electric Dreams album cover"></a><button class="ms-play-sm" data-play="8" aria-label="Play Electric Dreams"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Electric Dreams</a></h3><p>Claire Hudson</p><div class="ms-store-buy"><b>$9.99</b><button class="ms-cart-btn" data-cart aria-label="Add Electric Dreams to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="albums" data-card="10"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Velvet Sky album cover"></a><button class="ms-play-sm" data-play="10" aria-label="Play Velvet Sky"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Velvet Sky</a></h3><p>Mia Glover</p><div class="ms-store-buy"><b>$8.49</b><button class="ms-cart-btn" data-cart aria-label="Add Velvet Sky to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div></div>
+			</section>
+
+			<section class="ms-section ms-reveal ms-store-sec" aria-labelledby="hStoreNew">
+				<div class="ms-sec-head"><h2 id="hStoreNew" class="ms-sec-icon"><span class="ms-new-badge">NEW</span>New in Store</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-store-grid ms-store-grid-5"><div class="ms-store-card " data-store-item="eps" data-card="9"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Silent Stories album cover"></a><button class="ms-play-sm" data-play="9" aria-label="Play Silent Stories"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Silent Stories</a></h3><p>Kevin Buckland</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add Silent Stories to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="albums" data-card="4"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Echoes of You album cover"></a><button class="ms-play-sm" data-play="4" aria-label="Play Echoes of You"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Echoes of You</a></h3><p>Mia Glover</p><div class="ms-store-buy"><b>$8.49</b><button class="ms-cart-btn" data-cart aria-label="Add Echoes of You to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="singles" data-card="8"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Paper Hearts album cover"></a><button class="ms-play-sm" data-play="8" aria-label="Play Paper Hearts"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Paper Hearts</a></h3><p>Claire Hudson</p><div class="ms-store-buy"><b>$7.99</b><button class="ms-cart-btn" data-cart aria-label="Add Paper Hearts to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="vinyl" data-card="3"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Dark Alley Acoustic album cover"></a><button class="ms-play-sm" data-play="3" aria-label="Play Dark Alley Acoustic"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Dark Alley Acoustic</a></h3><p>Anna Ellison</p><div class="ms-store-buy"><b>$9.49</b><button class="ms-cart-btn" data-cart aria-label="Add Dark Alley Acoustic to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div><div class="ms-store-card " data-store-item="bundles" data-card="14"><div class="ms-store-media"><a href="album_single.html"><img src="https://dummyimage.com/600x600" alt="Endless Things album cover"></a><button class="ms-play-sm" data-play="14" aria-label="Play Endless Things"><i class="ri-play-fill"></i></button></div><h3><a href="album_single.html">Endless Things</a></h3><p>Ava Cornish</p><div class="ms-store-buy"><b>$8.99</b><button class="ms-cart-btn" data-cart aria-label="Add Endless Things to cart"><i class="ri-shopping-cart-2-line"></i></button></div></div></div>
+			</section>
+
+			<p class="ms-empty" data-store-empty hidden>No products in this category yet.</p>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and store extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="https://dummyimage.com/600x600" alt="Until I Met You cover" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>00:00</span><span id="msNpDuration">00:10</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Top Store Picks</h2><a href="store.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row ms-pick"><img src="https://dummyimage.com/600x600" alt="The Heartbeat Steps cover"><div><h4><a href="album_single.html">The Heartbeat Steps</a></h4><p>Album &middot; $7.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add The Heartbeat Steps to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="https://dummyimage.com/600x600" alt="Open Roads cover"><div><h4><a href="album_single.html">Open Roads</a></h4><p>Album &middot; $8.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Open Roads to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="https://dummyimage.com/600x600" alt="Midnight Vibes cover"><div><h4><a href="album_single.html">Midnight Vibes</a></h4><p>Album &middot; $9.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Midnight Vibes to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="https://dummyimage.com/600x375" alt="Love Routes cover"><div><h4><a href="album_single.html">Love Routes</a></h4><p>Album &middot; $7.49</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Love Routes to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+				<div class="ms-mini-row ms-pick"><img src="https://dummyimage.com/600x600" alt="Electric Dreams cover"><div><h4><a href="album_single.html">Electric Dreams</a></h4><p>Album &middot; $9.99</p></div><button class="ms-cart-btn is-soft" data-cart aria-label="Add Electric Dreams to cart"><i class="ri-shopping-cart-2-line"></i></button></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Store Categories</h2></div>
+			<div class="ms-genre-tiles ms-store-cats"><button class="ms-genre-tile is-cat is-albums" data-store-tab="albums"><span>Albums</span><img src="assets/images/category/album.svg" alt="Album icon"></button><button class="ms-genre-tile is-cat is-singles" data-store-tab="singles"><span>Singles</span><img src="assets/images/category/genre.svg" alt="Genre icon"></button><button class="ms-genre-tile is-cat is-vinyl" data-store-tab="vinyl"><span>Vinyl</span><img src="assets/images/category/decade.svg" alt="Decade icon"></button><button class="ms-genre-tile is-cat is-merch" data-store-tab="merch"><span>Merch</span><img src="assets/images/category/merch.svg" alt="Merchandise icon"></button><button class="ms-genre-tile is-cat is-bundles" data-store-tab="bundles"><span>Bundles</span><img src="assets/images/category/gift.svg" alt="Gift icon"></button><button class="ms-genre-tile is-cat is-premium" data-store-tab="premium"><span>Premium</span><img src="assets/images/category/crown.svg" alt="Crown icon"></button></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Recently Purchased</h2><a href="purchase.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row" data-card="7"><img src="https://dummyimage.com/600x600" alt="Golden Hour cover"><div><h4>Golden Hour</h4><p>David Parker</p></div><button class="ms-mini-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="6"><img src="https://dummyimage.com/600x600" alt="Cloud Nine cover"><div><h4>Cloud Nine</h4><p>Ava Cornish</p></div><button class="ms-mini-play" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="10"><img src="https://dummyimage.com/600x375" alt="Workout Mix (EP) cover"><div><h4>Workout Mix (EP)</h4><p>Various Artists</p></div><button class="ms-mini-play" data-play="10" aria-label="Play Workout Mix (EP)"><i class="ri-play-fill"></i></button></div>
+			</div>
+		</div>
+	</aside>
+
+			<!-- Footer -->
+			<footer class="ms-footer">
+				<div class="ms-footer-top">
+					<div class="ms-footer-brand">
+						<a href="index.html" class="ms-logo">
+			<img src="https://dummyimage.com/150x72" alt="logo" class="img-fluid">
+		</a>
+						<p>Stream, discover and buy music from the artists you love.</p>
+					</div>
+					<nav class="ms-footer-links" aria-label="Footer">
+						<a href="album.html">Albums</a>
+						<a href="artist.html">Artists</a>
+						<a href="genres.html">Genres</a>
+						<a href="store.html">Store</a>
+						<a href="blog.html">Blog</a>
+						<a href="javascript:void(0)">Contact</a>
+					</nav>
+					<div class="ms-social">
+						<a href="javascript:void(0)" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="javascript:void(0)" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+						<a href="javascript:void(0)" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+					</div>
+				</div>
+				<div class="ms-copyright">
+					<span>&copy; 2026 Miraculous. All rights reserved.</span>
+					<span><a href="javascript:void(0)">Privacy Policy</a> &middot; <a href="javascript:void(0)">Terms of Use</a></span>
+				</div>
+			</footer>
+			<!-- Footer End -->
+		</main>
+		<!-- Main Content End -->
+	</div>
+
+	<!-- ================= Player ================= -->
+	<div class="ms-player is-light" id="msPlayer">
+		<div class="ms-player-left">
+			<div class="ms-player-song">
+				<img src="https://dummyimage.com/600x600" alt="Now playing cover" id="msPlayerCover">
+				<div class="ms-player-meta">
+					<h4 id="msPlayerTitle">Until I Met You</h4>
+					<p id="msPlayerArtist">Brian Hill</p>
+				</div>
+				<span class="ms-player-expand" aria-hidden="true"><i class="ri-arrow-up-s-line"></i></span>
+			</div>
+		</div>
+		<div class="ms-player-center">
+			<div class="ms-player-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-seek is-wave" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-bars" data-seek-bars aria-hidden="true"></span><span class="ms-seek-fill" data-seek-fill></span></div>
+			<span class="ms-player-time"><span data-time-current>00:00</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>00:10</span></span>
+		</div>
+		<div class="ms-player-right">
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			<div class="ms-player-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+			<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
+			<button class="ms-player-hide" id="msPlayerToggle" aria-label="Hide player" aria-expanded="true" title="Hide player"><i class="ri-arrow-down-s-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Mini player: shown while the bar is hidden, so playback never disappears -->
+	<div class="ms-pill" id="msPill" role="region" aria-label="Mini player">
+		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="https://dummyimage.com/600x600" alt="Now playing cover" id="msPillCover"></button>
+		<div class="ms-pill-meta"><h4 id="msPillTitle">Until I Met You</h4><p id="msPillArtist">Brian Hill</p></div>
+		<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+		<button class="ms-ctrl ms-pill-show" data-player-show aria-label="Show player" title="Show player"><i class="ri-arrow-up-s-line"></i></button>
+	</div>
+
+	<!-- Full-screen player for phones and tablets (tap the song in the bar) -->
+	<div class="ms-sheet" id="msSheet" role="dialog" aria-modal="true" aria-label="Now playing" aria-hidden="true">
+		<div class="ms-sheet-head">
+			<button class="ms-ctrl" data-sheet-close aria-label="Close player"><i class="ri-arrow-down-s-line"></i></button>
+			<span>Now Playing</span>
+			<span class="ms-sheet-spacer" aria-hidden="true"></span>
+		</div>
+		<img class="ms-sheet-cover" src="https://dummyimage.com/600x600" alt="Now playing cover" id="msSheetCover">
+		<div class="ms-sheet-info">
+			<div><h3 id="msSheetTitle">Until I Met You</h3><p id="msSheetArtist">Brian Hill</p></div>
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+		</div>
+		<div class="ms-sheet-seek ms-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
+		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>00:10</span></div>
+		<div class="ms-sheet-controls">
+			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+			<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+			<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+			<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Queue popup (offcanvas panel, opened from the player bar) -->
+	<div class="offcanvas offcanvas-end ms-queue" tabindex="-1" id="msQueue" aria-labelledby="msQueueLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="msQueueLabel">Queue</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="ms-queue-label">Up next</div>
+			<div id="msQueueList"></div>
+		</div>
+	</div>
+
+	<!-- Toast message popup -->
+	<div class="ms-toast" id="msToast" role="status" aria-live="polite"></div>
+
+	<!-- Vendor JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<!-- Theme JS -->
+	<script src="assets/js/preloader.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>

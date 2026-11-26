@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--
+Template Name: Miraculous - Online Music Store Html Template
+Version: 4.0.0 (Aurora Editorial)
+Author: Kamleshyadav
+Website:
+Purchase:
+-->
+<html lang="en" data-player-start="visible" data-preloader="once" data-click-fx>
+<!-- Begin Head -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
+	<meta name="keywords" content="music, music store, music streaming, online music, albums, artists, playlists, radio, html template, bootstrap 5">
+	<meta name="author" content="kamleshyadav">
+	<meta name="MobileOptimized" content="320">
+	<meta name="theme-color" content="#FDF5F2">
+	<title>Liked Songs - Miraculous Online Music Store</title>
+	<!-- preloader: <html data-preloader="once"> (first visit per tab) | "always" | "off" -->
+	<script>try { var d = document.documentElement; var pm = d.dataset.preloader || 'once'; if (pm !== 'off' && !(pm === 'once' && sessionStorage.getItem('ms-pre-seen'))) d.classList.add('is-loading'); } catch (e) {}</script>
+	<style>html.is-loading{overflow:hidden}.ms-preloader{display:none}html.is-loading .ms-preloader{display:block;position:fixed;inset:0;z-index:10000}.ms-pre-curtain{position:absolute;inset:0;background:#2A1E2B}</style>
+	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
+	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
+	<!-- Favicon Link -->
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+	<!-- Start Style -->
+	<!-- Fonts -->
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/remixicon.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- End Head -->
+<body class="has-rightbar">
+
+	<!-- ================= Preloader (Vinyl Drop) ================= -->
+	<div class="ms-preloader ms-pre-vinyl" id="msPreloader" role="status" aria-live="polite" aria-busy="true">
+		<div class="ms-pre-curtain" aria-hidden="true">
+			<span class="ms-pre-orb ms-pre-orb-1"></span>
+			<span class="ms-pre-orb ms-pre-orb-2"></span>
+		</div>
+		<div class="ms-pre-inner">
+			<div class="ms-pv-stage" aria-hidden="true">
+				<span class="ms-pv-prog"></span>
+				<span class="ms-pv-wave"></span>
+				<span class="ms-pv-wave ms-pv-wave-2"></span>
+				<div class="ms-pv-disc">
+					<span class="ms-pv-label">
+						<svg viewBox="0 0 44 34"><path d="M5 30 13.5 5l8 17 8.5-17L36 30"/></svg>
+					</span>
+				</div>
+				<svg class="ms-pv-arm" viewBox="0 0 110 250">
+					<defs>
+						<linearGradient id="msPvArm" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF5964"/>
+							<stop offset="1" stop-color="#E92750"/>
+						</linearGradient>
+					</defs>
+					<path class="ms-pv-bar" d="M84 30 V150 L40 208"/>
+					<rect class="ms-pv-head" x="20" y="198" width="34" height="15" rx="5" transform="rotate(-38 37 205)" fill="url(#msPvArm)"/>
+					<circle class="ms-pv-base" cx="84" cy="30" r="18"/>
+					<circle cx="84" cy="30" r="6" fill="url(#msPvArm)"/>
+				</svg>
+			</div>
+			<div class="ms-pv-meta" aria-hidden="true">
+				<span class="ms-pv-num"><b id="msPreNum">0</b><i>%</i></span>
+				<span class="ms-pv-word">Spinning up your sound</span>
+			</div>
+			<span class="visually-hidden">Loading Miraculous</span>
+		</div>
+	</div>
+
+	<!-- ================= Sidebar ================= -->
+	<aside class="ms-sidebar" id="msSidebar">
+		<a href="index.html" class="ms-logo" aria-label="Miraculous home">
+			<img src="https://dummyimage.com/150x72" alt="logo" class="img-fluid">
+		</a>
+
+		<nav class="ms-side-scroll" aria-label="Main">
+			<ul class="ms-nav">
+				<li><a href="index.html"><i class="ri-home-5-line"></i>Discover</a></li>
+				<li><a href="feed.html"><i class="ri-chat-smile-3-line"></i>Music Feed</a></li>
+				<li><a href="artist.html"><i class="ri-user-3-line"></i>Artists</a></li>
+				<li><a href="album.html"><i class="ri-album-line"></i>Albums</a></li>
+				<li><a href="stations.html"><i class="ri-broadcast-line"></i>Radio</a></li>
+				<li><a href="store.html"><i class="ri-shopping-cart-2-line"></i>Store</a></li>
+			</ul>
+
+			<div class="ms-premium-card">
+				<svg class="ms-premium-crown" viewBox="0 0 40 32" aria-hidden="true">
+					<defs>
+						<linearGradient id="msCrownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB13D"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient>
+					</defs>
+					<path d="M5 11.5 13 18.5 20 6.5l7 12 8-7-3 15.5H8Z" fill="url(#msCrownGrad)" stroke="url(#msCrownGrad)" stroke-width="2" stroke-linejoin="round"/>
+					<rect x="8" y="27.5" width="24" height="3.5" rx="1.75" fill="#FF6A2B"/>
+					<circle cx="20" cy="4" r="3" fill="#FFB13D"/><circle cx="4" cy="10" r="2.6" fill="#FFB13D"/><circle cx="36" cy="10" r="2.6" fill="#FFB13D"/>
+				</svg>
+				<h6>Go Premium</h6>
+				<p>Ad-free music, offline listening &amp; more.</p>
+				<a href="manage_acc.html" class="ms-btn ms-btn-sm">Upgrade Now <i class="ri-arrow-right-line"></i></a>
+			</div>
+
+			<div class="ms-nav-title">Your Library</div>
+			<ul class="ms-nav ms-nav-sm">
+				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html" class="active"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
+				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
+				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
+			</ul>
+
+			<!-- Decorative promo art: soft pink hills + headphones, sits at the bottom of the sidebar -->
+			<a href="store.html" class="ms-side-art" aria-label="Shop headphones in the store">
+				<svg class="ms-side-hills" viewBox="0 0 228 230" preserveAspectRatio="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="msHillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".55"/><stop offset="1" stop-color="#FCE8E5" stop-opacity=".2"/></linearGradient>
+						<linearGradient id="msHillB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FD646D" stop-opacity=".22"/><stop offset="1" stop-color="#F8C8BC" stop-opacity=".45"/></linearGradient>
+						<linearGradient id="msHillC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".8"/><stop offset="1" stop-color="#FCE8E5"/></linearGradient>
+					</defs>
+					<path d="M0 62C40 30 92 28 138 50s70 26 90 14V230H0Z" fill="url(#msHillA)"/>
+					<path d="M0 118c36-30 86-34 128-14 38 18 70 14 100-6V230H0Z" fill="url(#msHillB)"/>
+					<path d="M0 182c44-22 102-24 150-10 30 9 56 8 78 0V230H0Z" fill="url(#msHillC)"/>
+				</svg>
+				<span class="ms-side-floor" aria-hidden="true"></span>
+				<picture>
+					<img src="https://dummyimage.com/300x380" alt="Pink over-ear headphones" width="300" height="380">
+				</picture>
+			</a>
+		</nav>
+	</aside>
+	<div class="ms-backdrop" id="msBackdrop"></div>
+
+	<!-- ================= Main ================= -->
+	<div class="ms-main">
+
+		<!-- Top Navigation -->
+		<header class="ms-topbar">
+			<button class="ms-icon-btn ms-menu-toggle" id="msMenuToggle" aria-label="Open menu"><i class="ri-menu-2-line"></i></button>
+			<a href="index.html" class="ms-logo ms-logo-mobile" aria-label="Miraculous home">
+			<img src="https://dummyimage.com/42x43" alt="logo" class="img-fluid">
+		</a>
+			<nav class="ms-topnav" aria-label="Browse">
+				<a href="index.html">Discover</a>
+				<a href="top_track.html">Trending</a>
+				<a href="index.html#new-releases">New Releases</a>
+				<a href="artist.html">Artists</a>
+				<a href="album.html">Albums</a>
+				<a href="stations.html">Radio</a>
+				<a href="store.html">Store</a>
+				<span class="ms-topnav-ink" aria-hidden="true"></span>
+			</nav>
+			<div class="ms-top-actions">
+				<form class="ms-search" id="msSearchForm" role="search" onsubmit="return false">
+					<input type="search" id="msSearch" placeholder="Search songs, artists, albums..." aria-label="Search">
+					<button type="button" class="ms-icon-btn" id="msSearchToggle" aria-label="Search (Ctrl+K)"><i class="ri-search-line"></i></button>
+				</form>
+				<button class="ms-icon-btn ms-noti" aria-label="Notifications"><i class="ri-notification-3-line"></i></button>
+				<div class="dropdown">
+					<button class="ms-avatar" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+						<img data-avatar="1" src="https://dummyimage.com/300x300" alt="Your profile photo">
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+						<li><a class="dropdown-item" href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+						<li><a class="dropdown-item" href="manage_acc.html"><i class="ri-settings-3-line"></i>Manage Account</a></li>
+						<li><a class="dropdown-item" href="purchase.html"><i class="ri-shopping-bag-3-line"></i>Purchases</a></li>
+						<li><a class="dropdown-item" href="history.html"><i class="ri-history-line"></i>History</a></li>
+						<li><a class="dropdown-item" href="upload.html"><i class="ri-upload-2-line"></i>Upload Music</a></li>
+						<li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>New Playlist</a></li>
+						<li><a class="dropdown-item" href="free_music.html"><i class="ri-gift-line"></i>Free Music</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="login.html"><i class="ri-logout-box-r-line"></i>Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="ms-content">
+
+			<nav class="ms-breadcrumb ms-sg-crumb" aria-label="Breadcrumb"><a href="feature_playlist.html">Your Library</a><i class="ri-arrow-right-s-line"></i><span>Liked Songs</span></nav>
+
+			<!-- Liked songs banner -->
+			<section class="ms-lk-hero" aria-label="Liked Songs">
+				<div class="ms-lk-cover-big has-img" data-card="1">
+					<img src="assets/images/category/liked-heart.svg" alt="Heart icon" width="200" height="190">
+					<button class="ms-lk-big-play" data-play="1" aria-label="Play Liked Songs"><i class="ri-play-fill"></i></button>
+				</div>
+				<div class="ms-lk-info">
+					<span class="ms-lk-kind">Playlist</span>
+					<h1>Liked Songs <i class="ri-heart-3-fill"></i></h1>
+					<p>All the songs you love in one place.</p>
+					<p class="ms-lk-meta"><span>328 Songs</span><span>21h 36m</span></p>
+					<div class="ms-lk-actions">
+						<button class="ms-btn" data-play="1"><i class="ri-play-fill"></i>Play All</button>
+						<button class="ms-lk-round" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+						<button class="ms-lk-round" data-toast="Liked Songs saved for offline listening" aria-label="Download"><i class="ri-download-2-line"></i></button>
+						<button class="ms-lk-round" data-toast="Link copied" aria-label="Share"><i class="ri-share-forward-line"></i></button>
+						<div class="dropdown"><button class="ms-lk-round" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu ms-dropdown"><li><button class="dropdown-item" data-toast="Added to your queue"><i class="ri-play-list-add-line"></i>Add to Queue</button></li><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-file-copy-line"></i>Copy to New Playlist</a></li><li><button class="dropdown-item" data-toast="Song radio started"><i class="ri-broadcast-line"></i>Start Radio</button></li></ul></div>
+					</div>
+				</div>
+				<div class="ms-lk-wave" aria-hidden="true"><span style="--h:30;--i:0"></span><span style="--h:55;--i:1"></span><span style="--h:40;--i:2"></span><span style="--h:80;--i:3"></span><span style="--h:60;--i:4"></span><span style="--h:95;--i:5"></span><span style="--h:70;--i:6"></span><span style="--h:45;--i:7"></span><span style="--h:85;--i:8"></span><span style="--h:65;--i:9"></span><span style="--h:100;--i:10"></span><span style="--h:75;--i:11"></span><span style="--h:50;--i:12"></span></div>
+				<picture class="ms-lk-phones" aria-hidden="true">
+					<img src="https://dummyimage.com/300x380" alt="Pink over-ear headphones" width="300" height="380">
+				</picture>
+			</section>
+
+			<!-- View chips + search -->
+			<div class="ms-lk-bar">
+				<div class="ms-feed-tabs ms-lk-chips" role="group" aria-label="Show"><button class="ms-chip is-active" data-lk-view="all">All Songs <small>(328)</small></button><button class="ms-chip" data-lk-view="songs"><i class="ri-music-2-line"></i> Songs</button><button class="ms-chip" data-lk-view="albums"><i class="ri-album-line"></i> Albums</button><button class="ms-chip" data-lk-view="artists"><i class="ri-user-3-line"></i> Artists</button><button class="ms-chip" data-lk-view="genres"><i class="ri-heart-3-line"></i> Genres</button></div>
+				<label class="ms-tool-search"><i class="ri-search-line"></i><input type="search" placeholder="Search in Liked Songs..." data-lk-search aria-label="Search in Liked Songs"></label>
+			</div>
+
+			<div class="ms-section" data-liked>
+				<div data-lk-pane="songs">
+					<div class="ms-lk-table">
+						<div class="ms-lk-head"><span>#</span><span>Title</span><span></span><span></span><span>Artist</span><span>Album</span><button data-lk-sort aria-label="Sort by date liked"><i class="ri-calendar-line"></i> Liked On <i class="ri-arrow-down-line" data-lk-sort-icon></i></button><span><i class="ri-time-line" aria-label="Length"></i></span><span></span></div>
+						<div class="ms-lk-body">
+					<div class="ms-lk-row" data-card="1" data-title="until i met you brian hill the heartbeat steps" data-date="2026-11-18"><span class="ms-lk-num">1</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Until I Met You cover"><button class="ms-lk-play" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Until I Met You from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Until I Met You</h4><span>Brian Hill</span><span>The Heartbeat Steps</span><span>Nov 18, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="0" data-title="walking promises ava cornish open roads" data-date="2026-11-16"><span class="ms-lk-num">2</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Walking Promises cover"><button class="ms-lk-play" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Walking Promises from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Walking Promises</h4><span>Ava Cornish</span><span>Open Roads</span><span>Nov 16, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="2" data-title="gimme some courage ava cornish midnight vibes" data-date="2026-11-14"><span class="ms-lk-num">3</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Gimme Some Courage cover"><button class="ms-lk-play" data-play="2" aria-label="Play Gimme Some Courage"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Gimme Some Courage from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Gimme Some Courage</h4><span>Ava Cornish</span><span>Midnight Vibes</span><span>Nov 14, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="3" data-title="dark alley acoustic anna ellison acoustic sessions" data-date="2026-11-12"><span class="ms-lk-num">4</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Dark Alley Acoustic cover"><button class="ms-lk-play" data-play="3" aria-label="Play Dark Alley Acoustic"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Dark Alley Acoustic from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Dark Alley Acoustic</h4><span>Anna Ellison</span><span>Acoustic Sessions</span><span>Nov 12, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="5" data-title="heart broken anna ellison heart broken (single)" data-date="2026-11-10"><span class="ms-lk-num">5</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Heart Broken cover"><button class="ms-lk-play" data-play="5" aria-label="Play Heart Broken"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Heart Broken from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Heart Broken</h4><span>Anna Ellison</span><span>Heart Broken (Single)</span><span>Nov 10, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="7" data-title="golden hour david parker golden hour" data-date="2026-11-08"><span class="ms-lk-num">6</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Golden Hour cover"><button class="ms-lk-play" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Golden Hour from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Golden Hour</h4><span>David Parker</span><span>Golden Hour</span><span>Nov 08, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="6" data-title="cloud nine ava cornish cloud nine (ep)" data-date="2026-11-06"><span class="ms-lk-num">7</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Cloud Nine cover"><button class="ms-lk-play" data-play="6" aria-label="Play Cloud Nine"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Cloud Nine from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Cloud Nine</h4><span>Ava Cornish</span><span>Cloud Nine (EP)</span><span>Nov 06, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="8" data-title="electric dreams claire hudson electric dreams" data-date="2026-11-04"><span class="ms-lk-num">8</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Electric Dreams cover"><button class="ms-lk-play" data-play="8" aria-label="Play Electric Dreams"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Electric Dreams from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Electric Dreams</h4><span>Claire Hudson</span><span>Electric Dreams</span><span>Nov 04, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="10" data-title="velvet sky mia glover velvet sky" data-date="2026-11-02"><span class="ms-lk-num">9</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Velvet Sky cover"><button class="ms-lk-play" data-play="10" aria-label="Play Velvet Sky"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Velvet Sky from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Velvet Sky</h4><span>Mia Glover</span><span>Velvet Sky</span><span>Nov 02, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="3" data-title="open roads anna ellison open roads" data-date="2026-10-31"><span class="ms-lk-num">10</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Open Roads cover"><button class="ms-lk-play" data-play="3" aria-label="Play Open Roads"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Open Roads from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Open Roads</h4><span>Anna Ellison</span><span>Open Roads</span><span>Oct 31, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="7" data-title="love routes david parker love routes" data-date="2026-10-29"><span class="ms-lk-num">11</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x375" alt="Love Routes cover"><button class="ms-lk-play" data-play="7" aria-label="Play Love Routes"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Love Routes from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Love Routes</h4><span>David Parker</span><span>Love Routes</span><span>Oct 29, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="9" data-title="silent stories kevin buckland silent stories" data-date="2026-10-27"><span class="ms-lk-num">12</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Silent Stories cover"><button class="ms-lk-play" data-play="9" aria-label="Play Silent Stories"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Silent Stories from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Silent Stories</h4><span>Kevin Buckland</span><span>Silent Stories</span><span>Oct 27, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="4" data-title="echoes of you david parker midnight echoes" data-date="2026-10-13"><span class="ms-lk-num">13</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Echoes of You cover"><button class="ms-lk-play" data-play="4" aria-label="Play Echoes of You"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Echoes of You from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Echoes of You</h4><span>David Parker</span><span>Midnight Echoes</span><span>Oct 13, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="8" data-title="paper hearts claire hudson paper hearts" data-date="2026-10-10"><span class="ms-lk-num">14</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Paper Hearts cover"><button class="ms-lk-play" data-play="8" aria-label="Play Paper Hearts"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Paper Hearts from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Paper Hearts</h4><span>Claire Hudson</span><span>Paper Hearts</span><span>Oct 10, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="11" data-title="quiet rivers kevin buckland quiet rivers" data-date="2026-10-07"><span class="ms-lk-num">15</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Quiet Rivers cover"><button class="ms-lk-play" data-play="11" aria-label="Play Quiet Rivers"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Quiet Rivers from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Quiet Rivers</h4><span>Kevin Buckland</span><span>Quiet Rivers</span><span>Oct 07, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="12" data-title="the heartbeat steps ava cornish the heartbeat steps" data-date="2026-10-04"><span class="ms-lk-num">16</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="The Heartbeat Steps cover"><button class="ms-lk-play" data-play="12" aria-label="Play The Heartbeat Steps"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove The Heartbeat Steps from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>The Heartbeat Steps</h4><span>Ava Cornish</span><span>The Heartbeat Steps</span><span>Oct 04, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="13" data-title="one more stranger ava cornish walking promises" data-date="2026-10-01"><span class="ms-lk-num">17</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="One More Stranger cover"><button class="ms-lk-play" data-play="13" aria-label="Play One More Stranger"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove One More Stranger from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>One More Stranger</h4><span>Ava Cornish</span><span>Walking Promises</span><span>Oct 01, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="14" data-title="endless things ava cornish walking promises" data-date="2026-09-28"><span class="ms-lk-num">18</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Endless Things cover"><button class="ms-lk-play" data-play="14" aria-label="Play Endless Things"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Endless Things from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Endless Things</h4><span>Ava Cornish</span><span>Walking Promises</span><span>Sep 28, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="9" data-title="slow mornings kevin buckland slow mornings" data-date="2026-09-25"><span class="ms-lk-num">19</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Slow Mornings cover"><button class="ms-lk-play" data-play="9" aria-label="Play Slow Mornings"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Slow Mornings from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Slow Mornings</h4><span>Kevin Buckland</span><span>Slow Mornings</span><span>Sep 25, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="10" data-title="neon nights mia glover neon nights" data-date="2026-09-22"><span class="ms-lk-num">20</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x375" alt="Neon Nights cover"><button class="ms-lk-play" data-play="10" aria-label="Play Neon Nights"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Neon Nights from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Neon Nights</h4><span>Mia Glover</span><span>Neon Nights</span><span>Sep 22, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="7" data-title="sunset chill david parker sunset chill" data-date="2026-09-19"><span class="ms-lk-num">21</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Sunset Chill cover"><button class="ms-lk-play" data-play="7" aria-label="Play Sunset Chill"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Sunset Chill from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Sunset Chill</h4><span>David Parker</span><span>Sunset Chill</span><span>Sep 19, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="8" data-title="city lights claire hudson electric dreams" data-date="2026-09-16"><span class="ms-lk-num">22</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x375" alt="City Lights cover"><button class="ms-lk-play" data-play="8" aria-label="Play City Lights"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove City Lights from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>City Lights</h4><span>Claire Hudson</span><span>Electric Dreams</span><span>Sep 16, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="3" data-title="rainy window anna ellison acoustic sessions" data-date="2026-09-13"><span class="ms-lk-num">23</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Rainy Window cover"><button class="ms-lk-play" data-play="3" aria-label="Play Rainy Window"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Rainy Window from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Rainy Window</h4><span>Anna Ellison</span><span>Acoustic Sessions</span><span>Sep 13, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="8" data-title="blue static claire hudson blue static" data-date="2026-09-10"><span class="ms-lk-num">24</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Blue Static cover"><button class="ms-lk-play" data-play="8" aria-label="Play Blue Static"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Blue Static from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Blue Static</h4><span>Claire Hudson</span><span>Blue Static</span><span>Sep 10, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="4" data-title="wildflower david parker wildflower" data-date="2026-09-07"><span class="ms-lk-num">25</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="Wildflower cover"><button class="ms-lk-play" data-play="4" aria-label="Play Wildflower"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Wildflower from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Wildflower</h4><span>David Parker</span><span>Wildflower</span><span>Sep 07, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="10" data-title="night drive mia glover neon nights" data-date="2026-09-04"><span class="ms-lk-num">26</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x375" alt="Night Drive cover"><button class="ms-lk-play" data-play="10" aria-label="Play Night Drive"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Night Drive from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Night Drive</h4><span>Mia Glover</span><span>Neon Nights</span><span>Sep 04, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="9" data-title="first light kevin buckland slow mornings" data-date="2026-09-01"><span class="ms-lk-num">27</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x600" alt="First Light cover"><button class="ms-lk-play" data-play="9" aria-label="Play First Light"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove First Light from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>First Light</h4><span>Kevin Buckland</span><span>Slow Mornings</span><span>Sep 01, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="6" data-title="hold on brian hill cloud nine (ep)" data-date="2026-08-29"><span class="ms-lk-num">28</span><div class="ms-lk-cover"><img src="https://dummyimage.com/457x600" alt="Hold On cover"><button class="ms-lk-play" data-play="6" aria-label="Play Hold On"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Hold On from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Hold On</h4><span>Brian Hill</span><span>Cloud Nine (EP)</span><span>Aug 29, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="0" data-title="starlit road ava cornish open roads" data-date="2026-08-26"><span class="ms-lk-num">29</span><div class="ms-lk-cover"><img src="https://dummyimage.com/457x600" alt="Starlit Road cover"><button class="ms-lk-play" data-play="0" aria-label="Play Starlit Road"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Starlit Road from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Starlit Road</h4><span>Ava Cornish</span><span>Open Roads</span><span>Aug 26, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="5" data-title="old vinyl anna ellison heart broken (single)" data-date="2026-08-23"><span class="ms-lk-num">30</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x375" alt="Old Vinyl cover"><button class="ms-lk-play" data-play="5" aria-label="Play Old Vinyl"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Old Vinyl from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Old Vinyl</h4><span>Anna Ellison</span><span>Heart Broken (Single)</span><span>Aug 23, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="7" data-title="faded polaroid david parker golden hour" data-date="2026-08-20"><span class="ms-lk-num">31</span><div class="ms-lk-cover"><img src="https://dummyimage.com/457x600" alt="Faded Polaroid cover"><button class="ms-lk-play" data-play="7" aria-label="Play Faded Polaroid"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Faded Polaroid from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Faded Polaroid</h4><span>David Parker</span><span>Golden Hour</span><span>Aug 20, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="8" data-title="weekend rush claire hudson electric dreams" data-date="2026-08-17"><span class="ms-lk-num">32</span><div class="ms-lk-cover"><img src="https://dummyimage.com/457x600" alt="Weekend Rush cover"><button class="ms-lk-play" data-play="8" aria-label="Play Weekend Rush"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Weekend Rush from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Weekend Rush</h4><span>Claire Hudson</span><span>Electric Dreams</span><span>Aug 17, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="11" data-title="moonlit bay kevin buckland quiet rivers" data-date="2026-08-14"><span class="ms-lk-num">33</span><div class="ms-lk-cover"><img src="https://dummyimage.com/457x600" alt="Moonlit Bay cover"><button class="ms-lk-play" data-play="11" aria-label="Play Moonlit Bay"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Moonlit Bay from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Moonlit Bay</h4><span>Kevin Buckland</span><span>Quiet Rivers</span><span>Aug 14, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="10" data-title="gravity mia glover velvet sky" data-date="2026-08-11"><span class="ms-lk-num">34</span><div class="ms-lk-cover"><img src="https://dummyimage.com/457x600" alt="Gravity cover"><button class="ms-lk-play" data-play="10" aria-label="Play Gravity"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Gravity from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Gravity</h4><span>Mia Glover</span><span>Velvet Sky</span><span>Aug 11, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="1" data-title="paper planes brian hill the heartbeat steps" data-date="2026-08-08"><span class="ms-lk-num">35</span><div class="ms-lk-cover"><img src="https://dummyimage.com/457x600" alt="Paper Planes cover"><button class="ms-lk-play" data-play="1" aria-label="Play Paper Planes"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Paper Planes from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Paper Planes</h4><span>Brian Hill</span><span>The Heartbeat Steps</span><span>Aug 08, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-lk-row" data-card="2" data-title="forever now ava cornish midnight vibes" data-date="2026-08-05"><span class="ms-lk-num">36</span><div class="ms-lk-cover"><img src="https://dummyimage.com/600x375" alt="Forever Now cover"><button class="ms-lk-play" data-play="2" aria-label="Play Forever Now"><i class="ri-play-fill"></i></button></div><button class="ms-lk-heart" data-unlike aria-label="Remove Forever Now from Liked Songs"><i class="ri-heart-3-fill"></i></button><h4>Forever Now</h4><span>Ava Cornish</span><span>Midnight Vibes</span><span>Aug 05, 2026</span><span class="ms-lk-time">00:10</span><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+						</div>
+						<p class="ms-empty" data-lk-empty hidden>No liked songs match your search.</p>
+					</div>
+					<div class="ms-lk-foot"><span data-lk-info>Showing 1&ndash;12 of 36 songs</span><nav class="ms-lk-pages" data-lk-pages aria-label="Pages"></nav></div>
+				</div>
+				<div data-lk-pane="albums" hidden><div class="ms-sr-grid"><div class="ms-sr-card" data-card="12"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="The Heartbeat Steps cover"><button class="ms-play-sm" data-play="12" aria-label="Play The Heartbeat Steps"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">The Heartbeat Steps</a></h3><p>Ava Cornish</p></div><div class="ms-sr-card" data-card="3"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Open Roads cover"><button class="ms-play-sm" data-play="3" aria-label="Play Open Roads"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Open Roads</a></h3><p>Anna Ellison</p></div><div class="ms-sr-card" data-card="6"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Midnight Vibes cover"><button class="ms-play-sm" data-play="6" aria-label="Play Midnight Vibes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Midnight Vibes</a></h3><p>Brian Hill</p></div><div class="ms-sr-card" data-card="7"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Golden Hour cover"><button class="ms-play-sm" data-play="7" aria-label="Play Golden Hour"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Golden Hour</a></h3><p>David Parker</p></div><div class="ms-sr-card" data-card="8"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Electric Dreams cover"><button class="ms-play-sm" data-play="8" aria-label="Play Electric Dreams"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Electric Dreams</a></h3><p>Claire Hudson</p></div><div class="ms-sr-card" data-card="10"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Velvet Sky cover"><button class="ms-play-sm" data-play="10" aria-label="Play Velvet Sky"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Velvet Sky</a></h3><p>Mia Glover</p></div><div class="ms-sr-card" data-card="6"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Cloud Nine (EP) cover"><button class="ms-play-sm" data-play="6" aria-label="Play Cloud Nine (EP)"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Cloud Nine (EP)</a></h3><p>Ava Cornish</p></div><div class="ms-sr-card" data-card="11"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Quiet Rivers cover"><button class="ms-play-sm" data-play="11" aria-label="Play Quiet Rivers"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Quiet Rivers</a></h3><p>Kevin Buckland</p></div><div class="ms-sr-card" data-card="7"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x375" alt="Love Routes cover"><button class="ms-play-sm" data-play="7" aria-label="Play Love Routes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Love Routes</a></h3><p>David Parker</p></div><div class="ms-sr-card" data-card="9"><div class="ms-sr-card-media"><img src="https://dummyimage.com/600x600" alt="Silent Stories cover"><button class="ms-play-sm" data-play="9" aria-label="Play Silent Stories"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Silent Stories</a></h3><p>Kevin Buckland</p></div></div></div>
+				<div data-lk-pane="artists" hidden><div class="ms-artist-cards"><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="https://dummyimage.com/457x600" alt="Ava Cornish, artist photo"><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Ava Cornish</a></h3><p>9 liked songs</p></div><button class="ms-follow-pill is-active" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-check-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="https://dummyimage.com/457x600" alt="Brian Hill, artist photo"><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Brian Hill</a></h3><p>4 liked songs</p></div><button class="ms-follow-pill is-active" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-check-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="https://dummyimage.com/457x600" alt="Claire Hudson, artist photo"><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Claire Hudson</a></h3><p>5 liked songs</p></div><button class="ms-follow-pill is-active" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-check-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="https://dummyimage.com/457x600" alt="David Parker, artist photo"><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">David Parker</a></h3><p>6 liked songs</p></div><button class="ms-follow-pill is-active" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-check-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="https://dummyimage.com/457x600" alt="Anna Ellison, artist photo"><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Anna Ellison</a></h3><p>5 liked songs</p></div><button class="ms-follow-pill is-active" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-check-line"></i> Following</button></div><div class="ms-artist-card"><a href="artist_single.html" class="ms-artist-card-img"><img src="https://dummyimage.com/457x600" alt="Kevin Buckland, artist photo"><i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></a><div class="ms-artist-card-text"><h3><a href="artist_single.html">Kevin Buckland</a></h3><p>5 liked songs</p></div><button class="ms-follow-pill is-active" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-check-line"></i> Following</button></div></div></div>
+				<div data-lk-pane="genres" hidden><div class="ms-radio-genres"><a href="genres_single.html" class="ms-genre-tile is-cat ms-radio-genre is-pop"><span>Pop<br><small>86 Songs</small></span><picture><img src="https://dummyimage.com/400x400" alt="Pop genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-cat ms-radio-genre is-romantic"><span>Romantic<br><small>62 Songs</small></span><picture><img src="https://dummyimage.com/400x400" alt="Romantic genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-cat ms-radio-genre is-classical"><span>Acoustic<br><small>48 Songs</small></span><picture><img src="https://dummyimage.com/400x400" alt="Classical genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-cat ms-radio-genre is-chill"><span>Chill<br><small>40 Songs</small></span><picture><img src="https://dummyimage.com/400x400" alt="Chill genre icon" width="400" height="400" loading="lazy"></picture></a><a href="genres_single.html" class="ms-genre-tile is-cat ms-radio-genre is-edm"><span>EDM<br><small>32 Songs</small></span><picture><img src="https://dummyimage.com/400x400" alt="EDM genre icon" width="400" height="400" loading="lazy"></picture></a></div></div>
+			</div>
+			<div class="ms-lk-undo" data-lk-undo hidden><span>Removed from Liked Songs</span><button type="button">Undo</button></div>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and liked songs extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="https://dummyimage.com/600x600" alt="Until I Met You cover" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>00:00</span><span id="msNpDuration">00:10</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-heart-3-fill"></i>Liked Songs Stats</h2></div>
+			<div class="ms-mini-list ms-lk-stats"><div><span><i class="ri-music-2-fill"></i></span><p><b>328</b>Songs</p></div><div><span><i class="ri-time-line"></i></span><p><b>21h 36m</b>Total Time</p></div></div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Liked by Genre</h2></div>
+			<div class="ms-mini-list">
+				<a href="genres_single.html" class="ms-idea"><img src="https://dummyimage.com/600x600" alt="Pop cover"><div><h4>Pop</h4><p>86 Songs</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="genres_single.html" class="ms-idea"><img src="https://dummyimage.com/600x375" alt="Romantic cover"><div><h4>Romantic</h4><p>62 Songs</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="genres_single.html" class="ms-idea"><img src="https://dummyimage.com/600x600" alt="Acoustic cover"><div><h4>Acoustic</h4><p>48 Songs</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="genres_single.html" class="ms-idea"><img src="https://dummyimage.com/600x600" alt="Chill cover"><div><h4>Chill</h4><p>40 Songs</p></div><i class="ri-arrow-right-s-line"></i></a>
+				<a href="genres_single.html" class="ms-idea"><img src="https://dummyimage.com/600x375" alt="EDM cover"><div><h4>EDM</h4><p>32 Songs</p></div><i class="ri-arrow-right-s-line"></i></a>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Recently Liked</h2><a href="history.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-mini-row" data-card="6"><img src="https://dummyimage.com/600x600" alt="Midnight Vibes cover"><div><h4>Midnight Vibes</h4><p>Brian Hill</p></div><button class="ms-like is-active ms-lk-side-heart" data-like aria-label="Unlike Midnight Vibes"><i class="ri-heart-3-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="7"><img src="https://dummyimage.com/600x375" alt="Love Routes cover"><div><h4>Love Routes</h4><p>David Parker</p></div><button class="ms-like is-active ms-lk-side-heart" data-like aria-label="Unlike Love Routes"><i class="ri-heart-3-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="11"><img src="https://dummyimage.com/600x600" alt="Relax &amp; Unwind cover"><div><h4>Relax &amp; Unwind</h4><p>Ava Cornish</p></div><button class="ms-like is-active ms-lk-side-heart" data-like aria-label="Unlike Relax &amp; Unwind"><i class="ri-heart-3-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="3"><img src="https://dummyimage.com/600x600" alt="Travel Songs cover"><div><h4>Travel Songs</h4><p>Mia Glover</p></div><button class="ms-like is-active ms-lk-side-heart" data-like aria-label="Unlike Travel Songs"><i class="ri-heart-3-fill"></i></button></div>
+				<div class="ms-mini-row" data-card="9"><img src="https://dummyimage.com/600x600" alt="Late Night cover"><div><h4>Late Night</h4><p>Anna Ellison</p></div><button class="ms-like is-active ms-lk-side-heart" data-like aria-label="Unlike Late Night"><i class="ri-heart-3-fill"></i></button></div>
+			</div>
+		</div>
+	</aside>
+
+			<!-- Footer -->
+			<footer class="ms-footer">
+				<div class="ms-footer-top">
+					<div class="ms-footer-brand">
+						<a href="index.html" class="ms-logo">
+			<img src="https://dummyimage.com/150x72" alt="logo" class="img-fluid">
+		</a>
+						<p>Stream, discover and buy music from the artists you love.</p>
+					</div>
+					<nav class="ms-footer-links" aria-label="Footer">
+						<a href="album.html">Albums</a>
+						<a href="artist.html">Artists</a>
+						<a href="genres.html">Genres</a>
+						<a href="store.html">Store</a>
+						<a href="blog.html">Blog</a>
+						<a href="javascript:void(0)">Contact</a>
+					</nav>
+					<div class="ms-social">
+						<a href="javascript:void(0)" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="javascript:void(0)" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+						<a href="javascript:void(0)" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+					</div>
+				</div>
+				<div class="ms-copyright">
+					<span>&copy; 2026 Miraculous. All rights reserved.</span>
+					<span><a href="javascript:void(0)">Privacy Policy</a> &middot; <a href="javascript:void(0)">Terms of Use</a></span>
+				</div>
+			</footer>
+			<!-- Footer End -->
+		</main>
+		<!-- Main Content End -->
+	</div>
+
+	<!-- ================= Player ================= -->
+	<div class="ms-player is-light" id="msPlayer">
+		<div class="ms-player-left">
+			<div class="ms-player-song">
+				<img src="https://dummyimage.com/600x600" alt="Now playing cover" id="msPlayerCover">
+				<div class="ms-player-meta">
+					<h4 id="msPlayerTitle">Until I Met You</h4>
+					<p id="msPlayerArtist">Brian Hill</p>
+				</div>
+				<span class="ms-player-expand" aria-hidden="true"><i class="ri-arrow-up-s-line"></i></span>
+			</div>
+		</div>
+		<div class="ms-player-center">
+			<div class="ms-player-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-seek is-wave" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-bars" data-seek-bars aria-hidden="true"></span><span class="ms-seek-fill" data-seek-fill></span></div>
+			<span class="ms-player-time"><span data-time-current>00:00</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>00:10</span></span>
+		</div>
+		<div class="ms-player-right">
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			<div class="ms-player-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+			<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
+			<button class="ms-player-hide" id="msPlayerToggle" aria-label="Hide player" aria-expanded="true" title="Hide player"><i class="ri-arrow-down-s-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Mini player: shown while the bar is hidden, so playback never disappears -->
+	<div class="ms-pill" id="msPill" role="region" aria-label="Mini player">
+		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="https://dummyimage.com/600x600" alt="Now playing cover" id="msPillCover"></button>
+		<div class="ms-pill-meta"><h4 id="msPillTitle">Until I Met You</h4><p id="msPillArtist">Brian Hill</p></div>
+		<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+		<button class="ms-ctrl ms-pill-show" data-player-show aria-label="Show player" title="Show player"><i class="ri-arrow-up-s-line"></i></button>
+	</div>
+
+	<!-- Full-screen player for phones and tablets (tap the song in the bar) -->
+	<div class="ms-sheet" id="msSheet" role="dialog" aria-modal="true" aria-label="Now playing" aria-hidden="true">
+		<div class="ms-sheet-head">
+			<button class="ms-ctrl" data-sheet-close aria-label="Close player"><i class="ri-arrow-down-s-line"></i></button>
+			<span>Now Playing</span>
+			<span class="ms-sheet-spacer" aria-hidden="true"></span>
+		</div>
+		<img class="ms-sheet-cover" src="https://dummyimage.com/600x600" alt="Now playing cover" id="msSheetCover">
+		<div class="ms-sheet-info">
+			<div><h3 id="msSheetTitle">Until I Met You</h3><p id="msSheetArtist">Brian Hill</p></div>
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+		</div>
+		<div class="ms-sheet-seek ms-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
+		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>00:10</span></div>
+		<div class="ms-sheet-controls">
+			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+			<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+			<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+			<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Queue popup (offcanvas panel, opened from the player bar) -->
+	<div class="offcanvas offcanvas-end ms-queue" tabindex="-1" id="msQueue" aria-labelledby="msQueueLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="msQueueLabel">Queue</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="ms-queue-label">Up next</div>
+			<div id="msQueueList"></div>
+		</div>
+	</div>
+
+	<!-- Toast message popup -->
+	<div class="ms-toast" id="msToast" role="status" aria-live="polite"></div>
+
+	<!-- Vendor JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<!-- Theme JS -->
+	<script src="assets/js/preloader.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
