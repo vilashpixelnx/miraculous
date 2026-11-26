@@ -138,7 +138,7 @@ This is just just a sample showing the knob widget. It's meant to be used in a c
             },
             absolute = true
 
-        knob.rotation = 0
+        knob.rotation = 270 // matches the CSS start position (full volume)
 
         var offR = 0,
             offX = 0,
@@ -191,6 +191,8 @@ This is just just a sample showing the knob widget. It's meant to be used in a c
                 r = angle < -90 ? angle + 360 : angle
             r = (angle > -90 && angle < -45) ? 270 : r
             r = clip(r, [0, 270])
+            // crossing the dead zone at the bottom must not wrap max <-> min; stick to the nearest end
+            if (Math.abs(r - knob.rotation) > 180) r = knob.rotation > 135 ? 270 : 0
 
             knob[0].setAttribute('style', 'transform:rotateZ(' + r + 'deg)')
             handle[0].setAttribute('style', 'transform:rotateZ(' + r + 'deg)')
@@ -237,6 +239,7 @@ This is just just a sample showing the knob widget. It's meant to be used in a c
         }
         widget.showValue = function(v) {
             input.val(v)
+            widget.trigger('knobvalue', [v])
         }
 
         input.change(function() {
