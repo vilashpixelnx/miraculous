@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!--
+Template Name: Miraculous - Online Music Store Html Template
+Version: 4.0.0 (Aurora Editorial)
+Author: Kamleshyadav
+Website:
+Purchase:
+-->
+<html lang="en" data-player-start="visible" data-preloader="once" data-click-fx>
+<!-- Begin Head -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
+	<meta name="keywords" content="music, music store, music streaming, online music, albums, artists, playlists, radio, html template, bootstrap 5">
+	<meta name="author" content="kamleshyadav">
+	<meta name="MobileOptimized" content="320">
+	<meta name="theme-color" content="#FDF5F2">
+	<title>Search Results - Miraculous Online Music Store</title>
+	<!-- preloader: <html data-preloader="once"> (first visit per tab) | "always" | "off" -->
+	<script>try { var d = document.documentElement; var pm = d.dataset.preloader || 'once'; if (pm !== 'off' && !(pm === 'once' && sessionStorage.getItem('ms-pre-seen'))) d.classList.add('is-loading'); } catch (e) {}</script>
+	<style>html.is-loading{overflow:hidden}.ms-preloader{display:none}html.is-loading .ms-preloader{display:block;position:fixed;inset:0;z-index:10000}.ms-pre-curtain{position:absolute;inset:0;background:#2A1E2B}</style>
+	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
+	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
+	<!-- Favicon Link -->
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+	<!-- Start Style -->
+	<!-- Fonts -->
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/remixicon.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- End Head -->
+<body class="has-rightbar">
+
+	<!-- ================= Preloader (Vinyl Drop) ================= -->
+	<div class="ms-preloader ms-pre-vinyl" id="msPreloader" role="status" aria-live="polite" aria-busy="true">
+		<div class="ms-pre-curtain" aria-hidden="true">
+			<span class="ms-pre-orb ms-pre-orb-1"></span>
+			<span class="ms-pre-orb ms-pre-orb-2"></span>
+		</div>
+		<div class="ms-pre-inner">
+			<div class="ms-pv-stage" aria-hidden="true">
+				<span class="ms-pv-prog"></span>
+				<span class="ms-pv-wave"></span>
+				<span class="ms-pv-wave ms-pv-wave-2"></span>
+				<div class="ms-pv-disc">
+					<span class="ms-pv-label">
+						<svg viewBox="0 0 44 34"><path d="M5 30 13.5 5l8 17 8.5-17L36 30"/></svg>
+					</span>
+				</div>
+				<svg class="ms-pv-arm" viewBox="0 0 110 250">
+					<defs>
+						<linearGradient id="msPvArm" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF5964"/>
+							<stop offset="1" stop-color="#E92750"/>
+						</linearGradient>
+					</defs>
+					<path class="ms-pv-bar" d="M84 30 V150 L40 208"/>
+					<rect class="ms-pv-head" x="20" y="198" width="34" height="15" rx="5" transform="rotate(-38 37 205)" fill="url(#msPvArm)"/>
+					<circle class="ms-pv-base" cx="84" cy="30" r="18"/>
+					<circle cx="84" cy="30" r="6" fill="url(#msPvArm)"/>
+				</svg>
+			</div>
+			<div class="ms-pv-meta" aria-hidden="true">
+				<span class="ms-pv-num"><b id="msPreNum">0</b><i>%</i></span>
+				<span class="ms-pv-word">Spinning up your sound</span>
+			</div>
+			<span class="visually-hidden">Loading Miraculous</span>
+		</div>
+	</div>
+
+	<!-- ================= Sidebar ================= -->
+	<aside class="ms-sidebar" id="msSidebar">
+		<a href="index.html" class="ms-logo" aria-label="Miraculous home">
+			<svg viewBox="0 0 44 34" aria-hidden="true">
+				<defs>
+					<linearGradient id="msLogoGrad" x1="0" y1="0" x2="44" y2="34" gradientUnits="userSpaceOnUse">
+						<stop offset="0" stop-color="#FF5964"/>
+						<stop offset="1" stop-color="#E92750"/>
+					</linearGradient>
+				</defs>
+				<path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			<span>Miraculous</span>
+		</a>
+
+		<nav class="ms-side-scroll" aria-label="Main">
+			<ul class="ms-nav">
+				<li><a href="index.html"><i class="ri-home-5-line"></i>Discover</a></li>
+				<li><a href="feed.html"><i class="ri-chat-smile-3-line"></i>Music Feed</a></li>
+				<li><a href="artist.html"><i class="ri-user-3-line"></i>Artists</a></li>
+				<li><a href="album.html"><i class="ri-album-line"></i>Albums</a></li>
+				<li><a href="stations.html"><i class="ri-broadcast-line"></i>Radio</a></li>
+				<li><a href="store.html"><i class="ri-shopping-cart-2-line"></i>Store</a></li>
+			</ul>
+
+			<div class="ms-premium-card">
+				<svg class="ms-premium-crown" viewBox="0 0 40 32" aria-hidden="true">
+					<defs>
+						<linearGradient id="msCrownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB13D"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient>
+					</defs>
+					<path d="M5 11.5 13 18.5 20 6.5l7 12 8-7-3 15.5H8Z" fill="url(#msCrownGrad)" stroke="url(#msCrownGrad)" stroke-width="2" stroke-linejoin="round"/>
+					<rect x="8" y="27.5" width="24" height="3.5" rx="1.75" fill="#FF6A2B"/>
+					<circle cx="20" cy="4" r="3" fill="#FFB13D"/><circle cx="4" cy="10" r="2.6" fill="#FFB13D"/><circle cx="36" cy="10" r="2.6" fill="#FFB13D"/>
+				</svg>
+				<h6>Go Premium</h6>
+				<p>Ad-free music, offline listening &amp; more.</p>
+				<a href="manage_acc.html" class="ms-btn ms-btn-sm">Upgrade Now <i class="ri-arrow-right-line"></i></a>
+			</div>
+
+			<div class="ms-nav-title">Your Library</div>
+			<ul class="ms-nav ms-nav-sm">
+				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
+				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
+				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
+			</ul>
+
+			<!-- Decorative promo art: soft pink hills + headphones, sits at the bottom of the sidebar -->
+			<a href="store.html" class="ms-side-art" aria-label="Shop headphones in the store">
+				<svg class="ms-side-hills" viewBox="0 0 228 230" preserveAspectRatio="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="msHillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".55"/><stop offset="1" stop-color="#FCE8E5" stop-opacity=".2"/></linearGradient>
+						<linearGradient id="msHillB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FD646D" stop-opacity=".22"/><stop offset="1" stop-color="#F8C8BC" stop-opacity=".45"/></linearGradient>
+						<linearGradient id="msHillC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".8"/><stop offset="1" stop-color="#FCE8E5"/></linearGradient>
+					</defs>
+					<path d="M0 62C40 30 92 28 138 50s70 26 90 14V230H0Z" fill="url(#msHillA)"/>
+					<path d="M0 118c36-30 86-34 128-14 38 18 70 14 100-6V230H0Z" fill="url(#msHillB)"/>
+					<path d="M0 182c44-22 102-24 150-10 30 9 56 8 78 0V230H0Z" fill="url(#msHillC)"/>
+				</svg>
+				<span class="ms-side-floor" aria-hidden="true"></span>
+				<picture>
+					<img src="assets/images/headphones.png" alt="Pink over-ear headphones" width="300" height="380">
+				</picture>
+			</a>
+		</nav>
+	</aside>
+	<div class="ms-backdrop" id="msBackdrop"></div>
+
+	<!-- ================= Main ================= -->
+	<div class="ms-main">
+
+		<!-- Top Navigation -->
+		<header class="ms-topbar">
+			<button class="ms-icon-btn ms-menu-toggle" id="msMenuToggle" aria-label="Open menu"><i class="ri-menu-2-line"></i></button>
+			<a href="index.html" class="ms-logo ms-logo-mobile" aria-label="Miraculous home">
+				<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				<span>Miraculous</span>
+			</a>
+			<nav class="ms-topnav" aria-label="Browse">
+				<a href="index.html">Discover</a>
+				<a href="top_track.html">Trending</a>
+				<a href="index.html#new-releases">New Releases</a>
+				<a href="artist.html">Artists</a>
+				<a href="album.html">Albums</a>
+				<a href="stations.html">Radio</a>
+				<a href="store.html">Store</a>
+				<span class="ms-topnav-ink" aria-hidden="true"></span>
+			</nav>
+			<div class="ms-top-actions">
+				<form class="ms-search" id="msSearchForm" role="search" onsubmit="return false">
+					<input type="search" id="msSearch" placeholder="Search songs, artists, albums..." aria-label="Search">
+					<button type="button" class="ms-icon-btn" id="msSearchToggle" aria-label="Search (Ctrl+K)"><i class="ri-search-line"></i></button>
+				</form>
+				<button class="ms-icon-btn ms-noti" aria-label="Notifications"><i class="ri-notification-3-line"></i></button>
+				<div class="dropdown">
+					<button class="ms-avatar" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+						<img src="assets/images/user.jpg" alt="Your profile photo">
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+						<li><a class="dropdown-item" href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+						<li><a class="dropdown-item" href="manage_acc.html"><i class="ri-settings-3-line"></i>Manage Account</a></li>
+						<li><a class="dropdown-item" href="purchase.html"><i class="ri-shopping-bag-3-line"></i>Purchases</a></li>
+						<li><a class="dropdown-item" href="history.html"><i class="ri-history-line"></i>History</a></li>
+						<li><a class="dropdown-item" href="upload.html"><i class="ri-upload-2-line"></i>Upload Music</a></li>
+						<li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>New Playlist</a></li>
+						<li><a class="dropdown-item" href="free_music.html"><i class="ri-gift-line"></i>Free Music</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="login.html"><i class="ri-logout-box-r-line"></i>Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="ms-content">
+
+			<!-- Search box + summary -->
+			<form class="ms-search-big" action="search.html" method="get" role="search">
+				<i class="ri-search-line"></i>
+				<input type="search" name="q" value="Until I Met You" data-search-input aria-label="Search songs, artists, albums">
+				<button type="button" data-search-clear aria-label="Clear search"><i class="ri-close-line"></i></button>
+			</form>
+			<h1 class="ms-sr-heading">Search Results for <em>&ldquo;<span data-search-query>Until I Met You</span>&rdquo;</em></h1>
+			<p class="ms-sr-meta">About 5,460 results (0.32s)</p>
+			<div class="ms-feed-tabs ms-sr-chips" role="group" aria-label="Result type"><button class="ms-chip is-active" data-search-type="all"><i class="ri-layout-grid-line"></i> All Results</button><button class="ms-chip" data-search-type="songs"><i class="ri-music-2-line"></i> Songs <small>(328)</small></button><button class="ms-chip" data-search-type="albums"><i class="ri-album-line"></i> Albums <small>(42)</small></button><button class="ms-chip" data-search-type="artists"><i class="ri-user-3-line"></i> Artists <small>(18)</small></button><button class="ms-chip" data-search-type="playlists"><i class="ri-play-list-2-line"></i> Playlists <small>(64)</small></button><button class="ms-chip" data-search-type="radio"><i class="ri-broadcast-line"></i> Radio <small>(6)</small></button></div>
+
+			<section class="ms-section ms-sr-sec" data-result="songs top" aria-labelledby="hSrTop">
+				<div class="ms-sec-head"><h2 id="hSrTop">Top Result</h2></div>
+				<div class="ms-sr-top" data-card="1">
+					<div class="ms-sr-top-cover"><img src="assets/images/trending/02.jpg" alt="Until I Met You cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button></div>
+					<div class="ms-sr-top-info">
+						<span class="ms-feed-kind">Song</span>
+						<h3>Until I Met You</h3>
+						<p>Brian Hill</p>
+						<p class="ms-sr-top-meta">0:10 &middot; 12.4M Plays</p>
+						<div class="ms-sr-top-actions">
+							<button class="ms-btn ms-btn-sm" data-play="1"><i class="ri-play-fill"></i> Play</button>
+							<button class="ms-btn ms-btn-outline ms-btn-sm" data-like><i class="ri-heart-3-line"></i> Like</button>
+							<div class="dropdown" data-no-play><button class="ms-tl-more ms-sr-top-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div>
+						</div>
+					</div>
+					<picture class="ms-sr-top-art" aria-hidden="true">
+						<img src="assets/images/feed/01.png" alt="Woman listening to music with headphones" width="1218" height="1291">
+					</picture>
+					<div class="ms-sr-top-wave" aria-hidden="true"><span style="--h:30"></span><span style="--h:55"></span><span style="--h:40"></span><span style="--h:80"></span><span style="--h:60"></span><span style="--h:95"></span><span style="--h:70"></span><span style="--h:45"></span><span style="--h:85"></span><span style="--h:65"></span><span style="--h:100"></span><span style="--h:75"></span><span style="--h:50"></span><span style="--h:90"></span><span style="--h:60"></span><span style="--h:40"></span><span style="--h:70"></span><span style="--h:55"></span><span style="--h:35"></span><span style="--h:60"></span><span style="--h:45"></span><span style="--h:30"></span></div>
+				</div>
+			</section>
+
+			<section class="ms-section ms-sr-sec" data-result="songs" aria-labelledby="hSrsongs">
+				<div class="ms-sec-head"><h2 id="hSrsongs">Songs <small>(328)</small></h2><a href="top_track.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-songs">
+					<div class="ms-sr-row" data-card="1">
+						<span class="ms-sr-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+						<div class="ms-sr-cover"><img src="assets/images/trending/02.jpg" alt="Until I Met You cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-sr-title"><h4>Until I Met You</h4><p>Brian Hill</p></div>
+						<span class="ms-sr-time">00:10</span>
+						<button class="ms-like" data-like aria-label="Like Until I Met You"><i class="ri-heart-3-line"></i></button>
+						<button class="ms-feed-add" data-toast="Added to your library" aria-label="Add Until I Met You"><i class="ri-add-line"></i></button>
+						<div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div>
+					</div>
+					<div class="ms-sr-row">
+						<span class="ms-sr-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+						<div class="ms-sr-cover"><img src="assets/images/release/02.jpg" alt="Until I Met You (Acoustic) cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You (Acoustic)"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-sr-title"><h4>Until I Met You (Acoustic)</h4><p>Brian Hill</p></div>
+						<span class="ms-sr-time">00:10</span>
+						<button class="ms-like" data-like aria-label="Like Until I Met You (Acoustic)"><i class="ri-heart-3-line"></i></button>
+						<button class="ms-feed-add" data-toast="Added to your library" aria-label="Add Until I Met You (Acoustic)"><i class="ri-add-line"></i></button>
+						<div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div>
+					</div>
+					<div class="ms-sr-row">
+						<span class="ms-sr-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+						<div class="ms-sr-cover"><img src="assets/images/release/05.jpg" alt="Until I Met You (Lo-fi Version) cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You (Lo-fi Version)"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-sr-title"><h4>Until I Met You (Lo-fi Version)</h4><p>Brian Hill</p></div>
+						<span class="ms-sr-time">00:10</span>
+						<button class="ms-like" data-like aria-label="Like Until I Met You (Lo-fi Version)"><i class="ri-heart-3-line"></i></button>
+						<button class="ms-feed-add" data-toast="Added to your library" aria-label="Add Until I Met You (Lo-fi Version)"><i class="ri-add-line"></i></button>
+						<div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div>
+					</div>
+					<div class="ms-sr-row">
+						<span class="ms-sr-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+						<div class="ms-sr-cover"><img src="assets/images/trending/05.jpg" alt="Until I Met You (Remix) cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You (Remix)"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-sr-title"><h4>Until I Met You (Remix)</h4><p>Brian Hill, Ava Cornish</p></div>
+						<span class="ms-sr-time">00:10</span>
+						<button class="ms-like" data-like aria-label="Like Until I Met You (Remix)"><i class="ri-heart-3-line"></i></button>
+						<button class="ms-feed-add" data-toast="Added to your library" aria-label="Add Until I Met You (Remix)"><i class="ri-add-line"></i></button>
+						<div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div>
+					</div>
+					<div class="ms-sr-row">
+						<span class="ms-sr-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+						<div class="ms-sr-cover"><img src="assets/images/release/06.jpg" alt="Until I Met You (Slowed + Reverb) cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You (Slowed + Reverb)"><i class="ri-play-fill"></i></button></div>
+						<div class="ms-sr-title"><h4>Until I Met You (Slowed + Reverb)</h4><p>Brian Hill</p></div>
+						<span class="ms-sr-time">00:10</span>
+						<button class="ms-like" data-like aria-label="Like Until I Met You (Slowed + Reverb)"><i class="ri-heart-3-line"></i></button>
+						<button class="ms-feed-add" data-toast="Added to your library" aria-label="Add Until I Met You (Slowed + Reverb)"><i class="ri-add-line"></i></button>
+						<div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>Add to Playlist</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-skip-forward-line"></i>Play Next</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div>
+					</div>
+				</div>
+			</section>
+
+			<section class="ms-section ms-sr-sec" data-result="albums" aria-labelledby="hSralbums">
+				<div class="ms-sec-head"><h2 id="hSralbums">Albums <small>(42)</small></h2><a href="album.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-grid"><div class="ms-sr-card" data-card="1"><div class="ms-sr-card-media"><img src="assets/images/trending/02.jpg" alt="Until I Met You cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Until I Met You</a></h3><p>Brian Hill</p></div><div class="ms-sr-card" data-card="6"><div class="ms-sr-card-media"><img src="assets/images/release/02.jpg" alt="Midnight Vibes cover"><button class="ms-play-sm" data-play="6" aria-label="Play Midnight Vibes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Midnight Vibes</a></h3><p>Brian Hill</p></div><div class="ms-sr-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/discover/romantic.jpg" alt="Love Routes cover"><button class="ms-play-sm" data-play="7" aria-label="Play Love Routes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Love Routes</a></h3><p>Brian Hill</p></div><div class="ms-sr-card" data-card="3"><div class="ms-sr-card-media"><img src="assets/images/trending/04.jpg" alt="Acoustic Sessions cover"><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Sessions"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">Acoustic Sessions</a></h3><p>Brian Hill</p></div><div class="ms-sr-card" data-card="10"><div class="ms-sr-card-media"><img src="assets/images/artist/02.jpg" alt="The Remixes cover"><button class="ms-play-sm" data-play="10" aria-label="Play The Remixes"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="album_single.html">The Remixes</a></h3><p>Brian Hill</p></div></div>
+			</section>
+
+			<section class="ms-section ms-sr-sec" data-result="artists" aria-labelledby="hSrartists">
+				<div class="ms-sec-head"><h2 id="hSrartists">Artists <small>(18)</small></h2><a href="artist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-artists">
+					<div class="ms-sr-artist"><img src="assets/images/artist/02.jpg" alt="Brian Hill, artist photo"><div><h4><a href="artist_single.html">Brian Hill</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>1.8M followers &middot; 56 Songs &middot; 12 Albums</p></div><button class="ms-follow-pill is-active" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-check-line"></i> Following</button><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-play-list-add-line"></i>Share Artist</a></li><li><a class="dropdown-item" href="stations.html"><i class="ri-skip-forward-line"></i>Start Radio</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+					<div class="ms-sr-artist"><img src="assets/images/artist/01.jpg" alt="Ava Cornish, artist photo"><div><h4><a href="artist_single.html">Ava Cornish</a> <i class="ri-verified-badge-fill ms-verified" aria-label="Verified"></i></h4><p>2.4M followers &middot; 74 Songs &middot; 9 Albums</p></div><button class="ms-follow-pill" data-follow data-follow-icons="ri-check-line ri-add-line"><i class="ri-add-line"></i> Follow</button><div class="dropdown" data-no-play><button class="ms-tl-more" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options"><i class="ri-more-fill"></i></button><ul class="dropdown-menu dropdown-menu-end ms-dropdown"><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-play-list-add-line"></i>Share Artist</a></li><li><a class="dropdown-item" href="stations.html"><i class="ri-skip-forward-line"></i>Start Radio</a></li><li><a class="dropdown-item" href="music.html"><i class="ri-music-2-line"></i>Song Details</a></li><li><a class="dropdown-item" href="javascript:void(0)"><i class="ri-share-forward-line"></i>Share</a></li></ul></div></div>
+				</div>
+			</section>
+
+			<section class="ms-section ms-sr-sec" data-result="playlists" aria-labelledby="hSrplaylists">
+				<div class="ms-sec-head"><h2 id="hSrplaylists">Playlists <small>(64)</small></h2><a href="feature_playlist.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-grid"><div class="ms-sr-card" data-card="1"><div class="ms-sr-card-media"><img src="assets/images/trending/08.jpg" alt="Until I Met You Radio cover"><button class="ms-play-sm" data-play="1" aria-label="Play Until I Met You Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Until I Met You Radio</a></h3><p>50 Songs</p></div><div class="ms-sr-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/discover/romantic.jpg" alt="Romantic Hits cover"><button class="ms-play-sm" data-play="7" aria-label="Play Romantic Hits"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Romantic Hits</a></h3><p>120 Songs</p></div><div class="ms-sr-card" data-card="3"><div class="ms-sr-card-media"><img src="assets/images/trending/04.jpg" alt="Acoustic Love cover"><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Love"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Acoustic Love</a></h3><p>64 Songs</p></div><div class="ms-sr-card" data-card="6"><div class="ms-sr-card-media"><img src="assets/images/artist/02.jpg" alt="Brian Hill Essentials cover"><button class="ms-play-sm" data-play="6" aria-label="Play Brian Hill Essentials"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Brian Hill Essentials</a></h3><p>32 Songs</p></div><div class="ms-sr-card" data-card="9"><div class="ms-sr-card-media"><img src="assets/images/release/05.jpg" alt="Soft Pop Mornings cover"><button class="ms-play-sm" data-play="9" aria-label="Play Soft Pop Mornings"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="feature_playlist.html">Soft Pop Mornings</a></h3><p>45 Songs</p></div></div>
+			</section>
+
+			<section class="ms-section ms-sr-sec" data-result="radio" aria-labelledby="hSrradio">
+				<div class="ms-sec-head"><h2 id="hSrradio">Radio <small>(6)</small></h2><a href="stations.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-sr-grid"><div class="ms-sr-card" data-card="1"><div class="ms-sr-card-media"><img src="assets/images/artist/02.jpg" alt="Brian Hill Radio cover"><span class="ms-live">LIVE</span><button class="ms-play-sm" data-play="1" aria-label="Play Brian Hill Radio"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Brian Hill Radio</a></h3><p>Artist Station</p></div><div class="ms-sr-card" data-card="7"><div class="ms-sr-card-media"><img src="assets/images/discover/romantic.jpg" alt="Love Songs FM cover"><span class="ms-live">LIVE</span><button class="ms-play-sm" data-play="7" aria-label="Play Love Songs FM"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Love Songs FM</a></h3><p>24/7 Romance</p></div><div class="ms-sr-card" data-card="3"><div class="ms-sr-card-media"><img src="assets/images/trending/04.jpg" alt="Acoustic Lounge cover"><span class="ms-live">LIVE</span><button class="ms-play-sm" data-play="3" aria-label="Play Acoustic Lounge"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Acoustic Lounge</a></h3><p>Unplugged Hits</p></div><div class="ms-sr-card" data-card="2"><div class="ms-sr-card-media"><img src="assets/images/trending/03.jpg" alt="Pop Rising cover"><span class="ms-live">LIVE</span><button class="ms-play-sm" data-play="2" aria-label="Play Pop Rising"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Pop Rising</a></h3><p>New Pop Daily</p></div><div class="ms-sr-card" data-card="9"><div class="ms-sr-card-media"><img src="assets/images/trending/001.jpg" alt="Chill Hours cover"><span class="ms-live">LIVE</span><button class="ms-play-sm" data-play="9" aria-label="Play Chill Hours"><i class="ri-play-fill"></i></button><div class="ms-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div><h3><a href="stations.html">Chill Hours</a></h3><p>Lo-fi &amp; Chill</p></div></div>
+			</section>
+
+			<p class="ms-empty" data-sr-empty hidden>Nothing to show. Pick at least one content type.</p>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and search filters">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="Until I Met You cover" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>00:00</span><span id="msNpDuration">00:10</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2>Filter Results</h2></div>
+			<div class="ms-filter-card">
+				<details open><summary>Content Type <i class="ri-arrow-up-s-line"></i></summary><div class="ms-filter-opts"><label class="ms-check"><input type="checkbox" data-search-check="all" checked><span></span>All Results</label><label class="ms-check"><input type="checkbox" data-search-check="songs"><span></span>Songs</label><label class="ms-check"><input type="checkbox" data-search-check="albums"><span></span>Albums</label><label class="ms-check"><input type="checkbox" data-search-check="artists"><span></span>Artists</label><label class="ms-check"><input type="checkbox" data-search-check="playlists"><span></span>Playlists</label><label class="ms-check"><input type="checkbox" data-search-check="radio"><span></span>Radio</label></div></details>
+				<details open><summary>Sort By <i class="ri-arrow-up-s-line"></i></summary><div class="ms-filter-opts"><label class="ms-radio"><input type="radio" name="srSort" checked><span></span>Most Relevant</label><label class="ms-radio"><input type="radio" name="srSort"><span></span>Newest</label><label class="ms-radio"><input type="radio" name="srSort"><span></span>Most Popular</label><label class="ms-radio"><input type="radio" name="srSort"><span></span>A&ndash;Z</label></div></details>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-fire-fill"></i>Trending Searches</h2></div>
+			<div class="ms-trend-tags"><a href="search.html?q=Until+I+Met+You">Until I Met You</a><a href="search.html?q=Sad+Songs">Sad Songs</a><a href="search.html?q=Love+Songs">Love Songs</a><a href="search.html?q=Lo-fi+Beats">Lo-fi Beats</a><a href="search.html?q=Hindi+Hits">Hindi Hits</a><a href="search.html?q=Acoustic">Acoustic</a><a href="search.html?q=Romantic">Romantic</a><a href="search.html?q=Brian+Hill">Brian Hill</a><a href="search.html?q=Chill+Vibes">Chill Vibes</a><a href="search.html?q=Remix">Remix</a></div>
+		</div>
+	</aside>
+
+			<!-- Footer -->
+			<footer class="ms-footer">
+				<div class="ms-footer-top">
+					<div class="ms-footer-brand">
+						<a href="index.html" class="ms-logo">
+							<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							<span>Miraculous</span>
+						</a>
+						<p>Stream, discover and buy music from the artists you love.</p>
+					</div>
+					<nav class="ms-footer-links" aria-label="Footer">
+						<a href="album.html">Albums</a>
+						<a href="artist.html">Artists</a>
+						<a href="genres.html">Genres</a>
+						<a href="store.html">Store</a>
+						<a href="blog.html">Blog</a>
+						<a href="javascript:void(0)">Contact</a>
+					</nav>
+					<div class="ms-social">
+						<a href="javascript:void(0)" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="javascript:void(0)" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+						<a href="javascript:void(0)" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+					</div>
+				</div>
+				<div class="ms-copyright">
+					<span>&copy; 2026 Miraculous. All rights reserved.</span>
+					<span><a href="javascript:void(0)">Privacy Policy</a> &middot; <a href="javascript:void(0)">Terms of Use</a></span>
+				</div>
+			</footer>
+			<!-- Footer End -->
+		</main>
+		<!-- Main Content End -->
+	</div>
+
+	<!-- ================= Player ================= -->
+	<div class="ms-player is-light" id="msPlayer">
+		<div class="ms-player-left">
+			<div class="ms-player-song">
+				<img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPlayerCover">
+				<div class="ms-player-meta">
+					<h4 id="msPlayerTitle">Until I Met You</h4>
+					<p id="msPlayerArtist">Brian Hill</p>
+				</div>
+				<span class="ms-player-expand" aria-hidden="true"><i class="ri-arrow-up-s-line"></i></span>
+			</div>
+		</div>
+		<div class="ms-player-center">
+			<div class="ms-player-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-seek is-wave" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-bars" data-seek-bars aria-hidden="true"></span><span class="ms-seek-fill" data-seek-fill></span></div>
+			<span class="ms-player-time"><span data-time-current>00:00</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>00:10</span></span>
+		</div>
+		<div class="ms-player-right">
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			<div class="ms-player-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+			<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
+			<button class="ms-player-hide" id="msPlayerToggle" aria-label="Hide player" aria-expanded="true" title="Hide player"><i class="ri-arrow-down-s-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Mini player: shown while the bar is hidden, so playback never disappears -->
+	<div class="ms-pill" id="msPill" role="region" aria-label="Mini player">
+		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPillCover"></button>
+		<div class="ms-pill-meta"><h4 id="msPillTitle">Until I Met You</h4><p id="msPillArtist">Brian Hill</p></div>
+		<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+		<button class="ms-ctrl ms-pill-show" data-player-show aria-label="Show player" title="Show player"><i class="ri-arrow-up-s-line"></i></button>
+	</div>
+
+	<!-- Full-screen player for phones and tablets (tap the song in the bar) -->
+	<div class="ms-sheet" id="msSheet" role="dialog" aria-modal="true" aria-label="Now playing" aria-hidden="true">
+		<div class="ms-sheet-head">
+			<button class="ms-ctrl" data-sheet-close aria-label="Close player"><i class="ri-arrow-down-s-line"></i></button>
+			<span>Now Playing</span>
+			<span class="ms-sheet-spacer" aria-hidden="true"></span>
+		</div>
+		<img class="ms-sheet-cover" src="assets/images/trending/02.jpg" alt="Now playing cover" id="msSheetCover">
+		<div class="ms-sheet-info">
+			<div><h3 id="msSheetTitle">Until I Met You</h3><p id="msSheetArtist">Brian Hill</p></div>
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+		</div>
+		<div class="ms-sheet-seek ms-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
+		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>00:10</span></div>
+		<div class="ms-sheet-controls">
+			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+			<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+			<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+			<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Queue popup (offcanvas panel, opened from the player bar) -->
+	<div class="offcanvas offcanvas-end ms-queue" tabindex="-1" id="msQueue" aria-labelledby="msQueueLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="msQueueLabel">Queue</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="ms-queue-label">Up next</div>
+			<div id="msQueueList"></div>
+		</div>
+	</div>
+
+	<!-- Toast message popup -->
+	<div class="ms-toast" id="msToast" role="status" aria-live="polite"></div>
+
+	<!-- Vendor JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<!-- Theme JS -->
+	<script src="assets/js/preloader.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>

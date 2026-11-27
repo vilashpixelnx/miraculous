@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!--
+Template Name: Miraculous - Online Music Store Html Template
+Version: 4.0.0 (Aurora Editorial)
+Author: Kamleshyadav
+Website:
+Purchase:
+-->
+<html lang="en" data-player-start="visible" data-preloader="once" data-click-fx>
+<!-- Begin Head -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Miraculous - Online Music Store & Streaming HTML Template">
+	<meta name="keywords" content="music, music store, music streaming, online music, albums, artists, playlists, radio, html template, bootstrap 5">
+	<meta name="author" content="kamleshyadav">
+	<meta name="MobileOptimized" content="320">
+	<meta name="theme-color" content="#FDF5F2">
+	<title>10 Questions with Ava Cornish - Miraculous Online Music Store</title>
+	<!-- preloader: <html data-preloader="once"> (first visit per tab) | "always" | "off" -->
+	<script>try { var d = document.documentElement; var pm = d.dataset.preloader || 'once'; if (pm !== 'off' && !(pm === 'once' && sessionStorage.getItem('ms-pre-seen'))) d.classList.add('is-loading'); } catch (e) {}</script>
+	<style>html.is-loading{overflow:hidden}.ms-preloader{display:none}html.is-loading .ms-preloader{display:block;position:fixed;inset:0;z-index:10000}.ms-pre-curtain{position:absolute;inset:0;background:#2A1E2B}</style>
+	<!-- restore player state before paint: hidden by the user, or waiting for the first play (data-player-start="on-play") -->
+	<script>try { var d = document.documentElement; if (localStorage.getItem('ms-player-hidden') === '1') d.classList.add('player-hidden'); if (d.dataset.playerStart === 'on-play' && !localStorage.getItem('ms-player')) d.classList.add('player-dormant'); } catch (e) {}</script>
+	<!-- Favicon Link -->
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+	<!-- Start Style -->
+	<!-- Fonts -->
+	<link rel="stylesheet" href="assets/css/fonts.css">
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/remixicon.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- End Head -->
+<body class="has-rightbar">
+
+	<!-- ================= Preloader (Vinyl Drop) ================= -->
+	<div class="ms-preloader ms-pre-vinyl" id="msPreloader" role="status" aria-live="polite" aria-busy="true">
+		<div class="ms-pre-curtain" aria-hidden="true">
+			<span class="ms-pre-orb ms-pre-orb-1"></span>
+			<span class="ms-pre-orb ms-pre-orb-2"></span>
+		</div>
+		<div class="ms-pre-inner">
+			<div class="ms-pv-stage" aria-hidden="true">
+				<span class="ms-pv-prog"></span>
+				<span class="ms-pv-wave"></span>
+				<span class="ms-pv-wave ms-pv-wave-2"></span>
+				<div class="ms-pv-disc">
+					<span class="ms-pv-label">
+						<svg viewBox="0 0 44 34"><path d="M5 30 13.5 5l8 17 8.5-17L36 30"/></svg>
+					</span>
+				</div>
+				<svg class="ms-pv-arm" viewBox="0 0 110 250">
+					<defs>
+						<linearGradient id="msPvArm" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF5964"/>
+							<stop offset="1" stop-color="#E92750"/>
+						</linearGradient>
+					</defs>
+					<path class="ms-pv-bar" d="M84 30 V150 L40 208"/>
+					<rect class="ms-pv-head" x="20" y="198" width="34" height="15" rx="5" transform="rotate(-38 37 205)" fill="url(#msPvArm)"/>
+					<circle class="ms-pv-base" cx="84" cy="30" r="18"/>
+					<circle cx="84" cy="30" r="6" fill="url(#msPvArm)"/>
+				</svg>
+			</div>
+			<div class="ms-pv-meta" aria-hidden="true">
+				<span class="ms-pv-num"><b id="msPreNum">0</b><i>%</i></span>
+				<span class="ms-pv-word">Spinning up your sound</span>
+			</div>
+			<span class="visually-hidden">Loading Miraculous</span>
+		</div>
+	</div>
+
+	<!-- ================= Sidebar ================= -->
+	<aside class="ms-sidebar" id="msSidebar">
+		<a href="index.html" class="ms-logo" aria-label="Miraculous home">
+			<svg viewBox="0 0 44 34" aria-hidden="true">
+				<defs>
+					<linearGradient id="msLogoGrad" x1="0" y1="0" x2="44" y2="34" gradientUnits="userSpaceOnUse">
+						<stop offset="0" stop-color="#FF5964"/>
+						<stop offset="1" stop-color="#E92750"/>
+					</linearGradient>
+				</defs>
+				<path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			<span>Miraculous</span>
+		</a>
+
+		<nav class="ms-side-scroll" aria-label="Main">
+			<ul class="ms-nav">
+				<li><a href="index.html"><i class="ri-home-5-line"></i>Discover</a></li>
+				<li><a href="feed.html"><i class="ri-chat-smile-3-line"></i>Music Feed</a></li>
+				<li><a href="artist.html"><i class="ri-user-3-line"></i>Artists</a></li>
+				<li><a href="album.html"><i class="ri-album-line"></i>Albums</a></li>
+				<li><a href="stations.html"><i class="ri-broadcast-line"></i>Radio</a></li>
+				<li><a href="store.html"><i class="ri-shopping-cart-2-line"></i>Store</a></li>
+			</ul>
+
+			<div class="ms-premium-card">
+				<svg class="ms-premium-crown" viewBox="0 0 40 32" aria-hidden="true">
+					<defs>
+						<linearGradient id="msCrownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB13D"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient>
+					</defs>
+					<path d="M5 11.5 13 18.5 20 6.5l7 12 8-7-3 15.5H8Z" fill="url(#msCrownGrad)" stroke="url(#msCrownGrad)" stroke-width="2" stroke-linejoin="round"/>
+					<rect x="8" y="27.5" width="24" height="3.5" rx="1.75" fill="#FF6A2B"/>
+					<circle cx="20" cy="4" r="3" fill="#FFB13D"/><circle cx="4" cy="10" r="2.6" fill="#FFB13D"/><circle cx="36" cy="10" r="2.6" fill="#FFB13D"/>
+				</svg>
+				<h6>Go Premium</h6>
+				<p>Ad-free music, offline listening &amp; more.</p>
+				<a href="manage_acc.html" class="ms-btn ms-btn-sm">Upgrade Now <i class="ri-arrow-right-line"></i></a>
+			</div>
+
+			<div class="ms-nav-title">Your Library</div>
+			<ul class="ms-nav ms-nav-sm">
+				<li><a href="feature_playlist.html"><i class="ri-play-list-2-line"></i>Playlists</a></li>
+				<li><a href="favourite.html"><i class="ri-heart-3-line"></i>Liked Songs</a></li>
+				<li><a href="download.html"><i class="ri-download-2-line"></i>Downloads</a></li>
+				<li><a href="history.html"><i class="ri-time-line"></i>History</a></li>
+			</ul>
+
+			<!-- Decorative promo art: soft pink hills + headphones, sits at the bottom of the sidebar -->
+			<a href="store.html" class="ms-side-art" aria-label="Shop headphones in the store">
+				<svg class="ms-side-hills" viewBox="0 0 228 230" preserveAspectRatio="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="msHillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".55"/><stop offset="1" stop-color="#FCE8E5" stop-opacity=".2"/></linearGradient>
+						<linearGradient id="msHillB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FD646D" stop-opacity=".22"/><stop offset="1" stop-color="#F8C8BC" stop-opacity=".45"/></linearGradient>
+						<linearGradient id="msHillC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8C8BC" stop-opacity=".8"/><stop offset="1" stop-color="#FCE8E5"/></linearGradient>
+					</defs>
+					<path d="M0 62C40 30 92 28 138 50s70 26 90 14V230H0Z" fill="url(#msHillA)"/>
+					<path d="M0 118c36-30 86-34 128-14 38 18 70 14 100-6V230H0Z" fill="url(#msHillB)"/>
+					<path d="M0 182c44-22 102-24 150-10 30 9 56 8 78 0V230H0Z" fill="url(#msHillC)"/>
+				</svg>
+				<span class="ms-side-floor" aria-hidden="true"></span>
+				<picture>
+					<img src="assets/images/headphones.png" alt="Pink over-ear headphones" width="300" height="380">
+				</picture>
+			</a>
+		</nav>
+	</aside>
+	<div class="ms-backdrop" id="msBackdrop"></div>
+
+	<!-- ================= Main ================= -->
+	<div class="ms-main">
+
+		<!-- Top Navigation -->
+		<header class="ms-topbar">
+			<button class="ms-icon-btn ms-menu-toggle" id="msMenuToggle" aria-label="Open menu"><i class="ri-menu-2-line"></i></button>
+			<a href="index.html" class="ms-logo ms-logo-mobile" aria-label="Miraculous home">
+				<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				<span>Miraculous</span>
+			</a>
+			<nav class="ms-topnav" aria-label="Browse">
+				<a href="index.html">Discover</a>
+				<a href="top_track.html">Trending</a>
+				<a href="index.html#new-releases">New Releases</a>
+				<a href="artist.html">Artists</a>
+				<a href="album.html">Albums</a>
+				<a href="stations.html">Radio</a>
+				<a href="store.html">Store</a>
+				<span class="ms-topnav-ink" aria-hidden="true"></span>
+			</nav>
+			<div class="ms-top-actions">
+				<form class="ms-search" id="msSearchForm" role="search" onsubmit="return false">
+					<input type="search" id="msSearch" placeholder="Search songs, artists, albums..." aria-label="Search">
+					<button type="button" class="ms-icon-btn" id="msSearchToggle" aria-label="Search (Ctrl+K)"><i class="ri-search-line"></i></button>
+				</form>
+				<button class="ms-icon-btn ms-noti" aria-label="Notifications"><i class="ri-notification-3-line"></i></button>
+				<div class="dropdown">
+					<button class="ms-avatar" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+						<img src="assets/images/user.jpg" alt="Your profile photo">
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end ms-dropdown">
+						<li><a class="dropdown-item" href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+						<li><a class="dropdown-item" href="manage_acc.html"><i class="ri-settings-3-line"></i>Manage Account</a></li>
+						<li><a class="dropdown-item" href="purchase.html"><i class="ri-shopping-bag-3-line"></i>Purchases</a></li>
+						<li><a class="dropdown-item" href="history.html"><i class="ri-history-line"></i>History</a></li>
+						<li><a class="dropdown-item" href="upload.html"><i class="ri-upload-2-line"></i>Upload Music</a></li>
+						<li><a class="dropdown-item" href="add_playlist.html"><i class="ri-play-list-add-line"></i>New Playlist</a></li>
+						<li><a class="dropdown-item" href="free_music.html"><i class="ri-gift-line"></i>Free Music</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="login.html"><i class="ri-logout-box-r-line"></i>Log Out</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="ms-content">
+
+			<!-- Article hero: copy left, tilted photo + vinyl right -->
+			<section class="ms-bs-hero" aria-labelledby="bsTitle">
+				<div class="ms-bs-hero-copy">
+					<nav class="ms-bs-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="ri-arrow-right-s-line"></i><a href="blog.html">Blog</a><i class="ri-arrow-right-s-line"></i><a href="blog.html">Interviews</a><i class="ri-arrow-right-s-line"></i><span aria-current="page">10 Questions with Ava Cornish</span></nav>
+					<span class="ms-bs-cat"><i class="ri-play-fill"></i>Interviews</span>
+					<h1 id="bsTitle">10 Questions with<em>Ava Cornish</em></h1>
+					<p>The singer talks rainy Lisbon nights, writing alone and why her new single almost did not happen.</p>
+					<div class="ms-bs-meta">
+						<span class="ms-bs-by"><img src="assets/images/artist/06.jpg" alt="10 Questions withAva Cornish cover" width="28" height="28">By <b>Ethan Clarke</b></span>
+						<span>Mar 18, 2026</span>
+						<span>6 min read</span>
+						<a href="#bsComments">3 comments</a>
+					</div>
+					<div class="ms-bs-actions">
+						<a href="#article" class="ms-btn">Read Article <i class="ri-arrow-right-line"></i></a>
+						<button type="button" class="ms-btn ms-btn-outline" data-play="0"><i class="ri-headphone-line"></i>Listen to Interview</button>
+						<button type="button" class="ms-btn ms-btn-outline ms-bs-share-btn" data-toast="Link copied to clipboard" aria-label="Share article"><i class="ri-share-forward-line"></i>Share</button>
+					</div>
+				</div>
+				<div class="ms-bs-art" aria-hidden="true">
+					<span class="ms-bs-vinyl"></span>
+					<div class="ms-bs-wave"><span style="--h:18;--i:0"></span><span style="--h:21;--i:1"></span><span style="--h:24;--i:2"></span><span style="--h:27;--i:3"></span><span style="--h:37;--i:4"></span><span style="--h:45;--i:5"></span><span style="--h:43;--i:6"></span><span style="--h:49;--i:7"></span><span style="--h:66;--i:8"></span><span style="--h:70;--i:9"></span><span style="--h:56;--i:10"></span><span style="--h:74;--i:11"></span><span style="--h:90;--i:12"></span><span style="--h:84;--i:13"></span><span style="--h:63;--i:14"></span><span style="--h:91;--i:15"></span><span style="--h:99;--i:16"></span><span style="--h:83;--i:17"></span><span style="--h:73;--i:18"></span><span style="--h:93;--i:19"></span><span style="--h:91;--i:20"></span><span style="--h:68;--i:21"></span><span style="--h:70;--i:22"></span><span style="--h:79;--i:23"></span><span style="--h:69;--i:24"></span><span style="--h:47;--i:25"></span><span style="--h:54;--i:26"></span><span style="--h:53;--i:27"></span><span style="--h:41;--i:28"></span><span style="--h:30;--i:29"></span><span style="--h:31;--i:30"></span><span style="--h:26;--i:31"></span><span style="--h:20;--i:32"></span><span style="--h:18;--i:33"></span></div>
+					<div class="ms-bs-photo"><img src="assets/images/trending/01.jpg" alt="Song cover" width="800" height="800"></div>
+					<img class="ms-bs-note" src="assets/images/category/note-single.svg" alt="Music note icon" width="46" height="54">
+				</div>
+			</section>
+
+			<!-- Article -->
+			<article class="ms-bs-article" id="article">
+				<p class="ms-bs-lead">Ava Cornish is having a big year. Her debut album <b>Walking Promises</b> topped the charts in March, and her new single is already one of the most played songs on Miraculous. We met her in a small caf&eacute; in Camden to talk about writing, touring and the song that almost did not happen.</p>
+
+				<h2 id="bsQ1">Where did the new single come from?</h2>
+				<p>&ldquo;I wrote it on a rainy night in Lisbon. I was sitting by the window of a tiny apartment, listening to the rain, and the melody just arrived. I recorded it on my phone so I wouldn&rsquo;t forget it.&rdquo;</p>
+
+				<blockquote class="ms-bs-quote">
+					<i class="ri-double-quotes-l" aria-hidden="true"></i>
+					<p>The best songs feel like they were already there. You just have to be quiet enough to hear them.&rdquo;</p>
+					<div class="ms-bs-quote-wave" aria-hidden="true"><span style="--h:59;--i:0"></span><span style="--h:72;--i:1"></span><span style="--h:66;--i:2"></span><span style="--h:58;--i:3"></span><span style="--h:86;--i:4"></span><span style="--h:93;--i:5"></span><span style="--h:72;--i:6"></span><span style="--h:76;--i:7"></span><span style="--h:98;--i:8"></span><span style="--h:92;--i:9"></span><span style="--h:62;--i:10"></span><span style="--h:77;--i:11"></span><span style="--h:85;--i:12"></span><span style="--h:70;--i:13"></span><span style="--h:46;--i:14"></span><span style="--h:60;--i:15"></span></div>
+				</blockquote>
+
+				<p>She almost left it off the record. &ldquo;It felt too simple. My producer, Brian, kept playing it in the car until I gave in. Now it&rsquo;s the one people sing back at shows.&rdquo;</p>
+
+				<h2 id="bsQ2">Three things on her tour rider</h2>
+				<ul class="ms-bs-checks">
+					<li><i class="ri-checkbox-circle-fill" aria-hidden="true"></i>A kettle and a box of builder&rsquo;s tea</li>
+					<li><i class="ri-checkbox-circle-fill" aria-hidden="true"></i>Her mother&rsquo;s old acoustic guitar</li>
+					<li><i class="ri-checkbox-circle-fill" aria-hidden="true"></i>A notebook for new lyrics every night</li>
+				</ul>
+
+				<h2 id="bsQ3">What&rsquo;s next for Ava Cornish?</h2>
+				<p>Ava heads out on her European tour next month, with dates in London, Paris and Berlin. Her new album is expected later this year.</p>
+
+				<div class="ms-bs-track" data-card="0">
+					<img src="assets/images/trending/001.jpg" alt="Walking Promises cover" width="64" height="64">
+					<div class="ms-bs-track-info"><h3>Walking Promises</h3><p>Ava Cornish &middot; 00:10</p></div>
+					<button class="ms-play" data-play="0" aria-label="Play Walking Promises"><i class="ri-play-fill"></i></button>
+					<div class="ms-bs-track-wave" aria-hidden="true"><span class="is-on" style="--h:57"></span><span class="is-on" style="--h:59"></span><span class="is-on" style="--h:26"></span><span class="is-on" style="--h:60"></span><span class="is-on" style="--h:63"></span><span class="is-on" style="--h:26"></span><span class="is-on" style="--h:63"></span><span class="is-on" style="--h:66"></span><span class="is-on" style="--h:27"></span><span class="is-on" style="--h:66"></span><span class="is-on" style="--h:70"></span><span class="is-on" style="--h:28"></span><span class="is-on" style="--h:69"></span><span class="is-on" style="--h:74"></span><span class="is-on" style="--h:30"></span><span class="is-on" style="--h:71"></span><span class="is-on" style="--h:77"></span><span class="is-on" style="--h:31"></span><span class="is-on" style="--h:73"></span><span class="is-on" style="--h:81"></span><span class="is-on" style="--h:32"></span><span class="is-on" style="--h:75"></span><span class="is-on" style="--h:84"></span><span class="is-on" style="--h:34"></span><span class="is-on" style="--h:77"></span><span class="is-on" style="--h:87"></span><span class="is-on" style="--h:35"></span><span class="is-on" style="--h:78"></span><span class="is-on" style="--h:89"></span><span class="is-on" style="--h:37"></span><span class="is-on" style="--h:79"></span><span class="is-on" style="--h:92"></span><span class="is-on" style="--h:38"></span><span class="is-on" style="--h:79"></span><span class="is-on" style="--h:94"></span><span class="is-on" style="--h:40"></span><span class="is-on" style="--h:80"></span><span class="is-on" style="--h:95"></span><span class="is-on" style="--h:41"></span><span class="is-on" style="--h:79"></span><span class="" style="--h:96"></span><span class="" style="--h:42"></span><span class="" style="--h:79"></span><span class="" style="--h:97"></span><span class="" style="--h:44"></span><span class="" style="--h:78"></span><span class="" style="--h:97"></span><span class="" style="--h:45"></span><span class="" style="--h:77"></span><span class="" style="--h:97"></span><span class="" style="--h:46"></span><span class="" style="--h:76"></span><span class="" style="--h:97"></span><span class="" style="--h:47"></span><span class="" style="--h:74"></span><span class="" style="--h:96"></span><span class="" style="--h:48"></span><span class="" style="--h:72"></span><span class="" style="--h:95"></span><span class="" style="--h:48"></span><span class="" style="--h:70"></span><span class="" style="--h:93"></span><span class="" style="--h:49"></span><span class="" style="--h:68"></span><span class="" style="--h:91"></span><span class="" style="--h:49"></span><span class="" style="--h:65"></span><span class="" style="--h:88"></span><span class="" style="--h:49"></span><span class="" style="--h:63"></span><span class="" style="--h:85"></span><span class="" style="--h:48"></span><span class="" style="--h:60"></span><span class="" style="--h:82"></span><span class="" style="--h:48"></span><span class="" style="--h:57"></span><span class="" style="--h:79"></span><span class="" style="--h:47"></span><span class="" style="--h:54"></span><span class="" style="--h:75"></span><span class="" style="--h:47"></span><span class="" style="--h:52"></span><span class="" style="--h:72"></span><span class="" style="--h:46"></span><span class="" style="--h:49"></span><span class="" style="--h:68"></span><span class="" style="--h:44"></span><span class="" style="--h:46"></span><span class="" style="--h:64"></span><span class="" style="--h:43"></span></div>
+					<span class="ms-bs-track-time">00:00 / 00:10</span>
+					<button class="ms-ctrl" data-like aria-label="Like Walking Promises"><i class="ri-heart-3-line"></i></button>
+					<button class="ms-ctrl" data-toast="Added to your playlist" aria-label="Add to playlist"><i class="ri-add-circle-line"></i></button>
+				</div>
+
+				<figure class="ms-bs-figure"><img src="assets/images/trending/06.jpg" alt="Ava Cornish singing on stage" width="800" height="800" loading="lazy"></figure>
+
+				<div class="ms-bs-foot">
+					<div class="ms-bs-tags"><a href="blog.html">Interviews</a><a href="blog.html">Pop</a><a href="blog.html">Tour</a></div>
+					<div class="ms-bs-share"><span>Share:</span>
+						<a href="javascript:void(0)" aria-label="Share on Facebook"><i class="ri-facebook-fill"></i></a>
+						<a href="javascript:void(0)" aria-label="Share on X"><i class="ri-twitter-x-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Share on Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Share on WhatsApp"><i class="ri-whatsapp-line"></i></a>
+						<button type="button" data-toast="Link copied to clipboard" aria-label="Copy link"><i class="ri-link"></i></button>
+					</div>
+				</div>
+
+				<div class="ms-bs-author">
+					<img src="assets/images/artist/06.jpg" alt="Ethan Clarke cover" width="64" height="64">
+					<div><h3>Ethan Clarke <i class="ri-verified-badge-fill" aria-label="Verified"></i></h3><p>Music editor at Miraculous. Writes about new artists, vinyl and the stories behind the songs.</p></div>
+					<button type="button" class="ms-follow-pill" data-follow><i class="ri-user-add-line"></i> Follow</button>
+				</div>
+
+				<section class="ms-bs-comments" id="bsComments" aria-labelledby="bsComHead">
+					<h2 id="bsComHead" class="ms-bs-subhead"><i class="ri-chat-3-line"></i><span data-comment-count>3</span> Comments</h2>
+					<ul class="ms-bs-comment-list" data-comment-list>
+						<li class="ms-bs-comment"><img src="assets/images/artist/02.jpg" alt="Daniel Ross cover" width="40" height="40"><div><h4>Daniel Ross <small>2 hours ago</small></h4><p>Saw her live in Manchester last year. That song gave the whole room goosebumps.</p><button type="button" data-reply="Daniel Ross">Reply</button></div><button type="button" class="ms-bs-clike" data-like-count aria-label="Like comment"><i class="ri-heart-3-line"></i><span>24</span></button></li>
+						<li class="ms-bs-comment"><img src="assets/images/artist/04.jpg" alt="Marco Silva cover" width="40" height="40"><div><h4>Marco Silva <small>1 hour ago</small></h4><p>Same! Can&rsquo;t wait for the Paris show.</p><button type="button" data-reply="Marco Silva">Reply</button></div><button type="button" class="ms-bs-clike" data-like-count aria-label="Like comment"><i class="ri-heart-3-line"></i><span>16</span></button></li>
+						<li class="ms-bs-comment"><img src="assets/images/artist/05.jpg" alt="Sophie Lane cover" width="40" height="40"><div><h4>Sophie Lane <small>Yesterday</small></h4><p>Great interview. The Lisbon story makes me love the song even more.</p><button type="button" data-reply="Sophie Lane">Reply</button></div><button type="button" class="ms-bs-clike" data-like-count aria-label="Like comment"><i class="ri-heart-3-line"></i><span>12</span></button></li>
+					</ul>
+				</section>
+
+				<form class="ms-bs-form" data-comment-form novalidate aria-labelledby="bsFormHead">
+					<h2 id="bsFormHead" class="ms-bs-subhead"><i class="ri-chat-new-line"></i>Leave a Comment</h2>
+					<p>Your email address will not be published.</p>
+					<div class="ms-bs-form-row">
+						<label class="ms-bs-input"><i class="ri-user-3-line"></i><span class="visually-hidden">Name</span><input name="name" placeholder="Your name" autocomplete="name"></label>
+						<label class="ms-bs-input"><i class="ri-mail-line"></i><span class="visually-hidden">Email</span><input name="email" type="email" placeholder="you@example.com" autocomplete="email"></label>
+					</div>
+					<label class="ms-bs-input is-area"><i class="ri-pencil-line"></i><span class="visually-hidden">Comment</span><textarea name="comment" rows="4" placeholder="Write your comment..."></textarea></label>
+					<div class="ms-bs-form-foot"><span class="ms-bs-form-msg" data-comment-msg role="status"></span><button type="submit" class="ms-btn">Post Comment <i class="ri-arrow-right-line"></i></button></div>
+				</form>
+			</article>
+
+			<!-- Related -->
+			<section class="ms-section ms-reveal" aria-labelledby="hRelated">
+				<div class="ms-sec-head"><h2 id="hRelated" class="ms-sec-icon"><i class="ri-article-line"></i>You Might Also Like</h2><a href="blog.html" class="ms-view-all">All Stories <i class="ri-arrow-right-line"></i></a></div>
+				<div class="ms-bs-related">
+					<a href="blog_single.html" class="ms-bs-rel"><span class="ms-bs-rel-img"><span class="ms-tag">Playlists</span><img src="assets/images/release/05.jpg" alt="Album cover" width="800" height="800" loading="lazy"></span><span class="ms-bs-rel-body"><b>Songs for a Slow Sunday Morning</b><small><i class="ri-calendar-line"></i>Mar 12, 2026 &middot; 4 min read</small></span><i class="ri-arrow-right-line ms-bs-rel-go" aria-hidden="true"></i></a>
+					<a href="blog_single.html" class="ms-bs-rel"><span class="ms-bs-rel-img"><span class="ms-tag">Behind the Music</span><img src="assets/images/trending/001.jpg" alt="Song cover" width="800" height="800" loading="lazy"></span><span class="ms-bs-rel-body"><b>Inside the Studio: Making Midnight Echoes</b><small><i class="ri-calendar-line"></i>Mar 01, 2026 &middot; 7 min read</small></span><i class="ri-arrow-right-line ms-bs-rel-go" aria-hidden="true"></i></a>
+					<a href="blog_single.html" class="ms-bs-rel"><span class="ms-bs-rel-img"><span class="ms-tag">Vinyl</span><img src="assets/images/trending/03.jpg" alt="Song cover" width="800" height="800" loading="lazy"></span><span class="ms-bs-rel-body"><b>Why Vinyl Sales Keep Growing</b><small><i class="ri-calendar-line"></i>Feb 26, 2026 &middot; 5 min read</small></span><i class="ri-arrow-right-line ms-bs-rel-go" aria-hidden="true"></i></a>
+				</div>
+			</section>
+
+	<!-- ================= Right panel: now playing + page extras ================= -->
+	<aside class="ms-rightbar ms-rightbar-feed" aria-label="Now playing and article extras">
+		<div class="ms-np">
+			<h2 class="ms-np-title">Now Playing</h2>
+			<div class="ms-np-song">
+				<img src="assets/images/trending/02.jpg" alt="Until I Met You cover" id="msNpCover">
+				<div class="ms-np-meta">
+					<h3 id="msNpTitle">Until I Met You</h3>
+					<p id="msNpArtist">Brian Hill</p>
+				</div>
+				<button class="ms-ctrl ms-np-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			</div>
+			<div class="ms-np-wave" id="msNpWave" aria-hidden="true"></div>
+			<div class="ms-np-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0"><span class="ms-np-fill" data-seek-fill></span></div>
+			<div class="ms-np-time"><span data-time-current>00:00</span><span id="msNpDuration">00:10</span></div>
+			<div class="ms-np-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-np-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+		</div>
+		<div class="ms-side-block ms-bs-side-author">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-quill-pen-line"></i>About the Author</h2></div>
+			<div class="ms-mini-list">
+				<img src="assets/images/artist/06.jpg" alt="Ethan Clarke cover" width="84" height="84">
+				<h3>Ethan Clarke <i class="ri-verified-badge-fill" aria-label="Verified"></i></h3>
+				<p>Music editor at Miraculous. Writes about new artists, vinyl and the stories behind the songs.</p>
+				<button type="button" class="ms-follow-pill" data-follow><i class="ri-user-add-line"></i> Follow</button>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-list-check-2"></i>Article Contents</h2></div>
+			<ol class="ms-mini-list ms-bs-toc" data-toc>
+				<li><a href="#bsQ1" class="is-active">Where did the new single come from?</a></li>
+				<li><a href="#bsQ2">Three things on her tour rider</a></li>
+				<li><a href="#bsQ3">What&rsquo;s next for Ava Cornish?</a></li>
+			</ol>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-time-line"></i>Recent Posts</h2><a href="blog.html" class="ms-view-all">View All <i class="ri-arrow-right-line"></i></a></div>
+			<div class="ms-mini-list">
+				<div class="ms-recent"><img src="assets/images/trending/02.jpg" alt="The Best Headphones for HiFi Listening in 2026 cover"><div><h4><a href="blog_single.html">The Best Headphones for HiFi Listening in 2026</a></h4><p><i class="ri-calendar-line"></i> Mar 15, 2026</p></div></div>
+				<div class="ms-recent"><img src="assets/images/release/05.jpg" alt="Songs for a Slow Sunday Morning cover"><div><h4><a href="blog_single.html">Songs for a Slow Sunday Morning</a></h4><p><i class="ri-calendar-line"></i> Mar 12, 2026</p></div></div>
+				<div class="ms-recent"><img src="assets/images/trending/07.jpg" alt="Miraculous Live: Summer Tour Dates Announced cover"><div><h4><a href="blog_single.html">Miraculous Live: Summer Tour Dates Announced</a></h4><p><i class="ri-calendar-line"></i> Mar 09, 2026</p></div></div>
+			</div>
+		</div>
+		<div class="ms-side-block">
+			<div class="ms-side-head"><h2 class="ms-sec-icon"><i class="ri-folder-3-line"></i>Categories</h2></div>
+			<div class="ms-mini-list"><ul class="ms-cat-list"><li><a href="blog.html">Interviews<b>24</b></a></li><li><a href="blog.html">News<b>38</b></a></li><li><a href="blog.html">Playlists<b>19</b></a></li><li><a href="blog.html">Gear<b>12</b></a></li><li><a href="blog.html">Guides<b>16</b></a></li><li><a href="blog.html">Vinyl<b>9</b></a></li></ul></div>
+		</div>
+		<form class="ms-bs-news" data-newsletter novalidate>
+			<i class="ri-headphone-line ms-bs-news-icon" aria-hidden="true"></i>
+			<h2>Never Miss a Beat</h2>
+			<p>Get the latest music news, artist interviews and exclusive stories.</p>
+			<label class="ms-bs-news-field"><span class="visually-hidden">Email address</span><input type="email" name="email" placeholder="Enter your email address" autocomplete="email"><button type="submit" aria-label="Subscribe"><i class="ri-arrow-right-line"></i></button></label>
+			<div class="ms-bs-news-wave" aria-hidden="true"><span style="--h:65;--i:0"></span><span style="--h:50;--i:1"></span><span style="--h:72;--i:2"></span><span style="--h:62;--i:3"></span><span style="--h:75;--i:4"></span><span style="--h:75;--i:5"></span><span style="--h:75;--i:6"></span><span style="--h:87;--i:7"></span><span style="--h:70;--i:8"></span><span style="--h:95;--i:9"></span><span style="--h:63;--i:10"></span><span style="--h:99;--i:11"></span><span style="--h:62;--i:12"></span><span style="--h:99;--i:13"></span><span style="--h:72;--i:14"></span><span style="--h:93;--i:15"></span><span style="--h:80;--i:16"></span><span style="--h:84;--i:17"></span><span style="--h:83;--i:18"></span><span style="--h:72;--i:19"></span><span style="--h:82;--i:20"></span><span style="--h:59;--i:21"></span><span style="--h:77;--i:22"></span><span style="--h:46;--i:23"></span><span style="--h:69;--i:24"></span><span style="--h:46;--i:25"></span></div>
+		</form>
+	</aside>
+
+			<!-- Footer -->
+			<footer class="ms-footer">
+				<div class="ms-footer-top">
+					<div class="ms-footer-brand">
+						<a href="index.html" class="ms-logo">
+							<svg viewBox="0 0 44 34" aria-hidden="true"><path d="M5 30 13.5 5l8 17 8.5-17L36 30" fill="none" stroke="url(#msLogoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							<span>Miraculous</span>
+						</a>
+						<p>Stream, discover and buy music from the artists you love.</p>
+					</div>
+					<nav class="ms-footer-links" aria-label="Footer">
+						<a href="album.html">Albums</a>
+						<a href="artist.html">Artists</a>
+						<a href="genres.html">Genres</a>
+						<a href="store.html">Store</a>
+						<a href="blog.html">Blog</a>
+						<a href="javascript:void(0)">Contact</a>
+					</nav>
+					<div class="ms-social">
+						<a href="javascript:void(0)" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+						<a href="javascript:void(0)" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+						<a href="javascript:void(0)" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+						<a href="javascript:void(0)" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
+					</div>
+				</div>
+				<div class="ms-copyright">
+					<span>&copy; 2026 Miraculous. All rights reserved.</span>
+					<span><a href="javascript:void(0)">Privacy Policy</a> &middot; <a href="javascript:void(0)">Terms of Use</a></span>
+				</div>
+			</footer>
+			<!-- Footer End -->
+		</main>
+		<!-- Main Content End -->
+	</div>
+
+	<!-- ================= Player ================= -->
+	<div class="ms-player is-light" id="msPlayer">
+		<div class="ms-player-left">
+			<div class="ms-player-song">
+				<img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPlayerCover">
+				<div class="ms-player-meta">
+					<h4 id="msPlayerTitle">Until I Met You</h4>
+					<p id="msPlayerArtist">Brian Hill</p>
+				</div>
+				<span class="ms-player-expand" aria-hidden="true"><i class="ri-arrow-up-s-line"></i></span>
+			</div>
+		</div>
+		<div class="ms-player-center">
+			<div class="ms-player-controls">
+				<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+				<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+				<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+				<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+				<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+			</div>
+			<div class="ms-seek is-wave" id="msSeek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" tabindex="0"><span class="ms-seek-bars" data-seek-bars aria-hidden="true"></span><span class="ms-seek-fill" data-seek-fill></span></div>
+			<span class="ms-player-time"><span data-time-current>00:00</span><span class="ms-time-sep">/</span><span class="ms-time-total" data-time-total>00:10</span></span>
+		</div>
+		<div class="ms-player-right">
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+			<div class="ms-player-volume">
+				<button class="ms-ctrl" data-mute aria-label="Mute"><i class="ri-volume-up-line"></i></button>
+				<input type="range" class="ms-range" data-volume min="0" max="100" value="62" aria-label="Volume">
+			</div>
+			<button class="ms-queue-btn" data-bs-toggle="offcanvas" data-bs-target="#msQueue" aria-label="Open queue"><i class="ri-play-list-line"></i><span>Queue (<span data-queue-count>12</span>)</span></button>
+			<button class="ms-player-hide" id="msPlayerToggle" aria-label="Hide player" aria-expanded="true" title="Hide player"><i class="ri-arrow-down-s-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Mini player: shown while the bar is hidden, so playback never disappears -->
+	<div class="ms-pill" id="msPill" role="region" aria-label="Mini player">
+		<button class="ms-pill-open" data-player-show aria-label="Show player" title="Show player"><img src="assets/images/trending/02.jpg" alt="Now playing cover" id="msPillCover"></button>
+		<div class="ms-pill-meta"><h4 id="msPillTitle">Until I Met You</h4><p id="msPillArtist">Brian Hill</p></div>
+		<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+		<button class="ms-ctrl ms-pill-show" data-player-show aria-label="Show player" title="Show player"><i class="ri-arrow-up-s-line"></i></button>
+	</div>
+
+	<!-- Full-screen player for phones and tablets (tap the song in the bar) -->
+	<div class="ms-sheet" id="msSheet" role="dialog" aria-modal="true" aria-label="Now playing" aria-hidden="true">
+		<div class="ms-sheet-head">
+			<button class="ms-ctrl" data-sheet-close aria-label="Close player"><i class="ri-arrow-down-s-line"></i></button>
+			<span>Now Playing</span>
+			<span class="ms-sheet-spacer" aria-hidden="true"></span>
+		</div>
+		<img class="ms-sheet-cover" src="assets/images/trending/02.jpg" alt="Now playing cover" id="msSheetCover">
+		<div class="ms-sheet-info">
+			<div><h3 id="msSheetTitle">Until I Met You</h3><p id="msSheetArtist">Brian Hill</p></div>
+			<button class="ms-ctrl ms-player-like" data-like aria-label="Like"><i class="ri-heart-3-line"></i></button>
+		</div>
+		<div class="ms-sheet-seek ms-seek" data-seek role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ms-seek-fill" data-seek-fill></span></div>
+		<div class="ms-sheet-time"><span data-time-current>00:00</span><span data-time-total>00:10</span></div>
+		<div class="ms-sheet-controls">
+			<button class="ms-ctrl" data-action="shuffle" aria-label="Shuffle"><i class="ri-shuffle-line"></i></button>
+			<button class="ms-ctrl" data-action="prev" aria-label="Previous"><i class="ri-skip-back-fill"></i></button>
+			<button class="ms-play" data-action="toggle" aria-label="Play"><i class="ri-play-fill"></i></button>
+			<button class="ms-ctrl" data-action="next" aria-label="Next"><i class="ri-skip-forward-fill"></i></button>
+			<button class="ms-ctrl" data-action="repeat" aria-label="Repeat"><i class="ri-repeat-2-line"></i></button>
+		</div>
+	</div>
+
+	<!-- Queue popup (offcanvas panel, opened from the player bar) -->
+	<div class="offcanvas offcanvas-end ms-queue" tabindex="-1" id="msQueue" aria-labelledby="msQueueLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="msQueueLabel">Queue</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="ms-queue-label">Up next</div>
+			<div id="msQueueList"></div>
+		</div>
+	</div>
+
+	<!-- Toast message popup -->
+	<div class="ms-toast" id="msToast" role="status" aria-live="polite"></div>
+
+	<!-- Vendor JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<!-- Theme JS -->
+	<script src="assets/js/preloader.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
